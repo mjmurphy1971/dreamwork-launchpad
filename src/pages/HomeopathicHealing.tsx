@@ -523,7 +523,7 @@ const HomeopathicHealing = () => {
                 <Button 
                   size="lg" 
                   className="bg-green-600 hover:bg-green-700 text-white"
-                  onClick={() => window.open('https://www.homeopathy-ich.org/', '_blank')}
+                  onClick={() => window.open('https://www.google.com/search?q=homeopathic+practitioners+near+me+global', '_blank')}
                 >
                   <Search className="mr-2 w-4 h-4" />
                   Find Global Practitioners
