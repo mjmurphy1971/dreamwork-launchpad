@@ -16,22 +16,22 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="max-w-4xl mx-auto animate-fade-in">
+        <div className="max-w-4xl mx-auto animate-fade-in pt-32 pb-32">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 mb-8">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 mb-6">
             <span className="text-primary-foreground text-sm font-medium">
               ✨ Transform Your Life Through Mindful Living
             </span>
           </div>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-primary-foreground/90 mb-6 max-w-2xl mx-auto leading-relaxed">
             Discover meditation techniques, mindfulness practices, and spiritual guidance 
             through our inspiring blog and video content.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up mb-8">
             <Button
               size="lg"
               className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-smooth shadow-glow group"
