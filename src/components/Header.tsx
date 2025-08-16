@@ -40,13 +40,13 @@ const Header = () => {
               Vlogs
             </a>
             <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
-              Meditation
+              Meditation Practices
             </a>
             <a href="/breathwork" className="text-foreground hover:text-primary transition-gentle">
               Breathwork
             </a>
             <a href="/homeopathic-healing" className="text-foreground hover:text-primary transition-gentle">
-              Healing
+              Homeopathy Resources
             </a>
             <a href="/about" className="text-foreground hover:text-primary transition-gentle">
               About
@@ -95,13 +95,13 @@ const Header = () => {
                 Vlogs
               </a>
               <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
-                Meditation
+                Meditation Practices
               </a>
               <a href="/breathwork" className="text-foreground hover:text-primary transition-gentle">
                 Breathwork
               </a>
               <a href="/homeopathic-healing" className="text-foreground hover:text-primary transition-gentle">
-                Healing
+                Homeopathy Resources
               </a>
               <a href="/about" className="text-foreground hover:text-primary transition-gentle">
                 About
