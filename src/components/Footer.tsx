@@ -1,0 +1,163 @@
+import { Heart, Mail, Youtube, Instagram, Twitter } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+const Footer = () => {
+  return (
+    <footer className="bg-gradient-hero text-primary-foreground">
+      <div className="container mx-auto px-4 py-16">
+        {/* Main Footer Content */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Brand Section */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 rounded-full bg-primary-foreground/20 backdrop-blur-sm flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full border-2 border-primary-foreground/80">
+                  <div className="w-full h-full rounded-full bg-primary-foreground/20"></div>
+                </div>
+              </div>
+              <div>
+                <h3 className="font-heading text-2xl font-semibold">
+                  The Dream Work
+                </h3>
+                <p className="text-primary-foreground/80">Heal the Vibe, Live the Dream</p>
+              </div>
+            </div>
+            
+            <p className="text-primary-foreground/90 text-lg leading-relaxed mb-6 max-w-md">
+              Join our community of dreamers and seekers on a journey toward mindful living, 
+              spiritual growth, and inner peace through meditation and consciousness exploration.
+            </p>
+            
+            {/* Newsletter Signup */}
+            <div className="space-y-4">
+              <h4 className="font-semibold text-lg">Stay Connected</h4>
+              <div className="flex gap-2 max-w-md">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground placeholder:text-primary-foreground/60 focus:bg-primary-foreground/20"
+                />
+                <Button className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                  <Mail className="w-4 h-4" />
+                </Button>
+              </div>
+              <p className="text-primary-foreground/70 text-sm">
+                Get weekly insights and meditation tips straight to your inbox.
+              </p>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-semibold text-lg mb-6">Explore</h4>
+            <ul className="space-y-3">
+              <li>
+                <a href="/blog" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Blog Posts
+                </a>
+              </li>
+              <li>
+                <a href="/vlogs" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Video Content
+                </a>
+              </li>
+              <li>
+                <a href="/meditation" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Guided Meditations
+                </a>
+              </li>
+              <li>
+                <a href="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Categories */}
+          <div>
+            <h4 className="font-semibold text-lg mb-6">Topics</h4>
+            <ul className="space-y-3">
+              <li>
+                <a href="/category/meditation" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Meditation
+                </a>
+              </li>
+              <li>
+                <a href="/category/mindfulness" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Mindfulness
+                </a>
+              </li>
+              <li>
+                <a href="/category/dream-work" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Dream Work
+                </a>
+              </li>
+              <li>
+                <a href="/category/healing" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Spiritual Healing
+                </a>
+              </li>
+              <li>
+                <a href="/category/science" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Science & Research
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Social Media & Bottom Bar */}
+        <div className="border-t border-primary-foreground/20 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              <span className="text-primary-foreground/80">Follow our journey:</span>
+              <div className="flex gap-3">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
+                >
+                  <Youtube className="w-5 h-5" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
+                >
+                  <Instagram className="w-5 h-5" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
+                >
+                  <Twitter className="w-5 h-5" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Copyright */}
+            <div className="text-primary-foreground/70 text-sm text-center">
+              <p className="flex items-center gap-2">
+                Made with <Heart className="w-4 h-4 text-accent fill-current" /> for spiritual seekers everywhere
+              </p>
+              <p className="mt-1">
+                © 2024 The Dream Work. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
