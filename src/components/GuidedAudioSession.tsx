@@ -34,7 +34,7 @@ export const GuidedAudioSession: React.FC<GuidedAudioSessionProps> = ({
       setIsPlaying(true);
       toast("Generating guided session...", { duration: 2000 });
 
-      const response = await fetch('/api/text-to-speech', {
+      const response = await fetch('https://514a4f48-3dab-41cc-9692-6f9a6686a9e5.supabase.co/functions/v1/text-to-speech', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
