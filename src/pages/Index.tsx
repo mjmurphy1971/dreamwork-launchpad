@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import BlogGrid from "@/components/BlogGrid";
 import VlogSection from "@/components/VlogSection";
 import Footer from "@/components/Footer";
+import stillnessPracticeHero from "@/assets/stillness-practice-hero.jpg";
 
 const Index = () => {
   console.log('Index component rendering');
@@ -54,18 +55,26 @@ const Index = () => {
         </section>
         
         {/* Daily Stillness CTA */}
-        <section className="py-16 bg-gradient-card">
-          <div className="container mx-auto px-4 text-center">
+        <section className="py-16 relative overflow-hidden">
+          {/* Background Image with Overlay */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${stillnessPracticeHero})` }}
+          />
+          <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
+          
+          {/* Content */}
+          <div className="container mx-auto px-4 text-center relative z-10">
             <div className="max-w-2xl mx-auto">
-              <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
+              <h2 className="text-3xl font-heading font-bold text-foreground mb-4 animate-fade-in">
                 Start Your Daily Stillness Journey
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-lg text-muted-foreground mb-8 animate-fade-in">
                 Track gentle rituals, build mindful habits, and cultivate inner peace with our interactive practice tracker.
               </p>
               <a 
                 href="/weekly-stillness" 
-                className="inline-flex items-center px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-gentle shadow-glow"
+                className="inline-flex items-center px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-gentle shadow-glow hover-scale animate-fade-in"
               >
                 Begin Practice Tracker
               </a>
