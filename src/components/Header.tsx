@@ -14,10 +14,9 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/b9454b96-c3d1-483e-baaa-44c00c4ff001.png" 
-              alt="The Dream Work - Heal the Vibe, Live the Dream" 
-              className="w-12 h-12 object-cover rounded-full"
-              onError={(e) => console.log('Image failed to load:', e)}
+              src="/lovable-uploads/e860a90f-7379-48df-9989-f77f8498e793.png" 
+              alt="The Dream Work Logo" 
+              className="w-12 h-12 object-contain"
             />
             <div>
               <h1 className="font-heading text-xl font-semibold gradient-text">
