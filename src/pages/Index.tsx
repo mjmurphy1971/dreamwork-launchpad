@@ -13,18 +13,18 @@ const Index = () => {
         <Hero />
         
         {/* Welcome Video Section */}
-        <section className="py-8 bg-background">
+        <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto">
-              <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 border border-border/50 shadow-card">
-                <h2 className="text-lg font-heading font-semibold text-foreground mb-3 text-center">
+              <div className="bg-card backdrop-blur-sm rounded-lg p-6 border border-border shadow-card">
+                <h2 className="text-xl font-heading font-semibold text-foreground mb-4 text-center">
                   Welcome to The Dream Work
                 </h2>
-                <div className="aspect-video rounded-md overflow-hidden">
+                <div className="aspect-video rounded-lg overflow-hidden bg-muted">
                   <iframe
                     src="https://www.youtube.com/embed/tOp-gbnyj3w"
                     title="Welcome to The Dream Work"
-                    className="w-full h-full"
+                    className="w-full h-full border-0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
