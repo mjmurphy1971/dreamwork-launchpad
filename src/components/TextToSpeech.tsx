@@ -30,19 +30,29 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
       setIsPlaying(true);
       toast("Generating audio...", { duration: 2000 });
 
-      const response = await fetch('https://514a4f48-3dab-41cc-9692-6f9a6686a9e5.supabase.co/functions/v1/text-to-speech', {
+      // Use ElevenLabs API directly
+      const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
         method: 'POST',
         headers: {
+          'Accept': 'audio/mpeg',
           'Content-Type': 'application/json',
+          'xi-api-key': 'sk_c2913beefb5f7c6eccc4590ac552f10b0d23e592929e8118',
         },
         body: JSON.stringify({
           text,
-          voice_id: voiceId,
-          model_id: "eleven_multilingual_v2"
+          model_id: "eleven_multilingual_v2",
+          voice_settings: {
+            stability: 0.5,
+            similarity_boost: 0.8,
+            style: 0.2,
+            use_speaker_boost: true
+          }
         }),
       });
 
       if (!response.ok) {
+        const errorText = await response.text();
+        console.error('ElevenLabs API error:', errorText);
         throw new Error('Failed to generate audio');
       }
 
