@@ -21,6 +21,8 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
 
   const playAudio = async () => {
     try {
+      console.log('Starting audio generation...');
+      
       if (audio && !audio.paused) {
         audio.pause();
         setIsPlaying(false);
@@ -30,6 +32,8 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
       setIsPlaying(true);
       toast("Generating audio...", { duration: 2000 });
 
+      console.log('Making request to ElevenLabs API with text:', text.substring(0, 50) + '...');
+      
       // Use ElevenLabs API directly
       const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
         method: 'POST',
@@ -50,13 +54,19 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
         }),
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+
       if (!response.ok) {
         const errorText = await response.text();
-        console.error('ElevenLabs API error:', errorText);
-        throw new Error('Failed to generate audio');
+        console.error('ElevenLabs API error response:', errorText);
+        throw new Error(`API returned ${response.status}: ${errorText}`);
       }
 
+      console.log('Getting audio blob...');
       const audioBlob = await response.blob();
+      console.log('Audio blob size:', audioBlob.size);
+      
       const audioUrl = URL.createObjectURL(audioBlob);
       const newAudio = new Audio(audioUrl);
       
@@ -76,8 +86,11 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
       toast.success("Playing audio");
       
     } catch (error) {
-      console.error('Error playing audio:', error);
-      toast.error("Failed to generate or play audio");
+      console.error('Detailed error in playAudio:', error);
+      console.error('Error name:', error.name);
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
+      toast.error(`Audio generation failed: ${error.message}`);
       setIsPlaying(false);
     }
   };
