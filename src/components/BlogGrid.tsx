@@ -9,6 +9,7 @@ import soundBathPost from "@/assets/sound-bath-post.jpg";
 import brainEnergyPost from "@/assets/brain-energy-post.jpg";
 import meditationCornerPost from "@/assets/meditation-corner-post.jpg";
 import deepBreathPost from "@/assets/deep-breath-post.jpg";
+import dreamStatesPost from "@/assets/dream-states-post.jpg";
 
 const blogPosts = [
   {
@@ -41,7 +42,7 @@ const blogPosts = [
     date: "2024-08-10",
     readTime: "10 min read",
     category: "Dream Work",
-    image: dreamworkPost,
+    image: dreamStatesPost,
     featured: false,
   },
   {
