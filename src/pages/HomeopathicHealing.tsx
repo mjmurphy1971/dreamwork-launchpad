@@ -240,7 +240,7 @@ const homeopathicRemedies = [
     resources: [
       {
         title: "Women's Health with Homeopathy",
-        url: "https://www.boironusa.com/womens-health/",
+        url: "https://www.boironusa.com/product-category/all-products/women-wellness/",
         type: "Guide"
       }
     ]
@@ -273,7 +273,7 @@ const homeopathicRemedies = [
     resources: [
       {
         title: "Children's Homeopathy Guide",
-        url: "https://www.boironusa.com/childrens-health/",
+        url: "https://www.boironusa.com/homeopathy-for-children/",
         type: "Guide"
       }
     ]
@@ -306,7 +306,7 @@ const homeopathicRemedies = [
     resources: [
       {
         title: "Homeopathy for Pets",
-        url: "https://www.boironusa.com/pet-care/",
+        url: "https://www.boironusa.com/",
         type: "Guide"
       }
     ]
@@ -391,9 +391,9 @@ const HomeopathicHealing = () => {
               />
               <Button 
                 className="ml-2"
-                onClick={() => window.open('https://www.boironusa.com/search', '_blank')}
+                onClick={() => window.open('https://www.boironusa.com/', '_blank')}
               >
-                Search Boiron
+                Visit Boiron USA
               </Button>
             </div>
           </div>
@@ -523,15 +523,15 @@ const HomeopathicHealing = () => {
                 <Button 
                   size="lg" 
                   className="bg-green-600 hover:bg-green-700 text-white"
-                  onClick={() => window.open('https://www.boironusa.com/practitioner-locator/', '_blank')}
+                  onClick={() => window.open('https://www.boironusa.com/', '_blank')}
                 >
                   <Search className="mr-2 w-4 h-4" />
-                  Find Local Practitioners
+                  Find Boiron Products
                 </Button>
                 <Button 
                   variant="outline" 
                   size="lg"
-                  onClick={() => window.open('https://www.boironusa.com/homeopathy/', '_blank')}
+                  onClick={() => window.open('https://www.boironusa.com/trainings/', '_blank')}
                 >
                   <Book className="mr-2 w-4 h-4" />
                   Learn More About Homeopathy
