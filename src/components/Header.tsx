@@ -14,8 +14,8 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/71cbef5d-372c-4ce2-96ed-25e62069e988.png" 
-              alt="The Dream Work Logo" 
+              src="/lovable-uploads/b9454b96-c3d1-483e-baaa-44c00c4ff001.png" 
+              alt="The Dream Work - Heal the Vibe, Live the Dream" 
               className="w-10 h-10 object-contain"
             />
             <div>
