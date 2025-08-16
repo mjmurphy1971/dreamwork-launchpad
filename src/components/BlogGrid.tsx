@@ -213,6 +213,7 @@ const BlogGrid = () => {
             variant="outline"
             size="lg"
             className="border-primary/30 text-primary hover:bg-primary/5 transition-smooth"
+            onClick={() => window.location.href = '/blog'}
           >
             Load More Articles
           </Button>
