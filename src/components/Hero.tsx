@@ -24,12 +24,6 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* Main Heading */}
-          <h1 className="font-heading text-5xl md:text-7xl font-semibold text-primary-foreground mb-6 leading-tight">
-            Heal the Vibe,{" "}
-            <span className="gradient-text">Live the Dream</span>
-          </h1>
-
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed">
             Discover meditation techniques, mindfulness practices, and spiritual guidance 
