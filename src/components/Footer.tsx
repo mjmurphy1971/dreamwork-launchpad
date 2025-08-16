@@ -56,27 +56,32 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a href="/blog" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Blog Posts
+                  Blog
                 </a>
               </li>
               <li>
                 <a href="/vlogs" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Video Content
+                  Vlogs
                 </a>
               </li>
               <li>
                 <a href="/meditation" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Guided Meditations
+                  Meditation Practices
+                </a>
+              </li>
+              <li>
+                <a href="/breathwork" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Breathwork
+                </a>
+              </li>
+              <li>
+                <a href="/homeopathic-healing" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Homeopathy Resources
                 </a>
               </li>
               <li>
                 <a href="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Contact
+                  About
                 </a>
               </li>
             </ul>
