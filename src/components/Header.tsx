@@ -16,7 +16,8 @@ const Header = () => {
             <img 
               src="/lovable-uploads/b9454b96-c3d1-483e-baaa-44c00c4ff001.png" 
               alt="The Dream Work - Heal the Vibe, Live the Dream" 
-              className="w-10 h-10 object-contain"
+              className="w-12 h-12 object-cover rounded-full"
+              onError={(e) => console.log('Image failed to load:', e)}
             />
             <div>
               <h1 className="font-heading text-xl font-semibold gradient-text">
