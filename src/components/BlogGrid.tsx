@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import meditationPost from "@/assets/meditation-post.jpg";
 import mindfulnessPost from "@/assets/mindfulness-post.jpg";
 import dreamworkPost from "@/assets/dreamwork-post.jpg";
+import soundBathPost from "@/assets/sound-bath-post.jpg";
 
 const blogPosts = [
   {
@@ -70,7 +71,7 @@ const blogPosts = [
     date: "2024-08-03",
     readTime: "9 min read",
     category: "Healing",
-    image: dreamworkPost,
+    image: soundBathPost,
     featured: false,
   },
 ];
