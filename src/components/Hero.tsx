@@ -26,10 +26,6 @@ const Hero = () => {
             </div>
           </div>
           
-          <p className="text-2xl md:text-3xl mb-8 font-light">
-            Heal the Vibe, <span className="font-script italic">Live the Dream</span>
-          </p>
-          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white/20 hover:bg-white/30 text-white border border-white/30">
               Start Your Journey
