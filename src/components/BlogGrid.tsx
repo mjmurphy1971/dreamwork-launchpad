@@ -8,6 +8,7 @@ import dreamworkPost from "@/assets/dreamwork-post.jpg";
 import soundBathPost from "@/assets/sound-bath-post.jpg";
 import brainEnergyPost from "@/assets/brain-energy-post.jpg";
 import meditationCornerPost from "@/assets/meditation-corner-post.jpg";
+import deepBreathPost from "@/assets/deep-breath-post.jpg";
 
 const blogPosts = [
   {
@@ -18,7 +19,7 @@ const blogPosts = [
     date: "2024-08-15",
     readTime: "8 min read",
     category: "Meditation",
-    image: meditationPost,
+    image: deepBreathPost,
     featured: true,
   },
   {
