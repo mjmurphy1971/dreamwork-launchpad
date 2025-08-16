@@ -13,11 +13,11 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-hero flex items-center justify-center">
-              <div className="w-6 h-6 rounded-full border-2 border-primary-foreground/80">
-                <div className="w-full h-full rounded-full bg-primary-foreground/20"></div>
-              </div>
-            </div>
+            <img 
+              src="/lovable-uploads/71cbef5d-372c-4ce2-96ed-25e62069e988.png" 
+              alt="The Dream Work Logo" 
+              className="w-10 h-10 object-contain"
+            />
             <div>
               <h1 className="font-heading text-xl font-semibold gradient-text">
                 The Dream Work

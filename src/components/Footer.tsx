@@ -11,11 +11,11 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-primary-foreground/20 backdrop-blur-sm flex items-center justify-center">
-                <div className="w-8 h-8 rounded-full border-2 border-primary-foreground/80">
-                  <div className="w-full h-full rounded-full bg-primary-foreground/20"></div>
-                </div>
-              </div>
+              <img 
+                src="/lovable-uploads/71cbef5d-372c-4ce2-96ed-25e62069e988.png" 
+                alt="The Dream Work Logo" 
+                className="w-12 h-12 object-contain filter brightness-0 invert"
+              />
               <div>
                 <h3 className="font-heading text-2xl font-semibold">
                   The Dream Work
