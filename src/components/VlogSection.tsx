@@ -188,7 +188,10 @@ const VlogSection = () => {
             <p className="text-muted-foreground mb-4 text-center">
               Subscribe to get notified when we release new guided meditations and spiritual teachings.
             </p>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              onClick={() => window.location.href = '/vlogs'}
+            >
               Subscribe to Channel
             </Button>
           </div>
