@@ -42,6 +42,12 @@ const Header = () => {
             <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
               Meditation
             </a>
+            <a href="/breathwork" className="text-foreground hover:text-primary transition-gentle">
+              Breathwork
+            </a>
+            <a href="/homeopathic-healing" className="text-foreground hover:text-primary transition-gentle">
+              Healing
+            </a>
             <a href="/resources" className="text-foreground hover:text-primary transition-gentle">
               Resources
             </a>
@@ -93,6 +99,12 @@ const Header = () => {
               </a>
               <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
                 Meditation
+              </a>
+              <a href="/breathwork" className="text-foreground hover:text-primary transition-gentle">
+                Breathwork
+              </a>
+              <a href="/homeopathic-healing" className="text-foreground hover:text-primary transition-gentle">
+                Healing
               </a>
               <a href="/resources" className="text-foreground hover:text-primary transition-gentle">
                 Resources

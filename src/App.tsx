@@ -9,6 +9,8 @@ import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Meditation from "./pages/Meditation";
 import Vlogs from "./pages/Vlogs";
+import Breathwork from "./pages/Breathwork";
+import HomeopathicHealing from "./pages/HomeopathicHealing";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,7 +28,9 @@ const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/about" element={<About />} />
             <Route path="/meditation" element={<Meditation />} />
+            <Route path="/breathwork" element={<Breathwork />} />
             <Route path="/vlogs" element={<Vlogs />} />
+            <Route path="/homeopathic-healing" element={<HomeopathicHealing />} />
             <Route path="/resources" element={<Resources />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
