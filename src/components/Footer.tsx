@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img 
-                src="/lovable-uploads/71cbef5d-372c-4ce2-96ed-25e62069e988.png" 
+                src="/lovable-uploads/85401e36-bc0d-4dac-bede-13f273db1297.png" 
                 alt="The Dream Work Logo" 
                 className="w-12 h-12 object-contain filter brightness-0 invert"
               />
