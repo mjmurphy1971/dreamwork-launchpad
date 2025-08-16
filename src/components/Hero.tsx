@@ -11,24 +11,26 @@ const Hero = () => {
           alt="The Dream Work - Heal the Vibe, Live the Dream"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-hero opacity-70"></div>
+        <div className="absolute inset-0 bg-gradient-hero opacity-30"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="max-w-4xl mx-auto animate-fade-in pt-32 pb-32">
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 mb-6">
-            <span className="text-primary-foreground text-sm font-medium">
-              ✨ Transform Your Life Through Mindful Living
-            </span>
-          </div>
+      <div className="relative z-10 container mx-auto px-4">
+        <div className="max-w-4xl mx-auto animate-fade-in flex flex-col justify-end min-h-[80vh] pb-20">
+          <div className="text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-background/20 backdrop-blur-sm border border-primary-foreground/20 mb-6">
+              <span className="text-primary-foreground text-sm font-medium">
+                ✨ Transform Your Life Through Mindful Living
+              </span>
+            </div>
 
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-6 max-w-2xl mx-auto leading-relaxed">
-            Discover meditation techniques, mindfulness practices, and spiritual guidance 
-            through our inspiring blog and video content.
-          </p>
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-primary-foreground/95 mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
+              Discover meditation techniques, mindfulness practices, and spiritual guidance 
+              through our inspiring blog and video content.
+            </p>
+          </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up mb-8">
