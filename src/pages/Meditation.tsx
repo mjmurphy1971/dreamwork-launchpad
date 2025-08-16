@@ -224,10 +224,10 @@ const Meditation = () => {
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <section className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-heading font-bold gradient-text mb-4">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold gradient-text mb-6 leading-tight">
             🌿 The Dreamwork Space Playlist
           </h1>
-          <h2 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-6">
+          <h2 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-8">
             "Return to Yourself"
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

@@ -155,7 +155,7 @@ const Breathwork = () => {
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <section className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-heading font-bold gradient-text mb-4">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold gradient-text mb-6 leading-tight">
             🌬️ Breathwork Practices
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
