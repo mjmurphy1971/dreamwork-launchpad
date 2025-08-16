@@ -40,7 +40,10 @@ const Footer = () => {
                   placeholder="Enter your email"
                   className="bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground placeholder:text-primary-foreground/60 focus:bg-primary-foreground/20"
                 />
-                <Button className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                <Button 
+                  className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                  onClick={() => window.location.href = 'mailto:mary@thedreamwork.space'}
+                >
                   <Mail className="w-4 h-4" />
                 </Button>
               </div>
