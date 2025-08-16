@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { TextToSpeech } from "@/components/TextToSpeech";
+import { GuidedAudioSession } from "@/components/GuidedAudioSession";
 
 const meditationCategories = [
   {
@@ -309,10 +311,15 @@ const Meditation = () => {
                         <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
                           {video.description}
                         </p>
-                        <div className="mt-4">
+                        <div className="mt-4 flex gap-2 flex-wrap">
                           <Badge variant="secondary" className="gradient-card text-foreground border-0">
                             Watch on YouTube
                           </Badge>
+                          <TextToSpeech 
+                            text={video.description}
+                            buttonText="Listen to description"
+                            className="text-xs"
+                          />
                         </div>
                       </CardContent>
                     </Card>
@@ -321,6 +328,52 @@ const Meditation = () => {
               </div>
             );
           })}
+        </section>
+
+        {/* Guided Audio Sessions */}
+        <section className="mt-16 mb-8">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-heading font-bold gradient-text mb-4">
+              Guided Audio Sessions
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Listen to guided meditations with AI-generated audio. Perfect for when you prefer audio-only sessions.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <GuidedAudioSession
+              title="Quick Anxiety Relief"
+              sessions={[
+                {
+                  name: "3-Minute Breathing Space",
+                  text: "Find a comfortable position and close your eyes. Take a deep breath in through your nose for 4 counts. Hold for 4 counts. Exhale slowly through your mouth for 6 counts. Feel your shoulders release with each exhale. Notice the sensation of your breath naturally flowing. You are safe in this moment. With each breath, feel anxiety melting away from your body. Continue breathing at your own pace, knowing that this feeling will pass.",
+                  duration: "3 minutes"
+                },
+                {
+                  name: "Body Scan for Calm",
+                  text: "Starting at the top of your head, notice any tension you're holding. Breathe into that space and let it soften. Move your attention to your forehead, your eyes, your jaw. Let each part of your face relax completely. Feel the relaxation flowing down into your neck and shoulders. Notice how your chest rises and falls with each breath. Let your arms feel heavy and relaxed. Continue this gentle awareness down through your torso, your hips, your legs, all the way to your toes. Your whole body is now at peace.",
+                  duration: "5 minutes"
+                }
+              ]}
+            />
+            
+            <GuidedAudioSession
+              title="Morning Intention Setting"
+              sessions={[
+                {
+                  name: "Daily Clarity Practice",
+                  text: "As you begin this new day, take a moment to connect with your inner wisdom. Place your hand on your heart and feel its steady rhythm. Ask yourself: What do I most need today? Listen for the answer that arises naturally. Set an intention that feels aligned with your highest good. Visualize yourself moving through your day with grace and presence. See yourself responding to challenges with clarity and calm. Feel gratitude for this opportunity to begin again.",
+                  duration: "4 minutes"
+                },
+                {
+                  name: "Energizing Breathwork",
+                  text: "Sit tall and take three deep, energizing breaths. Feel your spine lengthening with each inhale. On your next breath, breathe in vitality and strength. Exhale anything that doesn't serve you today. Continue this pattern, breathing in energy and life force, breathing out stagnation. Feel yourself becoming more alert and present with each breath. You are ready to meet this day with an open heart and clear mind.",
+                  duration: "3 minutes"
+                }
+              ]}
+            />
+          </div>
         </section>
 
         {/* Call to Action */}
