@@ -8,17 +8,10 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/lovable-uploads/b3bb3f28-63b7-4009-b230-c5a5b4b93213.png"
+          src="/lovable-uploads/d87a0cfa-f853-419f-9ecc-ce89febfa85a.png"
           alt="The Dream Work - Heal the Vibe, Live the Dream"
           className="w-full h-full object-cover"
         />
-      </div>
-
-      {/* Content area - ready for new content */}
-      <div className="relative z-10 container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          {/* Content will go here */}
-        </div>
       </div>
     </section>
   );
