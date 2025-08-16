@@ -48,6 +48,9 @@ const Header = () => {
             <a href="/homeopathic-healing" className="text-foreground hover:text-primary transition-gentle">
               Homeopathy Resources
             </a>
+            <a href="/weekly-stillness" className="text-foreground hover:text-primary transition-gentle">
+              Weekly Stillness
+            </a>
             <a href="/about" className="text-foreground hover:text-primary transition-gentle">
               About
             </a>
@@ -102,6 +105,9 @@ const Header = () => {
               </a>
               <a href="/homeopathic-healing" className="text-foreground hover:text-primary transition-gentle">
                 Homeopathy Resources
+              </a>
+              <a href="/weekly-stillness" className="text-foreground hover:text-primary transition-gentle">
+                Weekly Stillness
               </a>
               <a href="/about" className="text-foreground hover:text-primary transition-gentle">
                 About

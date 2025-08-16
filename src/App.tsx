@@ -10,6 +10,7 @@ import Meditation from "./pages/Meditation";
 import Vlogs from "./pages/Vlogs";
 import Breathwork from "./pages/Breathwork";
 import HomeopathicHealing from "./pages/HomeopathicHealing";
+import WeeklyStillness from "./pages/WeeklyStillness";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/breathwork" element={<Breathwork />} />
             <Route path="/vlogs" element={<Vlogs />} />
             <Route path="/homeopathic-healing" element={<HomeopathicHealing />} />
+            <Route path="/weekly-stillness" element={<WeeklyStillness />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
