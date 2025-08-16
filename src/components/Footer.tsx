@@ -20,7 +20,9 @@ const Footer = () => {
                 <h3 className="font-heading text-2xl font-semibold">
                   The Dream Work
                 </h3>
-                <p className="text-primary-foreground/80">Heal the Vibe, Live the Dream</p>
+                <p className="text-primary-foreground/80">
+                  Heal the Vibe, <span className="font-script font-semibold">Live the Dream</span>
+                </p>
               </div>
             </div>
             

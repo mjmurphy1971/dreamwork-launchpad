@@ -21,6 +21,7 @@ export default {
 			fontFamily: {
 				'heading': ['Playfair Display', 'Georgia', 'serif'],
 				'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+				'script': ['Dancing Script', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

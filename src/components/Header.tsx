@@ -22,7 +22,9 @@ const Header = () => {
               <h1 className="font-heading text-xl font-semibold gradient-text">
                 The Dream Work
               </h1>
-              <p className="text-xs text-muted-foreground">Heal the Vibe, Live the Dream</p>
+              <p className="text-xs text-muted-foreground">
+                Heal the Vibe, <span className="font-script font-semibold">Live the Dream</span>
+              </p>
             </div>
           </div>
 
