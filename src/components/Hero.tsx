@@ -26,10 +26,6 @@ const Hero = () => {
             </div>
           </div>
           
-          <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6">
-            The Dream Work
-          </h1>
-          
           <p className="text-2xl md:text-3xl mb-8 font-light">
             Heal the Vibe, <span className="font-script italic">Live the Dream</span>
           </p>
