@@ -49,7 +49,7 @@ const Header = () => {
               Homeopathy Resources
             </a>
             <a href="/weekly-stillness" className="text-foreground hover:text-primary transition-gentle">
-              Weekly Stillness
+              Stillness Tracker
             </a>
             <a href="/about" className="text-foreground hover:text-primary transition-gentle">
               About
@@ -107,7 +107,7 @@ const Header = () => {
                 Homeopathy Resources
               </a>
               <a href="/weekly-stillness" className="text-foreground hover:text-primary transition-gentle">
-                Weekly Stillness
+                Stillness Tracker
               </a>
               <a href="/about" className="text-foreground hover:text-primary transition-gentle">
                 About
