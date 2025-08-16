@@ -7,7 +7,7 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src="/lovable-uploads/e7e1e135-1173-4bcb-97a4-d7ab5e488525.png"
+          src="/lovable-uploads/a384f6fc-69e7-4ad3-9b8c-b1dc1a47a927.png"
           alt="The Dream Work - Heal the Vibe, Live the Dream"
           className="w-full h-full object-cover"
         />
