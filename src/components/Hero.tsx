@@ -19,15 +19,38 @@ const Hero = () => {
       <div className="relative z-10 text-center text-white px-4">
         <div className="max-w-4xl mx-auto">
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" className="bg-white/20 hover:bg-white/30 text-white border border-white/30">
               Start Your Journey
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-white/30 text-white hover:bg-white/10"
+              onClick={() => window.open('https://www.youtube.com/watch?v=tOp-gbnyj3w', '_blank')}
+            >
               <Play className="mr-2 w-5 h-5" />
-              Watch Intro
+              Watch Welcome Video
             </Button>
+          </div>
+          
+          {/* Welcome Video Section */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+              <h2 className="text-xl font-heading font-semibold text-white mb-4 text-center">
+                Welcome to The Dream Work
+              </h2>
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  src="https://www.youtube.com/embed/tOp-gbnyj3w"
+                  title="Welcome to The Dream Work"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
