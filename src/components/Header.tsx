@@ -40,6 +40,9 @@ const Header = () => {
             <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
               Meditation
             </a>
+            <a href="/resources" className="text-foreground hover:text-primary transition-gentle">
+              Resources
+            </a>
             <a href="/about" className="text-foreground hover:text-primary transition-gentle">
               About
             </a>
@@ -88,6 +91,9 @@ const Header = () => {
               </a>
               <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
                 Meditation
+              </a>
+              <a href="/resources" className="text-foreground hover:text-primary transition-gentle">
+                Resources
               </a>
               <a href="/about" className="text-foreground hover:text-primary transition-gentle">
                 About
