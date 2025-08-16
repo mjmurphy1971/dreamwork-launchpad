@@ -1,5 +1,5 @@
-import { Calendar, Clock, Heart, Sunrise, Coffee, Moon, Flower, BarChart3 } from "lucide-react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Calendar, Clock, Heart, Sunrise, Coffee, Moon, Flower, BarChart3, Sun, Briefcase } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -118,10 +118,14 @@ const WeeklyStillness = () => {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="tracker" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="tracker" className="flex items-center gap-2">
               <BarChart3 className="w-4 h-4" />
               Practice Tracker
+            </TabsTrigger>
+            <TabsTrigger value="themed" className="flex items-center gap-2">
+              <Sun className="w-4 h-4" />
+              Themed Practices
             </TabsTrigger>
             <TabsTrigger value="practices" className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
@@ -136,6 +140,74 @@ const WeeklyStillness = () => {
           {/* Practice Tracker Tab */}
           <TabsContent value="tracker" className="mt-8">
             <PracticeTracker />
+          </TabsContent>
+
+          {/* Themed Practices Tab */}
+          <TabsContent value="themed" className="mt-8">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
+                Themed Practice Series
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Curated collections of practices for different times of day and life situations
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Morning Rituals */}
+              <Card className="border-0 shadow-card hover:shadow-glow transition-all duration-300 group">
+                <CardHeader className="text-center pb-4">
+                  <div className="mx-auto p-3 rounded-full bg-gradient-to-br from-yellow-400/20 to-orange-500/20 w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Sun className="w-8 h-8 text-yellow-600" />
+                  </div>
+                  <CardTitle className="font-heading text-xl text-foreground">Morning Rituals</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-muted-foreground mb-6">
+                    Gentle practices to awaken your spirit and set intention for the day
+                  </p>
+                  <Button asChild className="w-full hover-scale">
+                    <a href="/morning-rituals">Explore Morning Practices</a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Work Transitions */}
+              <Card className="border-0 shadow-card hover:shadow-glow transition-all duration-300 group">
+                <CardHeader className="text-center pb-4">
+                  <div className="mx-auto p-3 rounded-full bg-gradient-to-br from-blue-400/20 to-indigo-500/20 w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Briefcase className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <CardTitle className="font-heading text-xl text-foreground">Work Transitions</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-muted-foreground mb-6">
+                    Micro-practices to maintain presence and reduce stress during your workday
+                  </p>
+                  <Button asChild className="w-full hover-scale">
+                    <a href="/work-transitions">Explore Work Practices</a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Evening Wind-downs */}
+              <Card className="border-0 shadow-card hover:shadow-glow transition-all duration-300 group">
+                <CardHeader className="text-center pb-4">
+                  <div className="mx-auto p-3 rounded-full bg-gradient-to-br from-purple-400/20 to-blue-500/20 w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Moon className="w-8 h-8 text-purple-600" />
+                  </div>
+                  <CardTitle className="font-heading text-xl text-foreground">Evening Wind-downs</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-muted-foreground mb-6">
+                    Soothing practices to release the day and prepare for restorative sleep
+                  </p>
+                  <Button asChild className="w-full hover-scale">
+                    <a href="/evening-winddowns">Explore Evening Practices</a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
           </TabsContent>
 
           {/* Current Week's Practices Tab */}
