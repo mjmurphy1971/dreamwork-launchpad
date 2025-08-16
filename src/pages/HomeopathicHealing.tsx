@@ -211,10 +211,109 @@ const homeopathicRemedies = [
         type: "Guide"
       }
     ]
+  },
+  {
+    id: "womens-health",
+    condition: "Women's Health",
+    category: "Women's Health",
+    remedies: [
+      {
+        name: "Sepia",
+        symptoms: "Hormonal imbalances, mood swings, fatigue",
+        dosage: "30C - 3 pellets daily",
+        notes: "Excellent for PMS and menopause"
+      },
+      {
+        name: "Pulsatilla",
+        symptoms: "Irregular periods, emotional sensitivity, changeable moods",
+        dosage: "30C - 3 pellets 2x daily",
+        notes: "For gentle, weepy women who crave fresh air"
+      },
+      {
+        name: "Lachesis",
+        symptoms: "Hot flashes, jealousy, left-sided symptoms",
+        dosage: "200C - 1 dose weekly",
+        notes: "Great for menopause transition"
+      }
+    ],
+    description: "Natural support for menstrual health, menopause, and hormonal balance",
+    resources: [
+      {
+        title: "Women's Health with Homeopathy",
+        url: "https://www.boironusa.com/womens-health/",
+        type: "Guide"
+      }
+    ]
+  },
+  {
+    id: "childrens-health",
+    condition: "Children's Health",
+    category: "Children's Health",
+    remedies: [
+      {
+        name: "Chamomilla",
+        symptoms: "Teething pain, colic, irritability",
+        dosage: "30C - 2 pellets as needed",
+        notes: "For fussy, inconsolable babies"
+      },
+      {
+        name: "Arsenicum Album",
+        symptoms: "Stomach flu, food poisoning, anxious children",
+        dosage: "30C - 2 pellets every 2 hours",
+        notes: "When child is restless but exhausted"
+      },
+      {
+        name: "Calc Carb",
+        symptoms: "Slow development, frequent colds, head sweats",
+        dosage: "200C - 1 dose monthly",
+        notes: "Constitutional remedy for robust, slow children"
+      }
+    ],
+    description: "Gentle remedies safe for infants and children",
+    resources: [
+      {
+        title: "Children's Homeopathy Guide",
+        url: "https://www.boironusa.com/childrens-health/",
+        type: "Guide"
+      }
+    ]
+  },
+  {
+    id: "pet-health",
+    condition: "Pet Health",
+    category: "Pet Health",
+    remedies: [
+      {
+        name: "Arnica Montana",
+        symptoms: "Trauma, bruising, shock after accidents",
+        dosage: "30C - 3 pellets in water bowl",
+        notes: "First aid remedy for all pets"
+      },
+      {
+        name: "Rescue Remedy",
+        symptoms: "Stress, anxiety, travel nervousness",
+        dosage: "4 drops in water or on treat",
+        notes: "Bach flower essence for emotional support"
+      },
+      {
+        name: "Nux Vomica",
+        symptoms: "Digestive upset, overeating, constipation",
+        dosage: "30C - 2 pellets crushed in food",
+        notes: "For pets with lifestyle-related issues"
+      }
+    ],
+    description: "Natural remedies for common pet ailments and emotional support",
+    resources: [
+      {
+        title: "Homeopathy for Pets",
+        url: "https://www.boironusa.com/pet-care/",
+        type: "Guide"
+      }
+    ]
   }
 ];
 
-const categories = ["All", "Mental Health", "Physical Health", "Immune Support", "Women's Health", "Children's Health"];
+const categories = ["All", "Mental Health", "Physical Health", "Immune Support", "Women's Health", "Children's Health", "Pet Health"];
 
 const HomeopathicHealing = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -290,6 +389,12 @@ const HomeopathicHealing = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 w-80"
               />
+              <Button 
+                className="ml-2"
+                onClick={() => window.open('https://www.boironusa.com/search', '_blank')}
+              >
+                Search Boiron
+              </Button>
             </div>
           </div>
         </section>
@@ -418,7 +523,7 @@ const HomeopathicHealing = () => {
                 <Button 
                   size="lg" 
                   className="bg-green-600 hover:bg-green-700 text-white"
-                  onClick={() => window.open('https://www.homeopathic.org/find-a-homeopath', '_blank')}
+                  onClick={() => window.open('https://www.boironusa.com/practitioner-locator/', '_blank')}
                 >
                   <Search className="mr-2 w-4 h-4" />
                   Find Local Practitioners
@@ -426,7 +531,7 @@ const HomeopathicHealing = () => {
                 <Button 
                   variant="outline" 
                   size="lg"
-                  onClick={() => window.open('https://www.nationalcenterforhomeopathy.org/', '_blank')}
+                  onClick={() => window.open('https://www.boironusa.com/homeopathy/', '_blank')}
                 >
                   <Book className="mr-2 w-4 h-4" />
                   Learn More About Homeopathy
