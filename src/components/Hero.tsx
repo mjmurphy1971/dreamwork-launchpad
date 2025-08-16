@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   return (
@@ -8,8 +7,8 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src={heroBg}
-          alt="Serene meditation landscape"
+          src="/lovable-uploads/f889b3fe-21b5-4455-84b9-48b5406e1764.png"
+          alt="Dreamy bridge landscape with spiritual atmosphere"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-hero opacity-70"></div>
