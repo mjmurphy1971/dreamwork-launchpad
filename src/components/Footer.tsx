@@ -75,7 +75,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/contact" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                <a href="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
                   Contact
                 </a>
               </li>
@@ -87,28 +87,28 @@ const Footer = () => {
             <h4 className="font-semibold text-lg mb-6">Topics</h4>
             <ul className="space-y-3">
               <li>
-                <a href="/category/meditation" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                <a href="/meditation" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
                   Meditation
                 </a>
               </li>
               <li>
-                <a href="/category/mindfulness" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                <a href="/blog" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
                   Mindfulness
                 </a>
               </li>
               <li>
-                <a href="/category/dream-work" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                <a href="/vlogs" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
                   Dream Work
                 </a>
               </li>
               <li>
-                <a href="/category/healing" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                <a href="/homeopathic-healing" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
                   Spiritual Healing
                 </a>
               </li>
               <li>
-                <a href="/category/science" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Science & Research
+                <a href="/breathwork" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  Breathwork & Science
                 </a>
               </li>
             </ul>
