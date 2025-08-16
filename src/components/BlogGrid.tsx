@@ -6,6 +6,7 @@ import meditationPost from "@/assets/meditation-post.jpg";
 import mindfulnessPost from "@/assets/mindfulness-post.jpg";
 import dreamworkPost from "@/assets/dreamwork-post.jpg";
 import soundBathPost from "@/assets/sound-bath-post.jpg";
+import brainEnergyPost from "@/assets/brain-energy-post.jpg";
 
 const blogPosts = [
   {
@@ -60,7 +61,7 @@ const blogPosts = [
     date: "2024-08-05",
     readTime: "12 min read",
     category: "Science",
-    image: mindfulnessPost,
+    image: brainEnergyPost,
     featured: false,
   },
   {
