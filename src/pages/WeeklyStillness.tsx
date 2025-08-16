@@ -1,10 +1,12 @@
-import { Calendar, Clock, Heart, Sunrise, Coffee, Moon, Flower } from "lucide-react";
+import { Calendar, Clock, Heart, Sunrise, Coffee, Moon, Flower, BarChart3 } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PracticeTracker from "@/components/PracticeTracker";
 
 const WeeklyStillness = () => {
   const currentWeekPractices = [
@@ -114,8 +116,30 @@ const WeeklyStillness = () => {
           </div>
         </section>
 
-        {/* Current Week's Practices */}
-        <section className="mb-16">
+        {/* Main Content Tabs */}
+        <Tabs defaultValue="tracker" className="w-full">
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="tracker" className="flex items-center gap-2">
+              <BarChart3 className="w-4 h-4" />
+              Practice Tracker
+            </TabsTrigger>
+            <TabsTrigger value="practices" className="flex items-center gap-2">
+              <Calendar className="w-4 h-4" />
+              This Week's Guide
+            </TabsTrigger>
+            <TabsTrigger value="toolkit" className="flex items-center gap-2">
+              <Heart className="w-4 h-4" />
+              Emergency Toolkit
+            </TabsTrigger>
+          </TabsList>
+
+          {/* Practice Tracker Tab */}
+          <TabsContent value="tracker" className="mt-8">
+            <PracticeTracker />
+          </TabsContent>
+
+          {/* Current Week's Practices Tab */}
+          <TabsContent value="practices" className="mt-8">
           <div className="text-center mb-8">
             <h2 className="font-heading text-3xl font-semibold text-foreground mb-4">
               This Week's Stillness Journey
@@ -156,10 +180,10 @@ const WeeklyStillness = () => {
               </Card>
             ))}
           </div>
-        </section>
+          </TabsContent>
 
-        {/* Quick Techniques Toolkit */}
-        <section className="mb-16">
+          {/* Quick Techniques Toolkit Tab */}
+          <TabsContent value="toolkit" className="mt-8">
           <div className="text-center mb-8">
             <h2 className="font-heading text-3xl font-semibold text-foreground mb-4">
               Emergency Stillness Toolkit
@@ -186,10 +210,11 @@ const WeeklyStillness = () => {
               </Card>
             ))}
           </div>
-        </section>
+          </TabsContent>
+        </Tabs>
 
         {/* Newsletter Signup */}
-        <section className="bg-gradient-hero text-primary-foreground rounded-2xl p-8 md:p-12 text-center">
+        <section className="bg-gradient-hero text-primary-foreground rounded-2xl p-8 md:p-12 text-center mt-16">
           <h2 className="font-heading text-3xl font-semibold mb-4">
             Receive Weekly Stillness Practices
           </h2>
