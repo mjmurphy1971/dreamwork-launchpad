@@ -15,6 +15,10 @@ import MorningRituals from "./pages/MorningRituals";
 import WorkTransitions from "./pages/WorkTransitions";
 import EveningWinddowns from "./pages/EveningWinddowns";
 import DreamJournal from "./pages/DreamJournal";
+import OracleCards from "./pages/OracleCards";
+import ThoughtBubbles from "./pages/ThoughtBubbles";
+import SingingBowls from "./pages/SingingBowls";
+import GratitudeGarden from "./pages/GratitudeGarden";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +44,10 @@ const App = () => {
             <Route path="/work-transitions" element={<WorkTransitions />} />
             <Route path="/evening-winddowns" element={<EveningWinddowns />} />
             <Route path="/dream-journal" element={<DreamJournal />} />
+            <Route path="/oracle-cards" element={<OracleCards />} />
+            <Route path="/thought-bubbles" element={<ThoughtBubbles />} />
+            <Route path="/singing-bowls" element={<SingingBowls />} />
+            <Route path="/gratitude-garden" element={<GratitudeGarden />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

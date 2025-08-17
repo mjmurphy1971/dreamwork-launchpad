@@ -57,6 +57,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-6">Mindful Tools</h4>
             <ul className="space-y-3">
+              <li className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wide">Core Tools</li>
               <li>
                 <a href="/dream-journal" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
                   🌙 Dream Journal
@@ -75,6 +76,32 @@ const Footer = () => {
               <li>
                 <a href="/breathwork" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
                   🌬️ Breathwork Patterns
+                </a>
+              </li>
+              <li className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wide pt-2">Mind Play</li>
+              <li>
+                <a href="/mindful-coloring" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  🎨 Mindful Coloring
+                </a>
+              </li>
+              <li>
+                <a href="/oracle-cards" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  🔮 Oracle Cards
+                </a>
+              </li>
+              <li>
+                <a href="/chakra-balancing" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  🌈 Chakra Balancing
+                </a>
+              </li>
+              <li>
+                <a href="/singing-bowls" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  🎵 Singing Bowls
+                </a>
+              </li>
+              <li>
+                <a href="/gratitude-garden" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  🌸 Gratitude Garden
                 </a>
               </li>
             </ul>
