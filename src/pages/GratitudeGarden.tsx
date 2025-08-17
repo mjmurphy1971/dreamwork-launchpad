@@ -157,7 +157,7 @@ const GratitudeGarden = () => {
                     className="absolute cursor-pointer transition-transform hover:scale-110 animate-fade-in z-10"
                     style={{ 
                       left: `${flower.x}%`, 
-                      bottom: `${25 + flower.y}%`, // Ensure flowers appear above ground
+                      bottom: `${Math.max(20, flower.y * 3 + 25)}px`, // Position flowers above ground in pixels
                       transform: 'translate(-50%, 0)',
                       zIndex: 10
                     }}
