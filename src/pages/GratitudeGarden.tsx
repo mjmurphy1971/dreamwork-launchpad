@@ -135,7 +135,7 @@ const GratitudeGarden = () => {
 
         {/* Garden Visualization */}
         <section className="max-w-6xl mx-auto mb-8">
-          <Card className="relative min-h-[400px] bg-gradient-to-b from-sky-100 to-green-100 dark:from-sky-900/20 dark:to-green-900/20 border-2 border-green-200 dark:border-green-800 overflow-hidden">
+          <Card className="relative min-h-[500px] bg-gradient-to-b from-sky-100 to-green-100 dark:from-sky-900/20 dark:to-green-900/20 border-2 border-green-200 dark:border-green-800">{/* Removed overflow-hidden to ensure flowers are visible */}
             <CardContent className="p-0 relative h-full">
               {/* Sky background */}
               <div className="absolute inset-0 bg-gradient-to-b from-blue-100 to-green-100 dark:from-blue-900/20 dark:to-green-900/20" />
