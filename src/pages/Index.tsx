@@ -4,6 +4,9 @@ import BlogGrid from "@/components/BlogGrid";
 import VlogSection from "@/components/VlogSection";
 import Footer from "@/components/Footer";
 import stillnessPracticeHero from "@/assets/stillness-practice-hero.jpg";
+import dreamJournalBg from "@/assets/dream-journal-bg.jpg";
+import meditationToolBg from "@/assets/meditation-tool-bg.jpg";
+import audioSessionsBg from "@/assets/audio-sessions-bg.jpg";
 
 const Index = () => {
   console.log('Index component rendering');
@@ -97,6 +100,10 @@ const Index = () => {
                 className="relative overflow-hidden rounded-lg bg-card border border-border shadow-card hover:shadow-card-hover transition-gentle group cursor-pointer"
                 onClick={() => window.location.href = '/meditation'}
               >
+                <div 
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+                  style={{ backgroundImage: `url(${audioSessionsBg})` }}
+                />
                 <div className="relative z-10 p-8 text-center">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl">🎧</span>
@@ -118,6 +125,10 @@ const Index = () => {
                 className="relative overflow-hidden rounded-lg bg-card border border-border shadow-card hover:shadow-card-hover transition-gentle group cursor-pointer"
                 onClick={() => window.location.href = '/dream-journal'}
               >
+                <div 
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+                  style={{ backgroundImage: `url(${dreamJournalBg})` }}
+                />
                 <div className="relative z-10 p-8 text-center">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl">🌙</span>

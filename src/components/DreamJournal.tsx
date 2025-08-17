@@ -4,8 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { Plus, Moon, Star, Heart, Sparkles, Calendar, Search, BookOpen } from 'lucide-react';
+import { Plus, Moon, Star, Heart, Sparkles, Calendar, Search, BookOpen, Printer, Mail, Download } from 'lucide-react';
 import { toast } from 'sonner';
+import dreamJournalBg from "@/assets/dream-journal-bg.jpg";
 
 interface DreamEntry {
   id: string;
@@ -104,8 +105,88 @@ export const DreamJournal: React.FC = () => {
     entry.symbols.some(s => s.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
+  const printEntry = (entry: DreamEntry) => {
+    const printWindow = window.open('', '_blank');
+    if (!printWindow) return;
+    
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Dream Journal Entry - ${entry.title}</title>
+          <style>
+            body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+            h1 { color: #333; }
+            .meta { color: #666; margin-bottom: 20px; }
+            .tag { background: #f0f0f0; padding: 4px 8px; margin: 2px; border-radius: 4px; }
+          </style>
+        </head>
+        <body>
+          <h1>${entry.title}</h1>
+          <div class="meta">Date: ${new Date(entry.date).toLocaleDateString()}</div>
+          <p>${entry.content}</p>
+          ${entry.theme ? `<p><strong>Theme:</strong> <span class="tag">${entry.theme}</span></p>` : ''}
+          ${entry.emotions.length > 0 ? `<p><strong>Emotions:</strong> ${entry.emotions.map(e => `<span class="tag">${e}</span>`).join(' ')}</p>` : ''}
+          ${entry.symbols.length > 0 ? `<p><strong>Symbols:</strong> ${entry.symbols.map(s => `<span class="tag">${s}</span>`).join(' ')}</p>` : ''}
+          ${entry.lucidity ? '<p><strong>✨ Lucid Dream</strong></p>' : ''}
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.print();
+  };
+
+  const shareEntry = (entry: DreamEntry) => {
+    const subject = `Dream Journal Entry: ${entry.title}`;
+    const body = `Dream Title: ${entry.title}
+Date: ${new Date(entry.date).toLocaleDateString()}
+
+${entry.content}
+
+${entry.theme ? `Theme: ${entry.theme}` : ''}
+${entry.emotions.length > 0 ? `Emotions: ${entry.emotions.join(', ')}` : ''}
+${entry.symbols.length > 0 ? `Symbols: ${entry.symbols.join(', ')}` : ''}
+${entry.lucidity ? 'This was a lucid dream ✨' : ''}
+
+Shared from The Dream Work`;
+    
+    const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
+
+  const exportEntry = (entry: DreamEntry) => {
+    const data = {
+      title: entry.title,
+      date: entry.date,
+      content: entry.content,
+      theme: entry.theme,
+      emotions: entry.emotions,
+      symbols: entry.symbols,
+      lucidity: entry.lucidity
+    };
+    
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `dream-${entry.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
-    <div className="space-y-6">
+    <div 
+      className="space-y-6 relative"
+      style={{
+        backgroundImage: `url(${dreamJournalBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      <div className="relative z-10 space-y-6">
       {/* Header */}
       <div className="text-center">
         <h2 className="text-3xl font-heading font-bold gradient-text mb-4 flex items-center justify-center gap-2">
@@ -261,9 +342,40 @@ export const DreamJournal: React.FC = () => {
                   <h3 className="text-xl font-heading font-semibold text-foreground">
                     {entry.title}
                   </h3>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    {new Date(entry.date).toLocaleDateString()}
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                      <Calendar className="w-4 h-4" />
+                      {new Date(entry.date).toLocaleDateString()}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => printEntry(entry)}
+                        className="h-8 w-8 p-0"
+                        title="Print entry"
+                      >
+                        <Printer className="w-4 h-4" />
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => shareEntry(entry)}
+                        className="h-8 w-8 p-0"
+                        title="Share via email"
+                      >
+                        <Mail className="w-4 h-4" />
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => exportEntry(entry)}
+                        className="h-8 w-8 p-0"
+                        title="Export as JSON"
+                      >
+                        <Download className="w-4 h-4" />
+                      </Button>
+                    </div>
                   </div>
                 </div>
                 
@@ -313,6 +425,7 @@ export const DreamJournal: React.FC = () => {
             </Card>
           ))
         )}
+      </div>
       </div>
     </div>
   );
