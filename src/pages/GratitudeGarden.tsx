@@ -52,15 +52,20 @@ const GratitudeGarden = () => {
     
     const newFlower: GratitudeFlower = {
       id: Date.now().toString(),
-      gratitude: newGratitude,
+      gratitude: newGratitude.trim(),
       date: new Date().toLocaleDateString(),
       type: randomFlowerType.type,
       color: randomFlowerType.color,
-      x: Math.random() * 70 + 15, // 15-85% of container width
-      y: Math.random() * 60 + 20   // 20-80% of container height
+      x: Math.random() * 60 + 20, // 20-80% of container width  
+      y: Math.random() * 30 + 10   // 10-40% of container height (from bottom)
     };
 
-    setFlowers(prev => [...prev, newFlower]);
+    console.log('Planting flower:', newFlower); // Debug log
+    setFlowers(prev => {
+      const updated = [...prev, newFlower];
+      console.log('Updated flowers array:', updated); // Debug log
+      return updated;
+    });
     setNewGratitude("");
     setShowForm(false);
   };
@@ -144,22 +149,29 @@ const GratitudeGarden = () => {
               </div>
               
               {/* Flowers */}
-              {flowers.map((flower) => (
-                <div
-                  key={flower.id}
-                  className="absolute cursor-pointer transform transition-transform hover:scale-110 animate-fade-in"
-                  style={{ 
-                    left: `${flower.x}%`, 
-                    bottom: `${flower.y}%`,
-                    transform: 'translate(-50%, 0)'
-                  }}
-                  onClick={() => setSelectedFlower(flower)}
-                >
-                  <div className="text-4xl hover:drop-shadow-lg">
-                    {getFlowerEmoji(flower.type)}
+              {flowers.map((flower) => {
+                console.log('Rendering flower:', flower); // Debug log
+                return (
+                  <div
+                    key={flower.id}
+                    className="absolute cursor-pointer transition-transform hover:scale-110 animate-fade-in z-10"
+                    style={{ 
+                      left: `${flower.x}%`, 
+                      bottom: `${25 + flower.y}%`, // Ensure flowers appear above ground
+                      transform: 'translate(-50%, 0)',
+                      zIndex: 10
+                    }}
+                    onClick={() => setSelectedFlower(flower)}
+                  >
+                    <div className="text-5xl hover:drop-shadow-lg filter drop-shadow-sm">
+                      {getFlowerEmoji(flower.type)}
+                    </div>
+                    <div className="text-center text-xs text-muted-foreground mt-1 max-w-[80px] mx-auto truncate">
+                      {flower.gratitude.length > 15 ? flower.gratitude.substring(0, 15) + '...' : flower.gratitude}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
               
               {/* Empty garden message */}
               {flowers.length === 0 && (
@@ -175,16 +187,25 @@ const GratitudeGarden = () => {
           </Card>
         </section>
 
-        {/* Add Gratitude Button */}
+        {/* Add Gratitude Button - More Prominent */}
         <section className="text-center mb-8">
-          <Button
-            onClick={() => setShowForm(!showForm)}
-            size="lg"
-            className="bg-gradient-primary hover:opacity-90"
-          >
-            <Plus className="mr-2 w-5 h-5" />
-            Plant a Flower of Gratitude
-          </Button>
+          <div className="bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl p-8 max-w-2xl mx-auto border-2 border-dashed border-primary/30">
+            <div className="text-4xl mb-4">🌻</div>
+            <h3 className="text-2xl font-heading font-bold mb-4 gradient-text">
+              Ready to Plant Some Gratitude?
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              Transform your appreciation into a beautiful flower that will bloom in your personal garden
+            </p>
+            <Button
+              onClick={() => setShowForm(!showForm)}
+              size="lg"
+              className="bg-gradient-primary hover:opacity-90 text-lg px-8 py-4 shadow-lg"
+            >
+              <Plus className="mr-3 w-6 h-6" />
+              {showForm ? "Hide Form" : "Plant a Flower of Gratitude"}
+            </Button>
+          </div>
         </section>
 
         {/* Gratitude Form */}
