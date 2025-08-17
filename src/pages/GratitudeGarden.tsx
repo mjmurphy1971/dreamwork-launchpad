@@ -200,7 +200,7 @@ const GratitudeGarden = () => {
             <Button
               onClick={() => setShowForm(!showForm)}
               size="lg"
-              className="bg-gradient-primary hover:opacity-90 text-lg px-8 py-4 shadow-lg"
+              className="bg-gradient-primary hover:opacity-90 text-lg px-8 py-4 shadow-lg text-white font-bold"
             >
               <Plus className="mr-3 w-6 h-6" />
               {showForm ? "Hide Form" : "Plant a Flower of Gratitude"}
