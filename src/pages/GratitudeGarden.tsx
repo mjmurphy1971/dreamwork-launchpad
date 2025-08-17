@@ -137,14 +137,14 @@ const GratitudeGarden = () => {
         <section className="max-w-6xl mx-auto mb-8">
           <Card className="relative min-h-[500px] bg-gradient-to-b from-sky-100 to-green-100 dark:from-sky-900/20 dark:to-green-900/20 border-2 border-green-200 dark:border-green-800">{/* Removed overflow-hidden to ensure flowers are visible */}
             <CardContent className="p-0 relative h-full">
-              {/* Sky background */}
-              <div className="absolute inset-0 bg-gradient-to-b from-blue-100 to-green-100 dark:from-blue-900/20 dark:to-green-900/20" />
+              {/* Sky background - smaller at top */}
+              <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-blue-200 to-blue-100 dark:from-blue-800/40 dark:to-blue-700/20" />
               
-              {/* Ground */}
-              <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-green-200 to-green-100 dark:from-green-800/30 dark:to-green-700/20" />
+              {/* Garden/Ground area - much larger for flowers */}
+              <div className="absolute top-16 left-0 right-0 bottom-0 bg-gradient-to-b from-green-100 to-green-200 dark:from-green-900/20 dark:to-green-800/30" />
               
-              {/* Sun */}
-              <div className="absolute top-4 right-4">
+              {/* Sun in sky */}
+              <div className="absolute top-2 right-4">
                 <Sun className="w-12 h-12 text-yellow-400 animate-pulse" />
               </div>
               
@@ -157,7 +157,7 @@ const GratitudeGarden = () => {
                     className="absolute cursor-pointer transition-transform hover:scale-110 animate-fade-in z-10"
                     style={{ 
                       left: `${flower.x}%`, 
-                      bottom: `${5 + flower.y * 0.2}px`, // Dramatically lower: 5-13px from bottom (sitting on ground)
+                      top: `${70 + flower.y * 8}px`, // Position in the large garden area
                       transform: 'translate(-50%, 0)',
                       zIndex: 10
                     }}
