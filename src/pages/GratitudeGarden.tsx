@@ -157,7 +157,7 @@ const GratitudeGarden = () => {
                     className="absolute cursor-pointer transition-transform hover:scale-110 animate-fade-in z-10"
                     style={{ 
                       left: `${flower.x}%`, 
-                      top: `${70 + flower.y * 8}px`, // Position in the large garden area
+                      top: `${Math.min(400, 70 + flower.y * 6)}px`, // Constrain flowers within container bounds
                       transform: 'translate(-50%, 0)',
                       zIndex: 10
                     }}
