@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Play, Pause, Volume2 } from 'lucide-react';
+import { Play, Pause, Volume2, Square, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface TextToSpeechProps {
@@ -18,18 +18,12 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  const [isGenerating, setIsGenerating] = useState(false);
 
-  const playAudio = async () => {
+  const generateAndPlayAudio = async () => {
     try {
       console.log('Starting audio generation...');
-      
-      if (audio && !audio.paused) {
-        audio.pause();
-        setIsPlaying(false);
-        return;
-      }
-
-      setIsPlaying(true);
+      setIsGenerating(true);
       toast("Generating audio...", { duration: 2000 });
 
       console.log('Making request to ElevenLabs API with text:', text.substring(0, 50) + '...');
@@ -40,7 +34,7 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
         headers: {
           'Accept': 'audio/mpeg',
           'Content-Type': 'application/json',
-          'xi-api-key': 'sk_c2913beefb5f7c6eccc4590ac552f10b0d23e592929e8118',
+          'xi-api-key': process.env.ELEVENLABS_API_KEY || 'sk_c2913beefb5f7c6eccc4590ac552f10b0d23e592929e8118',
         },
         body: JSON.stringify({
           text,
@@ -82,38 +76,101 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
       };
 
       setAudio(newAudio);
+      setIsGenerating(false);
+      setIsPlaying(true);
       await newAudio.play();
       toast.success("Playing audio");
       
     } catch (error) {
-      console.error('Detailed error in playAudio:', error);
+      console.error('Detailed error in generateAndPlayAudio:', error);
       console.error('Error name:', error.name);
       console.error('Error message:', error.message);
       console.error('Error stack:', error.stack);
       toast.error(`Audio generation failed: ${error.message}`);
+      setIsGenerating(false);
       setIsPlaying(false);
     }
   };
 
+  const playAudio = () => {
+    if (!audio) {
+      generateAndPlayAudio();
+      return;
+    }
+
+    if (audio.paused) {
+      audio.play();
+      setIsPlaying(true);
+    } else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const stopAudio = () => {
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+      setIsPlaying(false);
+    }
+  };
+
+  const replayAudio = () => {
+    if (audio) {
+      audio.currentTime = 0;
+      audio.play();
+      setIsPlaying(true);
+    } else {
+      generateAndPlayAudio();
+    }
+  };
+
   return (
-    <Button
-      onClick={playAudio}
-      variant="outline"
-      size="sm"
-      className={`gap-2 ${className}`}
-      disabled={isPlaying && audio && !audio.paused}
-    >
-      {isPlaying ? (
+    <div className={`flex gap-2 ${className}`}>
+      <Button
+        onClick={playAudio}
+        variant="outline"
+        size="sm"
+        disabled={isGenerating}
+      >
+        {isGenerating ? (
+          <>
+            <Volume2 className="w-4 h-4 animate-pulse" />
+            Generating...
+          </>
+        ) : isPlaying ? (
+          <>
+            <Pause className="w-4 h-4" />
+            Pause
+          </>
+        ) : (
+          <>
+            <Play className="w-4 h-4" />
+            {buttonText}
+          </>
+        )}
+      </Button>
+      
+      {audio && (
         <>
-          <Pause className="w-4 h-4" />
-          Playing...
-        </>
-      ) : (
-        <>
-          <Volume2 className="w-4 h-4" />
-          {buttonText}
+          <Button
+            onClick={stopAudio}
+            variant="outline"
+            size="sm"
+            disabled={isGenerating}
+          >
+            <Square className="w-4 h-4" />
+          </Button>
+          <Button
+            onClick={replayAudio}
+            variant="outline"
+            size="sm"
+            disabled={isGenerating}
+          >
+            <RotateCcw className="w-4 h-4" />
+          </Button>
         </>
       )}
-    </Button>
+    </div>
   );
 };

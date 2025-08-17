@@ -354,6 +354,11 @@ const Meditation = () => {
                   name: "Body Scan for Calm",
                   text: "Starting at the top of your head, notice any tension you're holding. Breathe into that space and let it soften. Move your attention to your forehead, your eyes, your jaw. Let each part of your face relax completely. Feel the relaxation flowing down into your neck and shoulders. Notice how your chest rises and falls with each breath. Let your arms feel heavy and relaxed. Continue this gentle awareness down through your torso, your hips, your legs, all the way to your toes. Your whole body is now at peace.",
                   duration: "5 minutes"
+                },
+                {
+                  name: "Grounding Visualization",
+                  text: "Imagine roots growing from the base of your spine, extending deep into the earth. Feel these roots anchoring you, drawing up stability and calm. With each breath, feel yourself becoming more grounded, more centered. Any worries or fears are absorbed by the earth below you. You are supported, you are safe, you are connected to something larger than yourself.",
+                  duration: "4 minutes"
                 }
               ]}
             />
@@ -370,6 +375,50 @@ const Meditation = () => {
                   name: "Energizing Breathwork",
                   text: "Sit tall and take three deep, energizing breaths. Feel your spine lengthening with each inhale. On your next breath, breathe in vitality and strength. Exhale anything that doesn't serve you today. Continue this pattern, breathing in energy and life force, breathing out stagnation. Feel yourself becoming more alert and present with each breath. You are ready to meet this day with an open heart and clear mind.",
                   duration: "3 minutes"
+                },
+                {
+                  name: "Gratitude Awakening",
+                  text: "Begin by feeling appreciation for this moment of awakening. Feel gratitude for your breath, for your heartbeat, for the gift of consciousness itself. Think of three things you're grateful for in your life right now. Let this feeling of appreciation fill your entire being. Carry this energy of gratitude with you as you step into your day.",
+                  duration: "3 minutes"
+                }
+              ]}
+            />
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-8">
+            <GuidedAudioSession
+              title="Deep Sleep & Dreams"
+              sessions={[
+                {
+                  name: "Sleep Preparation",
+                  text: "As you prepare for rest, let your body sink deeply into your bed. Release the day that has passed. Feel your muscles relaxing one by one. Your breathing becomes slower and deeper. Your mind is becoming quiet and peaceful. You are safe to let go and drift into restorative sleep. May your dreams be filled with wisdom and healing.",
+                  duration: "6 minutes"
+                },
+                {
+                  name: "Dream Incubation",
+                  text: "Before sleep, set an intention for your dreams tonight. Ask your subconscious mind to bring you insights, healing, or guidance. Visualize yourself receiving exactly what you need through your dreams. Trust that your inner wisdom will speak to you in the language of symbols and stories. Sleep peacefully, knowing answers will come.",
+                  duration: "5 minutes"
+                }
+              ]}
+            />
+            
+            <GuidedAudioSession
+              title="Self-Love & Healing"
+              sessions={[
+                {
+                  name: "Inner Child Healing",
+                  text: "Imagine meeting your younger self with complete love and acceptance. See that child's innocence and wonder. Speak words of encouragement and support. Tell them they are loved exactly as they are. Hold space for any emotions that arise. Send healing light to any wounds from the past. You are worthy of love, now and always.",
+                  duration: "7 minutes"
+                },
+                {
+                  name: "Heart Opening Practice",
+                  text: "Place both hands on your heart. Feel its steady, loving rhythm. Breathe into your heart space, imagining it expanding with each inhale. Send love to yourself first, then to loved ones, then to all beings everywhere. Feel your heart as an infinite source of love and compassion. You are love itself, expressing in human form.",
+                  duration: "5 minutes"
+                },
+                {
+                  name: "Forgiveness Meditation",
+                  text: "Bring to mind someone or something you're ready to forgive, including yourself. Understand that forgiveness is a gift you give yourself. Release the burden of resentment. Feel the lightness that comes with letting go. Send compassion to all involved. You are free to love fully when you forgive completely.",
+                  duration: "6 minutes"
                 }
               ]}
             />

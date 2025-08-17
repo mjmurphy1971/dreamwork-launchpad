@@ -14,6 +14,7 @@ import WeeklyStillness from "./pages/WeeklyStillness";
 import MorningRituals from "./pages/MorningRituals";
 import WorkTransitions from "./pages/WorkTransitions";
 import EveningWinddowns from "./pages/EveningWinddowns";
+import DreamJournal from "./pages/DreamJournal";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/morning-rituals" element={<MorningRituals />} />
             <Route path="/work-transitions" element={<WorkTransitions />} />
             <Route path="/evening-winddowns" element={<EveningWinddowns />} />
+            <Route path="/dream-journal" element={<DreamJournal />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
