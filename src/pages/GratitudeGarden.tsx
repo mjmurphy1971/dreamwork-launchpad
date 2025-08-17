@@ -163,11 +163,11 @@ const GratitudeGarden = () => {
                     }}
                     onClick={() => setSelectedFlower(flower)}
                   >
-                    <div className="text-5xl hover:drop-shadow-lg filter drop-shadow-sm">
+                    <div className="text-5xl hover:drop-shadow-lg filter drop-shadow-sm mb-2">
                       {getFlowerEmoji(flower.type)}
                     </div>
-                    <div className="text-center text-xs text-muted-foreground mt-1 max-w-[80px] mx-auto truncate">
-                      {flower.gratitude.length > 15 ? flower.gratitude.substring(0, 15) + '...' : flower.gratitude}
+                    <div className="text-center text-xs text-foreground bg-white/80 dark:bg-black/80 px-2 py-1 rounded-lg max-w-[120px] mx-auto leading-tight">
+                      {flower.gratitude}
                     </div>
                   </div>
                 );
