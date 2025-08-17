@@ -53,6 +53,33 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Tools Section */}
+          <div>
+            <h4 className="font-semibold text-lg mb-6">Mindful Tools</h4>
+            <ul className="space-y-3">
+              <li>
+                <a href="/dream-journal" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  🌙 Dream Journal
+                </a>
+              </li>
+              <li>
+                <a href="/meditation" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  🧘 Guided Audio Sessions
+                </a>
+              </li>
+              <li>
+                <a href="/weekly-stillness" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  📊 Practice Tracker
+                </a>
+              </li>
+              <li>
+                <a href="/breathwork" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
+                  🌬️ Breathwork Patterns
+                </a>
+              </li>
+            </ul>
+          </div>
+
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold text-lg mb-6">Explore</h4>
@@ -73,11 +100,6 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/breathwork" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Breathwork
-                </a>
-              </li>
-              <li>
                 <a href="/homeopathic-healing" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
                   Homeopathy Resources
                 </a>
@@ -85,38 +107,6 @@ const Footer = () => {
               <li>
                 <a href="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
                   About
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Categories */}
-          <div>
-            <h4 className="font-semibold text-lg mb-6">Topics</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="/meditation" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Meditation Practices
-                </a>
-              </li>
-              <li>
-                <a href="/blog" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="/vlogs" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Vlogs
-                </a>
-              </li>
-              <li>
-                <a href="/homeopathic-healing" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Homeopathy Resources
-                </a>
-              </li>
-              <li>
-                <a href="/breathwork" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Breathwork
                 </a>
               </li>
             </ul>

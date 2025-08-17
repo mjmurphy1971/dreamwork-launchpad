@@ -33,6 +33,27 @@ const Header = () => {
             <a href="/" className="text-foreground hover:text-primary transition-gentle">
               Home
             </a>
+            <div className="relative group">
+              <span className="text-foreground hover:text-primary transition-gentle cursor-pointer">
+                Tools
+              </span>
+              <div className="absolute top-full left-0 mt-2 w-64 bg-background border border-border/50 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="p-2">
+                  <a href="/dream-journal" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    🌙 Dream Journal
+                  </a>
+                  <a href="/meditation" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    🧘 Guided Audio Sessions
+                  </a>
+                  <a href="/weekly-stillness" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    📊 Practice Tracker
+                  </a>
+                  <a href="/breathwork" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    🌬️ Breathwork Patterns
+                  </a>
+                </div>
+              </div>
+            </div>
             <a href="/blog" className="text-foreground hover:text-primary transition-gentle">
               Blog
             </a>
@@ -42,14 +63,8 @@ const Header = () => {
             <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
               Meditation Practices
             </a>
-            <a href="/breathwork" className="text-foreground hover:text-primary transition-gentle">
-              Breathwork
-            </a>
             <a href="/homeopathic-healing" className="text-foreground hover:text-primary transition-gentle">
               Homeopathy Resources
-            </a>
-            <a href="/weekly-stillness" className="text-foreground hover:text-primary transition-gentle">
-              Stillness Tracker
             </a>
             <a href="/about" className="text-foreground hover:text-primary transition-gentle">
               About
@@ -91,6 +106,21 @@ const Header = () => {
               <a href="/" className="text-foreground hover:text-primary transition-gentle">
                 Home
               </a>
+              <div className="border-l-2 border-primary/20 pl-4">
+                <span className="text-sm font-semibold text-muted-foreground mb-2 block">Tools</span>
+                <a href="/dream-journal" className="block py-1 text-foreground hover:text-primary transition-gentle">
+                  🌙 Dream Journal
+                </a>
+                <a href="/meditation" className="block py-1 text-foreground hover:text-primary transition-gentle">
+                  🧘 Guided Audio Sessions
+                </a>
+                <a href="/weekly-stillness" className="block py-1 text-foreground hover:text-primary transition-gentle">
+                  📊 Practice Tracker
+                </a>
+                <a href="/breathwork" className="block py-1 text-foreground hover:text-primary transition-gentle">
+                  🌬️ Breathwork Patterns
+                </a>
+              </div>
               <a href="/blog" className="text-foreground hover:text-primary transition-gentle">
                 Blog
               </a>
@@ -100,14 +130,8 @@ const Header = () => {
               <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
                 Meditation Practices
               </a>
-              <a href="/breathwork" className="text-foreground hover:text-primary transition-gentle">
-                Breathwork
-              </a>
               <a href="/homeopathic-healing" className="text-foreground hover:text-primary transition-gentle">
                 Homeopathy Resources
-              </a>
-              <a href="/weekly-stillness" className="text-foreground hover:text-primary transition-gentle">
-                Stillness Tracker
               </a>
               <a href="/about" className="text-foreground hover:text-primary transition-gentle">
                 About
