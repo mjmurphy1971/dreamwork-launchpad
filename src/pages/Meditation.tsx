@@ -130,6 +130,14 @@ const meditationCategories = [
         description: "Presence as your first act of the day.",
         url: "https://www.youtube.com/watch?v=d-diB65scQU",
         thumbnail: "https://img.youtube.com/vi/d-diB65scQU/mqdefault.jpg"
+      },
+      {
+        title: "The Man That Makes Millionaires: How To Turn $1,000 Into $100 Million! (Diary of A CEO)",
+        description: "Life-changing insights from one of the world's top business minds. Start at 31:40 for powerful mindset transformation. Created by Steven Bartlett at The Diary of A CEO - honoring his incredible work in spreading wisdom and inspiration.",
+        url: "https://www.youtube.com/watch?v=TheDiaryOfACEO&t=1900",
+        thumbnail: "https://img.youtube.com/vi/TheDiaryOfACEO/mqdefault.jpg",
+        creator: "Steven Bartlett",
+        creatorLink: "https://www.youtube.com/@TheDiaryOfACEO"
       }
     ]
   },
@@ -311,6 +319,20 @@ const Meditation = () => {
                         <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
                           {video.description}
                         </p>
+                        {(video as any).creator && (
+                          <p className="text-xs text-muted-foreground mt-2 italic">
+                            By{' '}
+                            <a 
+                              href={(video as any).creatorLink} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-primary hover:underline"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {(video as any).creator}
+                            </a>
+                          </p>
+                        )}
                         <div className="mt-4 flex gap-2 flex-wrap">
                           <Badge variant="secondary" className="gradient-card text-foreground border-0">
                             Watch on YouTube
