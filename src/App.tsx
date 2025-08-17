@@ -19,6 +19,8 @@ import OracleCards from "./pages/OracleCards";
 import ThoughtBubbles from "./pages/ThoughtBubbles";
 import SingingBowls from "./pages/SingingBowls";
 import GratitudeGarden from "./pages/GratitudeGarden";
+import ChakraBalancing from "./pages/ChakraBalancing";
+import MindfulColoring from "./pages/MindfulColoring";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +50,8 @@ const App = () => {
             <Route path="/thought-bubbles" element={<ThoughtBubbles />} />
             <Route path="/singing-bowls" element={<SingingBowls />} />
             <Route path="/gratitude-garden" element={<GratitudeGarden />} />
+            <Route path="/chakra-balancing" element={<ChakraBalancing />} />
+            <Route path="/mindful-coloring" element={<MindfulColoring />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

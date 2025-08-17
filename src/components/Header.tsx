@@ -54,8 +54,14 @@ const Header = () => {
                   </a>
                   <hr className="my-2 border-border/50" />
                   <div className="text-xs font-semibold text-muted-foreground px-3 py-1 mb-1">Mind Play Tools</div>
+                  <a href="/mindful-coloring" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    🎨 Mindful Coloring Studio
+                  </a>
                   <a href="/oracle-cards" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
                     🔮 Daily Oracle Cards
+                  </a>
+                  <a href="/chakra-balancing" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    🌈 Chakra Balancing Game
                   </a>
                   <a href="/singing-bowls" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
                     🎵 Singing Bowl Simulator
@@ -136,8 +142,14 @@ const Header = () => {
                   🌬️ Breathwork Patterns
                 </a>
                 <span className="text-sm font-semibold text-muted-foreground mb-2 mt-4 block">Mind Play Tools</span>
+                <a href="/mindful-coloring" className="block py-1 text-foreground hover:text-primary transition-gentle">
+                  🎨 Mindful Coloring Studio
+                </a>
                 <a href="/oracle-cards" className="block py-1 text-foreground hover:text-primary transition-gentle">
                   🔮 Daily Oracle Cards
+                </a>
+                <a href="/chakra-balancing" className="block py-1 text-foreground hover:text-primary transition-gentle">
+                  🌈 Chakra Balancing Game
                 </a>
                 <a href="/singing-bowls" className="block py-1 text-foreground hover:text-primary transition-gentle">
                   🎵 Singing Bowl Simulator
