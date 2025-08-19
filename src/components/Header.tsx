@@ -7,25 +7,98 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Define searchable content from all pages (updated with accurate keywords)
+  // Comprehensive searchable content mapping all pages with actual content
   const searchableContent = [
-    { path: '/meditation', page: 'Meditation Practices', keywords: ['meditation', 'mindfulness', 'breathing', 'peace', 'calm', 'stress', 'anxiety', 'depression', 'focus', 'awareness', 'inner light', 'emotional healing'] },
-    { path: '/breathwork', page: 'Breathwork', keywords: ['breathwork', 'breathing', 'pranayama', 'breath', 'respiratory', 'oxygen', 'calm', 'anxiety', 'stress'] },
-    { path: '/natural-healing/homeopathy', page: 'Homeopathy', keywords: ['homeopathy', 'natural', 'healing', 'remedies', 'anxiety', 'stress', 'holistic', 'alternative', 'digestive', 'sleep', 'insomnia', 'headaches', 'migraines'] },
-    { path: '/natural-healing/herbology', page: 'Herbology', keywords: ['herbology', 'herbs', 'natural', 'healing', 'botanical', 'plant medicine', 'herbal remedies', 'conditions', 'symptoms'] },
-    { path: '/weekly-stillness', page: 'Weekly Stillness', keywords: ['stillness', 'weekly', 'practice', 'meditation', 'quiet', 'peace', 'reflection'] },
-    { path: '/morning-rituals', page: 'Morning Rituals', keywords: ['morning', 'rituals', 'routine', 'start', 'day', 'meditation', 'practice'] },
-    { path: '/work-transitions', page: 'Work Transitions', keywords: ['work', 'transitions', 'stress', 'workplace', 'mindfulness', 'balance', 'career'] },
-    { path: '/evening-winddowns', page: 'Evening Winddowns', keywords: ['evening', 'winddown', 'sleep', 'relaxation', 'night', 'rest', 'calm'] },
-    { path: '/dream-journal', page: 'Dream Journal', keywords: ['dream', 'journal', 'dreams', 'sleep', 'subconscious', 'reflection'] },
-    { path: '/oracle-cards', page: 'Oracle Cards', keywords: ['oracle', 'cards', 'divination', 'guidance', 'spiritual', 'intuition'] },
-    { path: '/thought-bubbles', page: 'Thought Bubbles', keywords: ['thought', 'bubbles', 'anxiety', 'mental', 'thoughts', 'mindfulness'] },
-    { path: '/singing-bowls', page: 'Singing Bowls', keywords: ['singing', 'bowls', 'sound', 'therapy', 'meditation', 'healing', 'vibration'] },
-    { path: '/gratitude-garden', page: 'Gratitude Garden', keywords: ['gratitude', 'garden', 'thankfulness', 'appreciation', 'positive', 'mood'] },
-    { path: '/chakra-balancing', page: 'Chakra Balancing', keywords: ['chakra', 'balancing', 'energy', 'spiritual', 'healing', 'meditation'] },
-    { path: '/mindful-coloring', page: 'Mindful Coloring', keywords: ['mindful', 'coloring', 'art', 'creativity', 'meditation', 'stress', 'anxiety', 'relaxation'] },
-    { path: '/blog', page: 'Blog', keywords: ['blog', 'articles', 'posts', 'meditation', 'mindfulness', 'spiritual', 'healing'] },
-    { path: '/vlogs', page: 'Vlogs', keywords: ['vlogs', 'videos', 'meditation', 'spiritual', 'guidance', 'practice'] }
+    { 
+      path: '/about', 
+      page: 'About Mary Murphy', 
+      keywords: ['mary', 'murphy', 'founder', 'about', 'meditation', 'mindfulness', 'journey', 'dream work', 'inspiration', 'community', 'resources', 'beginner', 'accessible', 'stress relief', 'inner peace', 'guidance', 'practices', 'wellness'],
+      content: 'About Mary Murphy Founder of The Dream Work Creating a Space Where Inspiration Unfolds meditation mindfulness resources community beginner-friendly approach'
+    },
+    { 
+      path: '/meditation', 
+      page: 'Meditation Practices', 
+      keywords: ['meditation', 'mindfulness', 'breathing', 'peace', 'calm', 'stress', 'anxiety', 'depression', 'focus', 'awareness', 'inner light', 'emotional healing', 'guided', 'audio', 'sessions'],
+      content: 'meditation practices anxiety depression grounding self-love focus awareness guided audio sessions emotional healing inner light'
+    },
+    { 
+      path: '/breathwork', 
+      page: 'Breathwork', 
+      keywords: ['breathwork', 'breathing', 'pranayama', 'breath', 'respiratory', 'oxygen', 'calm', 'anxiety', 'stress', 'patterns'],
+      content: 'breathwork breathing patterns pranayama respiratory techniques oxygen calm anxiety stress relief'
+    },
+    { 
+      path: '/natural-healing/homeopathy', 
+      page: 'Homeopathy', 
+      keywords: ['homeopathy', 'natural', 'healing', 'remedies', 'anxiety', 'stress', 'holistic', 'alternative', 'digestive', 'sleep', 'insomnia', 'headaches', 'migraines', 'gentle'],
+      content: 'homeopathic healing natural remedies anxiety stress digestive issues sleep insomnia headaches migraines cold flu allergies womens health childrens health pet health gentle holistic alternative'
+    },
+    { 
+      path: '/natural-healing/herbology', 
+      page: 'Herbology', 
+      keywords: ['herbology', 'herbs', 'natural', 'healing', 'botanical', 'plant medicine', 'herbal remedies', 'conditions', 'symptoms'],
+      content: 'herbology herbs natural healing botanical plant medicine herbal remedies conditions symptoms search resources'
+    },
+    { 
+      path: '/weekly-stillness', 
+      page: 'Weekly Stillness', 
+      keywords: ['stillness', 'weekly', 'practice', 'meditation', 'quiet', 'peace', 'reflection', 'tracker'],
+      content: 'weekly stillness practice meditation quiet peace reflection tracker'
+    },
+    { 
+      path: '/dream-journal', 
+      page: 'Dream Journal', 
+      keywords: ['dream', 'journal', 'dreams', 'sleep', 'subconscious', 'reflection', 'writing'],
+      content: 'dream journal dreams sleep subconscious reflection writing analysis'
+    },
+    { 
+      path: '/oracle-cards', 
+      page: 'Oracle Cards', 
+      keywords: ['oracle', 'cards', 'divination', 'guidance', 'spiritual', 'intuition', 'daily'],
+      content: 'oracle cards divination guidance spiritual intuition daily wisdom'
+    },
+    { 
+      path: '/thought-bubbles', 
+      page: 'Thought Bubbles', 
+      keywords: ['thought', 'bubbles', 'anxiety', 'mental', 'thoughts', 'mindfulness', 'release'],
+      content: 'thought bubbles anxiety mental thoughts mindfulness release emotional'
+    },
+    { 
+      path: '/singing-bowls', 
+      page: 'Singing Bowls', 
+      keywords: ['singing', 'bowls', 'sound', 'therapy', 'meditation', 'healing', 'vibration', 'audio'],
+      content: 'singing bowls sound therapy meditation healing vibration audio'
+    },
+    { 
+      path: '/gratitude-garden', 
+      page: 'Gratitude Garden', 
+      keywords: ['gratitude', 'garden', 'thankfulness', 'appreciation', 'positive', 'mood'],
+      content: 'gratitude garden thankfulness appreciation positive mood wellness'
+    },
+    { 
+      path: '/chakra-balancing', 
+      page: 'Chakra Balancing', 
+      keywords: ['chakra', 'balancing', 'energy', 'spiritual', 'healing', 'meditation', 'game'],
+      content: 'chakra balancing energy spiritual healing meditation game interactive'
+    },
+    { 
+      path: '/mindful-coloring', 
+      page: 'Mindful Coloring', 
+      keywords: ['mindful', 'coloring', 'art', 'creativity', 'meditation', 'stress', 'anxiety', 'relaxation', 'studio'],
+      content: 'mindful coloring art creativity meditation stress anxiety relaxation studio'
+    },
+    { 
+      path: '/blog', 
+      page: 'Blog', 
+      keywords: ['blog', 'articles', 'posts', 'meditation', 'mindfulness', 'spiritual', 'healing'],
+      content: 'blog articles posts meditation mindfulness spiritual healing resources'
+    },
+    { 
+      path: '/vlogs', 
+      page: 'Vlogs', 
+      keywords: ['vlogs', 'videos', 'meditation', 'spiritual', 'guidance', 'practice'],
+      content: 'vlogs videos meditation spiritual guidance practice visual'
+    }
   ];
   
   const handleSearch = () => {
@@ -33,10 +106,15 @@ const Header = () => {
     
     const searchTermLower = searchQuery.toLowerCase();
     
-    // Find pages that contain the search term
+    // Enhanced search - check keywords, page names, and content
     const matchingPages = searchableContent.filter(content => 
       content.keywords.some(keyword => keyword.includes(searchTermLower)) ||
-      content.page.toLowerCase().includes(searchTermLower)
+      content.page.toLowerCase().includes(searchTermLower) ||
+      content.content.toLowerCase().includes(searchTermLower) ||
+      searchTermLower.split(' ').some(term => 
+        content.keywords.some(keyword => keyword.includes(term)) ||
+        content.content.toLowerCase().includes(term)
+      )
     );
     
     if (matchingPages.length > 0) {
