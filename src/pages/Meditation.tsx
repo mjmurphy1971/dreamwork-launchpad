@@ -309,7 +309,21 @@ const Meditation = () => {
                       key={index}
                       className="overflow-hidden shadow-card border-0 bg-card hover:shadow-card-hover transition-smooth group cursor-pointer transform hover:-translate-y-1"
                     >
-                      <div onClick={() => window.open(video.url, '_blank')}>
+                      <div 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.open(video.url, '_blank', 'noopener,noreferrer');
+                        }}
+                        className="cursor-pointer"
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            window.open(video.url, '_blank', 'noopener,noreferrer');
+                          }
+                        }}
+                      >
                         <CardHeader className="p-0">
                           <div className="relative overflow-hidden">
                             <img
