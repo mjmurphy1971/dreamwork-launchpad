@@ -15,9 +15,9 @@ const Hero = () => {
       </div>
       
       {/* Hero Content */}
-      <div className="relative z-10 text-center text-white px-4 flex flex-col justify-center min-h-[90vh]">
+      <div className="relative z-10 text-center text-white px-4 flex flex-col justify-end min-h-[90vh] pb-32">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-16">
+          <div className="mb-8">
             <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed">
               Transform your consciousness through guided meditation, dream work, and spiritual practices. 
               Join our community of seekers on the journey to inner peace and mindful living.
