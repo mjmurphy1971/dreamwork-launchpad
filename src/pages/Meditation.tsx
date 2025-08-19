@@ -307,11 +307,7 @@ const Meditation = () => {
                   {category.videos.map((video, index) => (
                     <div
                       key={index}
-                      className="overflow-hidden shadow-card border-0 bg-card hover:shadow-card-hover transition-smooth group transform hover:-translate-y-1 rounded-lg border cursor-pointer"
-                      onClick={() => {
-                        console.log('Card clicked, opening:', video.url);
-                        window.open(video.url, '_blank', 'noopener,noreferrer');
-                      }}
+                      className="overflow-hidden shadow-card border bg-card hover:shadow-card-hover transition-smooth group transform hover:-translate-y-1 rounded-lg cursor-pointer"
                     >
                       <div className="p-0">
                         <div className="relative overflow-hidden">
@@ -345,18 +341,17 @@ const Meditation = () => {
                         </p>
                         
                         <div className="flex gap-2 flex-wrap items-center">
-                          <Badge variant="outline" className="text-xs">
-                            <Play className="w-3 h-3 mr-1" />
-                            Watch on YouTube
-                          </Badge>
-                          
-                          <div 
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              e.preventDefault();
-                            }}
-                            className="flex-shrink-0"
+                          <a
+                            href={video.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary text-primary-foreground hover:bg-primary/80 transition-colors no-underline"
                           >
+                            <Play className="w-3 h-3 mr-1" />
+                            Watch Video
+                          </a>
+                          
+                          <div className="flex-shrink-0">
                             <TextToSpeech 
                               text={video.description}
                               buttonText="🔊"
