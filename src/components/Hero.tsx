@@ -4,7 +4,7 @@ import { ArrowRight, Play } from "lucide-react";
 const Hero = () => {
   console.log('Hero component rendering');
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -12,21 +12,35 @@ const Hero = () => {
           alt="The Dream Work - Heal the Vibe, Live the Dream"
           className="w-full h-full object-cover"
         />
-        
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
       
       {/* Hero Content */}
       <div className="relative z-10 text-center text-white px-4">
         <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">
+            The Dream Work
+          </h1>
+          <p className="text-xl md:text-2xl mb-4 font-script">
+            Heal the Vibe, <span className="font-semibold">Live the Dream</span>
+          </p>
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Transform your consciousness through guided meditation, dream work, and spiritual practices. 
+            Join our community of seekers on the journey to inner peace and mindful living.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white/20 hover:bg-white/30 text-white border border-white/30">
+            <Button 
+              size="lg" 
+              className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm"
+              onClick={() => window.location.href = '/weekly-stillness'}
+            >
               Start Your Journey
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
-              className="border-white/30 text-white hover:bg-white/10"
+              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
               onClick={() => window.open('https://www.youtube.com/watch?v=tOp-gbnyj3w', '_blank')}
             >
               <Play className="mr-2 w-5 h-5" />

@@ -2,47 +2,55 @@ import { Play, Calendar, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import morningMeditationThumb from "@/assets/morning-meditation-thumb.jpg";
+import sacredSpaceThumb from "@/assets/sacred-space-thumb.jpg";
+import breathworkThumb from "@/assets/breathwork-thumb.jpg";
+import dreamJournalThumb from "@/assets/dream-journal-thumb.jpg";
 
 const vlogs = [
   {
     id: 1,
     title: "Morning Meditation: Finding Peace in 10 Minutes",
     description: "Join me for a gentle morning meditation practice that will set a peaceful tone for your entire day.",
-    thumbnail: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=450&fit=crop",
+    thumbnail: morningMeditationThumb,
     duration: "12:34",
     views: "15.2K",
     publishedAt: "2024-08-14",
     category: "Guided Meditation",
+    videoUrl: "https://www.youtube.com/watch?v=tOp-gbnyj3w",
   },
   {
     id: 2,
     title: "Sacred Space Tour: Creating Your Meditation Corner",
     description: "Take a tour of my personal meditation space and learn how to create your own sacred sanctuary at home.",
-    thumbnail: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=450&fit=crop",
+    thumbnail: sacredSpaceThumb,
     duration: "8:45",
     views: "8.7K",
     publishedAt: "2024-08-11",
     category: "Home & Space",
+    videoUrl: "https://www.youtube.com/watch?v=kO5I0p3IuiQ",
   },
   {
     id: 3,
     title: "Breathwork for Anxiety: Immediate Relief Techniques",
     description: "Learn powerful breathing techniques that can help you find calm in moments of stress and anxiety.",
-    thumbnail: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&h=450&fit=crop",
+    thumbnail: breathworkThumb,
     duration: "15:22",
     views: "22.1K",
     publishedAt: "2024-08-09",
     category: "Healing",
+    videoUrl: "https://www.youtube.com/watch?v=tOp-gbnyj3w",
   },
   {
     id: 4,
     title: "Dream Journal Walk-Through: Recording Your Visions",
     description: "Explore the practice of dream journaling and discover how to capture and interpret your nighttime messages.",
-    thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=450&fit=crop",
+    thumbnail: dreamJournalThumb,
     duration: "18:10",
     views: "12.5K",
     publishedAt: "2024-08-07",
     category: "Dream Work",
+    videoUrl: "https://www.youtube.com/watch?v=kO5I0p3IuiQ",
   },
 ];
 
@@ -75,6 +83,7 @@ const VlogSection = () => {
                   <Button
                     size="lg"
                     className="bg-primary-foreground/90 text-primary hover:bg-primary-foreground backdrop-blur-sm shadow-glow group/play"
+                    onClick={() => window.open(vlogs[0].videoUrl, '_blank')}
                   >
                     <Play className="mr-2 w-6 h-6 group-hover/play:scale-110 transition-gentle" />
                     Watch Now
@@ -125,6 +134,7 @@ const VlogSection = () => {
               key={vlog.id}
               className="overflow-hidden shadow-card border-0 bg-card hover:shadow-card-hover transition-smooth group cursor-pointer animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => window.open(vlog.videoUrl, '_blank')}
             >
               <CardHeader className="p-0">
                 <div className="relative group/video">
@@ -190,7 +200,7 @@ const VlogSection = () => {
             </p>
             <Button 
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => window.location.href = '/vlogs'}
+              onClick={() => window.open('https://www.youtube.com/@TheDreamWork', '_blank')}
             >
               Subscribe to Channel
             </Button>
