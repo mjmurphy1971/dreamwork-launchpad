@@ -18,28 +18,28 @@ const meditationCategories = [
     color: "bg-blue-500/10 text-blue-600",
     videos: [
       {
-        title: "Daily Calm | 10 Minute Mindfulness Meditation | Be Present",
-        description: "Gentle breathwork and body awareness to calm racing thoughts.",
-        url: "https://www.youtube.com/watch?v=ZToicYcHIOU",
-        thumbnail: "https://img.youtube.com/vi/ZToicYcHIOU/mqdefault.jpg"
+        title: "10 Minutes of Focused Attention: A Quick Exercise to Calm an Anxious Mind",
+        description: "Headspace guided meditation to ease anxiety through focused attention on the breath.",
+        url: "https://www.youtube.com/watch?v=Hvs_49dikDQ",
+        thumbnail: "https://img.youtube.com/vi/Hvs_49dikDQ/mqdefault.jpg"
       },
       {
-        title: "10 Minute Meditation to Release Stress & Anxiety",
-        description: "Body scan for total relaxation with positive affirmations—perfect for beginners.",
-        url: "https://www.youtube.com/watch?v=H_uc-uQ3Nkc",
-        thumbnail: "https://img.youtube.com/vi/H_uc-uQ3Nkc/mqdefault.jpg"
+        title: "A 10-Minute Meditation for Stress from Headspace",
+        description: "Reframe stressful situations and find peace through mindful breathing.",
+        url: "https://www.youtube.com/watch?v=lS0kcSNlULw",
+        thumbnail: "https://img.youtube.com/vi/lS0kcSNlULw/mqdefault.jpg"
       },
       {
-        title: "15-Minute Guided Meditation | BREATHE IT AWAY | Relieve Anxiety and Stress",
-        description: "Visualize a tranquil mountainside lake where worries float away like dandelion seeds.",
-        url: "https://www.youtube.com/watch?v=mS80bIm1-Ps",
-        thumbnail: "https://img.youtube.com/vi/mS80bIm1-Ps/mqdefault.jpg"
+        title: "Guided Sleep Meditation for Anxiety Relief",
+        description: "Jason Stephenson's calming meditation to release anxiety and intrusive thoughts.",
+        url: "https://www.youtube.com/watch?v=ieJ-qUe1do8",
+        thumbnail: "https://img.youtube.com/vi/ieJ-qUe1do8/mqdefault.jpg"
       },
       {
-        title: "5-Minute Meditation You Can Do Anywhere | Goodful",
-        description: "Quick emotional reset—ideal for moments of overwhelm.",
-        url: "https://www.youtube.com/watch?v=inpok4MKVLM", 
-        thumbnail: "https://img.youtube.com/vi/inpok4MKVLM/mqdefault.jpg"
+        title: "Managing Anxious Thoughts And Stress With Mindfulness",
+        description: "Headspace grounding technique to settle your mind and body.",
+        url: "https://www.youtube.com/watch?v=EfubAj5f_rM",
+        thumbnail: "https://img.youtube.com/vi/EfubAj5f_rM/mqdefault.jpg"
       }
     ]
   },
@@ -50,22 +50,22 @@ const meditationCategories = [
     color: "bg-yellow-500/10 text-yellow-600",
     videos: [
       {
-        title: "Best 10 Min Guided Meditation | Master Your Mind To Transform Your Life",
-        description: "Visualization and affirmation to gently shift emotional energy.",
-        url: "https://www.youtube.com/watch?v=itZMM5gCboo",
-        thumbnail: "https://img.youtube.com/vi/itZMM5gCboo/mqdefault.jpg"
+        title: "Sleep Hypnosis for Self Love, Confidence & Self Esteem",
+        description: "Michael Sealey's healing meditation to build self-worth and inner confidence.",
+        url: "https://www.youtube.com/watch?v=DHwgBCx0uNs",
+        thumbnail: "https://img.youtube.com/vi/DHwgBCx0uNs/mqdefault.jpg"
       },
       {
-        title: "You Are This Moment — Award-Winning Life Changing Short Film",
-        description: "A poetic reminder of your inherent worth and presence.",
-        url: "https://www.youtube.com/watch?v=YQP2StSwg1s",
-        thumbnail: "https://img.youtube.com/vi/YQP2StSwg1s/mqdefault.jpg"
+        title: "1 Hour Sleep Hypnosis: Higher Self Healing for Depression & Anxiety",
+        description: "Deep subconscious healing to take control of your peace and well-being.",
+        url: "https://www.youtube.com/watch?v=HpHKf4tlvFw",
+        thumbnail: "https://img.youtube.com/vi/HpHKf4tlvFw/mqdefault.jpg"
       },
       {
-        title: "Spiritual Talk That Everyone Needs to Hear",
-        description: "Soulful reflection on purpose and the beauty of being alive.",
-        url: "https://www.youtube.com/watch?v=aAVPDYJwWuc",
-        thumbnail: "https://img.youtube.com/vi/aAVPDYJwWuc/mqdefault.jpg"
+        title: "Sleep Hypnosis for Clearing Subconscious Negativity",
+        description: "Transform negative thoughts and remove emotional blocks with deep healing.",
+        url: "https://www.youtube.com/watch?v=_MCXtMjaJXw",
+        thumbnail: "https://img.youtube.com/vi/_MCXtMjaJXw/mqdefault.jpg"
       }
     ]
   },
@@ -76,22 +76,22 @@ const meditationCategories = [
     color: "bg-green-500/10 text-green-600",
     videos: [
       {
-        title: "7-Minute Grounding Meditation | Calm Your Nervous System",
-        description: "Reconnect with your body, calm your nervous system, and feel grounded in the present moment.",
-        url: "https://www.youtube.com/watch?v=bxgu9nls5Nw",
-        thumbnail: "https://img.youtube.com/vi/bxgu9nls5Nw/mqdefault.jpg"
+        title: "EPIC GUIDED MEDITATION: Earth Grounding",
+        description: "The Honest Guys' empowering visualization to reconnect with Earth's energy.",
+        url: "https://www.youtube.com/watch?v=dpqX3Fthw_E",
+        thumbnail: "https://img.youtube.com/vi/dpqX3Fthw_E/mqdefault.jpg"
       },
       {
-        title: "10 Minute Grounding Guided Meditation",
-        description: "Release stress and restore balance by focusing on your breath and connection to the earth.",
-        url: "https://www.youtube.com/watch?v=Pwg8TYUFV9o",
-        thumbnail: "https://img.youtube.com/vi/Pwg8TYUFV9o/mqdefault.jpg"
+        title: "Mindfulness Meditation - Guided 10 Minutes",
+        description: "The Honest Guys' mindfulness practice to be completely present in the moment.",
+        url: "https://www.youtube.com/watch?v=6p_yaNFSYao",
+        thumbnail: "https://img.youtube.com/vi/6p_yaNFSYao/mqdefault.jpg"
       },
       {
-        title: "Navigating Life's Challenges with Spiritual Awareness | Eckhart Tolle",
-        description: "Grounding wisdom for staying centered in uncertainty.",
-        url: "https://www.youtube.com/watch?v=mMRrCYPxD0I",
-        thumbnail: "https://img.youtube.com/vi/mMRrCYPxD0I/mqdefault.jpg"
+        title: "Guided Meditation - Blissful Deep Relaxation",
+        description: "Gentle guidance into a state of profound peace and grounding.",
+        url: "https://www.youtube.com/watch?v=Jyy0ra2WcQQ",
+        thumbnail: "https://img.youtube.com/vi/Jyy0ra2WcQQ/mqdefault.jpg"
       }
     ]
   },
@@ -102,22 +102,22 @@ const meditationCategories = [
     color: "bg-pink-500/10 text-pink-600",
     videos: [
       {
-        title: "You Are This Moment — Award-Winning Life Changing Short Film",
-        description: "A gentle reminder that you are already enough.",
-        url: "https://www.youtube.com/watch?v=YQP2StSwg1s",
-        thumbnail: "https://img.youtube.com/vi/YQP2StSwg1s/mqdefault.jpg"
+        title: "Sleep Hypnosis for Self Love, Confidence & Self Esteem",
+        description: "Heal your inner being and connect to your self-worth through deep rest.",
+        url: "https://www.youtube.com/watch?v=DHwgBCx0uNs",
+        thumbnail: "https://img.youtube.com/vi/DHwgBCx0uNs/mqdefault.jpg"
       },
       {
-        title: "Best 10 Min Guided Meditation | Master Your Mind To Transform Your Life",
-        description: "Affirmations and visualization to nurture inner worth.",
-        url: "https://www.youtube.com/watch?v=itZMM5gCboo",
-        thumbnail: "https://img.youtube.com/vi/itZMM5gCboo/mqdefault.jpg"
+        title: "Sleep Hypnosis for Regaining Confidence & Connecting to Your Inner Power",
+        description: "Michael Sealey's meditation to reconnect with your limitless inner strength.",
+        url: "https://www.youtube.com/watch?v=2H1On9pr7y4",
+        thumbnail: "https://img.youtube.com/vi/2H1On9pr7y4/mqdefault.jpg"
       },
       {
-        title: "Spiritual Talk That Everyone Needs to Hear",
-        description: "A heart-centered reflection on your soul's value.",
-        url: "https://www.youtube.com/watch?v=aAVPDYJwWuc",
-        thumbnail: "https://img.youtube.com/vi/aAVPDYJwWuc/mqdefault.jpg"
+        title: "10 Min Meditation For Positive Energy | Manifest Love & Light",
+        description: "Boho Beautiful's practice to cultivate the love and light within you.",
+        url: "https://www.youtube.com/watch?v=8zfQvchPkqQ",
+        thumbnail: "https://img.youtube.com/vi/8zfQvchPkqQ/mqdefault.jpg"
       }
     ]
   },
@@ -128,28 +128,22 @@ const meditationCategories = [
     color: "bg-orange-500/10 text-orange-600",
     videos: [
       {
-        title: "Daily Calm | 10 Minute Mindfulness Meditation | Be Present",
-        description: "Start your day with clarity and calm.",
-        url: "https://www.youtube.com/watch?v=ZToicYcHIOU",
-        thumbnail: "https://img.youtube.com/vi/ZToicYcHIOU/mqdefault.jpg"
+        title: "Guided Morning Meditation | 10 Minutes To Start Each Day Perfectly",
+        description: "Boho Beautiful's perfect morning meditation with visualization and peace.",
+        url: "https://www.youtube.com/watch?v=8_f7ltCNSAQ",
+        thumbnail: "https://img.youtube.com/vi/8_f7ltCNSAQ/mqdefault.jpg"
       },
       {
-        title: "5-Minute Meditation You Can Do Anywhere | Goodful",
-        description: "Perfect for busy mornings or travel.",
-        url: "https://www.youtube.com/watch?v=inpok4MKVLM",
-        thumbnail: "https://img.youtube.com/vi/inpok4MKVLM/mqdefault.jpg"
+        title: "Morning Guided Meditation | 10 Minutes To Execute The Perfect Day",
+        description: "Set your mind up for success, happiness, and focus with this morning practice.",
+        url: "https://www.youtube.com/watch?v=X2OaMAUEPXM",
+        thumbnail: "https://img.youtube.com/vi/X2OaMAUEPXM/mqdefault.jpg"
       },
       {
-        title: "The Most Important Spiritual Practice | Eckhart Tolle Teachings",
-        description: "Presence as your first act of the day.",
-        url: "https://www.youtube.com/watch?v=d-diB65scQU",
-        thumbnail: "https://img.youtube.com/vi/d-diB65scQU/mqdefault.jpg"
-      },
-      {
-        title: "Morning Meditation for a Productive & Successful Day",
-        description: "A powerful 10-minute guided morning meditation to center your thoughts, set positive intentions, and align your energy for the day ahead.",
-        url: "https://www.youtube.com/watch?v=KEtgUahb8Qw",
-        thumbnail: "https://img.youtube.com/vi/KEtgUahb8Qw/mqdefault.jpg"
+        title: "Reset: Decompress Your Body and Mind",
+        description: "Headspace meditation to pause and reset between tasks for better presence.",
+        url: "https://www.youtube.com/watch?v=QHkXvPq2pQE",
+        thumbnail: "https://img.youtube.com/vi/QHkXvPq2pQE/mqdefault.jpg"
       }
     ]
   },
@@ -160,22 +154,22 @@ const meditationCategories = [
     color: "bg-purple-500/10 text-purple-600",
     videos: [
       {
-        title: "10 MIN Guided Meditation To Clear Your Mind & Start New | Boho Beautiful",
-        description: "Let go of the day and return to stillness.",
-        url: "https://www.youtube.com/watch?v=g_tea8ZNk5A",
-        thumbnail: "https://img.youtube.com/vi/g_tea8ZNk5A/mqdefault.jpg"
+        title: "10 Minute Bedtime Yoga | Yoga With Adriene",
+        description: "Gentle stretches and breathing to prepare for a restful night's sleep.",
+        url: "https://www.youtube.com/watch?v=CLDHeV9OI5U",
+        thumbnail: "https://img.youtube.com/vi/CLDHeV9OI5U/mqdefault.jpg"
       },
       {
-        title: "Guided Mindfulness Meditation: Being the Boundless Awareness You Are",
-        description: "A gentle transition into rest and reflection.",
-        url: "https://www.youtube.com/watch?v=cEqZthCaMpo",
-        thumbnail: "https://img.youtube.com/vi/cEqZthCaMpo/mqdefault.jpg"
+        title: "Wind Down Yoga | 12-Minute Bedtime Yoga",
+        description: "Yoga with Adriene's relaxing session to help you wind down after work.",
+        url: "https://www.youtube.com/watch?v=BiWDsfZ3zbo",
+        thumbnail: "https://img.youtube.com/vi/BiWDsfZ3zbo/mqdefault.jpg"
       },
       {
-        title: "Navigating Life's Challenges with Spiritual Awareness | Eckhart Tolle",
-        description: "Release tension and find peace before sleep.",
-        url: "https://www.youtube.com/watch?v=mMRrCYPxD0I",
-        thumbnail: "https://img.youtube.com/vi/mMRrCYPxD0I/mqdefault.jpg"
+        title: "GUIDED SLEEP MEDITATION - The Sanctuary",
+        description: "The Honest Guys' peaceful journey to a warm sanctuary with fireplace sounds.",
+        url: "https://www.youtube.com/watch?v=Y7rCDZXSgxI",
+        thumbnail: "https://img.youtube.com/vi/Y7rCDZXSgxI/mqdefault.jpg"
       }
     ]
   },
@@ -186,22 +180,22 @@ const meditationCategories = [
     color: "bg-indigo-500/10 text-indigo-600",
     videos: [
       {
-        title: "You Are This Moment — Award-Winning Life Changing Short Film",
-        description: "Tap into presence before writing or creating.",
-        url: "https://www.youtube.com/watch?v=YQP2StSwg1s",
-        thumbnail: "https://img.youtube.com/vi/YQP2StSwg1s/mqdefault.jpg"
+        title: "Yoga For Creativity | 40-Minute Yoga Practice",
+        description: "Yoga with Adriene's full practice to unlock creative energy and inspiration.",
+        url: "https://www.youtube.com/watch?v=mY3lX6iAxq8",
+        thumbnail: "https://img.youtube.com/vi/mY3lX6iAxq8/mqdefault.jpg"
       },
       {
-        title: "ALONENESS TO ONENESS - Best Life Changing Spiritual Documentary Film",
-        description: "Expand your awareness and dissolve creative blocks.",
-        url: "https://www.youtube.com/watch?v=lu8m5FA2nL8",
-        thumbnail: "https://img.youtube.com/vi/lu8m5FA2nL8/mqdefault.jpg"
+        title: "Flow - Day 24 - Create",
+        description: "Unlock creativity through intuitive movement and mindful presence.",
+        url: "https://www.youtube.com/watch?v=49M4lpWZspo",
+        thumbnail: "https://img.youtube.com/vi/49M4lpWZspo/mqdefault.jpg"
       },
       {
-        title: "The Most Important Spiritual Practice | Eckhart Tolle Teachings",
-        description: "Presence as the gateway to inspiration.",
-        url: "https://www.youtube.com/watch?v=d-diB65scQU",
-        thumbnail: "https://img.youtube.com/vi/d-diB65scQU/mqdefault.jpg"
+        title: "Awaken The Artist Within | Yoga With Adriene",
+        description: "Tap into your creative energy with this warming flow for artistic expression.",
+        url: "https://www.youtube.com/watch?v=twDBxdmjCA8",
+        thumbnail: "https://img.youtube.com/vi/twDBxdmjCA8/mqdefault.jpg"
       }
     ]
   },
@@ -212,22 +206,22 @@ const meditationCategories = [
     color: "bg-violet-500/10 text-violet-600",
     videos: [
       {
-        title: "Best 10 Min Guided Meditation | Master Your Mind To Transform Your Life",
-        description: "Set intentions and visualize your next chapter.",
-        url: "https://www.youtube.com/watch?v=itZMM5gCboo",
-        thumbnail: "https://img.youtube.com/vi/itZMM5gCboo/mqdefault.jpg"
+        title: "15 MIN Guided Meditation For Manifestation & Success",
+        description: "Boho Beautiful's powerful meditation to manifest success and inner fire.",
+        url: "https://www.youtube.com/watch?v=APvLO3uXLnE",
+        thumbnail: "https://img.youtube.com/vi/APvLO3uXLnE/mqdefault.jpg"
       },
       {
-        title: "ALONENESS TO ONENESS - Best Life Changing Spiritual Documentary Film",
-        description: "Step into unity and limitless potential.",
-        url: "https://www.youtube.com/watch?v=lu8m5FA2nL8",
-        thumbnail: "https://img.youtube.com/vi/lu8m5FA2nL8/mqdefault.jpg"
+        title: "Guided Meditation For Powerful Positivity",
+        description: "10-minute Boho Beautiful meditation for peace, focus, and positive energy.",
+        url: "https://www.youtube.com/watch?v=-Tb1lR8Z5oM",
+        thumbnail: "https://img.youtube.com/vi/-Tb1lR8Z5oM/mqdefault.jpg"
       },
       {
-        title: "Spiritual Talk That Everyone Needs to Hear",
-        description: "Expand your vision of what's possible.",
-        url: "https://www.youtube.com/watch?v=aAVPDYJwWuc",
-        thumbnail: "https://img.youtube.com/vi/aAVPDYJwWuc/mqdefault.jpg"
+        title: "Guided Meditation For Overcoming Fear & Shifting Reality",
+        description: "15-minute practice to overcome fear and step into your desired reality.",
+        url: "https://www.youtube.com/watch?v=DZ3Vc_72TJE",
+        thumbnail: "https://img.youtube.com/vi/DZ3Vc_72TJE/mqdefault.jpg"
       }
     ]
   }
