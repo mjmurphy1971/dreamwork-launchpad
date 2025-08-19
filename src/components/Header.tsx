@@ -84,9 +84,21 @@ const Header = () => {
             <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
               Meditation Practices
             </a>
-            <a href="/homeopathic-healing" className="text-foreground hover:text-primary transition-gentle">
-              Homeopathy Resources
-            </a>
+            <div className="relative group">
+              <span className="text-foreground hover:text-primary transition-gentle cursor-pointer">
+                Natural Healing
+              </span>
+              <div className="absolute top-full left-0 mt-2 w-64 bg-background border border-border/50 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="p-2">
+                  <a href="/natural-healing/homeopathy" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    🌿 Homeopathy Resources
+                  </a>
+                  <a href="/natural-healing/herbology" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    🌱 Herbology Resources
+                  </a>
+                </div>
+              </div>
+            </div>
             <a href="/about" className="text-foreground hover:text-primary transition-gentle">
               About
             </a>
@@ -170,9 +182,15 @@ const Header = () => {
               <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
                 Meditation Practices
               </a>
-              <a href="/homeopathic-healing" className="text-foreground hover:text-primary transition-gentle">
-                Homeopathy Resources
-              </a>
+              <div className="border-l-2 border-primary/20 pl-4">
+                <span className="text-sm font-semibold text-muted-foreground mb-2 block">Natural Healing</span>
+                <a href="/natural-healing/homeopathy" className="block py-1 text-foreground hover:text-primary transition-gentle">
+                  🌿 Homeopathy Resources
+                </a>
+                <a href="/natural-healing/herbology" className="block py-1 text-foreground hover:text-primary transition-gentle">
+                  🌱 Herbology Resources
+                </a>
+              </div>
               <a href="/about" className="text-foreground hover:text-primary transition-gentle">
                 About
               </a>

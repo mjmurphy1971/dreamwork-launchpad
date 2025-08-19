@@ -131,9 +131,15 @@ const Footer = () => {
                   Meditation Practices
                 </a>
               </li>
+              <li className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wide pt-2">Natural Healing</li>
               <li>
-                <a href="/homeopathic-healing" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  Homeopathy Resources
+                <a href="/natural-healing/homeopathy" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle text-sm">
+                  🌿 Homeopathy Resources
+                </a>
+              </li>
+              <li>
+                <a href="/natural-healing/herbology" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle text-sm">
+                  🌱 Herbology Resources
                 </a>
               </li>
               <li>

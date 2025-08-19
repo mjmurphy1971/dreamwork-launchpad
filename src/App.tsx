@@ -10,6 +10,7 @@ import Meditation from "./pages/Meditation";
 import Vlogs from "./pages/Vlogs";
 import Breathwork from "./pages/Breathwork";
 import HomeopathicHealing from "./pages/HomeopathicHealing";
+import Herbology from "./pages/Herbology";
 import WeeklyStillness from "./pages/WeeklyStillness";
 import MorningRituals from "./pages/MorningRituals";
 import WorkTransitions from "./pages/WorkTransitions";
@@ -40,6 +41,9 @@ const App = () => {
             <Route path="/meditation" element={<Meditation />} />
             <Route path="/breathwork" element={<Breathwork />} />
             <Route path="/vlogs" element={<Vlogs />} />
+            <Route path="/natural-healing/homeopathy" element={<HomeopathicHealing />} />
+            <Route path="/natural-healing/herbology" element={<Herbology />} />
+            {/* Legacy route redirect */}
             <Route path="/homeopathic-healing" element={<HomeopathicHealing />} />
             <Route path="/weekly-stillness" element={<WeeklyStillness />} />
             <Route path="/morning-rituals" element={<MorningRituals />} />
