@@ -367,9 +367,11 @@ const Meditation = () => {
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
-                              window.open(video.url, '_blank');
+                              e.preventDefault();
+                              window.open(video.url, '_blank', 'noopener,noreferrer');
                             }}
-                            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer"
+                            type="button"
                           >
                             <Play className="w-3 h-3 mr-1" />
                             Watch Video
