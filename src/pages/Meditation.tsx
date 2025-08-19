@@ -308,106 +308,56 @@ const Meditation = () => {
                     <Card
                       key={index}
                       className="overflow-hidden shadow-card border-0 bg-card hover:shadow-card-hover transition-smooth group cursor-pointer transform hover:-translate-y-1"
+                      onClick={() => window.open(video.url, '_blank', 'noopener,noreferrer')}
                     >
-                      <div 
-                        onClick={(e) => {
-                          e.preventDefault();
-                          window.open(video.url, '_blank', 'noopener,noreferrer');
-                        }}
-                        className="cursor-pointer"
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            window.open(video.url, '_blank', 'noopener,noreferrer');
-                          }
-                        }}
-                      >
-                        <CardHeader className="p-0">
-                          <div className="relative overflow-hidden">
-                            <img
-                              src={video.thumbnail}
-                              alt={video.title}
-                              className="w-full h-48 object-cover group-hover:scale-105 transition-smooth"
-                              onError={(e) => {
-                                e.currentTarget.src = '/placeholder.svg';
-                              }}
-                            />
-                            <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-smooth">
-                              <button 
-                                className="bg-white/20 backdrop-blur-sm rounded-full p-3 cursor-pointer hover:bg-white/30 transition-colors"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  e.preventDefault();
-                                  window.open(video.url, '_blank', 'noopener,noreferrer');
-                                }}
-                                type="button"
-                                aria-label="Play video"
-                              >
-                                <Play className="w-8 h-8 text-white" />
-                              </button>
-                            </div>
-                            <div className="absolute top-3 right-3">
-                              <Badge variant="secondary" className="bg-black/50 text-white border-0 text-xs">
-                                YouTube
-                              </Badge>
+                      <CardHeader className="p-0">
+                        <div className="relative overflow-hidden">
+                          <img
+                            src={video.thumbnail}
+                            alt={video.title}
+                            className="w-full h-48 object-cover group-hover:scale-105 transition-smooth"
+                            onError={(e) => {
+                              e.currentTarget.src = '/placeholder.svg';
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-smooth">
+                            <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                              <Play className="w-8 h-8 text-white" />
                             </div>
                           </div>
-                        </CardHeader>
-                        
-                        <CardContent className="p-6">
-                          <h4 className="font-heading font-semibold text-lg text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-gentle">
-                            {video.title}
-                          </h4>
-                          <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                            {video.description}
-                          </p>
-                          {(video as any).creator && (
-                            <p className="text-xs text-muted-foreground mt-2 italic">
-                              By{' '}
-                              <a 
-                                href={(video as any).creatorLink} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="text-primary hover:underline"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  e.preventDefault();
-                                  window.open((video as any).creatorLink, '_blank');
-                                }}
-                              >
-                                {(video as any).creator}
-                              </a>
-                            </p>
-                          )}
-                        </CardContent>
-                      </div>
+                          <div className="absolute top-3 right-3">
+                            <Badge variant="secondary" className="bg-black/50 text-white border-0 text-xs">
+                              YouTube
+                            </Badge>
+                          </div>
+                        </div>
+                      </CardHeader>
                       
-                      {/* Interactive elements outside the main clickable area */}
-                      <div className="px-6 pb-6 pt-0">
-                        <div className="flex gap-2 flex-wrap">
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              e.preventDefault();
-                              window.open(video.url, '_blank', 'noopener,noreferrer');
-                            }}
-                            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer"
-                            type="button"
-                          >
+                      <CardContent className="p-6">
+                        <h4 className="font-heading font-semibold text-lg text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-gentle">
+                          {video.title}
+                        </h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                          {video.description}
+                        </p>
+                        
+                        <div className="mt-4 flex gap-2 flex-wrap items-center">
+                          <Badge variant="outline" className="text-xs">
                             <Play className="w-3 h-3 mr-1" />
-                            Watch Video
-                          </button>
-                          <div onClick={(e) => e.stopPropagation()}>
+                            Click to Watch
+                          </Badge>
+                          <div 
+                            onClick={(e) => e.stopPropagation()}
+                            className="flex-shrink-0"
+                          >
                             <TextToSpeech 
                               text={video.description}
-                              buttonText="Listen"
-                              className="text-xs"
+                              buttonText="🔊"
+                              className="text-xs p-1"
                             />
                           </div>
                         </div>
-                      </div>
+                      </CardContent>
                     </Card>
                   ))}
                 </div>
