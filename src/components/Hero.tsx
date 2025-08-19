@@ -18,9 +18,13 @@ const Hero = () => {
       {/* Hero Content */}
       <div className="relative z-10 text-center text-white px-4">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">
-            The Dream Work
-          </h1>
+          <div className="w-24 h-24 mx-auto mb-6">
+            <div className="w-full h-full rounded-full border-2 border-white/50 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center">
+                <div className="w-2 h-2 bg-white/70 rounded-full"></div>
+              </div>
+            </div>
+          </div>
           <p className="text-xl md:text-2xl mb-4 font-script">
             Heal the Vibe, <span className="font-semibold">Live the Dream</span>
           </p>
