@@ -7,12 +7,65 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Define searchable content from all pages (same as Hero component)
+  const searchableContent = [
+    { path: '/meditation', page: 'Meditation Practices', keywords: ['meditation', 'mindfulness', 'breathing', 'peace', 'calm', 'stress', 'anxiety', 'focus', 'awareness'] },
+    { path: '/breathwork', page: 'Breathwork', keywords: ['breathwork', 'breathing', 'pranayama', 'breath', 'respiratory', 'oxygen', 'calm', 'anxiety', 'stress'] },
+    { path: '/natural-healing/homeopathy', page: 'Homeopathy', keywords: ['homeopathy', 'natural', 'healing', 'remedies', 'depression', 'anxiety', 'stress', 'holistic', 'alternative'] },
+    { path: '/natural-healing/herbology', page: 'Herbology', keywords: ['herbology', 'herbs', 'natural', 'healing', 'depression', 'anxiety', 'stress', 'botanical', 'plant medicine'] },
+    { path: '/weekly-stillness', page: 'Weekly Stillness', keywords: ['stillness', 'weekly', 'practice', 'meditation', 'quiet', 'peace', 'reflection'] },
+    { path: '/morning-rituals', page: 'Morning Rituals', keywords: ['morning', 'rituals', 'routine', 'start', 'day', 'meditation', 'practice'] },
+    { path: '/work-transitions', page: 'Work Transitions', keywords: ['work', 'transitions', 'stress', 'workplace', 'mindfulness', 'balance', 'career'] },
+    { path: '/evening-winddowns', page: 'Evening Winddowns', keywords: ['evening', 'winddown', 'sleep', 'relaxation', 'night', 'rest', 'calm'] },
+    { path: '/dream-journal', page: 'Dream Journal', keywords: ['dream', 'journal', 'dreams', 'sleep', 'subconscious', 'reflection'] },
+    { path: '/oracle-cards', page: 'Oracle Cards', keywords: ['oracle', 'cards', 'divination', 'guidance', 'spiritual', 'intuition'] },
+    { path: '/thought-bubbles', page: 'Thought Bubbles', keywords: ['thought', 'bubbles', 'anxiety', 'depression', 'mental', 'thoughts', 'mindfulness'] },
+    { path: '/singing-bowls', page: 'Singing Bowls', keywords: ['singing', 'bowls', 'sound', 'therapy', 'meditation', 'healing', 'vibration'] },
+    { path: '/gratitude-garden', page: 'Gratitude Garden', keywords: ['gratitude', 'garden', 'thankfulness', 'appreciation', 'positive', 'depression', 'mood'] },
+    { path: '/chakra-balancing', page: 'Chakra Balancing', keywords: ['chakra', 'balancing', 'energy', 'spiritual', 'healing', 'meditation'] },
+    { path: '/mindful-coloring', page: 'Mindful Coloring', keywords: ['mindful', 'coloring', 'art', 'creativity', 'meditation', 'stress', 'anxiety', 'relaxation'] },
+    { path: '/blog', page: 'Blog', keywords: ['blog', 'articles', 'posts', 'meditation', 'mindfulness', 'spiritual', 'healing'] },
+    { path: '/vlogs', page: 'Vlogs', keywords: ['vlogs', 'videos', 'meditation', 'spiritual', 'guidance', 'practice'] }
+  ];
+  
+  const handleSearch = () => {
+    if (!searchQuery.trim()) return;
+    
+    const searchTermLower = searchQuery.toLowerCase();
+    
+    // Find pages that contain the search term
+    const matchingPages = searchableContent.filter(content => 
+      content.keywords.some(keyword => keyword.includes(searchTermLower)) ||
+      content.page.toLowerCase().includes(searchTermLower)
+    );
+    
+    if (matchingPages.length > 0) {
+      // Navigate to the first matching page
+      const targetPage = matchingPages[0];
+      window.location.href = targetPage.path + `?search=${encodeURIComponent(searchQuery)}`;
+    } else {
+      // Fallback to Google site search
+      const searchQueryEncoded = encodeURIComponent(searchQuery.trim());
+      window.open(`https://www.google.com/search?q=site:${window.location.hostname} ${searchQueryEncoded}`, '_blank');
+    }
+  };
+
+  const handleSearchKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
+  const handleLogoClick = () => {
+    window.location.href = '/';
+  };
+
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-border/50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition-gentle" onClick={handleLogoClick}>
             <img 
               src="/lovable-uploads/85401e36-bc0d-4dac-bede-13f273db1297.png" 
               alt="The Dream Work Logo" 
@@ -108,15 +161,24 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             {/* Search */}
             <div className="hidden sm:flex items-center space-x-2">
-              <div className="relative">
+              <div className="relative flex items-center">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
                 <Input
                   type="text"
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 w-48 bg-muted/50 border-border/50 focus:bg-background transition-gentle"
+                  onKeyPress={handleSearchKeyPress}
+                  className="pl-10 pr-16 w-48 bg-muted/50 border-border/50 focus:bg-background transition-gentle"
                 />
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleSearch}
+                  className="absolute right-1 top-1/2 transform -translate-y-1/2 h-6 px-2 text-xs"
+                >
+                  Go
+                </Button>
               </div>
             </div>
 
@@ -196,15 +258,24 @@ const Header = () => {
               </a>
               
               {/* Mobile Search */}
-              <div className="relative sm:hidden">
+              <div className="relative sm:hidden flex items-center">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
                 <Input
                   type="text"
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-muted/50 border-border/50 focus:bg-background transition-gentle"
+                  onKeyPress={handleSearchKeyPress}
+                  className="pl-10 pr-16 bg-muted/50 border-border/50 focus:bg-background transition-gentle"
                 />
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleSearch}
+                  className="absolute right-1 top-1/2 transform -translate-y-1/2 h-6 px-2 text-xs"
+                >
+                  Go
+                </Button>
               </div>
             </div>
           </nav>
