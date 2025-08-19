@@ -305,72 +305,67 @@ const Meditation = () => {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {category.videos.map((video, index) => (
-                    <Card
+                    <div
                       key={index}
-                      className="overflow-hidden shadow-card border-0 bg-card hover:shadow-card-hover transition-smooth group transform hover:-translate-y-1"
+                      className="overflow-hidden shadow-card border-0 bg-card hover:shadow-card-hover transition-smooth group transform hover:-translate-y-1 rounded-lg border cursor-pointer"
+                      onClick={() => {
+                        console.log('Card clicked, opening:', video.url);
+                        window.open(video.url, '_blank', 'noopener,noreferrer');
+                      }}
                     >
-                      {/* Make entire card a clickable link */}
-                      <a 
-                        href={video.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block cursor-pointer text-inherit hover:no-underline group-hover:no-underline no-underline"
-                        onClick={(e) => {
-                          console.log('Clicking video link:', video.url);
-                          // Let the browser handle the link naturally
-                        }}
-                      >
-                        <CardHeader className="p-0">
-                          <div className="relative overflow-hidden">
-                            <img
-                              src={video.thumbnail}
-                              alt={video.title}
-                              className="w-full h-48 object-cover group-hover:scale-105 transition-smooth"
-                              onError={(e) => {
-                                e.currentTarget.src = '/placeholder.svg';
-                              }}
-                            />
-                            <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-smooth">
-                              <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
-                                <Play className="w-8 h-8 text-white" />
-                              </div>
-                            </div>
-                            <div className="absolute top-3 right-3">
-                              <Badge variant="secondary" className="bg-black/50 text-white border-0 text-xs">
-                                YouTube
-                              </Badge>
+                      <div className="p-0">
+                        <div className="relative overflow-hidden">
+                          <img
+                            src={video.thumbnail}
+                            alt={video.title}
+                            className="w-full h-48 object-cover group-hover:scale-105 transition-smooth"
+                            onError={(e) => {
+                              e.currentTarget.src = '/placeholder.svg';
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-smooth">
+                            <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                              <Play className="w-8 h-8 text-white" />
                             </div>
                           </div>
-                        </CardHeader>
-                        
-                        <CardContent className="p-6">
-                          <h4 className="font-heading font-semibold text-lg text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-gentle">
-                            {video.title}
-                          </h4>
-                          <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                            {video.description}
-                          </p>
-                          
-                          <div className="mt-4 flex gap-2 flex-wrap items-center">
-                            <Badge variant="outline" className="text-xs">
-                              <Play className="w-3 h-3 mr-1" />
-                              Watch on YouTube
+                          <div className="absolute top-3 right-3">
+                            <Badge variant="secondary" className="bg-black/50 text-white border-0 text-xs">
+                              YouTube
                             </Badge>
                           </div>
-                        </CardContent>
-                      </a>
-                      
-                      {/* Text-to-speech button - separate from main link */}
-                      <div className="px-6 pb-4">
-                        <div onClick={(e) => e.stopPropagation()}>
-                          <TextToSpeech 
-                            text={video.description}
-                            buttonText="🔊 Listen to description"
-                            className="text-xs"
-                          />
                         </div>
                       </div>
-                    </Card>
+                      
+                      <div className="p-6">
+                        <h4 className="font-heading font-semibold text-lg text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-gentle">
+                          {video.title}
+                        </h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3 mb-4">
+                          {video.description}
+                        </p>
+                        
+                        <div className="flex gap-2 flex-wrap items-center">
+                          <Badge variant="outline" className="text-xs">
+                            <Play className="w-3 h-3 mr-1" />
+                            Watch on YouTube
+                          </Badge>
+                          
+                          <div 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              e.preventDefault();
+                            }}
+                            className="flex-shrink-0"
+                          >
+                            <TextToSpeech 
+                              text={video.description}
+                              buttonText="🔊"
+                              className="text-xs"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>

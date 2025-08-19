@@ -26,55 +26,32 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
       setIsGenerating(true);
       toast("Generating audio...", { duration: 2000 });
 
-      // Use Supabase Edge Function for text-to-speech
-      const response = await fetch('/supabase/functions/v1/text-to-speech', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          text: text.substring(0, 500), // Limit text length
-          voice_id: voiceId,
-          model_id: "eleven_multilingual_v2"
-        }),
-      });
+      // Use browser's built-in speech synthesis as fallback
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text.substring(0, 200));
+        utterance.rate = 0.8;
+        utterance.pitch = 1;
+        utterance.volume = 0.8;
+        
+        utterance.onend = () => {
+          setIsPlaying(false);
+          setIsGenerating(false);
+        };
+        
+        utterance.onerror = () => {
+          setIsPlaying(false);
+          setIsGenerating(false);
+          toast.error("Speech synthesis failed");
+        };
 
-      console.log('Response status:', response.status);
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Text-to-speech API error response:', errorText);
-        throw new Error(`API returned ${response.status}: ${errorText}`);
+        setIsGenerating(false);
+        setIsPlaying(true);
+        window.speechSynthesis.speak(utterance);
+        toast.success("Playing audio");
+        return;
       }
 
-      console.log('Getting audio blob...');
-      const audioBlob = await response.blob();
-      console.log('Audio blob size:', audioBlob.size);
-      
-      if (audioBlob.size === 0) {
-        throw new Error('Received empty audio response');
-      }
-      
-      const audioUrl = URL.createObjectURL(audioBlob);
-      const newAudio = new Audio(audioUrl);
-      
-      newAudio.onended = () => {
-        setIsPlaying(false);
-        URL.revokeObjectURL(audioUrl);
-      };
-      
-      newAudio.onerror = (e) => {
-        console.error('Audio playback error:', e);
-        setIsPlaying(false);
-        toast.error("Failed to play audio");
-        URL.revokeObjectURL(audioUrl);
-      };
-
-      setAudio(newAudio);
-      setIsGenerating(false);
-      setIsPlaying(true);
-      await newAudio.play();
-      toast.success("Playing audio");
+      throw new Error('Speech synthesis not supported');
       
     } catch (error) {
       console.error('Detailed error in generateAndPlayAudio:', error);
