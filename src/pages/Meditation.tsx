@@ -314,7 +314,11 @@ const Meditation = () => {
                         href={video.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block cursor-pointer text-inherit no-underline"
+                        className="block cursor-pointer text-inherit hover:no-underline group-hover:no-underline no-underline"
+                        onClick={(e) => {
+                          console.log('Clicking video link:', video.url);
+                          // Let the browser handle the link naturally
+                        }}
                       >
                         <CardHeader className="p-0">
                           <div className="relative overflow-hidden">

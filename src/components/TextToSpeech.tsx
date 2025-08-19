@@ -26,40 +26,34 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
       setIsGenerating(true);
       toast("Generating audio...", { duration: 2000 });
 
-      console.log('Making request to ElevenLabs API with text:', text.substring(0, 50) + '...');
-      
-      // Use ElevenLabs API directly
-      const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
+      // Use Supabase Edge Function for text-to-speech
+      const response = await fetch('/supabase/functions/v1/text-to-speech', {
         method: 'POST',
         headers: {
-          'Accept': 'audio/mpeg',
           'Content-Type': 'application/json',
-          'xi-api-key': process.env.ELEVENLABS_API_KEY || 'sk_c2913beefb5f7c6eccc4590ac552f10b0d23e592929e8118',
         },
         body: JSON.stringify({
-          text,
-          model_id: "eleven_multilingual_v2",
-          voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.8,
-            style: 0.2,
-            use_speaker_boost: true
-          }
+          text: text.substring(0, 500), // Limit text length
+          voice_id: voiceId,
+          model_id: "eleven_multilingual_v2"
         }),
       });
 
       console.log('Response status:', response.status);
-      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.error('ElevenLabs API error response:', errorText);
+        console.error('Text-to-speech API error response:', errorText);
         throw new Error(`API returned ${response.status}: ${errorText}`);
       }
 
       console.log('Getting audio blob...');
       const audioBlob = await response.blob();
       console.log('Audio blob size:', audioBlob.size);
+      
+      if (audioBlob.size === 0) {
+        throw new Error('Received empty audio response');
+      }
       
       const audioUrl = URL.createObjectURL(audioBlob);
       const newAudio = new Audio(audioUrl);
@@ -69,7 +63,8 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
         URL.revokeObjectURL(audioUrl);
       };
       
-      newAudio.onerror = () => {
+      newAudio.onerror = (e) => {
+        console.error('Audio playback error:', e);
         setIsPlaying(false);
         toast.error("Failed to play audio");
         URL.revokeObjectURL(audioUrl);
@@ -83,9 +78,6 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
       
     } catch (error) {
       console.error('Detailed error in generateAndPlayAudio:', error);
-      console.error('Error name:', error.name);
-      console.error('Error message:', error.message);
-      console.error('Error stack:', error.stack);
       toast.error(`Audio generation failed: ${error.message}`);
       setIsGenerating(false);
       setIsPlaying(false);
@@ -126,50 +118,40 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
   };
 
   return (
-    <div className={`flex gap-2 ${className}`}>
+    <div className={`flex gap-1 ${className}`}>
       <Button
         onClick={playAudio}
-        variant="outline"
+        variant="ghost"
         size="sm"
         disabled={isGenerating}
+        className="h-6 px-2 text-xs"
       >
         {isGenerating ? (
           <>
-            <Volume2 className="w-4 h-4 animate-pulse" />
-            Generating...
+            <Volume2 className="w-3 h-3 animate-pulse" />
           </>
         ) : isPlaying ? (
           <>
-            <Pause className="w-4 h-4" />
-            Pause
+            <Pause className="w-3 h-3" />
           </>
         ) : (
           <>
-            <Play className="w-4 h-4" />
-            {buttonText}
+            <Play className="w-3 h-3" />
           </>
         )}
+        <span className="ml-1">{buttonText}</span>
       </Button>
       
-      {audio && (
-        <>
-          <Button
-            onClick={stopAudio}
-            variant="outline"
-            size="sm"
-            disabled={isGenerating}
-          >
-            <Square className="w-4 h-4" />
-          </Button>
-          <Button
-            onClick={replayAudio}
-            variant="outline"
-            size="sm"
-            disabled={isGenerating}
-          >
-            <RotateCcw className="w-4 h-4" />
-          </Button>
-        </>
+      {audio && isPlaying && (
+        <Button
+          onClick={stopAudio}
+          variant="ghost"
+          size="sm"
+          disabled={isGenerating}
+          className="h-6 px-1"
+        >
+          <Square className="w-3 h-3" />
+        </Button>
       )}
     </div>
   );
