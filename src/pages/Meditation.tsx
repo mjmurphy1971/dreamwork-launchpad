@@ -321,9 +321,18 @@ const Meditation = () => {
                               }}
                             />
                             <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-smooth">
-                              <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                              <button 
+                                className="bg-white/20 backdrop-blur-sm rounded-full p-3 cursor-pointer hover:bg-white/30 transition-colors"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  e.preventDefault();
+                                  window.open(video.url, '_blank', 'noopener,noreferrer');
+                                }}
+                                type="button"
+                                aria-label="Play video"
+                              >
                                 <Play className="w-8 h-8 text-white" />
-                              </div>
+                              </button>
                             </div>
                             <div className="absolute top-3 right-3">
                               <Badge variant="secondary" className="bg-black/50 text-white border-0 text-xs">
