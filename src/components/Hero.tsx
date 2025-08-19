@@ -12,15 +12,11 @@ const Hero = () => {
           alt="The Dream Work - Heal the Vibe, Live the Dream"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/30"></div>
       </div>
       
       {/* Hero Content */}
       <div className="relative z-10 text-center text-white px-4">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">
-            The Dream Work
-          </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
             Transform your consciousness through guided meditation, dream work, and spiritual practices. 
             Join our community of seekers on the journey to inner peace and mindful living.
