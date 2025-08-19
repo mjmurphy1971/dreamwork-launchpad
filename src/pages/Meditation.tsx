@@ -7,6 +7,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { TextToSpeech } from "@/components/TextToSpeech";
 import { GuidedAudioSession } from "@/components/GuidedAudioSession";
+import { useEffect } from "react";
+import { highlightSearchTerm, getSearchTermFromURL } from "@/utils/searchHighlight";
 
 const meditationCategories = [
   {
@@ -223,6 +225,16 @@ const meditationCategories = [
 
 const Meditation = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  
+  useEffect(() => {
+    const searchTerm = getSearchTermFromURL();
+    if (searchTerm) {
+      // Delay highlighting to ensure content is rendered
+      setTimeout(() => {
+        highlightSearchTerm(searchTerm);
+      }, 500);
+    }
+  }, []);
 
   const filteredCategories = selectedCategory 
     ? meditationCategories.filter(cat => cat.id === selectedCategory)

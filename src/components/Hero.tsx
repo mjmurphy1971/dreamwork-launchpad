@@ -6,9 +6,44 @@ import { useState } from "react";
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
   
+  // Define searchable content from all pages
+  const searchableContent = [
+    { path: '/meditation', page: 'Meditation Practices', keywords: ['meditation', 'mindfulness', 'breathing', 'peace', 'calm', 'stress', 'anxiety', 'focus', 'awareness'] },
+    { path: '/breathwork', page: 'Breathwork', keywords: ['breathwork', 'breathing', 'pranayama', 'breath', 'respiratory', 'oxygen', 'calm', 'anxiety', 'stress'] },
+    { path: '/natural-healing/homeopathy', page: 'Homeopathy', keywords: ['homeopathy', 'natural', 'healing', 'remedies', 'depression', 'anxiety', 'stress', 'holistic', 'alternative'] },
+    { path: '/natural-healing/herbology', page: 'Herbology', keywords: ['herbology', 'herbs', 'natural', 'healing', 'depression', 'anxiety', 'stress', 'botanical', 'plant medicine'] },
+    { path: '/weekly-stillness', page: 'Weekly Stillness', keywords: ['stillness', 'weekly', 'practice', 'meditation', 'quiet', 'peace', 'reflection'] },
+    { path: '/morning-rituals', page: 'Morning Rituals', keywords: ['morning', 'rituals', 'routine', 'start', 'day', 'meditation', 'practice'] },
+    { path: '/work-transitions', page: 'Work Transitions', keywords: ['work', 'transitions', 'stress', 'workplace', 'mindfulness', 'balance', 'career'] },
+    { path: '/evening-winddowns', page: 'Evening Winddowns', keywords: ['evening', 'winddown', 'sleep', 'relaxation', 'night', 'rest', 'calm'] },
+    { path: '/dream-journal', page: 'Dream Journal', keywords: ['dream', 'journal', 'dreams', 'sleep', 'subconscious', 'reflection'] },
+    { path: '/oracle-cards', page: 'Oracle Cards', keywords: ['oracle', 'cards', 'divination', 'guidance', 'spiritual', 'intuition'] },
+    { path: '/thought-bubbles', page: 'Thought Bubbles', keywords: ['thought', 'bubbles', 'anxiety', 'depression', 'mental', 'thoughts', 'mindfulness'] },
+    { path: '/singing-bowls', page: 'Singing Bowls', keywords: ['singing', 'bowls', 'sound', 'therapy', 'meditation', 'healing', 'vibration'] },
+    { path: '/gratitude-garden', page: 'Gratitude Garden', keywords: ['gratitude', 'garden', 'thankfulness', 'appreciation', 'positive', 'depression', 'mood'] },
+    { path: '/chakra-balancing', page: 'Chakra Balancing', keywords: ['chakra', 'balancing', 'energy', 'spiritual', 'healing', 'meditation'] },
+    { path: '/mindful-coloring', page: 'Mindful Coloring', keywords: ['mindful', 'coloring', 'art', 'creativity', 'meditation', 'stress', 'anxiety', 'relaxation'] },
+    { path: '/blog', page: 'Blog', keywords: ['blog', 'articles', 'posts', 'meditation', 'mindfulness', 'spiritual', 'healing'] },
+    { path: '/vlogs', page: 'Vlogs', keywords: ['vlogs', 'videos', 'meditation', 'spiritual', 'guidance', 'practice'] }
+  ];
+  
   const handleSearch = () => {
-    if (searchTerm.trim()) {
-      // Simple site search - you can enhance this with more sophisticated search logic
+    if (!searchTerm.trim()) return;
+    
+    const searchTermLower = searchTerm.toLowerCase();
+    
+    // Find pages that contain the search term
+    const matchingPages = searchableContent.filter(content => 
+      content.keywords.some(keyword => keyword.includes(searchTermLower)) ||
+      content.page.toLowerCase().includes(searchTermLower)
+    );
+    
+    if (matchingPages.length > 0) {
+      // Navigate to the first matching page
+      const targetPage = matchingPages[0];
+      window.location.href = targetPage.path + `?search=${encodeURIComponent(searchTerm)}`;
+    } else {
+      // Fallback to Google site search
       const searchQuery = encodeURIComponent(searchTerm.trim());
       window.open(`https://www.google.com/search?q=site:${window.location.hostname} ${searchQuery}`, '_blank');
     }
@@ -62,10 +97,10 @@ const Hero = () => {
                   <Button 
                     variant="outline" 
                     size="lg" 
-                    className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
+                    className="border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold"
                     onClick={handleSearch}
                   >
-                    <Search className="w-5 h-5" />
+                    <Search className="w-5 h-5 mr-2" />
                     Search
                   </Button>
                 </div>
