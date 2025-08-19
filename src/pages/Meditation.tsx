@@ -24,16 +24,22 @@ const meditationCategories = [
         thumbnail: "https://img.youtube.com/vi/ZToicYcHIOU/mqdefault.jpg"
       },
       {
+        title: "10 Minute Meditation to Release Stress & Anxiety",
+        description: "Body scan for total relaxation with positive affirmations—perfect for beginners.",
+        url: "https://www.youtube.com/watch?v=H_uc-uQ3Nkc",
+        thumbnail: "https://img.youtube.com/vi/H_uc-uQ3Nkc/mqdefault.jpg"
+      },
+      {
+        title: "15-Minute Guided Meditation | BREATHE IT AWAY | Relieve Anxiety and Stress",
+        description: "Visualize a tranquil mountainside lake where worries float away like dandelion seeds.",
+        url: "https://www.youtube.com/watch?v=mS80bIm1-Ps",
+        thumbnail: "https://img.youtube.com/vi/mS80bIm1-Ps/mqdefault.jpg"
+      },
+      {
         title: "5-Minute Meditation You Can Do Anywhere | Goodful",
         description: "Quick emotional reset—ideal for moments of overwhelm.",
         url: "https://www.youtube.com/watch?v=inpok4MKVLM", 
         thumbnail: "https://img.youtube.com/vi/inpok4MKVLM/mqdefault.jpg"
-      },
-      {
-        title: "10 MIN Guided Meditation To Clear Your Mind & Start New | Boho Beautiful",
-        description: "A soft invitation to release tension and begin again.",
-        url: "https://www.youtube.com/watch?v=g_tea8ZNk5A",
-        thumbnail: "https://img.youtube.com/vi/g_tea8ZNk5A/mqdefault.jpg"
       }
     ]
   },
@@ -70,10 +76,16 @@ const meditationCategories = [
     color: "bg-green-500/10 text-green-600",
     videos: [
       {
-        title: "Guided Mindfulness Meditation: Being the Boundless Awareness You Are",
-        description: "A spacious meditation to reconnect with your body and breath.",
-        url: "https://www.youtube.com/watch?v=cEqZthCaMpo",
-        thumbnail: "https://img.youtube.com/vi/cEqZthCaMpo/mqdefault.jpg"
+        title: "7-Minute Grounding Meditation | Calm Your Nervous System",
+        description: "Reconnect with your body, calm your nervous system, and feel grounded in the present moment.",
+        url: "https://www.youtube.com/watch?v=bxgu9nls5Nw",
+        thumbnail: "https://img.youtube.com/vi/bxgu9nls5Nw/mqdefault.jpg"
+      },
+      {
+        title: "10 Minute Grounding Guided Meditation",
+        description: "Release stress and restore balance by focusing on your breath and connection to the earth.",
+        url: "https://www.youtube.com/watch?v=Pwg8TYUFV9o",
+        thumbnail: "https://img.youtube.com/vi/Pwg8TYUFV9o/mqdefault.jpg"
       },
       {
         title: "Navigating Life's Challenges with Spiritual Awareness | Eckhart Tolle",
@@ -134,12 +146,10 @@ const meditationCategories = [
         thumbnail: "https://img.youtube.com/vi/d-diB65scQU/mqdefault.jpg"
       },
       {
-        title: "The Man That Makes Millionaires: How To Turn $1,000 Into $100 Million! (Diary of A CEO)",
-        description: "Life-changing insights from one of the world's top business minds. Start at 31:40 for powerful mindset transformation. Created by Steven Bartlett at The Diary of A CEO - honoring his incredible work in spreading wisdom and inspiration.",
-        url: "https://www.youtube.com/watch?v=TheDiaryOfACEO&t=1900",
-        thumbnail: "https://img.youtube.com/vi/TheDiaryOfACEO/mqdefault.jpg",
-        creator: "Steven Bartlett",
-        creatorLink: "https://www.youtube.com/@TheDiaryOfACEO"
+        title: "Morning Meditation for a Productive & Successful Day",
+        description: "A powerful 10-minute guided morning meditation to center your thoughts, set positive intentions, and align your energy for the day ahead.",
+        url: "https://www.youtube.com/watch?v=KEtgUahb8Qw",
+        thumbnail: "https://img.youtube.com/vi/KEtgUahb8Qw/mqdefault.jpg"
       }
     ]
   },
