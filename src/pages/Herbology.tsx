@@ -442,17 +442,19 @@ const Herbology = () => {
                           <h4 className="font-semibold text-foreground text-sm mb-2">Resources:</h4>
                           <div className="space-y-2">
                              {condition.resources.map((resource, i) => (
-                               <button
+                               <Button
                                  key={i}
+                                 variant="ghost"
+                                 size="sm"
                                  onClick={(e) => {
                                    e.stopPropagation();
                                    window.open(resource.url, '_blank');
                                  }}
-                                 className="flex items-center gap-2 text-xs text-primary hover:text-primary/80 transition-colors text-left"
+                                 className="flex items-center gap-2 text-xs text-primary hover:text-primary/80 transition-colors text-left h-auto p-1 justify-start"
                                >
                                  <ExternalLink className="w-3 h-3" />
                                  {resource.title} ({resource.type})
-                               </button>
+                               </Button>
                              ))}
                           </div>
                         </div>
