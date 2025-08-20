@@ -1,24 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Play, Pause, Volume2, Square, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
+import { Helmet } from 'react-helmet-async';
+import { createAudioSchema } from './SchemaMarkup';
+import { formatDuration } from '@/utils/seoHelpers';
 
 interface TextToSpeechProps {
   text: string;
   voiceId?: string;
   className?: string;
   buttonText?: string;
+  title?: string;
+  description?: string;
+  category?: string;
+  keywords?: string[];
+  includeSchema?: boolean;
 }
 
 export const TextToSpeech: React.FC<TextToSpeechProps> = ({ 
   text, 
   voiceId = "9BWtsMINqrJLrRacOk9x", // Aria voice (calm, meditative)
   className = "",
-  buttonText = "Listen"
+  buttonText = "Listen",
+  title,
+  description,
+  category = "Guided Audio",
+  keywords = ["meditation", "mindfulness", "audio guidance", "text to speech"],
+  includeSchema = false
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [audioDuration, setAudioDuration] = useState<number | null>(null);
+
+  // Generate schema for the audio content
+  const audioSchema = includeSchema && title ? createAudioSchema({
+    title: title,
+    description: description || text.substring(0, 160),
+    duration: audioDuration ? formatDuration(Math.ceil(audioDuration / 60)) : "PT5M",
+    contentUrl: "", // Will be generated dynamically
+    category,
+    keywords,
+    transcript: text
+  }) : null;
 
   const generateAndPlayAudio = async () => {
     try {
@@ -95,41 +120,52 @@ export const TextToSpeech: React.FC<TextToSpeechProps> = ({
   };
 
   return (
-    <div className={`flex gap-1 ${className}`}>
-      <Button
-        onClick={playAudio}
-        variant="ghost"
-        size="sm"
-        disabled={isGenerating}
-        className="h-6 px-2 text-xs"
-      >
-        {isGenerating ? (
-          <>
-            <Volume2 className="w-3 h-3 animate-pulse" />
-          </>
-        ) : isPlaying ? (
-          <>
-            <Pause className="w-3 h-3" />
-          </>
-        ) : (
-          <>
-            <Play className="w-3 h-3" />
-          </>
-        )}
-        <span className="ml-1">{buttonText}</span>
-      </Button>
-      
-      {audio && isPlaying && (
+    <>
+      {audioSchema && (
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify(audioSchema)}
+          </script>
+        </Helmet>
+      )}
+      <div className={`flex gap-1 ${className}`}>
         <Button
-          onClick={stopAudio}
+          onClick={playAudio}
           variant="ghost"
           size="sm"
           disabled={isGenerating}
-          className="h-6 px-1"
+          className="h-6 px-2 text-xs"
+          aria-label={isPlaying ? "Pause audio" : "Play audio"}
         >
-          <Square className="w-3 h-3" />
+          {isGenerating ? (
+            <>
+              <Volume2 className="w-3 h-3 animate-pulse" />
+            </>
+          ) : isPlaying ? (
+            <>
+              <Pause className="w-3 h-3" />
+            </>
+          ) : (
+            <>
+              <Play className="w-3 h-3" />
+            </>
+          )}
+          <span className="ml-1">{buttonText}</span>
         </Button>
-      )}
-    </div>
+        
+        {audio && isPlaying && (
+          <Button
+            onClick={stopAudio}
+            variant="ghost"
+            size="sm"
+            disabled={isGenerating}
+            className="h-6 px-1"
+            aria-label="Stop audio"
+          >
+            <Square className="w-3 h-3" />
+          </Button>
+        )}
+      </div>
+    </>
   );
 };

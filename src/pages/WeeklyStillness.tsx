@@ -7,6 +7,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PracticeTracker from "@/components/PracticeTracker";
+import SEO from "@/components/SEO";
+import { PracticeTrackerSchema } from "@/components/InteractiveToolsSchema";
+import { createHowToSchema } from "@/components/SchemaMarkup";
+import { baseKeywords } from "@/utils/seoHelpers";
 
 const WeeklyStillness = () => {
   const currentWeekPractices = [
@@ -14,9 +18,19 @@ const WeeklyStillness = () => {
       day: "Monday",
       practice: "Morning Breath Reset",
       duration: "2 minutes",
-      description: "Before checking your phone, take 10 deep breaths. Inhale for 4, hold for 4, exhale for 6.",
+      description: "Before checking your phone, take 10 deep breaths. Inhale for 4, hold for 4, exhale for 6. This practice activates the parasympathetic nervous system and sets a mindful tone for the day.",
       icon: <Sunrise className="w-6 h-6" />,
-      trigger: "When you first wake up"
+      trigger: "When you first wake up",
+      benefits: ["Reduces morning anxiety", "Improves focus", "Establishes mindful morning routine"],
+      instructions: [
+        "Keep your phone on airplane mode",
+        "Sit up in bed or at the edge",
+        "Place one hand on chest, one on belly",
+        "Inhale slowly for 4 counts",
+        "Hold breath gently for 4 counts", 
+        "Exhale completely for 6 counts",
+        "Repeat for 10 full cycles"
+      ]
     },
     {
       day: "Tuesday", 
@@ -91,8 +105,58 @@ const WeeklyStillness = () => {
     }
   ];
 
+  // Generate HowTo schemas for each practice
+  const practiceSchemas = currentWeekPractices.map(practice => 
+    practice.instructions ? createHowToSchema({
+      title: practice.practice,
+      description: practice.description,
+      steps: practice.instructions.map((instruction, index) => ({
+        name: `Step ${index + 1}`,
+        text: instruction
+      })),
+      totalTime: `PT${practice.duration.split(' ')[0]}M`,
+      category: "Mindfulness Practice"
+    }) : null
+  ).filter(Boolean);
+
+  const pageSchema = {
+    "@type": "CollectionPage",
+    "name": "Weekly Stillness Practices - Mindfulness Training",
+    "description": "Comprehensive collection of micro-mindfulness practices, meditation techniques, and stress-relief tools designed for busy lifestyles and daily integration.",
+    "hasPart": practiceSchemas,
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Micro-Meditation",
+        "description": "Short-duration mindfulness practices that fit into busy schedules"
+      },
+      {
+        "@type": "Thing",
+        "name": "Stress Management",
+        "description": "Evidence-based techniques for reducing stress and promoting mental wellness"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Habit Formation",
+        "description": "Systematic approach to building sustainable mindfulness habits"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Weekly Stillness Practices - Micro-Meditation & Mindfulness Training"
+        description="Transform busy moments into peaceful pauses with our curated collection of 1-5 minute mindfulness practices. Includes practice tracker, guided techniques, and habit-building tools for sustainable wellness."
+        keywords={[...baseKeywords, "micro-meditation", "stillness practices", "mindfulness habits", "stress relief techniques", "daily meditation", "work-life balance", "mental wellness"].join(", ")}
+        schemaType="CollectionPage"
+        schemaData={pageSchema}
+        breadcrumbs={[
+          { name: "Home", url: "https://www.thedreamwork.space/" },
+          { name: "Weekly Stillness", url: "https://www.thedreamwork.space/weekly-stillness" }
+        ]}
+      />
+      <PracticeTrackerSchema />
       <Header />
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}

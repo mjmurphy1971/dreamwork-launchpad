@@ -2,6 +2,9 @@ import { Play, Calendar, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Helmet } from "react-helmet-async";
+import { createVideoSchema } from "./SchemaMarkup";
+import { baseKeywords, formatDuration } from "@/utils/seoHelpers";
 import morningMeditationThumb from "@/assets/morning-meditation-thumb.jpg";
 import sacredSpaceThumb from "@/assets/sacred-space-thumb.jpg";
 import breathworkThumb from "@/assets/breathwork-thumb.jpg";
@@ -11,24 +14,30 @@ const vlogs = [
   {
     id: 1,
     title: "Morning Meditation: Finding Peace in 10 Minutes",
-    description: "Join me for a gentle morning meditation practice that will set a peaceful tone for your entire day.",
+    description: "Join me for a gentle morning meditation practice that will set a peaceful tone for your entire day. Learn breathing techniques, body awareness, and mindful intention setting.",
     thumbnail: morningMeditationThumb,
     duration: "12:34",
     views: "15.2K",
     publishedAt: "2024-08-14",
     category: "Guided Meditation",
     videoUrl: "https://www.youtube.com/watch?v=tOp-gbnyj3w",
+    videoId: "tOp-gbnyj3w",
+    transcript: "Welcome to this morning meditation practice. Find a comfortable seated position and begin to notice your breath. Take a deep inhale through the nose... and slowly exhale through the mouth. Let's set an intention for the day ahead. What quality would you like to cultivate today? Perhaps peace, compassion, or clarity. Hold that intention gently in your heart as we continue this practice together.",
+    keywords: ["morning meditation", "guided meditation", "daily practice", "mindfulness", "breathing technique"]
   },
   {
     id: 2,
     title: "Sacred Space Tour: Creating Your Meditation Corner",
-    description: "Take a tour of my personal meditation space and learn how to create your own sacred sanctuary at home.",
+    description: "Take a tour of my personal meditation space and learn how to create your own sacred sanctuary at home. Discover essential elements, arrangement tips, and energy clearing techniques.",
     thumbnail: sacredSpaceThumb,
     duration: "8:45",
     views: "8.7K",
     publishedAt: "2024-08-11",
     category: "Home & Space",
     videoUrl: "https://www.youtube.com/watch?v=kO5I0p3IuiQ",
+    videoId: "kO5I0p3IuiQ",
+    transcript: "Welcome to my sacred meditation space. This corner of my home has been carefully curated to support deep spiritual practice. Let me show you the essential elements: a comfortable cushion positioned facing east, crystals for energy amplification, plants for life force, and candles for ambiance. The key is creating a space that feels separate from everyday activities - a threshold between the mundane and the sacred.",
+    keywords: ["sacred space", "meditation room", "home sanctuary", "spiritual decor", "meditation setup"]
   },
   {
     id: 3,
@@ -55,8 +64,36 @@ const vlogs = [
 ];
 
 const VlogSection = () => {
+  // Generate schema for all videos
+  const videoSchemas = vlogs.map(vlog => createVideoSchema({
+    title: vlog.title,
+    description: vlog.description,
+    duration: formatDuration(Math.ceil(parseInt(vlog.duration.split(':')[0]) + parseInt(vlog.duration.split(':')[1])/60)),
+    uploadDate: vlog.publishedAt,
+    thumbnailUrl: typeof vlog.thumbnail === 'string' ? vlog.thumbnail : `https://img.youtube.com/vi/${vlog.videoId}/maxresdefault.jpg`,
+    embedUrl: `https://www.youtube.com/embed/${vlog.videoId}`,
+    category: vlog.category,
+    keywords: [...baseKeywords, ...(vlog.keywords || []), vlog.category.toLowerCase()]
+  }));
+
   return (
-    <section className="py-16 bg-background">
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Video Teachings Collection",
+            "description": "Curated collection of meditation and mindfulness video teachings",
+            "itemListElement": videoSchemas.map((schema, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": schema
+            }))
+          })}
+        </script>
+      </Helmet>
+      <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12 animate-fade-in">
@@ -206,8 +243,9 @@ const VlogSection = () => {
             </Button>
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };
 

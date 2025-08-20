@@ -6,32 +6,42 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { VideoTranscriptModal } from "@/components/VideoTranscriptModal";
+import { createVideoSchema } from "@/components/SchemaMarkup";
+import { baseKeywords, formatDuration } from "@/utils/seoHelpers";
 
-// Sample videos - Replace with your actual YouTube content
+// Enhanced video data with transcripts and detailed metadata for AI comprehension
 const vlogs = [
   {
     id: 1,
     title: "Morning Meditation Practice - Finding Peace in Daily Life",
-    description: "Join me for a gentle morning meditation session as I share insights on building a sustainable daily practice that brings peace and clarity to your everyday life.",
-    thumbnail: "https://img.youtube.com/vi/tOp-gbnyj3w/mqdefault.jpg", // Replace with actual video ID
-    videoUrl: "https://www.youtube.com/watch?v=tOp-gbnyj3w", // Replace with actual URL
+    description: "Join me for a gentle morning meditation session as I share insights on building a sustainable daily practice that brings peace and clarity to your everyday life. Learn breathing techniques, intention setting, and mindful awareness practices.",
+    thumbnail: "https://img.youtube.com/vi/tOp-gbnyj3w/mqdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=tOp-gbnyj3w",
+    videoId: "tOp-gbnyj3w",
     duration: "15:32",
     views: "2.1K",
     uploadDate: "2024-08-15",
     category: "Meditation",
-    featured: true
+    featured: true,
+    keywords: ["morning meditation", "daily practice", "mindfulness routine", "breathing techniques", "intention setting"],
+    transcript: "Welcome to this morning meditation practice. Today we'll explore how to create a sustainable daily practice that brings peace into your everyday life. Find a comfortable seated position, close your eyes, and begin to notice your breath. Take a deep inhale through the nose, feeling your belly expand, and slowly exhale through the mouth. As we settle into this practice, let's set an intention for the day ahead. What quality would you like to cultivate today? Perhaps patience, compassion, or clarity. Hold that intention gently in your heart as we continue together. Notice how your body feels in this moment - any areas of tension or relaxation. Breathe into any areas that feel tight or uncomfortable. This practice of morning meditation creates a foundation of awareness that carries throughout your day, helping you respond rather than react to life's challenges."
   },
   {
     id: 2,
     title: "Dream Journaling Tips - Unlocking Your Subconscious Wisdom",
-    description: "Discover practical techniques for keeping a dream journal and how to interpret the messages your subconscious mind is sending you each night.",
-    thumbnail: "https://img.youtube.com/vi/kO5I0p3IuiQ/mqdefault.jpg", // Replace with actual video ID
-    videoUrl: "https://www.youtube.com/watch?v=kO5I0p3IuiQ", // Replace with actual URL
+    description: "Discover practical techniques for keeping a dream journal and how to interpret the messages your subconscious mind is sending you each night. Learn symbol recognition, pattern tracking, and dream recall methods.",
+    thumbnail: "https://img.youtube.com/vi/kO5I0p3IuiQ/mqdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=kO5I0p3IuiQ",
+    videoId: "kO5I0p3IuiQ",
     duration: "22:18",
     views: "1.8K",
     uploadDate: "2024-08-10",
     category: "Dream Work",
-    featured: false
+    featured: false,
+    keywords: ["dream journal", "subconscious", "dream interpretation", "symbol analysis", "dream recall"],
+    transcript: "Welcome to this exploration of dream journaling. Dreams are one of the most profound ways our subconscious communicates with us, offering insights, healing, and guidance. Let me share some practical techniques for keeping a dream journal. First, keep your journal and a pen right by your bedside. The moment you wake up, before moving or speaking, reach for your journal and begin writing whatever you remember. Don't worry about making sense of it initially - just capture the images, emotions, and fragments. Look for recurring symbols in your dreams. Water might represent emotions, houses often symbolize the self, and animals can represent instinctual wisdom. Pay attention to the emotions in your dreams as much as the imagery. Sometimes the feeling is more important than the story. Over time, patterns will emerge that offer deep insights into your psyche and spiritual path."
   },
   {
     id: 3,
@@ -99,8 +109,50 @@ const Vlogs = () => {
 
   const featuredVlog = vlogs.find(vlog => vlog.featured);
 
+  // Generate schema for all videos
+  const videoSchemas = vlogs.map(vlog => createVideoSchema({
+    title: vlog.title,
+    description: vlog.description,
+    duration: formatDuration(Math.ceil(parseInt(vlog.duration.split(':')[0]) + parseInt(vlog.duration.split(':')[1])/60)),
+    uploadDate: vlog.uploadDate,
+    thumbnailUrl: vlog.thumbnail,
+    embedUrl: `https://www.youtube.com/embed/${vlog.videoId}`,
+    category: vlog.category,
+    keywords: [...baseKeywords, ...(vlog.keywords || []), vlog.category.toLowerCase()]
+  }));
+
+  const pageSchema = {
+    "@type": "CollectionPage",
+    "name": "Video Teaching Collection - Meditation & Mindfulness Vlogs",
+    "description": "Comprehensive collection of meditation, dream work, and spiritual awakening video teachings with transcripts and detailed guidance for personal growth.",
+    "hasPart": videoSchemas,
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Video Teaching",
+        "description": "Educational video content about meditation and spiritual practices"
+      },
+      {
+        "@type": "Thing",
+        "name": "Spiritual Guidance",
+        "description": "Personal insights and guidance for spiritual development and consciousness exploration"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Video Teachings - Meditation & Spiritual Guidance Vlogs"
+        description="Explore our collection of meditation teaching videos, dream work guidance, and spiritual awakening content. Features transcripts, detailed descriptions, and practical techniques for personal growth."
+        keywords={[...baseKeywords, "meditation videos", "spiritual teachings", "vlog content", "guided practice videos", "consciousness exploration", "personal development"].join(", ")}
+        schemaType="CollectionPage"
+        schemaData={pageSchema}
+        breadcrumbs={[
+          { name: "Home", url: "https://www.thedreamwork.space/" },
+          { name: "Video Teachings", url: "https://www.thedreamwork.space/vlogs" }
+        ]}
+      />
       <Header />
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
@@ -331,9 +383,20 @@ const Vlogs = () => {
                       <h3 className="font-heading font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-gentle">
                         {vlog.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 mb-3">
                         {vlog.description}
                       </p>
+                      
+                      {/* Add transcript modal for videos with transcripts */}
+                      {vlog.transcript && (
+                        <VideoTranscriptModal
+                          title={vlog.title}
+                          transcript={vlog.transcript}
+                          duration={vlog.duration}
+                          category={vlog.category}
+                          keywords={vlog.keywords}
+                        />
+                      )}
                     </CardContent>
                   </div>
                 </Card>
