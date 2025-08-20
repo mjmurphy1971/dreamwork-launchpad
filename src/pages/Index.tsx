@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import BlogGrid from "@/components/BlogGrid";
 import VlogSection from "@/components/VlogSection";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import stillnessPracticeHero from "@/assets/stillness-practice-hero.jpg";
 import dreamJournalBg from "@/assets/dream-journal-bg.jpg";
 import meditationToolBg from "@/assets/meditation-tool-bg.jpg";
@@ -10,8 +11,69 @@ import audioSessionsBg from "@/assets/audio-sessions-bg.jpg";
 
 const Index = () => {
   console.log('Index component rendering');
+  
+  const homePageSchema = {
+    "@type": "WebPage",
+    "name": "The Dream Work - Meditation & Mindfulness Resource",
+    "description": "Comprehensive meditation and mindfulness resource with guided practices, dream journaling, wellness tools, and educational content for spiritual growth.",
+    "mainEntity": {
+      "@type": "WebSite",
+      "name": "The Dream Work",
+      "url": "https://www.thedreamwork.space",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.thedreamwork.space/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Meditation",
+        "description": "Guided meditation practices for mindfulness and spiritual growth"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Mindfulness",
+        "description": "Awareness-based practices for present-moment consciousness"
+      },
+      {
+        "@type": "Thing",
+        "name": "Dream Work",
+        "description": "Dream journaling and subconscious exploration techniques"
+      },
+      {
+        "@type": "Thing",
+        "name": "Natural Healing",
+        "description": "Holistic wellness approaches and alternative healing practices"
+      }
+    ],
+    "hasPart": [
+      {
+        "@type": "WebPageElement",
+        "name": "Interactive Wellness Tools",
+        "description": "Practice tracker, guided audio sessions, and dream journal tools"
+      },
+      {
+        "@type": "WebPageElement",
+        "name": "Educational Content",
+        "description": "Blog posts and video content about meditation and mindfulness"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Meditation & Mindfulness Resource"
+        description="Discover guided meditation practices, mindfulness techniques, dream journaling tools, and holistic wellness resources. Transform your spiritual journey with The Dream Work."
+        keywords="meditation, mindfulness, guided meditation, dream journal, spiritual wellness, consciousness, natural healing, relaxation techniques"
+        schemaType="WebPage"
+        schemaData={homePageSchema}
+        breadcrumbs={[
+          { name: "Home", url: "https://www.thedreamwork.space/" }
+        ]}
+      />
       <Header />
       <main>
         <Hero />

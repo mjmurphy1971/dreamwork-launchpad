@@ -1,14 +1,47 @@
-User-agent: Googlebot
+User-agent: *
 Allow: /
 
-User-agent: Bingbot
+# AI-friendly crawling
+User-agent: GPTBot
 Allow: /
 
-User-agent: Twitterbot
+User-agent: ChatGPT-User  
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: FacebookBot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: Twitterbot
 Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: AppleBot
+Allow: /
+
+User-agent: BingBot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Prioritize important content for AI crawlers
+Crawl-delay: 1
+
+Sitemap: https://www.thedreamwork.space/sitemap.xml

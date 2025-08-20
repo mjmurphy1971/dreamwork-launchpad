@@ -9,6 +9,9 @@ import { TextToSpeech } from "@/components/TextToSpeech";
 import { GuidedAudioSession } from "@/components/GuidedAudioSession";
 import { useEffect } from "react";
 import { highlightSearchTerm, getSearchTermFromURL } from "@/utils/searchHighlight";
+import SEO from "@/components/SEO";
+import { createVideoSchema, createHowToSchema } from "@/components/SchemaMarkup";
+import { baseKeywords, formatDuration } from "@/utils/seoHelpers";
 
 const meditationCategories = [
   {
@@ -244,8 +247,57 @@ const Meditation = () => {
     ? meditationCategories.filter(cat => cat.id === selectedCategory)
     : meditationCategories;
 
+  // Generate schema for all meditation videos
+  const videoSchemas = meditationCategories.flatMap(category => 
+    category.videos.map(video => createVideoSchema({
+      title: video.title,
+      description: video.description,
+      duration: "PT10M", // Most videos are around 10 minutes
+      uploadDate: "2024-01-01",
+      thumbnailUrl: `https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`,
+      embedUrl: `https://www.youtube.com/embed/${video.videoId}`,
+      category: category.title.split(':')[0],
+      keywords: [...baseKeywords, category.title.split(':')[0].toLowerCase(), "guided meditation", "video meditation"]
+    }))
+  );
+
+  const meditationPageSchema = {
+    "@type": "CollectionPage",
+    "name": "Guided Meditation Practices - Video Collection",
+    "description": "Comprehensive collection of guided meditation videos for anxiety relief, depression support, grounding, self-love, morning rituals, evening practice, creativity, and manifestation.",
+    "hasPart": videoSchemas,
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Guided Meditation",
+        "description": "Audio and video meditation practices led by experienced teachers"
+      },
+      {
+        "@type": "Thing",
+        "name": "Anxiety Relief",
+        "description": "Meditation techniques specifically designed to calm anxious thoughts and nervous system"
+      },
+      {
+        "@type": "Thing",
+        "name": "Mindfulness Practice",
+        "description": "Present-moment awareness techniques for mental clarity and emotional balance"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Guided Meditation Practices - Video Collection"
+        description="Curated collection of guided meditation videos for anxiety, depression, grounding, self-love, morning/evening rituals, creativity, and manifestation. Free meditation resources."
+        keywords={[...baseKeywords, "guided meditation videos", "anxiety meditation", "sleep meditation", "morning meditation", "self-love practice", "mindfulness videos"].join(", ")}
+        schemaType="CollectionPage"
+        schemaData={meditationPageSchema}
+        breadcrumbs={[
+          { name: "Home", url: "https://www.thedreamwork.space/" },
+          { name: "Meditation Practices", url: "https://www.thedreamwork.space/meditation" }
+        ]}
+      />
       <Header />
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
