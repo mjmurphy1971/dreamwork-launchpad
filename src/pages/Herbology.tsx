@@ -441,18 +441,24 @@ const Herbology = () => {
                         <div className="mt-4 pt-4 border-t border-border/50">
                           <h4 className="font-semibold text-foreground text-sm mb-2">Resources:</h4>
                           <div className="space-y-2">
-                             {condition.resources.map((resource, i) => (
-                               <a
-                                 key={i}
-                                 href={resource.url}
-                                 target="_blank"
-                                 rel="noopener noreferrer"
-                                 className="flex items-center gap-2 text-xs text-primary hover:text-primary/80 transition-colors text-left block p-1 rounded hover:bg-muted"
-                               >
-                                 <ExternalLink className="w-3 h-3" />
-                                 {resource.title} ({resource.type})
-                               </a>
-                             ))}
+                              {condition.resources.map((resource, i) => (
+                                <a
+                                  key={i}
+                                  href={resource.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={(e) => {
+                                    console.log('Anchor clicked:', resource.url);
+                                    console.log('Event target:', e.target);
+                                    console.log('Event current target:', e.currentTarget);
+                                  }}
+                                  className="flex items-center gap-2 text-xs text-primary hover:text-primary/80 transition-colors text-left block p-2 rounded hover:bg-muted border border-primary/20 bg-primary/5"
+                                  style={{ position: 'relative', zIndex: 10, cursor: 'pointer' }}
+                                >
+                                  <ExternalLink className="w-3 h-3" />
+                                  {resource.title} ({resource.type})
+                                </a>
+                              ))}
                           </div>
                         </div>
                       )}
