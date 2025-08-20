@@ -445,7 +445,10 @@ const Herbology = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 text-xs text-primary hover:text-primary/80 transition-colors"
-                                onClick={(e) => e.stopPropagation()}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  window.open(resource.url, '_blank');
+                                }}
                               >
                                 <ExternalLink className="w-3 h-3" />
                                 {resource.title} ({resource.type})
