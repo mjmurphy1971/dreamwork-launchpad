@@ -447,8 +447,12 @@ const Herbology = () => {
                                  variant="ghost"
                                  size="sm"
                                  onClick={(e) => {
+                                   console.log('Resource button clicked:', resource.title, resource.url);
                                    e.stopPropagation();
+                                   e.preventDefault();
+                                   console.log('About to open window with URL:', resource.url);
                                    window.open(resource.url, '_blank');
+                                   console.log('Window.open called');
                                  }}
                                  className="flex items-center gap-2 text-xs text-primary hover:text-primary/80 transition-colors text-left h-auto p-1 justify-start"
                                >
