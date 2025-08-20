@@ -36,7 +36,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Adaptogens for Stress Management",
-        url: "https://www.herbalgram.org/resources/herbalgram/issues/133/adaptogens/",
+        url: "https://www.nccih.nih.gov/health/adaptogenic-herbs",
         type: "Research"
       },
       {
@@ -74,7 +74,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Digestive Health with Herbal Medicine",
-        url: "https://www.herbalgram.org/resources/herbalgram/issues/digestive/",
+        url: "https://www.nccih.nih.gov/health/digestive-disorders-and-complementary-health-approaches",
         type: "Clinical Guide"
       }
     ]
@@ -107,7 +107,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Sleep Herbs: Safety and Efficacy",
-        url: "https://www.herbalgram.org/resources/herbalgram/issues/sleep/",
+        url: "https://www.nccih.nih.gov/health/sleep-disorders-and-complementary-health-approaches",
         type: "Research Review"
       }
     ]
@@ -140,7 +140,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Immune System Support with Herbs",
-        url: "https://www.herbalgram.org/resources/herbalgram/issues/immune/",
+        url: "https://www.nccih.nih.gov/health/echinacea",
         type: "Clinical Evidence"
       }
     ]
@@ -206,7 +206,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Cardiovascular Herbs: Clinical Applications",
-        url: "https://www.herbalgram.org/resources/herbalgram/issues/cardiovascular/",
+        url: "https://www.nccih.nih.gov/health/hawthorn",
         type: "Scientific Review"
       }
     ]
