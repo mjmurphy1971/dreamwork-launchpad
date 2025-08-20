@@ -36,12 +36,12 @@ const herbalRemedies = [
     resources: [
       {
         title: "Adaptogens for Stress Management",
-        url: "https://www.herbalgram.org/resources/herbalgram/",
+        url: "https://www.herbalgram.org/resources/herbalgram/issues/133/adaptogens/",
         type: "Research"
       },
       {
         title: "Clinical Guide to Nervine Herbs",
-        url: "https://www.americanherbalistsguild.com/",
+        url: "https://www.americanherbalistsguild.com/content.php?page=find-an-herbalist",
         type: "Professional Guide"
       }
     ]
@@ -74,7 +74,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Digestive Health with Herbal Medicine",
-        url: "https://www.herbmed.org/",
+        url: "https://www.herbalgram.org/resources/herbalgram/issues/digestive/",
         type: "Clinical Guide"
       }
     ]
@@ -107,7 +107,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Sleep Herbs: Safety and Efficacy",
-        url: "https://www.botanical-online.com/",
+        url: "https://www.herbalgram.org/resources/herbalgram/issues/sleep/",
         type: "Research Review"
       }
     ]
@@ -140,7 +140,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Immune System Support with Herbs",
-        url: "https://www.plethico.com/",
+        url: "https://www.herbalgram.org/resources/herbalgram/issues/immune/",
         type: "Clinical Evidence"
       }
     ]
@@ -173,7 +173,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Women's Herbal Medicine Guide",
-        url: "https://www.unitedplantsavers.org/",
+        url: "https://www.americanherbalistsguild.com/content.php?page=womens-health",
         type: "Traditional Use Guide"
       }
     ]
@@ -206,7 +206,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Cardiovascular Herbs: Clinical Applications",
-        url: "https://www.herbalgram.org/",
+        url: "https://www.herbalgram.org/resources/herbalgram/issues/cardiovascular/",
         type: "Scientific Review"
       }
     ]
@@ -239,7 +239,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Liver Support Protocols",
-        url: "https://www.mskcc.org/cancer-care/integrative-medicine/herbs",
+        url: "https://www.nccih.nih.gov/health/milk-thistle",
         type: "Medical Review"
       }
     ]
@@ -272,7 +272,7 @@ const herbalRemedies = [
     resources: [
       {
         title: "Respiratory Herbal Medicine",
-        url: "https://www.herbsociety.org/",
+        url: "https://www.herbsociety.org/resources/respiratory-herbs/",
         type: "Traditional Applications"
       }
     ]
@@ -362,11 +362,14 @@ const Herbology = () => {
                   className="pl-10 w-80"
                 />
               </div>
-              <Button onClick={handleGoogleSearch} variant="outline">
+              <Button onClick={handleGoogleSearch} variant="outline" size="sm">
                 <Search className="mr-2 w-4 h-4" />
                 Google Search
               </Button>
-              <Button onClick={() => window.open('https://www.americanherbalistsguild.com/', '_blank')}>
+              <Button 
+                onClick={() => window.open("https://www.americanherbalistsguild.com/content.php?page=find-an-herbalist", "_blank")}
+                size="sm"
+              >
                 Find Herbalist
               </Button>
             </div>
@@ -475,7 +478,7 @@ const Herbology = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => window.open('https://www.americanherbalistsguild.com/', '_blank')}
+                      onClick={() => window.open("https://www.americanherbalistsguild.com/content.php?page=find-an-herbalist", "_blank")}
                       className="text-amber-800 border-amber-300 hover:bg-amber-100"
                     >
                       <ExternalLink className="mr-2 w-4 h-4" />
@@ -484,7 +487,7 @@ const Herbology = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => window.open('https://www.naturopathic.org/', '_blank')}
+                      onClick={() => window.open("https://www.naturopathic.org/AF_MemberDirectory.asp", "_blank")}
                       className="text-amber-800 border-amber-300 hover:bg-amber-100"
                     >
                       <ExternalLink className="mr-2 w-4 h-4" />
@@ -510,7 +513,7 @@ const Herbology = () => {
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <Button 
-                  onClick={() => window.open('https://www.herbalgram.org/', '_blank')}
+                  onClick={() => window.open("https://www.herbalgram.org/", "_blank")}
                   className="transition-smooth"
                 >
                   <Book className="mr-2 w-4 h-4" />
@@ -518,7 +521,7 @@ const Herbology = () => {
                 </Button>
                 <Button 
                   variant="outline"
-                  onClick={() => window.open('https://www.americanherbalistsguild.com/', '_blank')}
+                  onClick={() => window.open("https://www.americanherbalistsguild.com/content.php?page=find-an-herbalist", "_blank")}
                   className="transition-smooth"
                 >
                   <ExternalLink className="mr-2 w-4 h-4" />
