@@ -23,6 +23,7 @@ import SingingBowls from "./pages/SingingBowls";
 import GratitudeGarden from "./pages/GratitudeGarden";
 import ChakraBalancing from "./pages/ChakraBalancing";
 import MindfulColoring from "./pages/MindfulColoring";
+import Phase4Dashboard from "./pages/Phase4Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -58,6 +59,7 @@ const App = () => {
             <Route path="/gratitude-garden" element={<GratitudeGarden />} />
             <Route path="/chakra-balancing" element={<ChakraBalancing />} />
             <Route path="/mindful-coloring" element={<MindfulColoring />} />
+            <Route path="/phase4-dashboard" element={<Phase4Dashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
