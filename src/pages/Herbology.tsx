@@ -381,9 +381,8 @@ const Herbology = () => {
           {filteredRemedies.map((condition, index) => (
             <Card
               key={condition.id}
-              className="overflow-hidden shadow-card border-0 bg-card hover:shadow-card-hover transition-smooth cursor-pointer animate-fade-in"
+              className="overflow-hidden shadow-card border-0 bg-card hover:shadow-card-hover transition-smooth animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={() => setSelectedCondition(selectedCondition === condition.id ? null : condition.id)}
             >
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3 mb-2">
@@ -410,7 +409,11 @@ const Herbology = () => {
                     <span className="text-sm font-medium text-foreground">
                       {condition.remedies.length} Herbs Available
                     </span>
-                    <Button variant="ghost" size="sm">
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      onClick={() => setSelectedCondition(selectedCondition === condition.id ? null : condition.id)}
+                    >
                       {selectedCondition === condition.id ? "Hide Details" : "View Herbs"}
                     </Button>
                   </div>
