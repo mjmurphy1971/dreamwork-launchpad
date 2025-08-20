@@ -442,27 +442,16 @@ const Herbology = () => {
                           <h4 className="font-semibold text-foreground text-sm mb-2">Resources:</h4>
                           <div className="space-y-2">
                              {condition.resources.map((resource, i) => (
-                               <Button
+                               <a
                                  key={i}
-                                 variant="ghost"
-                                 size="sm"
-                                 onClick={(e) => {
-                                   e.stopPropagation();
-                                   e.preventDefault();
-                                   // Try multiple approaches to open the URL
-                                   const link = document.createElement('a');
-                                   link.href = resource.url;
-                                   link.target = '_blank';
-                                   link.rel = 'noopener noreferrer';
-                                   document.body.appendChild(link);
-                                   link.click();
-                                   document.body.removeChild(link);
-                                 }}
-                                 className="flex items-center gap-2 text-xs text-primary hover:text-primary/80 transition-colors text-left h-auto p-1 justify-start"
+                                 href={resource.url}
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                                 className="flex items-center gap-2 text-xs text-primary hover:text-primary/80 transition-colors text-left block p-1 rounded hover:bg-muted"
                                >
                                  <ExternalLink className="w-3 h-3" />
                                  {resource.title} ({resource.type})
-                               </Button>
+                               </a>
                              ))}
                           </div>
                         </div>
