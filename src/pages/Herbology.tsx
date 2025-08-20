@@ -445,6 +445,7 @@ const Herbology = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 text-xs text-primary hover:text-primary/80 transition-colors"
+                                onClick={(e) => e.stopPropagation()}
                               >
                                 <ExternalLink className="w-3 h-3" />
                                 {resource.title} ({resource.type})
@@ -478,7 +479,10 @@ const Herbology = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => window.open("https://www.americanherbalistsguild.com/content.php?page=find-an-herbalist", "_blank")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open("https://www.americanherbalistsguild.com/content.php?page=find-an-herbalist", "_blank");
+                      }}
                       className="text-amber-800 border-amber-300 hover:bg-amber-100"
                     >
                       <ExternalLink className="mr-2 w-4 h-4" />
@@ -487,7 +491,10 @@ const Herbology = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => window.open("https://www.naturopathic.org/AF_MemberDirectory.asp", "_blank")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open("https://www.naturopathic.org/AF_MemberDirectory.asp", "_blank");
+                      }}
                       className="text-amber-800 border-amber-300 hover:bg-amber-100"
                     >
                       <ExternalLink className="mr-2 w-4 h-4" />
@@ -513,7 +520,10 @@ const Herbology = () => {
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <Button 
-                  onClick={() => window.open("https://www.herbalgram.org/", "_blank")}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open("https://www.herbalgram.org/", "_blank");
+                  }}
                   className="transition-smooth"
                 >
                   <Book className="mr-2 w-4 h-4" />
@@ -521,7 +531,10 @@ const Herbology = () => {
                 </Button>
                 <Button 
                   variant="outline"
-                  onClick={() => window.open("https://www.americanherbalistsguild.com/content.php?page=find-an-herbalist", "_blank")}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open("https://www.americanherbalistsguild.com/content.php?page=find-an-herbalist", "_blank");
+                  }}
                   className="transition-smooth"
                 >
                   <ExternalLink className="mr-2 w-4 h-4" />
