@@ -20,26 +20,26 @@ const meditationCategories = [
       {
         title: "10 Minutes of Focused Attention: A Quick Exercise to Calm an Anxious Mind",
         description: "Headspace guided meditation to ease anxiety through focused attention on the breath.",
-        url: "https://www.youtube.com/watch?v=Hvs_49dikDQ",
-        thumbnail: "https://img.youtube.com/vi/Hvs_49dikDQ/mqdefault.jpg"
+        videoId: "Hvs_49dikDQ",
+        url: "https://www.youtube.com/watch?v=Hvs_49dikDQ"
       },
       {
         title: "A 10-Minute Meditation for Stress from Headspace",
         description: "Reframe stressful situations and find peace through mindful breathing.",
-        url: "https://www.youtube.com/watch?v=lS0kcSNlULw",
-        thumbnail: "https://img.youtube.com/vi/lS0kcSNlULw/mqdefault.jpg"
+        videoId: "lS0kcSNlULw",
+        url: "https://www.youtube.com/watch?v=lS0kcSNlULw"
       },
       {
         title: "Guided Sleep Meditation for Anxiety Relief",
         description: "Jason Stephenson's calming meditation to release anxiety and intrusive thoughts.",
-        url: "https://www.youtube.com/watch?v=ieJ-qUe1do8",
-        thumbnail: "https://img.youtube.com/vi/ieJ-qUe1do8/mqdefault.jpg"
+        videoId: "ieJ-qUe1do8",
+        url: "https://www.youtube.com/watch?v=ieJ-qUe1do8"
       },
       {
         title: "Managing Anxious Thoughts And Stress With Mindfulness",
         description: "Headspace grounding technique to settle your mind and body.",
-        url: "https://www.youtube.com/watch?v=EfubAj5f_rM",
-        thumbnail: "https://img.youtube.com/vi/EfubAj5f_rM/mqdefault.jpg"
+        videoId: "EfubAj5f_rM",
+        url: "https://www.youtube.com/watch?v=EfubAj5f_rM"
       }
     ]
   },
@@ -52,20 +52,20 @@ const meditationCategories = [
       {
         title: "Sleep Hypnosis for Self Love, Confidence & Self Esteem",
         description: "Michael Sealey's healing meditation to build self-worth and inner confidence.",
-        url: "https://www.youtube.com/watch?v=DHwgBCx0uNs",
-        thumbnail: "https://img.youtube.com/vi/DHwgBCx0uNs/mqdefault.jpg"
+        videoId: "DHwgBCx0uNs",
+        url: "https://www.youtube.com/watch?v=DHwgBCx0uNs"
       },
       {
         title: "1 Hour Sleep Hypnosis: Higher Self Healing for Depression & Anxiety",
         description: "Deep subconscious healing to take control of your peace and well-being.",
-        url: "https://www.youtube.com/watch?v=HpHKf4tlvFw",
-        thumbnail: "https://img.youtube.com/vi/HpHKf4tlvFw/mqdefault.jpg"
+        videoId: "HpHKf4tlvFw",
+        url: "https://www.youtube.com/watch?v=HpHKf4tlvFw"
       },
       {
         title: "Sleep Hypnosis for Clearing Subconscious Negativity",
         description: "Transform negative thoughts and remove emotional blocks with deep healing.",
-        url: "https://www.youtube.com/watch?v=_MCXtMjaJXw",
-        thumbnail: "https://img.youtube.com/vi/_MCXtMjaJXw/mqdefault.jpg"
+        videoId: "_MCXtMjaJXw",
+        url: "https://www.youtube.com/watch?v=_MCXtMjaJXw"
       }
     ]
   },
@@ -78,20 +78,20 @@ const meditationCategories = [
       {
         title: "EPIC GUIDED MEDITATION: Earth Grounding",
         description: "The Honest Guys' empowering visualization to reconnect with Earth's energy.",
-        url: "https://www.youtube.com/watch?v=dpqX3Fthw_E",
-        thumbnail: "https://img.youtube.com/vi/dpqX3Fthw_E/mqdefault.jpg"
+        videoId: "dpqX3Fthw_E",
+        url: "https://www.youtube.com/watch?v=dpqX3Fthw_E"
       },
       {
         title: "Mindfulness Meditation - Guided 10 Minutes",
         description: "The Honest Guys' mindfulness practice to be completely present in the moment.",
-        url: "https://www.youtube.com/watch?v=6p_yaNFSYao",
-        thumbnail: "https://img.youtube.com/vi/6p_yaNFSYao/mqdefault.jpg"
+        videoId: "6p_yaNFSYao",
+        url: "https://www.youtube.com/watch?v=6p_yaNFSYao"
       },
       {
         title: "Guided Meditation - Blissful Deep Relaxation",
         description: "Gentle guidance into a state of profound peace and grounding.",
-        url: "https://www.youtube.com/watch?v=Jyy0ra2WcQQ",
-        thumbnail: "https://img.youtube.com/vi/Jyy0ra2WcQQ/mqdefault.jpg"
+        videoId: "Jyy0ra2WcQQ",
+        url: "https://www.youtube.com/watch?v=Jyy0ra2WcQQ"
       }
     ]
   },
@@ -104,20 +104,20 @@ const meditationCategories = [
       {
         title: "Sleep Hypnosis for Self Love, Confidence & Self Esteem",
         description: "Heal your inner being and connect to your self-worth through deep rest.",
-        url: "https://www.youtube.com/watch?v=DHwgBCx0uNs",
-        thumbnail: "https://img.youtube.com/vi/DHwgBCx0uNs/mqdefault.jpg"
+        videoId: "DHwgBCx0uNs",
+        url: "https://www.youtube.com/watch?v=DHwgBCx0uNs"
       },
       {
         title: "Sleep Hypnosis for Regaining Confidence & Connecting to Your Inner Power",
         description: "Michael Sealey's meditation to reconnect with your limitless inner strength.",
-        url: "https://www.youtube.com/watch?v=2H1On9pr7y4",
-        thumbnail: "https://img.youtube.com/vi/2H1On9pr7y4/mqdefault.jpg"
+        videoId: "2H1On9pr7y4",
+        url: "https://www.youtube.com/watch?v=2H1On9pr7y4"
       },
       {
         title: "10 Min Meditation For Positive Energy | Manifest Love & Light",
         description: "Boho Beautiful's practice to cultivate the love and light within you.",
-        url: "https://www.youtube.com/watch?v=8zfQvchPkqQ",
-        thumbnail: "https://img.youtube.com/vi/8zfQvchPkqQ/mqdefault.jpg"
+        videoId: "8zfQvchPkqQ",
+        url: "https://www.youtube.com/watch?v=8zfQvchPkqQ"
       }
     ]
   },
@@ -130,20 +130,20 @@ const meditationCategories = [
       {
         title: "Guided Morning Meditation | 10 Minutes To Start Each Day Perfectly",
         description: "Boho Beautiful's perfect morning meditation with visualization and peace.",
-        url: "https://www.youtube.com/watch?v=8_f7ltCNSAQ",
-        thumbnail: "https://img.youtube.com/vi/8_f7ltCNSAQ/mqdefault.jpg"
+        videoId: "8_f7ltCNSAQ",
+        url: "https://www.youtube.com/watch?v=8_f7ltCNSAQ"
       },
       {
         title: "Morning Guided Meditation | 10 Minutes To Execute The Perfect Day",
         description: "Set your mind up for success, happiness, and focus with this morning practice.",
-        url: "https://www.youtube.com/watch?v=X2OaMAUEPXM",
-        thumbnail: "https://img.youtube.com/vi/X2OaMAUEPXM/mqdefault.jpg"
+        videoId: "X2OaMAUEPXM",
+        url: "https://www.youtube.com/watch?v=X2OaMAUEPXM"
       },
       {
         title: "Reset: Decompress Your Body and Mind",
         description: "Headspace meditation to pause and reset between tasks for better presence.",
-        url: "https://www.youtube.com/watch?v=QHkXvPq2pQE",
-        thumbnail: "https://img.youtube.com/vi/QHkXvPq2pQE/mqdefault.jpg"
+        videoId: "QHkXvPq2pQE",
+        url: "https://www.youtube.com/watch?v=QHkXvPq2pQE"
       }
     ]
   },
@@ -156,20 +156,20 @@ const meditationCategories = [
       {
         title: "10 Minute Bedtime Yoga | Yoga With Adriene",
         description: "Gentle stretches and breathing to prepare for a restful night's sleep.",
-        url: "https://www.youtube.com/watch?v=CLDHeV9OI5U",
-        thumbnail: "https://img.youtube.com/vi/CLDHeV9OI5U/mqdefault.jpg"
+        videoId: "CLDHeV9OI5U",
+        url: "https://www.youtube.com/watch?v=CLDHeV9OI5U"
       },
       {
         title: "Wind Down Yoga | 12-Minute Bedtime Yoga",
         description: "Yoga with Adriene's relaxing session to help you wind down after work.",
-        url: "https://www.youtube.com/watch?v=BiWDsfZ3zbo",
-        thumbnail: "https://img.youtube.com/vi/BiWDsfZ3zbo/mqdefault.jpg"
+        videoId: "BiWDsfZ3zbo",
+        url: "https://www.youtube.com/watch?v=BiWDsfZ3zbo"
       },
       {
         title: "GUIDED SLEEP MEDITATION - The Sanctuary",
         description: "The Honest Guys' peaceful journey to a warm sanctuary with fireplace sounds.",
-        url: "https://www.youtube.com/watch?v=Y7rCDZXSgxI",
-        thumbnail: "https://img.youtube.com/vi/Y7rCDZXSgxI/mqdefault.jpg"
+        videoId: "Y7rCDZXSgxI",
+        url: "https://www.youtube.com/watch?v=Y7rCDZXSgxI"
       }
     ]
   },
@@ -182,20 +182,20 @@ const meditationCategories = [
       {
         title: "Yoga For Creativity | 40-Minute Yoga Practice",
         description: "Yoga with Adriene's full practice to unlock creative energy and inspiration.",
-        url: "https://www.youtube.com/watch?v=mY3lX6iAxq8",
-        thumbnail: "https://img.youtube.com/vi/mY3lX6iAxq8/mqdefault.jpg"
+        videoId: "mY3lX6iAxq8",
+        url: "https://www.youtube.com/watch?v=mY3lX6iAxq8"
       },
       {
         title: "Flow - Day 24 - Create",
         description: "Unlock creativity through intuitive movement and mindful presence.",
-        url: "https://www.youtube.com/watch?v=49M4lpWZspo",
-        thumbnail: "https://img.youtube.com/vi/49M4lpWZspo/mqdefault.jpg"
+        videoId: "49M4lpWZspo",
+        url: "https://www.youtube.com/watch?v=49M4lpWZspo"
       },
       {
         title: "Awaken The Artist Within | Yoga With Adriene",
         description: "Tap into your creative energy with this warming flow for artistic expression.",
-        url: "https://www.youtube.com/watch?v=twDBxdmjCA8",
-        thumbnail: "https://img.youtube.com/vi/twDBxdmjCA8/mqdefault.jpg"
+        videoId: "twDBxdmjCA8",
+        url: "https://www.youtube.com/watch?v=twDBxdmjCA8"
       }
     ]
   },
@@ -208,20 +208,20 @@ const meditationCategories = [
       {
         title: "15 MIN Guided Meditation For Manifestation & Success",
         description: "Boho Beautiful's powerful meditation to manifest success and inner fire.",
-        url: "https://www.youtube.com/watch?v=APvLO3uXLnE",
-        thumbnail: "https://img.youtube.com/vi/APvLO3uXLnE/mqdefault.jpg"
+        videoId: "APvLO3uXLnE",
+        url: "https://www.youtube.com/watch?v=APvLO3uXLnE"
       },
       {
         title: "Guided Meditation For Powerful Positivity",
         description: "10-minute Boho Beautiful meditation for peace, focus, and positive energy.",
-        url: "https://www.youtube.com/watch?v=-Tb1lR8Z5oM",
-        thumbnail: "https://img.youtube.com/vi/-Tb1lR8Z5oM/mqdefault.jpg"
+        videoId: "-Tb1lR8Z5oM",
+        url: "https://www.youtube.com/watch?v=-Tb1lR8Z5oM"
       },
       {
         title: "Guided Meditation For Overcoming Fear & Shifting Reality",
         description: "15-minute practice to overcome fear and step into your desired reality.",
-        url: "https://www.youtube.com/watch?v=DZ3Vc_72TJE",
-        thumbnail: "https://img.youtube.com/vi/DZ3Vc_72TJE/mqdefault.jpg"
+        videoId: "DZ3Vc_72TJE",
+        url: "https://www.youtube.com/watch?v=DZ3Vc_72TJE"
       }
     ]
   }
@@ -303,60 +303,66 @@ const Meditation = () => {
                   </h3>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="space-y-8">
                   {category.videos.map((video, index) => (
                     <div
                       key={index}
-                      className="overflow-hidden shadow-card border bg-card hover:shadow-card-hover transition-smooth group transform hover:-translate-y-1 rounded-lg cursor-pointer"
+                      className="bg-card backdrop-blur-sm rounded-lg border border-border shadow-card hover:shadow-card-hover transition-smooth"
                     >
-                      <div className="p-0">
-                        <div className="relative overflow-hidden">
-                          <img
-                            src={video.thumbnail}
-                            alt={video.title}
-                            className="w-full h-48 object-cover group-hover:scale-105 transition-smooth"
-                            onError={(e) => {
-                              e.currentTarget.src = '/placeholder.svg';
-                            }}
-                          />
-                          <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-smooth">
-                            <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
-                              <Play className="w-8 h-8 text-white" />
+                      <div className="p-6">
+                        <div className="grid lg:grid-cols-2 gap-6">
+                          {/* Video Player */}
+                          <div className="space-y-4">
+                            <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                              <iframe
+                                src={`https://www.youtube.com/embed/${video.videoId}`}
+                                title={video.title}
+                                className="w-full h-full border-0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                            </div>
+                            
+                            {/* Video Actions */}
+                            <div className="flex gap-2 flex-wrap items-center">
+                              <a
+                                href={video.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors no-underline"
+                              >
+                                <svg className="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                                Watch on YouTube
+                              </a>
+                              
+                              <TextToSpeech 
+                                text={video.description}
+                                buttonText="🔊 Listen"
+                                className="text-xs"
+                              />
                             </div>
                           </div>
-                          <div className="absolute top-3 right-3">
-                            <Badge variant="secondary" className="bg-black/50 text-white border-0 text-xs">
-                              YouTube
-                            </Badge>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="p-6">
-                        <h4 className="font-heading font-semibold text-lg text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-gentle">
-                          {video.title}
-                        </h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3 mb-4">
-                          {video.description}
-                        </p>
-                        
-                        <div className="flex gap-2 flex-wrap items-center">
-                          <a
-                            href={video.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary text-primary-foreground hover:bg-primary/80 transition-colors no-underline"
-                          >
-                            <Play className="w-3 h-3 mr-1" />
-                            Watch Video
-                          </a>
                           
-                          <div className="flex-shrink-0">
-                            <TextToSpeech 
-                              text={video.description}
-                              buttonText="🔊"
-                              className="text-xs"
-                            />
+                          {/* Video Info */}
+                          <div className="space-y-4">
+                            <div>
+                              <h4 className="text-xl font-heading font-semibold text-foreground mb-3 leading-tight">
+                                {video.title}
+                              </h4>
+                              <p className="text-muted-foreground leading-relaxed">
+                                {video.description}
+                              </p>
+                            </div>
+                            
+                            {/* Category Badge */}
+                            <div>
+                              <Badge variant="secondary" className={`${category.color} border-0`}>
+                                <category.icon className="w-3 h-3 mr-1" />
+                                {category.title.split(':')[0]}
+                              </Badge>
+                            </div>
                           </div>
                         </div>
                       </div>
