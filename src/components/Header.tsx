@@ -236,6 +236,9 @@ const Header = () => {
             <a href="/about" className="text-foreground hover:text-primary transition-gentle">
               About
             </a>
+            <a href="/contact" className="text-foreground hover:text-primary transition-gentle">
+              Contact
+            </a>
           </nav>
 
           {/* Search and Mobile Menu */}
@@ -339,6 +342,9 @@ const Header = () => {
               </div>
               <a href="/about" className="text-foreground hover:text-primary transition-gentle">
                 About
+              </a>
+              <a href="/contact" className="text-foreground hover:text-primary transition-gentle">
+                Contact
               </a>
               
               {/* Mobile Search */}
