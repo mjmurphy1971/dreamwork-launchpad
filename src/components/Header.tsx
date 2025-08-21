@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { UserAccountButton } from "@/components/UserAccountButton";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -170,39 +171,33 @@ const Header = () => {
               </span>
               <div className="absolute top-full left-0 mt-2 w-72 bg-background border border-border/50 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="p-2">
-                  <div className="text-xs font-semibold text-muted-foreground px-3 py-1 mb-1">Core Tools</div>
-                  <a href="/dream-journal" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🌙 Dream Journal
-                  </a>
-                  <a href="/meditation" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🧘 Guided Audio Sessions
-                  </a>
-                  <a href="/weekly-stillness" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    📊 Practice Tracker
-                  </a>
-                  <a href="/breathwork" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🌬️ Breathwork Patterns
-                  </a>
-                  <hr className="my-2 border-border/50" />
-                  <div className="text-xs font-semibold text-muted-foreground px-3 py-1 mb-1">Mind Play Tools</div>
-                  <a href="/mindful-coloring" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🎨 Mindful Coloring Studio
-                  </a>
-                  <a href="/oracle-cards" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🔮 Daily Oracle Cards
-                  </a>
-                  <a href="/chakra-balancing" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🌈 Chakra Balancing Game
-                  </a>
-                  <a href="/singing-bowls" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🎵 Singing Bowl Simulator
-                  </a>
-                  <a href="/gratitude-garden" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🌸 Gratitude Garden
-                  </a>
-                  <a href="/thought-bubbles" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🧠 Thought Bubble Release
-                  </a>
+              <div className="text-xs font-semibold text-muted-foreground px-3 py-1 mb-1">Core Tools</div>
+              <a href="/dream-journal" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🌙 Dream Journal
+              </a>
+              <a href="/meditation" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🧘 Guided Audio Sessions
+              </a>
+              <a href="/weekly-stillness" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                📊 Practice Tracker
+              </a>
+              <a href="/breathwork" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🌬️ Breathwork Patterns
+              </a>
+              <hr className="my-2 border-border/50" />
+              <div className="text-xs font-semibold text-muted-foreground px-3 py-1 mb-1">Mind Play Tools</div>
+              <a href="/oracle-cards" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🔮 Daily Oracle Cards
+              </a>
+              <a href="/singing-bowls" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🎵 Singing Bowl Simulator
+              </a>
+              <a href="/gratitude-garden" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🌸 Gratitude Garden
+              </a>
+              <a href="/thought-bubbles" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🧠 Thought Bubble Release
+              </a>
                 </div>
               </div>
             </div>
@@ -241,7 +236,7 @@ const Header = () => {
             </a>
           </nav>
 
-          {/* Search and Mobile Menu */}
+          {/* Search, Account, and Mobile Menu */}
           <div className="flex items-center space-x-4">
             {/* Search */}
             <div className="hidden sm:flex items-center space-x-2">
@@ -265,6 +260,9 @@ const Header = () => {
                 </Button>
               </div>
             </div>
+
+            {/* User Account */}
+            <UserAccountButton />
 
             {/* Mobile Menu Toggle */}
             <Button
@@ -300,14 +298,8 @@ const Header = () => {
                   🌬️ Breathwork Patterns
                 </a>
                 <span className="text-sm font-semibold text-muted-foreground mb-2 mt-4 block">Mind Play Tools</span>
-                <a href="/mindful-coloring" className="block py-1 text-foreground hover:text-primary transition-gentle">
-                  🎨 Mindful Coloring Studio
-                </a>
                 <a href="/oracle-cards" className="block py-1 text-foreground hover:text-primary transition-gentle">
                   🔮 Daily Oracle Cards
-                </a>
-                <a href="/chakra-balancing" className="block py-1 text-foreground hover:text-primary transition-gentle">
-                  🌈 Chakra Balancing Game
                 </a>
                 <a href="/singing-bowls" className="block py-1 text-foreground hover:text-primary transition-gentle">
                   🎵 Singing Bowl Simulator

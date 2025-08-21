@@ -80,18 +80,8 @@ const Footer = () => {
               </li>
               <li className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wide pt-2">Mind Play</li>
               <li>
-                <a href="/mindful-coloring" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  🎨 Mindful Coloring
-                </a>
-              </li>
-              <li>
                 <a href="/oracle-cards" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
                   🔮 Oracle Cards
-                </a>
-              </li>
-              <li>
-                <a href="/chakra-balancing" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle">
-                  🌈 Chakra Balancing
                 </a>
               </li>
               <li>

@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "@/components/AuthProvider";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import Articles from "./pages/Articles";
@@ -33,40 +34,42 @@ const App = () => {
   console.log('App component rendering');
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/articles" element={<Articles />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/meditation" element={<Meditation />} />
-            <Route path="/breathwork" element={<Breathwork />} />
-            <Route path="/vlogs" element={<Vlogs />} />
-            <Route path="/natural-healing/homeopathy" element={<HomeopathicHealing />} />
-            <Route path="/natural-healing/herbology" element={<Herbology />} />
-            {/* Legacy route redirect */}
-            <Route path="/homeopathic-healing" element={<HomeopathicHealing />} />
-            <Route path="/weekly-stillness" element={<WeeklyStillness />} />
-            <Route path="/morning-rituals" element={<MorningRituals />} />
-            <Route path="/work-transitions" element={<WorkTransitions />} />
-            <Route path="/evening-winddowns" element={<EveningWinddowns />} />
-            <Route path="/dream-journal" element={<DreamJournal />} />
-            <Route path="/oracle-cards" element={<OracleCards />} />
-            <Route path="/thought-bubbles" element={<ThoughtBubbles />} />
-            <Route path="/singing-bowls" element={<SingingBowls />} />
-            <Route path="/gratitude-garden" element={<GratitudeGarden />} />
-            <Route path="/chakra-balancing" element={<ChakraBalancing />} />
-            <Route path="/mindful-coloring" element={<MindfulColoring />} />
-            <Route path="/phase4-dashboard" element={<Phase4Dashboard />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/articles" element={<Articles />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/meditation" element={<Meditation />} />
+              <Route path="/breathwork" element={<Breathwork />} />
+              <Route path="/vlogs" element={<Vlogs />} />
+              <Route path="/natural-healing/homeopathy" element={<HomeopathicHealing />} />
+              <Route path="/natural-healing/herbology" element={<Herbology />} />
+              {/* Legacy route redirect */}
+              <Route path="/homeopathic-healing" element={<HomeopathicHealing />} />
+              <Route path="/weekly-stillness" element={<WeeklyStillness />} />
+              <Route path="/morning-rituals" element={<MorningRituals />} />
+              <Route path="/work-transitions" element={<WorkTransitions />} />
+              <Route path="/evening-winddowns" element={<EveningWinddowns />} />
+              <Route path="/dream-journal" element={<DreamJournal />} />
+              <Route path="/oracle-cards" element={<OracleCards />} />
+              <Route path="/thought-bubbles" element={<ThoughtBubbles />} />
+              <Route path="/singing-bowls" element={<SingingBowls />} />
+              <Route path="/gratitude-garden" element={<GratitudeGarden />} />
+              <Route path="/chakra-balancing" element={<ChakraBalancing />} />
+              <Route path="/mindful-coloring" element={<MindfulColoring />} />
+              <Route path="/phase4-dashboard" element={<Phase4Dashboard />} />
+              <Route path="/contact" element={<Contact />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 };
