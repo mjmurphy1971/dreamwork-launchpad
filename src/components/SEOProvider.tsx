@@ -16,8 +16,8 @@ const SEOProvider = ({ children }: SEOProviderProps) => {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "The Dream Work",
-              "url": "https://dreamwork-launchpad.lovable.app/",
-              "logo": "https://dreamwork-launchpad.lovable.app/images/logo.png",
+              "url": "https://thedreamwork.space/",
+              "logo": "https://thedreamwork.space/images/logo.png",
               "sameAs": [
                 "https://www.facebook.com/thedreamworkspace",
                 "https://www.instagram.com/thedreamworkspace",
@@ -34,11 +34,11 @@ const SEOProvider = ({ children }: SEOProviderProps) => {
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "url": "https://dreamwork-launchpad.lovable.app/",
+              "url": "https://thedreamwork.space/",
               "name": "The Dream Work",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://dreamwork-launchpad.lovable.app/blog?search={search_term_string}",
+                "target": "https://thedreamwork.space/blog?search={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             }
