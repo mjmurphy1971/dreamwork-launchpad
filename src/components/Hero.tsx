@@ -135,7 +135,7 @@ const Hero = () => {
 
   console.log('Hero component rendering');
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -149,6 +149,10 @@ const Hero = () => {
       <div className="relative z-10 text-center text-white px-4 flex flex-col justify-center items-center min-h-screen pt-24 pb-16">
         <div className="max-w-4xl mx-auto">
           {/* Logo and Tagline - assuming these are part of the hero content now */}
+          <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed">
+            Transform your consciousness through guided meditation, dream work, and spiritual practices. 
+            Join our community of seekers on the journey to inner peace and mindful living.
+          </p>
           <img
             src="/lovable-uploads/85401e36-bc0d-4dac-bede-13f273db1297.png"
             alt="The Dream Work Logo"
@@ -159,10 +163,6 @@ const Hero = () => {
           </h1>
           <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed">
             Heal the Vibe, <span className="font-script font-semibold">Live the Dream</span>
-          </p>
-          <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed">
-            Transform your consciousness through guided meditation, dream work, and spiritual practices. 
-            Join our community of seekers on the journey to inner peace and mindful living.
           </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
