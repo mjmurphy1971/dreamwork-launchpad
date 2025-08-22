@@ -135,7 +135,7 @@ const Hero = () => {
 
   console.log('Hero component rendering');
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-end items-center overflow-hidden pb-20">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -145,28 +145,18 @@ const Hero = () => {
         />
       </div>
       
-      {/* Hero Content - Structured to avoid overlapping */}
-      <div className="relative z-10 text-center text-white px-4 py-20 max-w-4xl mx-auto">
+      {/* Hero Content - Positioned at bottom to avoid overlapping with background text */}
+      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
         
-        {/* Top Section: Descriptive Text */}
-        <div className="mb-12">
-          <p className="text-lg md:text-xl text-white max-w-2xl mx-auto leading-relaxed">
+        {/* Descriptive Text - Moved to bottom area */}
+        <div className="mb-8">
+          <p className="text-lg md:text-xl text-white max-w-2xl mx-auto leading-relaxed mb-6">
             Transform your consciousness through guided meditation, dream work, and spiritual practices. 
             Join our community of seekers on the journey to inner peace and mindful living.
           </p>
         </div>
         
-        {/* Middle Section: Main Title (without logo to avoid overlap) */}
-        <div className="mb-8">
-          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold gradient-text mb-4">
-            The Dream Work
-          </h1>
-          <p className="text-xl md:text-2xl text-white">
-            Heal the Vibe, <span className="font-script font-semibold">Live the Dream</span>
-          </p>
-        </div>
-        
-        {/* Bottom Section: Call to Action and Search */}
+        {/* Call to Action and Search - Bottom Section */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
           <Button 
             size="lg" 
