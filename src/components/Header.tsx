@@ -99,6 +99,12 @@ const Header = () => {
       page: 'Vlogs', 
       keywords: ['vlogs', 'videos', 'meditation', 'spiritual', 'guidance', 'practice'],
       content: 'vlogs videos meditation spiritual guidance practice visual'
+    },
+    { 
+      path: '/story-sharing', 
+      page: 'Story Sharing', 
+      keywords: ['story', 'sharing', 'guest', 'stories', 'community', 'journey', 'healing', 'transformation', 'awakening'],
+      content: 'story sharing guest stories community journey healing transformation awakening spiritual experiences'
     }
   ];
   
@@ -210,6 +216,9 @@ const Header = () => {
             <a href="/vlogs" className="text-foreground hover:text-primary transition-gentle">
               Vlogs
             </a>
+            <a href="/story-sharing" className="text-foreground hover:text-primary transition-gentle">
+              Share Your Story
+            </a>
             <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
               Meditation Practices
             </a>
@@ -319,6 +328,9 @@ const Header = () => {
               </a>
               <a href="/vlogs" className="text-foreground hover:text-primary transition-gentle">
                 Vlogs
+              </a>
+              <a href="/story-sharing" className="text-foreground hover:text-primary transition-gentle">
+                Share Your Story
               </a>
               <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
                 Meditation Practices
