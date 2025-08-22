@@ -135,7 +135,7 @@ const Hero = () => {
 
   console.log('Hero component rendering');
   return (
-    <section className="relative min-h-screen flex flex-col justify-end items-center overflow-hidden pb-20">
+    <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -145,8 +145,8 @@ const Hero = () => {
         />
       </div>
       
-      {/* Hero Content - Positioned at bottom to avoid overlapping with background text */}
-      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+      {/* Hero Content - Positioned in center-bottom area with proper spacing */}
+      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-auto mb-32">
         
         {/* Descriptive Text - Moved to bottom area */}
         <div className="mb-8">
