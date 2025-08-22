@@ -1,14 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
 import type { User as SupabaseUser } from '@supabase/supabase-js';
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-// Create a mock client if environment variables are not available
-export const supabase = supabaseUrl && supabaseAnonKey 
-  ? createClient(supabaseUrl, supabaseAnonKey)
-  : null;
+import { supabase } from '@/integrations/supabase/client';
 
 interface User {
   id: string;
@@ -42,10 +34,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!supabase) {
-      setLoading(false);
-      return;
-    }
 
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -71,9 +59,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const signUp = async (email: string, password: string, fullName?: string) => {
-    if (!supabase) {
-      return { error: { message: 'Supabase not configured. Please connect your Supabase project.' } };
-    }
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -87,9 +72,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const signIn = async (email: string, password: string) => {
-    if (!supabase) {
-      return { error: { message: 'Supabase not configured. Please connect your Supabase project.' } };
-    }
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -98,14 +80,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const signOut = async () => {
-    if (!supabase) return;
     await supabase.auth.signOut();
   };
 
   const resetPassword = async (email: string) => {
-    if (!supabase) {
-      return { error: { message: 'Supabase not configured. Please connect your Supabase project.' } };
-    }
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
     });
