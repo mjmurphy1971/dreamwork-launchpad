@@ -135,7 +135,7 @@ const Hero = () => {
 
   console.log('Hero component rendering');
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -145,71 +145,62 @@ const Hero = () => {
         />
       </div>
       
-      {/* Hero Content */}
-      <div className="relative z-10 text-center text-white px-4 py-20">
-        <div className="max-w-4xl mx-auto space-y-8">
-          
-          {/* Descriptive Text - Above Logo */}
+      {/* Hero Content - Structured to avoid overlapping */}
+      <div className="relative z-10 text-center text-white px-4 py-20 max-w-4xl mx-auto">
+        
+        {/* Top Section: Descriptive Text */}
+        <div className="mb-12">
           <p className="text-lg md:text-xl text-white max-w-2xl mx-auto leading-relaxed">
             Transform your consciousness through guided meditation, dream work, and spiritual practices. 
             Join our community of seekers on the journey to inner peace and mindful living.
           </p>
-          
-          {/* Logo */}
-          <div className="flex justify-center">
-            <img
-              src="/lovable-uploads/85401e36-bc0d-4dac-bede-13f273db1297.png"
-              alt="The Dream Work Logo"
-              className="w-32 h-32 md:w-40 md:h-40 object-contain"
-            />
-          </div>
-          
-          {/* Main Title */}
-          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold gradient-text">
+        </div>
+        
+        {/* Middle Section: Main Title (without logo to avoid overlap) */}
+        <div className="mb-8">
+          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold gradient-text mb-4">
             The Dream Work
           </h1>
-          
-          {/* Tagline */}
           <p className="text-xl md:text-2xl text-white">
             Heal the Vibe, <span className="font-script font-semibold">Live the Dream</span>
           </p>
+        </div>
+        
+        {/* Bottom Section: Call to Action and Search */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
+          <Button 
+            size="lg" 
+            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm w-full sm:w-auto"
+            onClick={() => window.location.href = '/meditation'}
+          >
+            Start Your Journey
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
           
-          {/* Call to Action and Search */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
-            <Button 
-              size="lg" 
-              className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm w-full sm:w-auto"
-              onClick={() => window.location.href = '/meditation'}
-            >
-              Start Your Journey
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            
-            {/* Search Section */}
-            <div className="w-full max-w-md">
-              <div className="flex gap-2 items-center">
-                <Input
-                  type="text"
-                  placeholder="Search the site..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  onKeyPress={handleSearchKeyPress}
-                  className="bg-white/20 border-white/30 text-white placeholder:text-white/70 backdrop-blur-sm focus:bg-white/30 flex-1"
-                />
-                <Button 
-                  variant="outline" 
-                  size="default"
-                  className="border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold"
-                  onClick={handleSearch}
-                >
-                  <Search className="w-4 h-4 sm:mr-2" />
-                  <span className="hidden sm:inline">Search</span>
-                </Button>
-              </div>
+          {/* Search Section */}
+          <div className="w-full max-w-md">
+            <div className="flex gap-2 items-center">
+              <Input
+                type="text"
+                placeholder="Search the site..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyPress={handleSearchKeyPress}
+                className="bg-white/20 border-white/30 text-white placeholder:text-white/70 backdrop-blur-sm focus:bg-white/30 flex-1"
+              />
+              <Button 
+                variant="outline" 
+                size="default"
+                className="border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold"
+                onClick={handleSearch}
+              >
+                <Search className="w-4 h-4 sm:mr-2" />
+                <span className="hidden sm:inline">Search</span>
+              </Button>
             </div>
           </div>
-          
         </div>
+        
       </div>
     </section>
   );
