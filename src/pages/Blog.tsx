@@ -146,7 +146,7 @@ const Blog = () => {
             </div>
             
             <div className="prose prose-lg max-w-none">
-              {selectedPost.content.split(\'\\n\\n\').map((paragraph, index) => (
+              {selectedPost.content.split('\n\n').map((paragraph, index) => (
                 <p key={index} className="mb-4 text-foreground leading-relaxed">
                   {paragraph}
                 </p>
@@ -191,30 +191,29 @@ const Blog = () => {
             <Card
               key={post.id}
               className={`overflow-hidden shadow-card border-0 bg-card hover:shadow-card-hover transition-smooth group cursor-pointer animate-fade-in ${
-                post.featured ? \'md:grid md:grid-cols-2 md:gap-8\' : \'\'
-              }`}
+                post.featured ? 'md:grid md:grid-cols-2 md:gap-8' : ''
+                    }`
               style={{ animationDelay: `${index * 0.1}s` }}
               onClick={() => setSelectedPost(post)}
             >
-              <div className={`relative overflow-hidden ${post.featured ? \'md:order-2\' : \'\'}`}>
+                <div className={`relative overflow-hidden ${post.featured ? 'md:order-2' : ''}`}>
                 <img
                   src={post.image}
                   alt={post.title}
                   className={`w-full object-cover group-hover:scale-105 transition-smooth ${
-                    post.featured ? \'h-64 md:h-full\' : \'h-48\'
-                  }`}
+                    post.featured ? 'h-64 md:h-full' : 'h-48'
+                    }`
                 />
                 <div className="absolute top-4 left-4">
-                  <Badge variant="secondary" className="gradient-card text-foreground border-0">
                     {post.category}
                   </Badge>
                 </div>
               </div>
               
-              <div className={`${post.featured ? \'md:order-1\' : \'\'}`}>
+              <div className={`${post.featured ? 'md:order-1' : ''}`}>
                 <CardHeader className="pb-4">
                   <h2 className={`font-heading font-bold line-clamp-2 group-hover:text-primary transition-gentle ${
-                    post.featured ? \'text-2xl md:text-3xl\' : \'text-xl\'
+                    post.featured ? 'text-2xl md:text-3xl' : 'text-xl'
                   }`}>
                     {post.title}
                   </h2>
@@ -222,7 +221,7 @@ const Blog = () => {
                 
                 <CardContent className="pb-4">
                   <p className={`text-muted-foreground leading-relaxed line-clamp-3 ${
-                    post.featured ? \'text-lg\' : \'\'
+                    post.featured ? 'text-lg' : ''
                   }`}>
                     {post.excerpt}
                   </p>

@@ -143,24 +143,24 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition-gentle" onClick={handleLogoClick}>
+          <div className="flex items-center space-x-4 cursor-pointer hover:opacity-80 transition-gentle" onClick={handleLogoClick}>
             <img 
               src="/lovable-uploads/85401e36-bc0d-4dac-bede-13f273db1297.png" 
               alt="The Dream Work Logo" 
-              className="w-12 h-12 object-contain"
+              className="w-12 h-12 object-contain md:w-16 md:h-16"
             />
-            <div>
-              <h1 className="font-heading text-xl font-semibold gradient-text">
+            <div className="hidden md:block">
+              <h1 className="font-heading text-xl md:text-2xl font-semibold gradient-text">
                 The Dream Work
               </h1>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs md:text-sm text-muted-foreground">
                 Heal the Vibe, <span className="font-script font-semibold">Live the Dream</span>
               </p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 xl:space-x-10">
             <a href="/" className="text-foreground hover:text-primary transition-gentle">
               Home
             </a>
