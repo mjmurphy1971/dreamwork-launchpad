@@ -167,7 +167,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             <a href="/" className="text-foreground hover:text-primary transition-gentle">
               Home
             </a>
@@ -207,20 +207,29 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            <a href="/blog" className="text-foreground hover:text-primary transition-gentle">
-              Blog
-            </a>
-            <a href="/articles" className="text-foreground hover:text-primary transition-gentle">
-              Articles
-            </a>
-            <a href="/vlogs" className="text-foreground hover:text-primary transition-gentle">
-              Vlogs
-            </a>
-            <a href="/story-sharing" className="text-foreground hover:text-primary transition-gentle">
-              Share Your Story
-            </a>
+            <div className="relative group">
+              <span className="text-foreground hover:text-primary transition-gentle cursor-pointer">
+                Content
+              </span>
+              <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border/50 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="p-2">
+                  <a href="/blog" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    📝 Blog Posts
+                  </a>
+                  <a href="/articles" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    📚 Articles
+                  </a>
+                  <a href="/vlogs" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    🎥 Video Teachings
+                  </a>
+                  <a href="/story-sharing" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    💫 Share Your Story
+                  </a>
+                </div>
+              </div>
+            </div>
             <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
-              Meditation Practices
+              Meditation
             </a>
             <div className="relative group">
               <span className="text-foreground hover:text-primary transition-gentle cursor-pointer">
@@ -277,7 +286,7 @@ const Header = () => {
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -287,7 +296,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-border/50">
+          <nav className="lg:hidden mt-4 pb-4 border-t border-border/50">
             <div className="flex flex-col space-y-4 mt-4">
               <a href="/" className="text-foreground hover:text-primary transition-gentle">
                 Home
