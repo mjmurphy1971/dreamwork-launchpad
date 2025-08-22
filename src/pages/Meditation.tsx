@@ -12,6 +12,7 @@ import { highlightSearchTerm, getSearchTermFromURL } from "@/utils/searchHighlig
 import SEO from "@/components/SEO";
 import { createVideoSchema, createHowToSchema } from "@/components/SchemaMarkup";
 import { baseKeywords, formatDuration } from "@/utils/seoHelpers";
+import MeditationProgressTracker from "@/components/MeditationProgressTracker";
 
 const meditationCategories = [
   {
@@ -522,7 +523,19 @@ const Meditation = () => {
         </section>
 
         {/* Call to Action */}
-        <section className="text-center mt-16 mb-8">
+        <section className="mb-8">
+          <Card className="max-w-6xl mx-auto">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-heading font-bold gradient-text mb-6 text-center">
+                Track Your Meditation Journey
+              </h3>
+              <MeditationProgressTracker />
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Call to Action */}
+        <section className="text-center mb-8">
           <Card className="max-w-2xl mx-auto shadow-card border-0 bg-card">
             <CardContent className="p-8">
               <h3 className="text-2xl font-heading font-bold gradient-text mb-4">

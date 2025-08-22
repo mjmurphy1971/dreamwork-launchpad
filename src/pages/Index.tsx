@@ -4,6 +4,7 @@ import BlogGrid from "@/components/BlogGrid";
 import VlogSection from "@/components/VlogSection";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import stillnessPracticeHero from "@/assets/stillness-practice-hero.jpg";
 import dreamJournalBg from "@/assets/dream-journal-bg.jpg";
 import meditationToolBg from "@/assets/meditation-tool-bg.jpg";
@@ -206,6 +207,19 @@ const Index = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Newsletter Signup Section */}
+        <section className="py-12 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto">
+              <NewsletterSignup 
+                title="Join Our Mindful Community"
+                description="Get weekly meditation insights, new tool updates, and exclusive guided practices delivered to your inbox. Start your journey with a free meditation guide."
+                variant="card"
+              />
             </div>
           </div>
         </section>

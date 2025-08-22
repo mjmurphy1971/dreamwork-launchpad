@@ -15,6 +15,21 @@ import { baseKeywords, formatDuration } from "@/utils/seoHelpers";
 const vlogs = [
   {
     id: 1,
+    title: "Invitation to Share Your Story - Creating Sacred Connection",
+    description: "Join me in creating a beautiful community of storytellers. I'm inviting guests to share their personal journeys of spiritual awakening, healing, and transformation. This is your invitation to connect and inspire others with your unique path.",
+    thumbnail: "https://scontent.fyyc2-1.fna.fbcdn.net/v/t15.5256-10/472577662_1102528784885729_6829938710829778966_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=9Wx8vB-EmfYQ7kNvgGYZF5n&_nc_ht=scontent.fyyc2-1.fna.fbcdn.net&_nc_gid=ATgpj-MPsO8TTeWeNxfKE6g&oh=00_AYCQfW8YJQFgek7lh_LO2IEUZpki8WRbJRJ4DWPyxfpfgg&oe=676CEADD",
+    videoUrl: "https://www.facebook.com/reel/922524566755117",
+    videoId: "922524566755117",
+    duration: "1:45",
+    views: "127",
+    uploadDate: "2024-08-22",
+    category: "Community",
+    featured: true,
+    keywords: ["story sharing", "guest stories", "community", "spiritual journey", "transformation", "healing stories"],
+    transcript: "Hello beautiful souls! I'm so excited to share something special with you today. I'm opening up The Dream Work to guest storytellers - people like you who have incredible journeys of healing, awakening, and transformation to share. Whether you've experienced a profound spiritual awakening, overcome challenges through meditation and mindfulness, or discovered healing through dream work, I want to hear your story. Your experiences could be exactly what someone else needs to hear right now. If you feel called to share your journey, please reach out. Let's create a beautiful tapestry of human experience and support each other on this path of consciousness and growth."
+  },
+  {
+    id: 2,
     title: "Morning Meditation Practice - Finding Peace in Daily Life",
     description: "Join me for a gentle morning meditation session as I share insights on building a sustainable daily practice that brings peace and clarity to your everyday life. Learn breathing techniques, intention setting, and mindful awareness practices.",
     thumbnail: "https://img.youtube.com/vi/tOp-gbnyj3w/mqdefault.jpg",
@@ -24,12 +39,12 @@ const vlogs = [
     views: "2.1K",
     uploadDate: "2024-08-15",
     category: "Meditation",
-    featured: true,
+    featured: false,
     keywords: ["morning meditation", "daily practice", "mindfulness routine", "breathing techniques", "intention setting"],
     transcript: "Welcome to this morning meditation practice. Today we'll explore how to create a sustainable daily practice that brings peace into your everyday life. Find a comfortable seated position, close your eyes, and begin to notice your breath. Take a deep inhale through the nose, feeling your belly expand, and slowly exhale through the mouth. As we settle into this practice, let's set an intention for the day ahead. What quality would you like to cultivate today? Perhaps patience, compassion, or clarity. Hold that intention gently in your heart as we continue together. Notice how your body feels in this moment - any areas of tension or relaxation. Breathe into any areas that feel tight or uncomfortable. This practice of morning meditation creates a foundation of awareness that carries throughout your day, helping you respond rather than react to life's challenges."
   },
   {
-    id: 2,
+    id: 3,
     title: "Dream Journaling Tips - Unlocking Your Subconscious Wisdom",
     description: "Discover practical techniques for keeping a dream journal and how to interpret the messages your subconscious mind is sending you each night. Learn symbol recognition, pattern tracking, and dream recall methods.",
     thumbnail: "https://img.youtube.com/vi/kO5I0p3IuiQ/mqdefault.jpg",
@@ -44,7 +59,7 @@ const vlogs = [
     transcript: "Welcome to this exploration of dream journaling. Dreams are one of the most profound ways our subconscious communicates with us, offering insights, healing, and guidance. Let me share some practical techniques for keeping a dream journal. First, keep your journal and a pen right by your bedside. The moment you wake up, before moving or speaking, reach for your journal and begin writing whatever you remember. Don't worry about making sense of it initially - just capture the images, emotions, and fragments. Look for recurring symbols in your dreams. Water might represent emotions, houses often symbolize the self, and animals can represent instinctual wisdom. Pay attention to the emotions in your dreams as much as the imagery. Sometimes the feeling is more important than the story. Over time, patterns will emerge that offer deep insights into your psyche and spiritual path."
   },
   {
-    id: 3,
+    id: 4,
     title: "Creating Sacred Space in Your Home",
     description: "Learn how to transform any corner of your living space into a peaceful sanctuary for meditation, reflection, and spiritual practice.",
     thumbnail: "/placeholder.svg", // Replace with actual thumbnail
@@ -56,7 +71,7 @@ const vlogs = [
     featured: false
   },
   {
-    id: 4,
+    id: 5,
     title: "Breathwork for Anxiety Relief",
     description: "Simple yet powerful breathing techniques you can use anywhere to calm your nervous system and find peace in moments of stress.",
     thumbnail: "/placeholder.svg", // Replace with actual thumbnail
@@ -68,7 +83,7 @@ const vlogs = [
     featured: false
   },
   {
-    id: 5,
+    id: 6,
     title: "The Power of Intention Setting",
     description: "Explore how to set meaningful intentions that align with your deepest values and guide you toward living your dreams.",
     thumbnail: "/placeholder.svg", // Replace with actual thumbnail
@@ -80,7 +95,7 @@ const vlogs = [
     featured: false
   },
   {
-    id: 6,
+    id: 7,
     title: "Walking Meditation in Nature",
     description: "Join me for a peaceful walking meditation in a beautiful natural setting, learning how to bring mindfulness to movement.",
     thumbnail: "/placeholder.svg", // Replace with actual thumbnail
@@ -93,7 +108,7 @@ const vlogs = [
   }
 ];
 
-const categories = ["All", "Meditation", "Dream Work", "Mindfulness", "Healing", "Manifestation", "Nature"];
+const categories = ["All", "Community", "Meditation", "Dream Work", "Mindfulness", "Healing", "Manifestation", "Nature"];
 
 const Vlogs = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");

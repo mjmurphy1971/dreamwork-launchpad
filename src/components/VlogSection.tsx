@@ -13,6 +13,20 @@ import dreamJournalThumb from "@/assets/dream-journal-thumb.jpg";
 const vlogs = [
   {
     id: 1,
+    title: "Invitation to Share Your Story - Creating Sacred Connection", 
+    description: "Join me in creating a beautiful community of storytellers. I'm inviting guests to share their personal journeys of spiritual awakening, healing, and transformation.",
+    thumbnail: "https://scontent.fyyc2-1.fna.fbcdn.net/v/t15.5256-10/472577662_1102528784885729_6829938710829778966_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=9Wx8vB-EmfYQ7kNvgGYZF5n&_nc_ht=scontent.fyyc2-1.fna.fbcdn.net&_nc_gid=ATgpj-MPsO8TTeWeNxfKE6g&oh=00_AYCQfW8YJQFgek7lh_LO2IEUZpki8WRbJRJ4DWPyxfpfgg&oe=676CEADD",
+    duration: "1:45",
+    views: "127",
+    publishedAt: "2024-08-22",
+    category: "Community",
+    videoUrl: "https://www.facebook.com/reel/922524566755117",
+    videoId: "922524566755117",
+    transcript: "Hello beautiful souls! I'm so excited to share something special with you today. I'm opening up The Dream Work to guest storytellers - people like you who have incredible journeys of healing, awakening, and transformation to share. Your experiences could be exactly what someone else needs to hear right now. If you feel called to share your journey, please reach out. Let's create a beautiful tapestry of human experience and support each other on this path of consciousness and growth.",
+    keywords: ["story sharing", "guest stories", "community", "spiritual journey", "transformation", "healing stories"]
+  },
+  {
+    id: 2,
     title: "Morning Meditation: Finding Peace in 10 Minutes",
     description: "Join me for a gentle morning meditation practice that will set a peaceful tone for your entire day. Learn breathing techniques, body awareness, and mindful intention setting.",
     thumbnail: morningMeditationThumb,
@@ -26,7 +40,7 @@ const vlogs = [
     keywords: ["morning meditation", "guided meditation", "daily practice", "mindfulness", "breathing technique"]
   },
   {
-    id: 2,
+    id: 3,
     title: "Sacred Space Tour: Creating Your Meditation Corner",
     description: "Take a tour of my personal meditation space and learn how to create your own sacred sanctuary at home. Discover essential elements, arrangement tips, and energy clearing techniques.",
     thumbnail: sacredSpaceThumb,
@@ -40,7 +54,7 @@ const vlogs = [
     keywords: ["sacred space", "meditation room", "home sanctuary", "spiritual decor", "meditation setup"]
   },
   {
-    id: 3,
+    id: 4,
     title: "Breathwork for Anxiety: Immediate Relief Techniques",
     description: "Learn powerful breathing techniques that can help you find calm in moments of stress and anxiety.",
     thumbnail: breathworkThumb,
@@ -51,7 +65,7 @@ const vlogs = [
     videoUrl: "https://www.youtube.com/watch?v=tOp-gbnyj3w",
   },
   {
-    id: 4,
+    id: 5,
     title: "Dream Journal Walk-Through: Recording Your Visions",
     description: "Explore the practice of dream journaling and discover how to capture and interpret your nighttime messages.",
     thumbnail: dreamJournalThumb,

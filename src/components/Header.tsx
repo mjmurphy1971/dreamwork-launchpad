@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { UserAccountButton } from "@/components/UserAccountButton";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -98,6 +99,12 @@ const Header = () => {
       page: 'Vlogs', 
       keywords: ['vlogs', 'videos', 'meditation', 'spiritual', 'guidance', 'practice'],
       content: 'vlogs videos meditation spiritual guidance practice visual'
+    },
+    { 
+      path: '/story-sharing', 
+      page: 'Story Sharing', 
+      keywords: ['story', 'sharing', 'guest', 'stories', 'community', 'journey', 'healing', 'transformation', 'awakening'],
+      content: 'story sharing guest stories community journey healing transformation awakening spiritual experiences'
     }
   ];
   
@@ -170,53 +177,59 @@ const Header = () => {
               </span>
               <div className="absolute top-full left-0 mt-2 w-72 bg-background border border-border/50 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="p-2">
-                  <div className="text-xs font-semibold text-muted-foreground px-3 py-1 mb-1">Core Tools</div>
-                  <a href="/dream-journal" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🌙 Dream Journal
+              <div className="text-xs font-semibold text-muted-foreground px-3 py-1 mb-1">Core Tools</div>
+              <a href="/dream-journal" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🌙 Dream Journal
+              </a>
+              <a href="/meditation" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🧘 Guided Audio Sessions
+              </a>
+              <a href="/weekly-stillness" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                📊 Practice Tracker
+              </a>
+              <a href="/breathwork" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🌬️ Breathwork Patterns
+              </a>
+              <hr className="my-2 border-border/50" />
+              <div className="text-xs font-semibold text-muted-foreground px-3 py-1 mb-1">Mind Play Tools</div>
+              <a href="/oracle-cards" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🔮 Daily Oracle Cards
+              </a>
+              <a href="/singing-bowls" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🎵 Singing Bowl Simulator
+              </a>
+              <a href="/gratitude-garden" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🌸 Gratitude Garden
+              </a>
+              <a href="/thought-bubbles" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🧠 Thought Bubble Release
+              </a>
+                </div>
+              </div>
+            </div>
+            <div className="relative group">
+              <span className="text-foreground hover:text-primary transition-gentle cursor-pointer">
+                Content
+              </span>
+              <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border/50 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="p-2">
+                  <a href="/blog" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    📝 Blog Posts
                   </a>
-                  <a href="/meditation" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🧘 Guided Audio Sessions
+                  <a href="/articles" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    📚 Articles
                   </a>
-                  <a href="/weekly-stillness" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    📊 Practice Tracker
+                  <a href="/vlogs" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    🎥 Video Teachings
                   </a>
-                  <a href="/breathwork" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🌬️ Breathwork Patterns
-                  </a>
-                  <hr className="my-2 border-border/50" />
-                  <div className="text-xs font-semibold text-muted-foreground px-3 py-1 mb-1">Mind Play Tools</div>
-                  <a href="/mindful-coloring" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🎨 Mindful Coloring Studio
-                  </a>
-                  <a href="/oracle-cards" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🔮 Daily Oracle Cards
-                  </a>
-                  <a href="/chakra-balancing" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🌈 Chakra Balancing Game
-                  </a>
-                  <a href="/singing-bowls" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🎵 Singing Bowl Simulator
-                  </a>
-                  <a href="/gratitude-garden" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🌸 Gratitude Garden
-                  </a>
-                  <a href="/thought-bubbles" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
-                    🧠 Thought Bubble Release
+                  <a href="/story-sharing" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                    💫 Share Your Story
                   </a>
                 </div>
               </div>
             </div>
-            <a href="/blog" className="text-foreground hover:text-primary transition-gentle">
-              Blog
-            </a>
-            <a href="/articles" className="text-foreground hover:text-primary transition-gentle">
-              Articles
-            </a>
-            <a href="/vlogs" className="text-foreground hover:text-primary transition-gentle">
-              Vlogs
-            </a>
             <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
-              Meditation Practices
+              Meditation
             </a>
             <div className="relative group">
               <span className="text-foreground hover:text-primary transition-gentle cursor-pointer">
@@ -236,9 +249,12 @@ const Header = () => {
             <a href="/about" className="text-foreground hover:text-primary transition-gentle">
               About
             </a>
+            <a href="/contact" className="text-foreground hover:text-primary transition-gentle">
+              Contact
+            </a>
           </nav>
 
-          {/* Search and Mobile Menu */}
+          {/* Search, Account, and Mobile Menu */}
           <div className="flex items-center space-x-4">
             {/* Search */}
             <div className="hidden sm:flex items-center space-x-2">
@@ -263,11 +279,14 @@ const Header = () => {
               </div>
             </div>
 
+            {/* User Account */}
+            <UserAccountButton />
+
             {/* Mobile Menu Toggle */}
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -277,7 +296,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-border/50">
+          <nav className="lg:hidden mt-4 pb-4 border-t border-border/50">
             <div className="flex flex-col space-y-4 mt-4">
               <a href="/" className="text-foreground hover:text-primary transition-gentle">
                 Home
@@ -297,14 +316,8 @@ const Header = () => {
                   🌬️ Breathwork Patterns
                 </a>
                 <span className="text-sm font-semibold text-muted-foreground mb-2 mt-4 block">Mind Play Tools</span>
-                <a href="/mindful-coloring" className="block py-1 text-foreground hover:text-primary transition-gentle">
-                  🎨 Mindful Coloring Studio
-                </a>
                 <a href="/oracle-cards" className="block py-1 text-foreground hover:text-primary transition-gentle">
                   🔮 Daily Oracle Cards
-                </a>
-                <a href="/chakra-balancing" className="block py-1 text-foreground hover:text-primary transition-gentle">
-                  🌈 Chakra Balancing Game
                 </a>
                 <a href="/singing-bowls" className="block py-1 text-foreground hover:text-primary transition-gentle">
                   🎵 Singing Bowl Simulator
@@ -325,6 +338,9 @@ const Header = () => {
               <a href="/vlogs" className="text-foreground hover:text-primary transition-gentle">
                 Vlogs
               </a>
+              <a href="/story-sharing" className="text-foreground hover:text-primary transition-gentle">
+                Share Your Story
+              </a>
               <a href="/meditation" className="text-foreground hover:text-primary transition-gentle">
                 Meditation Practices
               </a>
@@ -339,6 +355,9 @@ const Header = () => {
               </div>
               <a href="/about" className="text-foreground hover:text-primary transition-gentle">
                 About
+              </a>
+              <a href="/contact" className="text-foreground hover:text-primary transition-gentle">
+                Contact
               </a>
               
               {/* Mobile Search */}
