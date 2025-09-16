@@ -135,7 +135,7 @@ const Hero = () => {
 
   console.log('Hero component rendering');
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden">
+    <section className="relative min-h-[100vh] md:min-h-screen flex flex-col justify-end md:justify-center items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -145,26 +145,26 @@ const Hero = () => {
         />
       </div>
       
-      {/* Hero Content - Positioned in center-bottom area with proper spacing */}
-      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-auto mb-32">
+      {/* Hero Content - Dynamic positioning for mobile and desktop */}
+      <div className="relative z-10 text-center text-white px-4 py-8 max-w-4xl mx-auto mb-16 md:mb-32">
         
-        {/* Descriptive Text - Moved to bottom area */}
-        <div className="mb-8">
-          <p className="text-lg md:text-xl text-white max-w-2xl mx-auto leading-relaxed mb-6">
+        {/* Descriptive Text */}
+        <div className="mb-6 md:mb-8">
+          <p className="text-base md:text-lg lg:text-xl text-white max-w-2xl mx-auto leading-relaxed mb-4 md:mb-6">
             Transform your consciousness through guided meditation, dream work, and spiritual practices. 
             Join our community of seekers on the journey to inner peace and mindful living.
           </p>
         </div>
         
-        {/* Call to Action and Search - Bottom Section */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
+        {/* Call to Action and Search - Responsive layout */}
+        <div className="flex flex-col gap-4 justify-center items-center max-w-2xl mx-auto">
           <Button 
             size="lg" 
-            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm w-full sm:w-auto"
+            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm w-full sm:w-auto px-6 py-3"
             onClick={() => window.location.href = '/meditation'}
           >
             Start Your Journey
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
           </Button>
           
           {/* Search Section */}
@@ -176,16 +176,16 @@ const Hero = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyPress={handleSearchKeyPress}
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/70 backdrop-blur-sm focus:bg-white/30 flex-1"
+                className="bg-white/20 border-white/30 text-white placeholder:text-white/70 backdrop-blur-sm focus:bg-white/30 flex-1 h-10 md:h-11"
               />
               <Button 
                 variant="outline" 
                 size="default"
-                className="border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold"
+                className="border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold h-10 md:h-11 px-3 md:px-4"
                 onClick={handleSearch}
               >
-                <Search className="w-4 h-4 sm:mr-2" />
-                <span className="hidden sm:inline">Search</span>
+                <Search className="w-4 h-4" />
+                <span className="hidden sm:inline ml-2">Search</span>
               </Button>
             </div>
           </div>
