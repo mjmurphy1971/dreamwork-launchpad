@@ -135,7 +135,7 @@ const Hero = () => {
 
   console.log('Hero component rendering');
   return (
-    <section className="relative w-full min-h-[90svh] md:min-h-screen flex flex-col justify-center items-center overflow-hidden">
+    <section className="relative w-full min-h-[90svh] md:min-h-screen flex flex-col justify-end md:justify-center items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -148,7 +148,7 @@ const Hero = () => {
       </div>
       
       {/* Hero Content - Dynamic positioning for mobile and desktop */}
-      <div className="relative z-10 text-center text-white px-4 sm:px-6 py-8 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center text-white px-4 sm:px-6 py-8 md:py-12 max-w-4xl mx-auto mb-8 md:mb-16">
         
         {/* Descriptive Text */}
         <div className="mb-6 md:mb-8">
