@@ -135,7 +135,7 @@ const Hero = () => {
 
   console.log('Hero component rendering');
   return (
-    <section className="relative w-full min-h-[80svh] md:min-h-screen flex flex-col justify-start items-stretch overflow-hidden pt-16 sm:pt-20 md:pt-0 md:justify-center">
+    <section className="relative w-full min-h-[70svh] md:min-h-screen flex flex-col justify-start items-stretch overflow-hidden pt-6 sm:pt-8 md:pt-0 pb-4 md:justify-center">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
