@@ -135,7 +135,7 @@ const Hero = () => {
 
   console.log('Hero component rendering');
   return (
-    <section className="relative w-full min-h-[90svh] md:min-h-screen flex flex-col justify-end md:justify-center items-center overflow-hidden">
+    <section className="relative w-full min-h-[90svh] md:min-h-screen flex flex-col justify-start md:justify-center items-center overflow-hidden pt-24 sm:pt-28 pb-6 sm:pb-8">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -148,10 +148,10 @@ const Hero = () => {
       </div>
       
       {/* Hero Content - Dynamic positioning for mobile and desktop */}
-      <div className="relative z-10 text-center text-white px-4 sm:px-6 py-8 md:py-12 max-w-4xl mx-auto mb-8 md:mb-16">
+      <div className="relative z-10 text-center text-white px-4 sm:px-6 py-0 md:py-12 max-w-4xl mx-auto space-y-4 md:space-y-6">
         
         {/* Descriptive Text */}
-        <div className="mb-6 md:mb-8">
+        <div className="hidden md:block mb-6 md:mb-8">
           <p className="text-base md:text-lg lg:text-xl text-white max-w-2xl mx-auto leading-relaxed mb-4 md:mb-6">
             Transform your consciousness through guided meditation, dream work, and spiritual practices. 
             Join our community of seekers on the journey to inner peace and mindful living.
@@ -159,7 +159,7 @@ const Hero = () => {
         </div>
         
         {/* Call to Action and Search - Responsive layout */}
-        <div className="flex flex-col gap-4 justify-center items-center max-w-2xl mx-auto">
+        <div className="flex flex-col gap-4 justify-center items-center max-w-2xl mx-auto mt-2 md:mt-0">
           <Button 
             size="lg" 
             className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm w-full sm:w-auto px-6 py-3"
