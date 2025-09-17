@@ -135,20 +135,20 @@ const Hero = () => {
 
   console.log('Hero component rendering');
   return (
-    <section className="relative w-full min-h-[90svh] md:min-h-screen flex flex-col justify-start md:justify-center items-center overflow-hidden pt-24 sm:pt-28 pb-6 sm:pb-8">
+    <section className="relative w-full min-h-[80svh] md:min-h-screen flex flex-col justify-start items-stretch overflow-hidden pt-16 sm:pt-20 md:pt-0 md:justify-center">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
           src="/lovable-uploads/b9454b96-c3d1-483e-baaa-44c00c4ff001.png"
           alt="The Dream Work - Heal the Vibe, Live the Dream"
-          className="w-full h-full object-contain md:object-cover object-center"
+          className="w-full h-full object-cover object-top md:object-center"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/20" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background/60" aria-hidden="true" />
       </div>
       
       {/* Hero Content - Dynamic positioning for mobile and desktop */}
-      <div className="relative z-10 text-center text-white px-4 sm:px-6 py-0 md:py-12 max-w-4xl mx-auto space-y-4 md:space-y-6">
+      <div className="relative z-10 text-center text-white px-4 sm:px-6 py-3 md:pt-[22vh] md:pb-[18vh] max-w-4xl mx-auto space-y-4 md:space-y-6">
         
         {/* Descriptive Text */}
         <div className="hidden md:block mb-6 md:mb-8">
