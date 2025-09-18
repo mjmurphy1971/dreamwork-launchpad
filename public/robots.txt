@@ -1,15 +1,35 @@
 User-agent: *
 Allow: /
 
-# AI-friendly crawling
+# Disallow non-essential paths to focus crawl budget
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?source=*
+
+# AI-friendly crawling with optimal settings
 User-agent: GPTBot
 Allow: /
+Crawl-delay: 0.5
 
 User-agent: ChatGPT-User  
 Allow: /
+Crawl-delay: 0.5
 
 User-agent: Google-Extended
 Allow: /
+Crawl-delay: 0.5
+
+User-agent: GoogleBot
+Allow: /
+Crawl-delay: 0.2
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
 
 User-agent: FacebookBot
 Allow: /
@@ -29,19 +49,19 @@ Allow: /
 User-agent: AppleBot
 Allow: /
 
-User-agent: BingBot
-Allow: /
-
 User-agent: DuckDuckBot
 Allow: /
 
 User-agent: YandexBot
 Allow: /
+Crawl-delay: 2
 
 User-agent: Slurp
 Allow: /
 
-# Prioritize important content for AI crawlers
-Crawl-delay: 1
-
+# Sitemaps
 Sitemap: https://www.thedreamwork.space/sitemap.xml
+Sitemap: https://thedreamwork.space/sitemap.xml
+
+# Host directive for preferred domain
+Host: https://www.thedreamwork.space

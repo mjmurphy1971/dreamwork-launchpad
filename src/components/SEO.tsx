@@ -22,7 +22,21 @@ const SEO = ({
   breadcrumbs
 }: SEOProps) => {
   const fullTitle = `${title} | The Dream Work - Meditation & Mindfulness`;
-  const url = canonical || `https://www.thedreamwork.space${window.location.pathname}`;
+  
+  // Fix canonical URL generation to avoid window.location issues
+  const getCurrentPath = () => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname;
+    }
+    return '';
+  };
+  
+  const url = canonical || `https://www.thedreamwork.space${getCurrentPath()}`;
+  
+  // Ensure description is within optimal length (150-160 characters)
+  const optimizedDescription = description.length > 160 
+    ? description.substring(0, 157) + '...' 
+    : description;
 
   // Base schema for all pages
   const baseSchema = {
@@ -67,24 +81,38 @@ const SEO = ({
 
   return (
     <Helmet>
+      {/* Essential Meta Tags */}
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={optimizedDescription} />
       {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <link rel="canonical" href={url} />
       
-      {/* Open Graph */}
-      <meta property="og:type" content="website" />
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content={schemaType === 'Article' || schemaType === 'BlogPosting' ? 'article' : 'website'} />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={optimizedDescription} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content="The Dream Work" />
+      <meta property="og:locale" content="en_US" />
       
-      {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={url} />
-      <meta property="twitter:title" content={fullTitle} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={ogImage} />
+      {/* Twitter Card - Fix: Use 'name' instead of 'property' */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@thedreamworkspace" />
+      <meta name="twitter:creator" content="@thedreamworkspace" />
+      <meta name="twitter:url" content={url} />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={optimizedDescription} />
+      <meta name="twitter:image" content={ogImage} />
+      
+      {/* Additional SEO Meta */}
+      <meta name="author" content="The Dream Work" />
+      <meta name="theme-color" content="#8B5CF6" />
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       
       {/* Structured Data */}
       <script type="application/ld+json">

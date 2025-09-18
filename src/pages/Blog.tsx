@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import SEOEnhancer from "@/components/SEOEnhancer";
 import { blogPosts, getPostBySlug, getRelatedPosts, type BlogPost } from "@/data/blogContent";
 import ReactMarkdown from "react-markdown";
 
@@ -54,12 +55,14 @@ const Blog = () => {
           <meta property="og:description" content={selectedPost.excerpt} />
           <meta property="og:image" content={imageUrl} />
 
-          {/* Twitter */}
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content={postUrl} />
-          <meta property="twitter:title" content={selectedPost.title} />
-          <meta property="twitter:description" content={selectedPost.excerpt} />
-          <meta property="twitter:image" content={imageUrl} />
+          {/* Twitter - Fix: Use 'name' instead of 'property' */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@thedreamworkspace" />
+          <meta name="twitter:creator" content="@thedreamworkspace" />
+          <meta name="twitter:url" content={postUrl} />
+          <meta name="twitter:title" content={selectedPost.title} />
+          <meta name="twitter:description" content={selectedPost.excerpt} />
+          <meta name="twitter:image" content={imageUrl} />
 
           {/* Enhanced Article/BlogPosting Schema with SEO optimization */}
           <script type="application/ld+json">
@@ -235,7 +238,7 @@ const Blog = () => {
     <div className="min-h-screen">
       <Header />
       <main className="container mx-auto px-4 py-8">
-        {/* Hero Section */}
+        {/* Hero Section - Proper H1 structure */}
         <section className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-heading font-bold gradient-text mb-8 leading-loose pt-2 pb-2">
             My Blogging Life

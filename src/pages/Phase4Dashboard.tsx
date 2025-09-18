@@ -583,7 +583,7 @@ const Phase4Dashboard = () => {
           </TabsContent>
 
           <TabsContent value="performance">
-            <PerformanceMonitor />
+            <PerformanceMonitor pageName="phase4-dashboard" />
           </TabsContent>
 
           <TabsContent value="feedback">

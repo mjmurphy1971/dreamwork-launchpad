@@ -4,6 +4,8 @@ import BlogGrid from "@/components/BlogGrid";
 import VlogSection from "@/components/VlogSection";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import SEOMonitor from "@/components/SEOMonitor";
+import PerformanceMonitor from "@/components/PerformanceMonitor";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { IndexabilityChecker } from "@/components/IndexabilityChecker";
 import { ContextualTooltip } from "@/components/ContextualTooltip";
@@ -71,15 +73,24 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Meditation & Mindfulness Resource"
-        description="Discover guided meditation practices, mindfulness techniques, dream journaling tools, and holistic wellness resources. Transform your spiritual journey with The Dream Work."
+        title="The Dream Work - Meditation & Mindfulness for Inner Peace"
+        description="Discover guided meditation, breathwork, dream journaling, and spiritual wellness practices. Transform your daily life through mindfulness with The Dream Work community."
         keywords="meditation, mindfulness, guided meditation, dream journal, spiritual wellness, consciousness, natural healing, relaxation techniques"
+        canonical="https://www.thedreamwork.space/"
         schemaType="WebPage"
         schemaData={homePageSchema}
         breadcrumbs={[
           { name: "Home", url: "https://www.thedreamwork.space/" }
         ]}
       />
+      <SEOMonitor 
+        title="The Dream Work - Meditation & Mindfulness for Inner Peace"
+        description="Discover guided meditation, breathwork, dream journaling, and spiritual wellness practices. Transform your daily life through mindfulness with The Dream Work community."
+        canonical="https://www.thedreamwork.space/"
+        schema={homePageSchema}
+        showMonitor={process.env.NODE_ENV === 'development'}
+      />
+      <PerformanceMonitor pageName="homepage" />
       <IndexabilityChecker pageTitle="Home - Meditation & Mindfulness Resource" />
       <Header />
       <main>
