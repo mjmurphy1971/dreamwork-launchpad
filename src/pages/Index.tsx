@@ -5,6 +5,9 @@ import VlogSection from "@/components/VlogSection";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import { ContextualTooltip } from "@/components/ContextualTooltip";
+import { DefinitionGlossary } from "@/components/DefinitionGlossary";
+import { InternalLinkMap } from "@/components/InternalLinkMap";
 import stillnessPracticeHero from "@/assets/stillness-practice-hero.jpg";
 import dreamJournalBg from "@/assets/dream-journal-bg.jpg";
 import meditationToolBg from "@/assets/meditation-tool-bg.jpg";
@@ -123,14 +126,25 @@ const Index = () => {
         {/* Wellness Tools Section */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-heading font-bold gradient-text mb-4">
-                Interactive Wellness Tools
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Explore our guided practices, track your journey, and dive deep into self-discovery
-              </p>
-            </div>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-heading font-bold gradient-text mb-4">
+                  Interactive Wellness Tools
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Explore our guided practices, track your journey, and dive deep into{' '}
+                  <ContextualTooltip
+                    term="Self-Discovery"
+                    definition="The process of gaining insight into one's character, feelings, motives, and desires through introspection and mindful practices."
+                    examples={["Dream journaling for subconscious exploration", "Meditation for inner awareness", "Mindful reflection on daily experiences"]}
+                    relatedLinks={[
+                      { text: "Dream Journal Tool", url: "/dream-journal", internal: true },
+                      { text: "Meditation Practices", url: "/meditation", internal: true }
+                    ]}
+                  >
+                    self-discovery
+                  </ContextualTooltip>
+                </p>
+              </div>
             
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* Practice Tracker */}
@@ -150,7 +164,18 @@ const Index = () => {
                     Practice Tracker
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    Track gentle rituals, build mindful habits, and cultivate inner peace with our interactive tracker.
+                    Track gentle rituals, build{' '}
+                    <ContextualTooltip
+                      term="Mindful Habits"
+                      definition="Intentional daily practices performed with conscious awareness to support mental wellbeing and spiritual growth."
+                      examples={["Daily meditation practice", "Gratitude journaling", "Mindful breathing exercises"]}
+                      relatedLinks={[
+                        { text: "Practice Tracker", url: "/weekly-stillness", internal: true }
+                      ]}
+                    >
+                      mindful habits
+                    </ContextualTooltip>
+                    , and cultivate inner peace with our interactive tracker.
                   </p>
                   <div className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold group-hover:bg-primary/90 transition-gentle">
                     Start Tracking
@@ -175,7 +200,17 @@ const Index = () => {
                     Guided Audio Sessions
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    AI-generated meditation sessions for anxiety relief, self-love, sleep, and daily intention setting.
+                    <ContextualTooltip
+                      term="AI-Generated Meditation"
+                      definition="Personalized meditation sessions created using artificial intelligence to match individual needs, preferences, and current emotional states."
+                      examples={["Anxiety relief sessions tailored to stress levels", "Sleep meditations based on time and environment", "Focus sessions adapted to work requirements"]}
+                      relatedLinks={[
+                        { text: "Guided Meditation Sessions", url: "/meditation", internal: true }
+                      ]}
+                    >
+                      AI-generated meditation sessions
+                    </ContextualTooltip>
+                    {' '}for anxiety relief, self-love, sleep, and daily intention setting.
                   </p>
                   <div className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold group-hover:bg-primary/90 transition-gentle">
                     Listen Now
@@ -226,6 +261,52 @@ const Index = () => {
         
         <BlogGrid />
         <VlogSection />
+        
+        {/* Internal Linking and Contextual Content */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              <InternalLinkMap
+                currentPage="Home"
+                relatedContent={[
+                  {
+                    title: "The Art of Mindful Breathing",
+                    url: "/blog/the-art-of-mindful-breathing-your-gateway-to-inner-peace",
+                    type: "article",
+                    description: "Learn evidence-based breathing techniques that transform stress into calm and clarity.",
+                    keywords: ["breathing", "mindfulness", "stress relief"]
+                  },
+                  {
+                    title: "Dream Journal",
+                    url: "/dream-journal",
+                    type: "tool",
+                    description: "Capture and explore your dreams to discover patterns and insights from your subconscious.",
+                    keywords: ["dreams", "journaling", "self-discovery"]
+                  },
+                  {
+                    title: "Creating Sacred Space",
+                    url: "/blog/creating-sacred-space-designing-your-personal-meditation-corner",
+                    type: "article", 
+                    description: "Transform any corner into a peaceful sanctuary for your spiritual practice.",
+                    keywords: ["meditation", "sacred space", "environment"]
+                  },
+                  {
+                    title: "Weekly Stillness Practice",
+                    url: "/weekly-stillness",
+                    type: "practice",
+                    description: "Track your meditation journey with our comprehensive practice tracker.",
+                    keywords: ["meditation", "tracking", "habits"]
+                  }
+                ]}
+              />
+              
+              <DefinitionGlossary
+                compact={false}
+                categories={["Core Concepts", "Spiritual Practices", "Breathing Techniques"]}
+              />
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
