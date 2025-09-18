@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | The Dream Work - Meditation & Mindfulness</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Explore our meditation resources, guided practices, and spiritual wellness tools.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://www.thedreamwork.space/404">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 { font-size: 3rem; margin-bottom: 20px; opacity: 0.9; }
+        .emoji { font-size: 4rem; margin-bottom: 20px; }
+        p { font-size: 1.2rem; line-height: 1.6; margin-bottom: 30px; opacity: 0.8; }
+        .buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: inline-block;
+        }
+        .button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        .button.primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+        .button.primary:hover {
+            background: white;
+        }
+        .suggestions {
+            margin-top: 40px;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .suggestions h3 { margin-bottom: 15px; }
+        .suggestions ul { list-style: none; }
+        .suggestions li { margin-bottom: 8px; }
+        .suggestions a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .suggestions a:hover { color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🧘‍♀️</div>
+        <h1>404 - Page Not Found</h1>
+        <p>The page you're looking for seems to have drifted away like a peaceful thought during meditation. But don't worry - there are many other paths to explore on your wellness journey.</p>
+        
+        <div class="buttons">
+            <a href="/" class="button primary">Return Home</a>
+            <a href="/meditation" class="button">Explore Meditations</a>
+            <a href="/blog" class="button">Read Articles</a>
+        </div>
+        
+        <div class="suggestions">
+            <h3>Popular Destinations:</h3>
+            <ul>
+                <li><a href="/meditation">🎧 Guided Meditation Library</a></li>
+                <li><a href="/dream-journal">🌙 Dream Journal Tool</a></li>
+                <li><a href="/weekly-stillness">📊 Practice Tracker</a></li>
+                <li><a href="/breathwork">🌬️ Breathwork Exercises</a></li>
+                <li><a href="/blog/the-art-of-mindful-breathing-your-gateway-to-inner-peace">📖 Mindful Breathing Guide</a></li>
+                <li><a href="/gratitude-garden">🌸 Gratitude Garden</a></li>
+                <li><a href="/about">👋 About Mary Murphy</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Track 404 for analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: '404 Not Found',
+                page_location: window.location.href,
+                custom_map: {'custom_parameter_1': '404_error'}
+            });
+        }
+        
+        // Auto-redirect common typos after 5 seconds
+        const path = window.location.pathname.toLowerCase();
+        const redirects = {
+            '/meditate': '/meditation',
+            '/journals': '/dream-journal',
+            '/practices': '/meditation',
+            '/articles': '/blog'
+        };
+        
+        if (redirects[path]) {
+            setTimeout(() => {
+                window.location.href = redirects[path];
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

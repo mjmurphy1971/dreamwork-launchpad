@@ -1,0 +1,23 @@
+# Netlify redirects file to handle moved content with proper 301 redirects
+
+# Natural healing restructure
+/herbology /natural-healing/herbology 301
+/homeopathic-healing /natural-healing/homeopathy 301
+
+# Legacy blog URLs
+/blog/mindful-breathing /blog/the-art-of-mindful-breathing-your-gateway-to-inner-peace 301
+/blog/sacred-space /blog/creating-sacred-space-designing-your-personal-meditation-corner 301
+/blog/dream-states /blog/understanding-dream-states-and-sleep-cycles 301
+/blog/sound-baths /blog/exploring-the-healing-power-of-sound-baths 301
+/blog/dream-interpretation /blog/working-with-your-dreams-a-beginners-guide-to-dream-interpretation 301
+
+# Alternative page names
+/meditations /meditation 301
+/practices /meditation 301
+/tools /weekly-stillness 301
+/journal /dream-journal 301
+/dashboard /phase4-dashboard 301
+/analytics /phase4-dashboard 301
+
+# Catch-all for any other 404s - redirect to home
+/* /404.html 404

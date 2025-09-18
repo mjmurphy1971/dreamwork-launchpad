@@ -5,6 +5,7 @@ import VlogSection from "@/components/VlogSection";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import { IndexabilityChecker } from "@/components/IndexabilityChecker";
 import { ContextualTooltip } from "@/components/ContextualTooltip";
 import { DefinitionGlossary } from "@/components/DefinitionGlossary";
 import { InternalLinkMap } from "@/components/InternalLinkMap";
@@ -79,6 +80,7 @@ const Index = () => {
           { name: "Home", url: "https://www.thedreamwork.space/" }
         ]}
       />
+      <IndexabilityChecker pageTitle="Home - Meditation & Mindfulness Resource" />
       <Header />
       <main>
         <Hero />

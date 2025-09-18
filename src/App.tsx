@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/components/AuthProvider";
+import { RedirectHandler } from "@/components/RedirectHandler";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import Articles from "./pages/Articles";
@@ -40,6 +41,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <RedirectHandler />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/blog" element={<Blog />} />
@@ -51,8 +53,9 @@ const App = () => {
               <Route path="/vlogs" element={<Vlogs />} />
               <Route path="/natural-healing/homeopathy" element={<HomeopathicHealing />} />
               <Route path="/natural-healing/herbology" element={<Herbology />} />
-              {/* Legacy route redirect */}
+              {/* Legacy route redirects */}
               <Route path="/homeopathic-healing" element={<HomeopathicHealing />} />
+              <Route path="/herbology" element={<Herbology />} />
               <Route path="/weekly-stillness" element={<WeeklyStillness />} />
               <Route path="/morning-rituals" element={<MorningRituals />} />
               <Route path="/work-transitions" element={<WorkTransitions />} />
