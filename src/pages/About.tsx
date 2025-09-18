@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { highlightSearchTerm, getSearchTermFromURL } from "@/utils/searchHighlight";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   const [formData, setFormData] = useState({
@@ -41,6 +42,60 @@ const About = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>About Mary Murphy | The Dream Work - Meditation & Mindfulness Guide</title>
+        <meta name="description" content="Meet Mary Murphy, founder of The Dream Work. Discover her journey with meditation and mindfulness, and learn about her vision for accessible spiritual wellness resources." />
+        <meta name="keywords" content="Mary Murphy, meditation teacher, mindfulness instructor, spiritual guide, Dream Work founder, meditation resources, wellness coach" />
+        <link rel="canonical" href="https://www.thedreamwork.space/about" />
+        
+        {/* Enhanced Person Schema for Mary Murphy */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Mary Murphy",
+              "jobTitle": "Meditation Teacher & Spiritual Wellness Guide",
+              "description": "Founder of The Dream Work, dedicated to making meditation and mindfulness accessible to everyone through carefully curated resources and community-centered approach.",
+              "url": "https://www.thedreamwork.space/about",
+              "sameAs": [
+                "https://www.thedreamwork.space",
+                "https://www.instagram.com/thedreamworkspace",
+                "https://www.facebook.com/thedreamworkspace"
+              ],
+              "knowsAbout": [
+                "Meditation",
+                "Mindfulness",
+                "Spiritual Wellness",
+                "Stress Management",
+                "Breathing Techniques",
+                "Dream Work",
+                "Sound Healing",
+                "Chakra Balancing"
+              ],
+              "hasCredential": [
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  "credentialCategory": "Meditation Teacher Training",
+                  "about": "Certified in various meditation and mindfulness techniques"
+                }
+              ],
+              "worksFor": {
+                "@type": "Organization",
+                "name": "The Dream Work",
+                "url": "https://www.thedreamwork.space"
+              },
+              "image": "https://static.wixstatic.com/media/85c396_e4af73536b3344cc94a34cd0b403787f~mv2.jpg/v1/crop/x_22,y_0,w_720,h_778/fill/w_400,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/marymurphy.jpg",
+              "alumniOf": "Various Meditation and Mindfulness Training Programs",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Online",
+                "addressCountry": "Global"
+              }
+            }
+          `}
+        </script>
+      </Helmet>
       <Header />
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}

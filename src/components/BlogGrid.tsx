@@ -2,87 +2,14 @@ import { Calendar, Clock, User, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import meditationPost from "@/assets/meditation-post.jpg";
-import mindfulnessPost from "@/assets/mindfulness-post.jpg";
-import dreamworkPost from "@/assets/dreamwork-post.jpg";
-import soundBathPost from "@/assets/sound-bath-post.jpg";
-import brainEnergyPost from "@/assets/brain-energy-post.jpg";
-import meditationCornerPost from "@/assets/meditation-corner-post.jpg";
-import deepBreathPost from "@/assets/deep-breath-post.jpg";
-import dreamStatesPost from "@/assets/dream-states-post.jpg";
+import { blogPosts } from "@/data/blogContent";
+import { useNavigate } from "react-router-dom";
 
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Art of Mindful Breathing: Your Gateway to Inner Peace",
-    excerpt: "Discover how simple breathing techniques can transform your daily stress into moments of profound calm and clarity...",
-    author: "The Dream Work",
-    date: "2024-08-15",
-    readTime: "8 min read",
-    category: "Meditation",
-    image: deepBreathPost,
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "Creating Sacred Space: Designing Your Personal Meditation Corner",
-    excerpt: "Learn how to transform any corner of your home into a peaceful sanctuary for your spiritual practice...",
-    author: "The Dream Work",
-    date: "2024-08-12",
-    readTime: "6 min read",
-    category: "Mindfulness",
-    image: meditationCornerPost,
-    featured: false,
-  },
-  {
-    id: 3,
-    title: "Dream Journaling: Unlocking Messages from Your Subconscious",
-    excerpt: "Explore the powerful practice of dream work and how your nighttime visions can guide your waking life...",
-    author: "The Dream Work",
-    date: "2024-08-10",
-    readTime: "10 min read",
-    category: "Dream Work",
-    image: dreamStatesPost,
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "5-Minute Morning Mindfulness Routine for Busy Lives",
-    excerpt: "Start your day with intention and clarity using this simple yet powerful morning practice...",
-    author: "The Dream Work",
-    date: "2024-08-08",
-    readTime: "5 min read",
-    category: "Mindfulness",
-    image: meditationPost,
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "The Science of Gratitude: How Appreciation Rewires Your Brain",
-    excerpt: "Dive into the fascinating research behind gratitude practices and their profound impact on mental health...",
-    author: "The Dream Work",
-    date: "2024-08-05",
-    readTime: "12 min read",
-    category: "Science",
-    image: brainEnergyPost,
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "Healing Through Sound: An Introduction to Sound Bath Meditation",
-    excerpt: "Experience the transformative power of sound healing and discover how vibrations can restore balance...",
-    author: "The Dream Work",
-    date: "2024-08-03",
-    readTime: "9 min read",
-    category: "Healing",
-    image: soundBathPost,
-    featured: false,
-  },
-];
 
 const BlogGrid = () => {
+  const navigate = useNavigate();
   const featuredPost = blogPosts.find(post => post.featured);
-  const regularPosts = blogPosts.filter(post => !post.featured);
+  const regularPosts = blogPosts.filter(post => !post.featured).slice(0, 5);
 
   return (
     <section className="py-16 bg-gradient-card">
@@ -143,7 +70,10 @@ const BlogGrid = () => {
                     </div>
                   </div>
                   
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground group">
+                  <Button 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground group"
+                    onClick={() => navigate(`/blog/${featuredPost.slug}`)}
+                  >
                     Read Full Article
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-gentle" />
                   </Button>
@@ -160,6 +90,7 @@ const BlogGrid = () => {
               key={post.id}
               className="overflow-hidden shadow-card border-0 bg-card hover:shadow-card-hover transition-smooth group cursor-pointer animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => navigate(`/blog/${post.slug}`)}
             >
               <CardHeader className="p-0">
                 <div className="relative overflow-hidden">
@@ -198,7 +129,14 @@ const BlogGrid = () => {
               </CardContent>
               
               <CardFooter className="px-6 pb-6 pt-0">
-                <Button variant="ghost" className="w-full justify-between group/btn hover:bg-primary/5">
+                <Button 
+                  variant="ghost" 
+                  className="w-full justify-between group/btn hover:bg-primary/5"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/blog/${post.slug}`);
+                  }}
+                >
                   Read More
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-gentle" />
                 </Button>
