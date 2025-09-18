@@ -147,7 +147,7 @@ const Hero = () => {
       </div>
       
       {/* Hero Content - Dynamic positioning for mobile and desktop */}
-      <div className="relative z-10 text-center text-white px-4 sm:px-6 py-3 md:pt-[22vh] md:pb-[18vh] max-w-4xl mx-auto space-y-4 md:space-y-6">
+      <div className="relative z-10 text-center text-white px-4 sm:px-6 py-3 md:pt-[28vh] md:pb-[20vh] max-w-4xl mx-auto space-y-4 md:space-y-6">
         
         {/* Descriptive Text */}
         <div className="hidden md:block mb-6 md:mb-8">
@@ -192,6 +192,13 @@ const Hero = () => {
           </div>
         </div>
         
+      </div>
+      
+      {/* Hero Tagline - Positioned at bottom */}
+      <div className="absolute bottom-8 left-0 right-0 z-10 text-center">
+        <h2 className="text-2xl md:text-4xl lg:text-5xl text-white font-light tracking-wide">
+          <span className="font-montserrat">Heal the vibe,</span> <span className="font-heading italic">Live the Dream.</span>
+        </h2>
       </div>
     </section>
   );
