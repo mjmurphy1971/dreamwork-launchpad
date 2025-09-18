@@ -161,7 +161,7 @@ const Header = () => {
                 The Dream Work
               </h1>
               <p className="text-xs md:text-sm text-muted-foreground">
-                <span className="font-montserrat">Heal the vibe,</span> <span className="font-heading italic font-semibold">Live the Dream.</span>
+                <span className="font-montserrat">Heal the vibe,</span> <span className="font-heading italic">Live the Dream.</span>
               </p>
             </div>
           </div>
