@@ -152,7 +152,7 @@ const Hero = () => {
         
         {/* Descriptive Text */}
         <div className="hidden md:block mb-6 md:mb-8">
-          <p className="text-base md:text-lg lg:text-xl text-white max-w-2xl mx-auto leading-relaxed mb-4 md:mb-6">
+          <p className="text-base md:text-lg lg:text-xl text-white max-w-2xl mx-auto leading-relaxed mb-4 md:mb-6 bg-black/40 backdrop-blur-sm rounded-lg px-6 py-4 shadow-xl">
             Transform your consciousness through guided meditation, dream work, and spiritual practices. 
             Join our community of seekers on the journey to inner peace and mindful living.
           </p>
@@ -162,7 +162,7 @@ const Hero = () => {
         <div className="flex flex-col gap-4 justify-center items-center max-w-2xl mx-auto mt-2 md:mt-0">
           <Button 
             size="lg" 
-            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm w-full sm:w-auto px-6 py-3"
+            className="bg-black/50 hover:bg-black/60 text-white border border-white/50 backdrop-blur-sm w-full sm:w-auto px-6 py-3 shadow-xl font-semibold"
             onClick={() => window.location.href = '/meditation'}
           >
             Start Your Journey
@@ -178,12 +178,12 @@ const Hero = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyPress={handleSearchKeyPress}
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/70 backdrop-blur-sm focus:bg-white/30 flex-1 h-10 md:h-11"
+                className="bg-black/40 border-white/50 text-white placeholder:text-white/80 backdrop-blur-sm focus:bg-black/50 flex-1 h-10 md:h-11 shadow-lg"
               />
               <Button 
                 variant="outline" 
                 size="default"
-                className="border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold h-10 md:h-11 px-3 md:px-4"
+                className="border-white/50 bg-black/40 text-white hover:bg-black/50 backdrop-blur-sm font-semibold h-10 md:h-11 px-3 md:px-4 shadow-lg"
                 onClick={handleSearch}
               >
                 <Search className="w-4 h-4" />

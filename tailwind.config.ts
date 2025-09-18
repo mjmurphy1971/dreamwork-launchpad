@@ -22,6 +22,7 @@ export default {
 				'heading': ['Playfair Display', 'Georgia', 'serif'],
 				'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
 				'script': ['Dancing Script', 'cursive'],
+				'montserrat': ['Montserrat', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
