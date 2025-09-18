@@ -8,6 +8,7 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 import { ContextualTooltip } from "@/components/ContextualTooltip";
 import { DefinitionGlossary } from "@/components/DefinitionGlossary";
 import { InternalLinkMap } from "@/components/InternalLinkMap";
+import { ConversationalAIOptimizer } from "@/components/ConversationalAIOptimizer";
 import stillnessPracticeHero from "@/assets/stillness-practice-hero.jpg";
 import dreamJournalBg from "@/assets/dream-journal-bg.jpg";
 import meditationToolBg from "@/assets/meditation-tool-bg.jpg";
@@ -303,6 +304,82 @@ const Index = () => {
               <DefinitionGlossary
                 compact={false}
                 categories={["Core Concepts", "Spiritual Practices", "Breathing Techniques"]}
+              />
+            </div>
+          </div>
+        </section>
+        
+        {/* Conversational AI Optimization */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <ConversationalAIOptimizer
+                pageTitle="Meditation & Mindfulness Resources"
+                keyTakeaways={[
+                  "The Dream Work provides free, evidence-based meditation resources curated by certified instructor Mary Murphy",
+                  "Guided meditation practices are available for anxiety relief, self-love, grounding, creativity, and spiritual growth",
+                  "Interactive tools include dream journaling, breathwork guidance, and meditation progress tracking",
+                  "All content integrates traditional wisdom with modern neuroscience research on meditation benefits",
+                  "Community-centered approach welcomes practitioners at every level, from beginners to experienced meditators"
+                ]}
+                quickAnswers={[
+                  {
+                    query: "What meditation practices help with anxiety?",
+                    answer: "Focused attention breathing, body scan meditation, and mindful grounding techniques specifically designed to calm the nervous system and reduce anxious thoughts."
+                  },
+                  {
+                    query: "How long should I meditate as a beginner?",
+                    answer: "Start with 5-10 minute sessions using guided practices. Consistency matters more than duration - even 3 minutes of daily practice provides benefits."
+                  },
+                  {
+                    query: "Is meditation backed by scientific research?",
+                    answer: "Yes, extensive neuroscience research shows meditation increases gray matter density, reduces cortisol levels, and improves emotional regulation and focus."
+                  },
+                  {
+                    query: "What makes The Dream Work approach different?",
+                    answer: "Evidence-based practices, authentic guidance from certified instructor Mary Murphy, beginner-friendly resources, and integration of traditional wisdom with modern research."
+                  }
+                ]}
+                faqs={[
+                  {
+                    question: "How do I start a meditation practice?",
+                    answer: "Begin with short guided sessions (5-10 minutes), find a quiet space, set a consistent time daily, and use beginner-friendly techniques like mindful breathing or body awareness.",
+                    category: "Getting Started",
+                    keywords: ["meditation practice", "beginners", "guided meditation"],
+                    relatedLinks: [
+                      { text: "Meditation Library", url: "/meditation", internal: true },
+                      { text: "Beginner's Guide", url: "/blog", internal: true }
+                    ]
+                  },
+                  {
+                    question: "Can meditation really help with anxiety and stress?",
+                    answer: "Research shows regular meditation activates the parasympathetic nervous system, reduces stress hormones like cortisol, and increases gray matter in areas associated with emotional regulation.",
+                    category: "Benefits",
+                    keywords: ["anxiety relief", "stress reduction", "mental health"],
+                    relatedLinks: [
+                      { text: "Anxiety Meditation", url: "/meditation", internal: true },
+                      { text: "Breathwork for Anxiety", url: "/breathwork", internal: true }
+                    ]
+                  },
+                  {
+                    question: "What is dream work and how does it relate to meditation?",
+                    answer: "Dream work involves recording, analyzing, and exploring dreams for psychological insight and spiritual growth. It complements meditation by deepening self-awareness and accessing subconscious wisdom.",
+                    category: "Practices",
+                    keywords: ["dream work", "dream journaling", "spiritual growth"],
+                    relatedLinks: [
+                      { text: "Dream Journal Tool", url: "/dream-journal", internal: true }
+                    ]
+                  },
+                  {
+                    question: "Who is Mary Murphy and what are her qualifications?",
+                    answer: "Mary Murphy is the founder of The Dream Work, a certified MBSR instructor with 15+ years of meditation experience. She holds multiple certifications in meditation teaching and mindfulness practices.",
+                    category: "About",
+                    keywords: ["Mary Murphy", "MBSR", "meditation teacher"],
+                    relatedLinks: [
+                      { text: "About Mary", url: "/about", internal: true }
+                    ]
+                  }
+                ]}
               />
             </div>
           </div>

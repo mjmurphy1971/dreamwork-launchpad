@@ -13,6 +13,9 @@ import SEO from "@/components/SEO";
 import { createVideoSchema, createHowToSchema } from "@/components/SchemaMarkup";
 import { baseKeywords, formatDuration } from "@/utils/seoHelpers";
 import MeditationProgressTracker from "@/components/MeditationProgressTracker";
+import { ContextualTooltip } from "@/components/ContextualTooltip";
+import { ConversationalAIOptimizer } from "@/components/ConversationalAIOptimizer";
+import { InternalLinkMap } from "@/components/InternalLinkMap";
 
 const meditationCategories = [
   {
@@ -310,7 +313,31 @@ const Meditation = () => {
             "Return to Yourself"
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A healing journey through presence, self-love, and spiritual expansion.
+            A healing journey through <ContextualTooltip
+              term="Presence"
+              definition="The state of being fully aware and engaged in the current moment, without being overwhelmed by thoughts of past or future."
+              examples={["Mindful breathing", "Body awareness meditation", "Present-moment observation"]}
+              relatedLinks={[
+                { text: "Mindfulness Practice", url: "/blog", internal: true }
+              ]}
+            >
+              presence
+            </ContextualTooltip>, <ContextualTooltip
+              term="Self-Love"
+              definition="The practice of treating oneself with kindness, compassion, and acceptance, recognizing one's inherent worth and value."
+              examples={["Loving-kindness meditation", "Self-compassion practices", "Inner child healing"]}
+              relatedLinks={[
+                { text: "Self-Love Meditations", url: "#self-love", internal: true }
+              ]}
+            >
+              self-love
+            </ContextualTooltip>, and <ContextualTooltip
+              term="Spiritual Expansion"
+              definition="The process of deepening one's connection to meaning, purpose, and the transcendent aspects of existence through contemplative practices."
+              examples={["Meditation", "Prayer", "Nature connection", "Sacred ritual"]}
+            >
+              spiritual expansion
+            </ContextualTooltip>.
           </p>
         </section>
 
