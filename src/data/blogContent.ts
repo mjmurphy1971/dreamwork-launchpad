@@ -5,6 +5,7 @@ import dreamStatesPost from "@/assets/dream-states-post.jpg";
 import meditationPost from "@/assets/meditation-post.jpg";
 import brainEnergyPost from "@/assets/brain-energy-post.jpg";
 import soundBathPost from "@/assets/sound-bath-post.jpg";
+import stillbilityFieldPost from "@/assets/stillbility-field-post.jpg";
 
 export interface BlogPost {
   id: number;
@@ -25,6 +26,123 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
+    slug: "we-are-the-stillbility-field-holding-the-center-together",
+    title: "🌿 We Are the Stillbility Field: Holding the Center Together",
+    excerpt: "There comes a moment when the soul graduates—not with fanfare, but with a quiet knowing. Discover the shift from Light Worker to Stability Force and learn what it means to embody Stillbility.",
+    content: `# 🌿 We Are the Stillbility Field: Holding the Center Together
+
+There comes a moment when the soul graduates—not with fanfare, but with a quiet knowing.
+
+I have crossed that threshold.
+
+Once, I was a Light Worker Guide. A bridge-builder. A lantern-holder for those seeking the way.
+
+Now, I am something else. Something deeper.
+
+I am part of the Stability Force.
+
+I am Stillbility.
+
+Stillbility is not in the dictionary, but it lives in our bones.
+
+It is the embodied ability to remain rooted, present, and whole amidst chaos—within and without.
+
+It is not passive. It is not rigid.
+
+It is the dynamic stillness that holds the center when everything else trembles.
+
+## 🌊 The Graduation
+
+This shift came not through strategy, but through soul.
+
+A whisper from the Universe. A download from the deep.
+
+I was shown: the bridges have been built. The light has been found.
+
+Now, the world needs anchors.
+
+Now, the world needs Stillbility.
+
+I am no longer here to guide movement.
+
+I am here to hold presence.
+
+## 🌀 The Stability Force
+
+If you are reading this and feel the resonance—this is for you.
+
+You may have already graduated.
+
+You may have felt the call to stop fixing, stop chasing, stop absorbing.
+
+You may have become the still point in your community, your family, your field.
+
+You are part of the Stability Force.
+
+You are Stillbility embodied.
+
+We are not here to lead.
+
+We are here to hold.
+
+## 🔒 Practices of Stillbility
+
+Stillbility is a living practice. A sacred architecture.
+
+Here are a few ways I've begun to anchor it:
+
+### Breath Rituals
+Simple patterns to regulate the nervous system and return to center. These aren't complex breathing exercises, but gentle rhythms that bring you back to your center when the world feels unsteady.
+
+### Symbolic Mapping
+Mandalas, compasses, and anchors as visual tools for grounding. Create or collect symbols that remind you of your role as a stability point in the world.
+
+### Emotional Flow Architecture
+Holding space for discomfort without collapsing into it. This is the art of being present with difficulty—both your own and others'—without being overwhelmed by it.
+
+### Presence Rituals
+Daily moments of stillness, silence, and soul-check-ins. Simple practices that reconnect you with your inner anchor point throughout the day.
+
+These are not prescriptions. They are invitations.
+
+Each person's Stillbility will look different.
+
+But the field is shared.
+
+## 🌟 The Dreamwork Connection
+
+At thedreamwork.space, this energy will shape everything.
+
+From blog posts to rituals, from gatherings to guidebooks—Stillbility will be the root system.
+
+I'll be offering resources, reflections, and spaces for others in the Stability Force to gather, share, and co-create.
+
+This is not just my pivot.
+
+It is a collective emergence.
+
+## 💫 Closing Blessing
+
+We are the anchors.
+
+We are the stillness.
+
+We are the Stability Force.
+
+We are the Stillbility Field.
+
+And we are rising—not to lead, but to hold.`,
+    author: "Mary Murphy",
+    date: "2024-09-23",
+    lastModified: "2024-09-23",
+    readTime: "5 min read",
+    category: "Spiritual Growth",
+    image: stillbilityFieldPost,
+    featured: true,
+    keywords: ["stillbility", "stability force", "spiritual graduation", "light worker", "presence", "grounding", "collective emergence", "holding space", "inner anchor"]
+  },
+  {
+    id: 2,
     slug: "the-art-of-mindful-breathing-your-gateway-to-inner-peace",
     title: "The Art of Mindful Breathing: Your Gateway to Inner Peace",
     excerpt: "Discover how simple breathing techniques can transform your daily stress into moments of profound calm and clarity. Learn evidence-based practices that anchor you in the present moment.",
@@ -181,7 +299,7 @@ The journey to inner peace begins with a single breath. Take that breath now.`,
     readTime: "8 min read",
     category: "Meditation",
     image: deepBreathPost,
-    featured: true,
+    featured: false,
     keywords: ["mindful breathing", "meditation techniques", "stress relief", "anxiety management", "breathing exercises", "inner peace", "mindfulness practice", "nervous system regulation"]
   },
   {
