@@ -23,7 +23,8 @@ const Index = () => {
   const homePageSchema = {
     "@type": "WebPage",
     "name": "The Dream Work - Meditation & Mindfulness Resource",
-    "description": "Comprehensive meditation and mindfulness resource with guided practices, dream journaling, wellness tools, and educational content for spiritual growth.",
+    "description": "Guided meditation, breathwork, dream journaling & spiritual wellness practices for inner peace and mindfulness community.",
+    "url": "https://www.thedreamwork.space",
     "mainEntity": {
       "@type": "WebSite",
       "name": "The Dream Work",
@@ -74,19 +75,19 @@ const Index = () => {
     <div className="min-h-screen">
       <SEO
         title="The Dream Work - Meditation & Mindfulness for Inner Peace"
-        description="Discover guided meditation, breathwork, dream journaling, and spiritual wellness practices. Transform your daily life through mindfulness with The Dream Work community."
+        description="Guided meditation, breathwork, dream journaling & spiritual wellness practices. Transform your daily life through mindfulness community."
         keywords="meditation, mindfulness, guided meditation, dream journal, spiritual wellness, consciousness, natural healing, relaxation techniques"
-        canonical="https://www.thedreamwork.space/"
+        canonical="https://www.thedreamwork.space"
         schemaType="WebPage"
         schemaData={homePageSchema}
         breadcrumbs={[
-          { name: "Home", url: "https://www.thedreamwork.space/" }
+          { name: "Home", url: "https://www.thedreamwork.space" }
         ]}
       />
       <SEOMonitor 
         title="The Dream Work - Meditation & Mindfulness for Inner Peace"
-        description="Discover guided meditation, breathwork, dream journaling, and spiritual wellness practices. Transform your daily life through mindfulness with The Dream Work community."
-        canonical="https://www.thedreamwork.space/"
+        description="Guided meditation, breathwork, dream journaling & spiritual wellness practices. Transform your daily life through mindfulness community."
+        canonical="https://www.thedreamwork.space"
         schema={homePageSchema}
         showMonitor={process.env.NODE_ENV === 'development'}
       />
