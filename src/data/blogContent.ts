@@ -31,6 +31,13 @@ export const blogPosts: BlogPost[] = [
     excerpt: "There comes a moment when the soul graduates—not with fanfare, but with a quiet knowing. Discover the shift from Light Worker to Stability Force and learn what it means to embody Stillbility.",
     content: `# 🌿 We Are the Stillbility Field: Holding the Center Together
 
+<div style="text-align: center; margin: 2rem 0;">
+  <video controls width="100%" style="max-width: 800px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <source src="/assets/stillbility-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 There comes a moment when the soul graduates—not with fanfare, but with a quiet knowing.
 
 I have crossed that threshold.

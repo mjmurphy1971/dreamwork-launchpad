@@ -139,6 +139,11 @@ const Footer = () => {
                 </a>
               </li>
               <li>
+                <a href="/stillbility" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle text-sm">
+                  🌿 Stillbility
+                </a>
+              </li>
+              <li>
                 <a href="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle text-sm">
                   About
                 </a>
