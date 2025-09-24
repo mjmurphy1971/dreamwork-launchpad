@@ -56,35 +56,11 @@ const InteractiveSigil = () => {
 
   const playSound = (elementId: string) => {
     try {
-      // Create a gentle chime sound using audio context
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-      const oscillator = audioContext.createOscillator();
-      const gainNode = audioContext.createGain();
-      
-      oscillator.connect(gainNode);
-      gainNode.connect(audioContext.destination);
-      
-      // Gentle chime frequencies - more bell-like harmonics
-      const frequencies: Record<string, number> = {
-        circle: 523.25, // C5 - wholeness
-        triangle: 659.25, // E5 - clarity  
-        spiral: 783.99, // G5 - flow
-        crescent: 392.00 // G4 - grounding
-      };
-      
-      oscillator.frequency.setValueAtTime(frequencies[elementId] || 523.25, audioContext.currentTime);
-      oscillator.type = 'sine';
-      
-      // Gentle chime envelope - soft attack, sustained decay
-      gainNode.gain.setValueAtTime(0, audioContext.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.15, audioContext.currentTime + 0.02);
-      gainNode.gain.exponentialRampToValueAtTime(0.05, audioContext.currentTime + 0.4);
-      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 1.2);
-      
-      oscillator.start(audioContext.currentTime);
-      oscillator.stop(audioContext.currentTime + 1.2);
+      const audio = new Audio(`/sounds/${elementId}-chime.mp3`);
+      audio.volume = 0.3; // Gentle volume for sacred experience
+      audio.play().catch(err => console.log('Audio playback prevented by browser'));
     } catch (error) {
-      console.log("Audio not supported");
+      console.log("Audio file not found or supported");
     }
   };
 
