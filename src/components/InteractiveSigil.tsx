@@ -76,10 +76,10 @@ const InteractiveSigil = () => {
   const getElementForId = (id: string) => 
     sigilElements.find(el => el.id === id);
   
-  // Generate sacred Archimedean spiral geometry with parametric precision
-  const generateSacredSpiralPath = ({ turns = 2.5, spacing = 8, center = [250, 250] }) => {
+  // Generate sacred Archimedean spiral - centered and contained
+  const generateSacredSpiralPath = ({ turns = 1.8, spacing = 12, center = [250, 250] }) => {
     const [cx, cy] = center;
-    const steps = 120; // Higher resolution for smoother curves
+    const steps = 100;
     const maxAngle = turns * 2 * Math.PI;
     
     let path = "";
@@ -100,8 +100,8 @@ const InteractiveSigil = () => {
     return path;
   };
 
-  // Sacred spiral with proper geometric center
-  const spiralPath = generateSacredSpiralPath({ turns: 2.5, spacing: 15, center: [250, 250] });
+  // Sacred spiral - compact and centered, not extending to crescent area
+  const spiralPath = generateSacredSpiralPath({ turns: 1.8, spacing: 10, center: [250, 250] });
 
   return (
     <div 
@@ -172,17 +172,17 @@ const InteractiveSigil = () => {
             />
           </g>
 
-          {/* Triangle - Clarity and soul alignment */}
+          {/* Equilateral Triangle - Clarity and soul alignment */}
           <g id="triangle-group">
             <polygon
-              points="250,120 220,180 280,180"
+              points="250,100 220,160 280,160"
               className={`cursor-pointer transition-all duration-500 ${
                 isLoaded ? 'animate-fade-in' : ''
               } ${activeElement === 'triangle' ? 'drop-shadow-md' : ''}`}
               style={{
                 fill: activeElement === 'triangle' ? sigilElements[1].color : 'currentColor',
                 filter: activeElement === 'triangle' ? `url(#glow-triangle)` : 'none',
-                transformOrigin: '250px 150px',
+                transformOrigin: '250px 130px',
                 animationDelay: '0.2s'
               }}
               onMouseEnter={() => {
@@ -196,34 +196,7 @@ const InteractiveSigil = () => {
             />
           </g>
 
-          {/* Crescent Moon - Receptivity and grounded holding */}
-          <g id="crescent-group">
-            <circle
-              cx="250"
-              cy="320"
-              r="50"
-              mask="url(#crescent-mask)"
-              className={`cursor-pointer transition-all duration-500 ${
-                isLoaded ? 'animate-fade-in' : ''
-              } ${activeElement === 'crescent' ? 'drop-shadow-md' : ''}`}
-              style={{
-                fill: activeElement === 'crescent' ? sigilElements[3].color : 'currentColor',
-                filter: activeElement === 'crescent' ? `url(#glow-crescent)` : 'none',
-                transformOrigin: '250px 320px',
-                animationDelay: '0.6s'
-              }}
-              onMouseEnter={() => {
-                if (!isMobile) {
-                  setActiveElement('crescent');
-                  playSound('crescent');
-                }
-              }}
-              onMouseLeave={() => !isMobile && setActiveElement(null)}
-              onClick={() => handleElementInteraction('crescent')}
-            />
-          </g>
-
-          {/* Sacred Spiral - Breath, flow, and dynamic stillness */}
+          {/* Sacred Spiral - Breath, flow, and dynamic stillness - CENTERED AND CONTAINED */}
           <g id="spiral-group">
             <path
               d={spiralPath}
@@ -235,7 +208,7 @@ const InteractiveSigil = () => {
               } ${activeElement === 'spiral' ? 'drop-shadow-md' : ''}`}
               style={{
                 stroke: activeElement === 'spiral' ? sigilElements[2].color : 'currentColor',
-                strokeWidth: activeElement === 'spiral' ? '10' : '8',
+                strokeWidth: activeElement === 'spiral' ? '8' : '6',
                 filter: activeElement === 'spiral' ? `url(#glow-spiral)` : 'none',
                 transformOrigin: '250px 250px',
                 animationDelay: '0.4s'
@@ -248,6 +221,35 @@ const InteractiveSigil = () => {
               }}
               onMouseLeave={() => !isMobile && setActiveElement(null)}
               onClick={() => handleElementInteraction('spiral')}
+            />
+          </g>
+
+          {/* Crescent Moon - SEPARATE cradle-like arc beneath spiral */}
+          <g id="crescent-group">
+            <path
+              d="M190 360 Q250 320 310 360"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="12"
+              strokeLinecap="round"
+              className={`cursor-pointer transition-all duration-500 ${
+                isLoaded ? 'animate-fade-in' : ''
+              } ${activeElement === 'crescent' ? 'drop-shadow-md' : ''}`}
+              style={{
+                stroke: activeElement === 'crescent' ? sigilElements[3].color : 'currentColor',
+                strokeWidth: activeElement === 'crescent' ? '14' : '12',
+                filter: activeElement === 'crescent' ? `url(#glow-crescent)` : 'none',
+                transformOrigin: '250px 340px',
+                animationDelay: '0.6s'
+              }}
+              onMouseEnter={() => {
+                if (!isMobile) {
+                  setActiveElement('crescent');
+                  playSound('crescent');
+                }
+              }}
+              onMouseLeave={() => !isMobile && setActiveElement(null)}
+              onClick={() => handleElementInteraction('crescent')}
             />
           </g>
 
