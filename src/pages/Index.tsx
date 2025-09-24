@@ -107,11 +107,12 @@ const Index = () => {
                   <h2 className="text-xl font-heading font-semibold text-foreground mb-4 text-center">
                     Welcome to The Dream Work
                   </h2>
-                  <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                  <div className="aspect-video rounded-lg overflow-hidden bg-muted relative">
                     <iframe
                       src="https://www.youtube.com/embed/tOp-gbnyj3w"
                       title="Welcome to The Dream Work"
-                      className="w-full h-full border-0"
+                      className="absolute inset-0 w-full h-full border-0"
+                      style={{ minHeight: '100%', minWidth: '100%' }}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     />
@@ -123,11 +124,12 @@ const Index = () => {
                   <h2 className="text-xl font-heading font-semibold text-foreground mb-4 text-center">
                     Mindfulness Practice
                   </h2>
-                  <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                  <div className="aspect-video rounded-lg overflow-hidden bg-muted relative">
                     <iframe
                       src="https://www.youtube.com/embed/kO5I0p3IuiQ"
                       title="Mindfulness Practice"
-                      className="w-full h-full border-0"
+                      className="absolute inset-0 w-full h-full border-0"
+                      style={{ minHeight: '100%', minWidth: '100%' }}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     />
