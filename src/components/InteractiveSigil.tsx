@@ -51,11 +51,35 @@ const InteractiveSigil = () => {
     });
   };
 
+  // Build an Archimedean spiral that matches the original sigil style
+  const makeSpiral = (
+    cx: number,
+    cy: number,
+    a: number,
+    b: number,
+    thetaMax: number,
+    segments = 160
+  ) => {
+    let d = "";
+    let started = false;
+    for (let i = 0; i <= thetaMax; i += thetaMax / segments) {
+      const r = a + b * i;
+      const x = cx + r * Math.cos(i);
+      const y = cy + r * Math.sin(i);
+      d += `${started ? " L" : "M"}${x.toFixed(2)} ${y.toFixed(2)}`;
+      started = true;
+    }
+    return d;
+  };
+
+  // Spiral centered slightly above the crescent, ~1.25 turns
+  const spiralD = makeSpiral(100, 115, 1.2, 3.2, Math.PI * 2.2);
+
   const getElementForId = (id: string) => 
     sigilElements.find(el => el.id === id);
 
   return (
-    <div className="relative w-40 h-40 mx-auto" onMouseMove={handleMouseMove}>
+    <div className="relative w-48 h-48 mx-auto text-foreground" onMouseMove={handleMouseMove}>
       {/* Tooltip */}
       {hoveredElement && (
         <div 
@@ -113,10 +137,10 @@ const InteractiveSigil = () => {
 
         {/* Triangle at top - Crown chakra */}
         <path
-          d="M100 35 L130 85 L70 85 Z"
-          fill={hoveredElement === 'triangle' ? sigilElements[1].color : 'currentColor'}
+          d="M100 55 L120 90 L80 90 Z"
+          fill="none"
           stroke={hoveredElement === 'triangle' ? sigilElements[1].color : 'currentColor'}
-          strokeWidth={hoveredElement === 'triangle' ? '2' : '1'}
+          strokeWidth={hoveredElement === 'triangle' ? '4' : '3'}
           className="cursor-pointer transition-all duration-300"
           style={{
             filter: hoveredElement === 'triangle' ? `url(#glow-triangle) drop-shadow(0 0 20px ${sigilElements[1].glowColor})` : 'none'
@@ -127,10 +151,11 @@ const InteractiveSigil = () => {
 
         {/* Large Crescent at bottom - Root chakra */}
         <path
-          d="M40 140 Q40 95, 100 95 Q160 95, 160 140 Q160 160, 100 160 Q40 160, 40 140"
-          fill={hoveredElement === 'crescent' ? sigilElements[3].color : 'currentColor'}
+          d="M55 145 A45 45 0 0 0 145 145"
+          fill="none"
           stroke={hoveredElement === 'crescent' ? sigilElements[3].color : 'currentColor'}
-          strokeWidth={hoveredElement === 'crescent' ? '2' : '1'}
+          strokeWidth={hoveredElement === 'crescent' ? '12' : '10'}
+          strokeLinecap="round"
           className="cursor-pointer transition-all duration-300"
           style={{
             filter: hoveredElement === 'crescent' ? `url(#glow-crescent) drop-shadow(0 0 20px ${sigilElements[3].glowColor})` : 'none'
@@ -141,10 +166,12 @@ const InteractiveSigil = () => {
 
         {/* Spiral in center - Heart chakra */}
         <path
-          d="M100 127 Q110 127, 115 132 Q115 142, 105 147 Q90 147, 85 132 Q85 117, 100 112 Q120 112, 130 127 Q130 147, 105 157 Q80 157, 70 132 Q70 102, 100 92"
+          d={spiralD}
           fill="none"
           stroke={hoveredElement === 'spiral' ? sigilElements[2].color : 'currentColor'}
-          strokeWidth={hoveredElement === 'spiral' ? '4' : '3'}
+          strokeWidth={hoveredElement === 'spiral' ? '6' : '5'}
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="cursor-pointer transition-all duration-300"
           style={{
             filter: hoveredElement === 'spiral' ? `url(#glow-spiral) drop-shadow(0 0 20px ${sigilElements[2].glowColor})` : 'none'
