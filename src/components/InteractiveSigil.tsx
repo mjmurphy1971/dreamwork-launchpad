@@ -14,28 +14,28 @@ const sigilElements: SigilElement[] = [
     name: "Circle",
     definition: "Wholeness, containment, and shared field",
     color: "#FFD700",
-    glowColor: "rgba(255, 215, 0, 0.8)"
+    glowColor: "rgba(255, 215, 0, 0.6)"
   },
   {
     id: "triangle", 
     name: "Triangle",
     definition: "Clarity and soul alignment",
     color: "#8A2BE2",
-    glowColor: "rgba(138, 43, 226, 0.8)"
+    glowColor: "rgba(138, 43, 226, 0.6)"
   },
   {
     id: "spiral",
     name: "Spiral", 
     definition: "Breath, flow, and dynamic stillness",
     color: "#00FF7F",
-    glowColor: "rgba(0, 255, 127, 0.8)"
+    glowColor: "rgba(0, 255, 127, 0.6)"
   },
   {
     id: "crescent",
     name: "Crescent",
     definition: "Receptivity and grounded holding", 
     color: "#FF4500",
-    glowColor: "rgba(255, 69, 0, 0.8)"
+    glowColor: "rgba(255, 69, 0, 0.6)"
   }
 ];
 
@@ -51,7 +51,7 @@ const InteractiveSigil = () => {
     setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
     
     // Trigger entrance animation
-    setTimeout(() => setIsLoaded(true), 100);
+    setTimeout(() => setIsLoaded(true), 200);
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -63,11 +63,45 @@ const InteractiveSigil = () => {
     });
   };
 
+  const playSound = (elementId: string) => {
+    try {
+      // Create a simple audio context for subtle sound
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      // Different frequencies for different elements
+      const frequencies: Record<string, number> = {
+        circle: 528, // Love frequency
+        triangle: 741, // Intuition frequency  
+        spiral: 639, // Connection frequency
+        crescent: 396 // Grounding frequency
+      };
+      
+      oscillator.frequency.setValueAtTime(frequencies[elementId] || 528, audioContext.currentTime);
+      oscillator.type = 'sine';
+      
+      gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+      gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + 0.05);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.3);
+    } catch (error) {
+      // Silently fail if audio context isn't supported
+      console.log("Audio not supported");
+    }
+  };
+
   const handleElementInteraction = (elementId: string) => {
+    playSound(elementId);
+    
     if (isMobile) {
       setTappedElement(elementId);
-      // Clear tapped state after animation
-      setTimeout(() => setTappedElement(null), 1500);
+      setTimeout(() => setTappedElement(null), 2000);
     }
   };
 
@@ -75,33 +109,6 @@ const InteractiveSigil = () => {
     sigilElements.find(el => el.id === id);
 
   const activeElement = hoveredElement || tappedElement;
-  
-  // Generate spiral path to match the sigil design
-  const createSpiralPath = () => {
-    const cx = 100;
-    const cy = 120;
-    const startRadius = 8;
-    const endRadius = 25;
-    const turns = 2.5;
-    const steps = 100;
-    
-    let path = "";
-    for (let i = 0; i <= steps; i++) {
-      const angle = (i / steps) * turns * Math.PI * 2;
-      const radius = startRadius + (endRadius - startRadius) * (i / steps);
-      const x = cx + radius * Math.cos(angle);
-      const y = cy + radius * Math.sin(angle);
-      
-      if (i === 0) {
-        path += `M ${x} ${y}`;
-      } else {
-        path += ` L ${x} ${y}`;
-      }
-    }
-    return path;
-  };
-
-  const spiralPath = createSpiralPath();
 
   return (
     <div 
@@ -115,9 +122,9 @@ const InteractiveSigil = () => {
         <div 
           className="absolute z-20 bg-background/95 border border-border rounded-lg p-3 shadow-lg backdrop-blur-sm pointer-events-none transition-all duration-200 animate-fade-in"
           style={{
-            left: mousePosition.x + 15,
-            top: mousePosition.y - 50,
-            maxWidth: '200px'
+            left: Math.min(mousePosition.x + 15, 250),
+            top: Math.max(mousePosition.y - 60, 10),
+            maxWidth: '220px'
           }}
         >
           <div className="text-sm font-semibold text-primary">
@@ -131,8 +138,8 @@ const InteractiveSigil = () => {
 
       {/* Mobile Modal */}
       {isMobile && tappedElement && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 animate-fade-in">
-          <div className="bg-background rounded-lg p-6 m-4 max-w-sm shadow-2xl border border-border">
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 animate-fade-in">
+          <div className="bg-background rounded-xl p-6 m-4 max-w-sm shadow-2xl border border-border">
             <div className="text-lg font-semibold text-primary mb-2">
               {getElementForId(tappedElement)?.name}
             </div>
@@ -140,7 +147,7 @@ const InteractiveSigil = () => {
               {getElementForId(tappedElement)?.definition}
             </div>
             <button 
-              className="px-4 py-2 bg-primary text-primary-foreground rounded-lg"
+              className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
               onClick={() => setTappedElement(null)}
             >
               Close
@@ -149,7 +156,7 @@ const InteractiveSigil = () => {
         </div>
       )}
 
-      {/* SVG Sigil */}
+      {/* SVG Sigil - Exact match to reference image */}
       <svg 
         width="192" 
         height="192" 
@@ -162,32 +169,23 @@ const InteractiveSigil = () => {
           {/* Glow filters for each element */}
           {sigilElements.map(element => (
             <filter key={`glow-${element.id}`} id={`glow-${element.id}`} x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
               <feMerge> 
                 <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
           ))}
-          
-          {/* Pulse animation for circle */}
-          <animate 
-            id="circlePulse"
-            attributeName="r"
-            values="88;92;88"
-            dur="4s"
-            repeatCount="indefinite"
-          />
         </defs>
 
-        {/* Outer Circle - Source */}
+        {/* Outer Circle - Source (matching reference thickness) */}
         <circle
           cx="100"
           cy="100"
-          r="88"
+          r="85"
           fill="none"
           stroke={activeElement === 'circle' ? sigilElements[0].color : 'currentColor'}
-          strokeWidth={activeElement === 'circle' ? '5' : '4'}
+          strokeWidth={activeElement === 'circle' ? '7' : '6'}
           className={`cursor-pointer transition-all duration-500 ${
             isLoaded ? 'animate-scale-in' : ''
           }`}
@@ -196,16 +194,19 @@ const InteractiveSigil = () => {
             transformOrigin: '100px 100px',
             animationDelay: '0.8s'
           }}
-          onMouseEnter={() => !isMobile && setHoveredElement('circle')}
+          onMouseEnter={() => {
+            if (!isMobile) {
+              setHoveredElement('circle');
+              playSound('circle');
+            }
+          }}
           onMouseLeave={() => !isMobile && setHoveredElement(null)}
           onClick={() => handleElementInteraction('circle')}
-        >
-          {isLoaded && <animate attributeName="r" values="88;92;88" dur="4s" repeatCount="indefinite" begin="1s" />}
-        </circle>
+        />
 
-        {/* Triangle at top - filled thick triangle */}
+        {/* Triangle at top - solid filled (matching reference) */}
         <path
-          d="M100 45 L125 85 L75 85 Z"
+          d="M100 40 L125 80 L75 80 Z"
           fill={activeElement === 'triangle' ? sigilElements[1].color : 'currentColor'}
           className={`cursor-pointer transition-all duration-500 ${
             isLoaded ? 'animate-fade-in' : ''
@@ -214,17 +215,58 @@ const InteractiveSigil = () => {
             filter: activeElement === 'triangle' ? `url(#glow-triangle)` : 'none',
             animationDelay: '0.2s'
           }}
-          onMouseEnter={() => !isMobile && setHoveredElement('triangle')}
+          onMouseEnter={() => {
+            if (!isMobile) {
+              setHoveredElement('triangle');
+              playSound('triangle');
+            }
+          }}
           onMouseLeave={() => !isMobile && setHoveredElement(null)}
           onClick={() => handleElementInteraction('triangle')}
         />
 
-        {/* Large Crescent at bottom - thick arc */}
+        {/* Spiral in center - precisely matching reference design */}
         <path
-          d="M50 150 A50 50 0 0 0 150 150"
+          d="M100 100 
+             Q110 100, 115 105 
+             Q115 115, 105 120 
+             Q90 120, 85 105 
+             Q85 85, 105 80 
+             Q130 80, 135 105 
+             Q135 135, 105 140 
+             Q70 140, 65 105 
+             Q65 65, 105 60 
+             Q150 60, 155 105 
+             Q155 155, 105 160"
+          fill="none"
+          stroke={activeElement === 'spiral' ? sigilElements[2].color : 'currentColor'}
+          strokeWidth={activeElement === 'spiral' ? '10' : '8'}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={`cursor-pointer transition-all duration-500 ${
+            isLoaded ? 'animate-fade-in' : ''
+          }`}
+          style={{
+            filter: activeElement === 'spiral' ? `url(#glow-spiral)` : 'none',
+            transformOrigin: '100px 100px',
+            animationDelay: '0.4s'
+          }}
+          onMouseEnter={() => {
+            if (!isMobile) {
+              setHoveredElement('spiral');
+              playSound('spiral');
+            }
+          }}
+          onMouseLeave={() => !isMobile && setHoveredElement(null)}
+          onClick={() => handleElementInteraction('spiral')}
+        />
+
+        {/* Crescent at bottom - thick arc matching reference */}
+        <path
+          d="M45 155 A55 55 0 0 0 155 155"
           fill="none"
           stroke={activeElement === 'crescent' ? sigilElements[3].color : 'currentColor'}
-          strokeWidth={activeElement === 'crescent' ? '16' : '14'}
+          strokeWidth={activeElement === 'crescent' ? '18' : '16'}
           strokeLinecap="round"
           className={`cursor-pointer transition-all duration-500 ${
             isLoaded ? 'animate-fade-in' : ''
@@ -233,52 +275,25 @@ const InteractiveSigil = () => {
             filter: activeElement === 'crescent' ? `url(#glow-crescent)` : 'none',
             animationDelay: '0.6s'
           }}
-          onMouseEnter={() => !isMobile && setHoveredElement('crescent')}
+          onMouseEnter={() => {
+            if (!isMobile) {
+              setHoveredElement('crescent');
+              playSound('crescent');
+            }
+          }}
           onMouseLeave={() => !isMobile && setHoveredElement(null)}
           onClick={() => handleElementInteraction('crescent')}
         />
-
-        {/* Spiral in center */}
-        <path
-          d={spiralPath}
-          fill="none"
-          stroke={activeElement === 'spiral' ? sigilElements[2].color : 'currentColor'}
-          strokeWidth={activeElement === 'spiral' ? '8' : '6'}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`cursor-pointer transition-all duration-500 ${
-            isLoaded ? 'animate-fade-in' : ''
-          }`}
-          style={{
-            filter: activeElement === 'spiral' ? `url(#glow-spiral)` : 'none',
-            transformOrigin: '100px 120px',
-            animationDelay: '0.4s'
-          }}
-          onMouseEnter={() => !isMobile && setHoveredElement('spiral')}
-          onMouseLeave={() => !isMobile && setHoveredElement(null)}
-          onClick={() => handleElementInteraction('spiral')}
-        >
-          {isLoaded && (
-            <animateTransform
-              attributeName="transform"
-              type="rotate"
-              values="0 100 120;360 100 120"
-              dur="20s"
-              repeatCount="indefinite"
-              begin="1.2s"
-            />
-          )}
-        </path>
       </svg>
       
-      {/* Gentle breathing indicator */}
+      {/* Subtle breathing aura */}
       {isLoaded && (
         <div className="absolute inset-0 pointer-events-none">
           <div 
-            className="absolute inset-4 rounded-full opacity-20 animate-pulse"
+            className="absolute inset-8 rounded-full opacity-10"
             style={{
-              background: `radial-gradient(circle, transparent 60%, ${sigilElements[0].glowColor} 100%)`,
-              animationDuration: '4s'
+              background: `radial-gradient(circle, transparent 70%, ${sigilElements[0].glowColor} 100%)`,
+              animation: 'pulse 6s ease-in-out infinite'
             }}
           />
         </div>
