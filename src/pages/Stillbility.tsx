@@ -52,7 +52,7 @@ const Stillbility = () => {
                     alt="Stillbility Sigil - Symbol of Dynamic Stillness" 
                     className="w-48 h-48 sm:w-64 sm:h-64 object-contain filter invert mb-6"
                   />
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-script">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading">
                     Stillbility
                   </h1>
                 </div>
