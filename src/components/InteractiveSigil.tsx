@@ -76,10 +76,10 @@ const InteractiveSigil = () => {
   const getElementForId = (id: string) => 
     sigilElements.find(el => el.id === id);
   
-  // Generate sacred spiral geometry
-  const generateSpiralPath = ({ turns = 3, spacing = 8, center = [100, 100] }) => {
+  // Generate sacred Archimedean spiral geometry with parametric precision
+  const generateSacredSpiralPath = ({ turns = 2.5, spacing = 8, center = [250, 250] }) => {
     const [cx, cy] = center;
-    const steps = 100;
+    const steps = 120; // Higher resolution for smoother curves
     const maxAngle = turns * 2 * Math.PI;
     
     let path = "";
@@ -100,8 +100,8 @@ const InteractiveSigil = () => {
     return path;
   };
 
-  // Sacred spiral positioned at center of sigil
-  const spiralPath = generateSpiralPath({ turns: 2.5, spacing: 12, center: [100, 110] });
+  // Sacred spiral with proper geometric center
+  const spiralPath = generateSacredSpiralPath({ turns: 2.5, spacing: 15, center: [250, 250] });
 
   return (
     <div 
@@ -110,11 +110,11 @@ const InteractiveSigil = () => {
       }`} 
     >
 
-      {/* SVG Sigil - Exact match to reference image */}
+      {/* SVG Sigil - Sacred Geometry with Proper Element Groups */}
       <svg 
         width="192" 
         height="192" 
-        viewBox="0 0 200 200" 
+        viewBox="0 0 500 500" 
         className={`w-full h-full transition-all duration-1000 ${
           isLoaded ? 'animate-fade-in' : ''
         }`}
@@ -123,138 +123,160 @@ const InteractiveSigil = () => {
           {/* Glow filters for each element */}
           {sigilElements.map(element => (
             <filter key={`glow-${element.id}`} id={`glow-${element.id}`} x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
               <feMerge> 
                 <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
           ))}
+
+          {/* Crescent moon mask for clean sacred geometry */}
+          <mask id="crescent-mask">
+            <rect width="500" height="500" fill="black"/>
+            <circle cx="250" cy="320" r="50" fill="white" />
+            <circle cx="270" cy="320" r="50" fill="black" />
+          </mask>
         </defs>
 
-        {/* Outer Circle - Source (matching reference thickness) */}
-        <circle
-          cx="100"
-          cy="100"
-          r="85"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="6"
-          className={`cursor-pointer transition-all duration-500 ${
-            isLoaded ? 'animate-scale-in' : ''
-          } ${activeElement === 'circle' ? 'drop-shadow-lg' : ''}`}
-          style={{
-            stroke: activeElement === 'circle' ? sigilElements[0].color : 'currentColor',
-            strokeWidth: activeElement === 'circle' ? '7' : '6',
-            filter: activeElement === 'circle' ? `url(#glow-circle)` : 'none',
-            transformOrigin: '100px 100px',
-            animationDelay: '0.8s'
-          }}
-          onMouseEnter={() => {
-            if (!isMobile) {
-              setActiveElement('circle');
-              playSound('circle');
-            }
-          }}
-          onMouseLeave={() => !isMobile && setActiveElement(null)}
-          onClick={() => handleElementInteraction('circle')}
-        />
+        {/* Center all elements around (250, 250) */}
+        <g transform="translate(0, 0)">
+          
+          {/* Outer Circle - Source containment */}
+          <g id="circle-group">
+            <circle
+              cx="250"
+              cy="250"
+              r="200"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="12"
+              className={`cursor-pointer transition-all duration-500 ${
+                isLoaded ? 'animate-scale-in' : ''
+              } ${activeElement === 'circle' ? 'drop-shadow-lg' : ''}`}
+              style={{
+                stroke: activeElement === 'circle' ? sigilElements[0].color : 'currentColor',
+                strokeWidth: activeElement === 'circle' ? '14' : '12',
+                filter: activeElement === 'circle' ? `url(#glow-circle)` : 'none',
+                transformOrigin: '250px 250px',
+                animationDelay: '0.8s'
+              }}
+              onMouseEnter={() => {
+                if (!isMobile) {
+                  setActiveElement('circle');
+                  playSound('circle');
+                }
+              }}
+              onMouseLeave={() => !isMobile && setActiveElement(null)}
+              onClick={() => handleElementInteraction('circle')}
+            />
+          </g>
 
-        {/* Triangle at top - smaller, centered (matching reference) */}
-        <path
-          d="M100 50 L115 75 L85 75 Z"
-          className={`cursor-pointer transition-all duration-500 ${
-            isLoaded ? 'animate-fade-in' : ''
-          } ${activeElement === 'triangle' ? 'drop-shadow-md' : ''}`}
-          style={{
-            fill: activeElement === 'triangle' ? sigilElements[1].color : 'currentColor',
-            filter: activeElement === 'triangle' ? `url(#glow-triangle)` : 'none',
-            animationDelay: '0.2s'
-          }}
-          onMouseEnter={() => {
-            if (!isMobile) {
-              setActiveElement('triangle');
-              playSound('triangle');
-            }
-          }}
-          onMouseLeave={() => !isMobile && setActiveElement(null)}
-          onClick={() => handleElementInteraction('triangle')}
-        />
+          {/* Triangle - Clarity and soul alignment */}
+          <g id="triangle-group">
+            <polygon
+              points="250,120 220,180 280,180"
+              className={`cursor-pointer transition-all duration-500 ${
+                isLoaded ? 'animate-fade-in' : ''
+              } ${activeElement === 'triangle' ? 'drop-shadow-md' : ''}`}
+              style={{
+                fill: activeElement === 'triangle' ? sigilElements[1].color : 'currentColor',
+                filter: activeElement === 'triangle' ? `url(#glow-triangle)` : 'none',
+                transformOrigin: '250px 150px',
+                animationDelay: '0.2s'
+              }}
+              onMouseEnter={() => {
+                if (!isMobile) {
+                  setActiveElement('triangle');
+                  playSound('triangle');
+                }
+              }}
+              onMouseLeave={() => !isMobile && setActiveElement(null)}
+              onClick={() => handleElementInteraction('triangle')}
+            />
+          </g>
 
-        {/* Crescent at bottom - precise arc matching reference */}
-        <path
-          d="M60 150 A40 40 0 0 0 140 150"
-          fill="none"
-          strokeLinecap="round"
-          className={`cursor-pointer transition-all duration-500 ${
-            isLoaded ? 'animate-fade-in' : ''
-          } ${activeElement === 'crescent' ? 'drop-shadow-md' : ''}`}
-          style={{
-            stroke: activeElement === 'crescent' ? sigilElements[3].color : 'currentColor',
-            strokeWidth: activeElement === 'crescent' ? '14' : '12',
-            filter: activeElement === 'crescent' ? `url(#glow-crescent)` : 'none',
-            animationDelay: '0.6s'
-          }}
-          onMouseEnter={() => {
-            if (!isMobile) {
-              setActiveElement('crescent');
-              playSound('crescent');
-            }
-          }}
-          onMouseLeave={() => !isMobile && setActiveElement(null)}
-          onClick={() => handleElementInteraction('crescent')}
-        />
+          {/* Crescent Moon - Receptivity and grounded holding */}
+          <g id="crescent-group">
+            <circle
+              cx="250"
+              cy="320"
+              r="50"
+              mask="url(#crescent-mask)"
+              className={`cursor-pointer transition-all duration-500 ${
+                isLoaded ? 'animate-fade-in' : ''
+              } ${activeElement === 'crescent' ? 'drop-shadow-md' : ''}`}
+              style={{
+                fill: activeElement === 'crescent' ? sigilElements[3].color : 'currentColor',
+                filter: activeElement === 'crescent' ? `url(#glow-crescent)` : 'none',
+                transformOrigin: '250px 320px',
+                animationDelay: '0.6s'
+              }}
+              onMouseEnter={() => {
+                if (!isMobile) {
+                  setActiveElement('crescent');
+                  playSound('crescent');
+                }
+              }}
+              onMouseLeave={() => !isMobile && setActiveElement(null)}
+              onClick={() => handleElementInteraction('crescent')}
+            />
+          </g>
 
-        {/* Spiral in center - sacred geometry with mathematical precision */}
-        <path
-          d={spiralPath}
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`cursor-pointer transition-all duration-500 ${
-            isLoaded ? 'animate-fade-in' : ''
-          } ${activeElement === 'spiral' ? 'drop-shadow-md' : ''}`}
-          style={{
-            stroke: activeElement === 'spiral' ? sigilElements[2].color : 'currentColor',
-            strokeWidth: activeElement === 'spiral' ? '6' : '4',
-            filter: activeElement === 'spiral' ? `url(#glow-spiral)` : 'none',
-            transformOrigin: '100px 110px',
-            animationDelay: '0.4s'
-          }}
-          onMouseEnter={() => {
-            if (!isMobile) {
-              setActiveElement('spiral');
-              playSound('spiral');
-            }
-          }}
-          onMouseLeave={() => !isMobile && setActiveElement(null)}
-          onClick={() => handleElementInteraction('spiral')}
-        />
+          {/* Sacred Spiral - Breath, flow, and dynamic stillness */}
+          <g id="spiral-group">
+            <path
+              d={spiralPath}
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={`cursor-pointer transition-all duration-500 ${
+                isLoaded ? 'animate-fade-in' : ''
+              } ${activeElement === 'spiral' ? 'drop-shadow-md' : ''}`}
+              style={{
+                stroke: activeElement === 'spiral' ? sigilElements[2].color : 'currentColor',
+                strokeWidth: activeElement === 'spiral' ? '10' : '8',
+                filter: activeElement === 'spiral' ? `url(#glow-spiral)` : 'none',
+                transformOrigin: '250px 250px',
+                animationDelay: '0.4s'
+              }}
+              onMouseEnter={() => {
+                if (!isMobile) {
+                  setActiveElement('spiral');
+                  playSound('spiral');
+                }
+              }}
+              onMouseLeave={() => !isMobile && setActiveElement(null)}
+              onClick={() => handleElementInteraction('spiral')}
+            />
+          </g>
 
-        {/* Sacred Text Definitions - appear on activation */}
-        {activeElement === 'circle' && (
-          <text x="100" y="25" className="text-sm fill-current text-center" textAnchor="middle">
-            Wholeness, containment, and shared field
-          </text>
-        )}
-        
-        {activeElement === 'triangle' && (
-          <text x="100" y="35" className="text-sm fill-current text-center" textAnchor="middle">
-            Clarity and soul alignment
-          </text>
-        )}
-        
-        {activeElement === 'spiral' && (
-          <text x="100" y="190" className="text-sm fill-current text-center" textAnchor="middle">
-            Breath, flow, and dynamic stillness
-          </text>
-        )}
-        
-        {activeElement === 'crescent' && (
-          <text x="100" y="180" className="text-sm fill-current text-center" textAnchor="middle">
-            Receptivity and grounded holding
-          </text>
-        )}
+          {/* Sacred Text Definitions - positioned to avoid cutoff */}
+          {activeElement === 'circle' && (
+            <text x="250" y="80" className="text-lg fill-current text-center font-medium" textAnchor="middle">
+              Wholeness, containment, and shared field
+            </text>
+          )}
+          
+          {activeElement === 'triangle' && (
+            <text x="250" y="90" className="text-lg fill-current text-center font-medium" textAnchor="middle">
+              Clarity and soul alignment
+            </text>
+          )}
+          
+          {activeElement === 'spiral' && (
+            <text x="250" y="420" className="text-lg fill-current text-center font-medium" textAnchor="middle">
+              Breath, flow, and dynamic stillness
+            </text>
+          )}
+          
+          {activeElement === 'crescent' && (
+            <text x="250" y="410" className="text-lg fill-current text-center font-medium" textAnchor="middle">
+              Receptivity and grounded holding
+            </text>
+          )}
+
+        </g>
       </svg>
       
       {/* Subtle breathing aura */}
