@@ -164,6 +164,27 @@ const Stillbility = () => {
                         </div>
                       </div>
                     </div>
+                    
+                    {/* Definition Break */}
+                    <div className="mt-16 mb-12 text-center">
+                      <div className="max-w-2xl mx-auto">
+                        <p className="text-xl sm:text-2xl font-medium text-primary mb-2">
+                          Stillbility is the fusion of stillness, ability, and stability.
+                        </p>
+                        <p className="text-lg sm:text-xl text-muted-foreground">
+                          It is the capacity to hold the center while everything else moves.
+                        </p>
+                      </div>
+                      
+                      {/* Centered Sigil */}
+                      <div className="mt-12 mb-12">
+                        <img 
+                          src={stillbilitySigil} 
+                          alt="Stillbility Sigil - Sacred Symbol of Dynamic Stillness" 
+                          className="w-32 h-32 sm:w-40 sm:h-40 object-contain mx-auto opacity-70"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
