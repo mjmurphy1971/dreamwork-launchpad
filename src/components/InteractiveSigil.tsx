@@ -110,6 +110,33 @@ const InteractiveSigil = () => {
     sigilElements.find(el => el.id === id);
 
   const activeElement = hoveredElement || tappedElement;
+  
+  // Generate sacred spiral geometry
+  const generateSpiralPath = ({ turns = 3, spacing = 8, center = [100, 100] }) => {
+    const [cx, cy] = center;
+    const steps = 100;
+    const maxAngle = turns * 2 * Math.PI;
+    
+    let path = "";
+    for (let i = 0; i <= steps; i++) {
+      const t = i / steps;
+      const angle = t * maxAngle;
+      const radius = spacing * angle / (2 * Math.PI);
+      
+      const x = cx + radius * Math.cos(angle);
+      const y = cy + radius * Math.sin(angle);
+      
+      if (i === 0) {
+        path += `M ${x.toFixed(2)} ${y.toFixed(2)}`;
+      } else {
+        path += ` L ${x.toFixed(2)} ${y.toFixed(2)}`;
+      }
+    }
+    return path;
+  };
+
+  // Sacred spiral positioned at center of sigil
+  const spiralPath = generateSpiralPath({ turns: 2.5, spacing: 12, center: [100, 110] });
 
   return (
     <div 
@@ -250,20 +277,12 @@ const InteractiveSigil = () => {
           onClick={() => handleElementInteraction('crescent')}
         />
 
-        {/* Spiral in center - clean, centered design matching reference */}
+        {/* Spiral in center - sacred geometry with mathematical precision */}
         <path
-          d="M100 100 
-             C110 100, 115 105, 115 110
-             C115 120, 105 125, 95 125
-             C80 125, 75 110, 75 100
-             C75 85, 95 80, 110 80
-             C130 80, 135 100, 135 115
-             C135 140, 110 145, 85 145
-             C55 145, 50 115, 50 90
-             C50 60, 85 55, 120 55"
+          d={spiralPath}
           fill="none"
           stroke={activeElement === 'spiral' ? sigilElements[2].color : 'currentColor'}
-          strokeWidth={activeElement === 'spiral' ? '8' : '6'}
+          strokeWidth={activeElement === 'spiral' ? '6' : '4'}
           strokeLinecap="round"
           strokeLinejoin="round"
           className={`cursor-pointer transition-all duration-500 ${
@@ -271,7 +290,7 @@ const InteractiveSigil = () => {
           }`}
           style={{
             filter: activeElement === 'spiral' ? `url(#glow-spiral)` : 'none',
-            transformOrigin: '100px 100px',
+            transformOrigin: '100px 110px',
             animationDelay: '0.4s'
           }}
           onMouseEnter={() => {
