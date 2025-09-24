@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import stillbilitySigil from "@/assets/stillbility-sigil.png";
+import stillbilitySigil from "@/assets/stillbility-sigil-no-word.png";
 
 const Stillbility = () => {
   const pageSchema = {
@@ -45,18 +45,17 @@ const Stillbility = () => {
             <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
             <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-4xl mx-auto text-center text-primary-foreground">
-                {/* Sigil */}
-                <div className="mb-8 flex justify-center">
+                {/* Sigil and Title */}
+                <div className="mb-8 flex flex-col items-center">
                   <img 
                     src={stillbilitySigil} 
                     alt="Stillbility Sigil - Symbol of Dynamic Stillness" 
-                    className="w-24 h-24 sm:w-32 sm:h-32 object-contain filter invert"
+                    className="w-48 h-48 sm:w-64 sm:h-64 object-contain filter invert mb-6"
                   />
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-script">
+                    Stillbility
+                  </h1>
                 </div>
-                
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 font-heading">
-                  Stillbility
-                </h1>
                 
                 <p className="text-lg sm:text-xl lg:text-2xl mb-8 font-light max-w-3xl mx-auto">
                   The embodied ability to remain rooted, present, and whole amidst chaos—within and without.
