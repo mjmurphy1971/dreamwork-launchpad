@@ -40,7 +40,7 @@ const Stillbility = () => {
         <Header />
         
         <main className="flex-1">
-          {/* Hero Section with Video and Sigil */}
+          {/* Hero Section */}
           <section className="relative py-16 sm:py-24 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
             <div className="container mx-auto px-4 relative z-10">
@@ -52,17 +52,16 @@ const Stillbility = () => {
                     alt="Stillbility Sigil - Symbol of Dynamic Stillness" 
                     className="w-48 h-48 sm:w-64 sm:h-64 object-contain filter invert mb-6"
                   />
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading">
-                    Stillbility
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading mb-4">
+                    Welcome to the Stillbility Field
                   </h1>
+                  <p className="text-xl sm:text-2xl lg:text-3xl font-light italic mb-8">
+                    "We are the anchors. We are the breath. We are the field."
+                  </p>
                 </div>
                 
-                <p className="text-lg sm:text-xl lg:text-2xl mb-8 font-light max-w-3xl mx-auto">
-                  The embodied ability to remain rooted, present, and whole amidst chaos—within and without.
-                </p>
-                
                 {/* Featured Video */}
-                <div className="mb-12">
+                <div className="mb-8">
                   <div className="relative max-w-4xl mx-auto bg-black/20 rounded-xl p-1 backdrop-blur-sm">
                     <video 
                       controls 
@@ -74,31 +73,212 @@ const Stillbility = () => {
                     </video>
                   </div>
                 </div>
+                
+                {/* Call to Action */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a 
+                    href="/blog/we-are-the-stillbility-field-holding-the-center-together"
+                    className="inline-flex items-center justify-center px-8 py-3 bg-primary-foreground text-primary rounded-lg hover:bg-primary-foreground/90 transition-colors font-medium text-lg"
+                  >
+                    Enter the Field
+                  </a>
+                  <a 
+                    href="#blog-series"
+                    className="inline-flex items-center justify-center px-8 py-3 border-2 border-primary-foreground text-primary-foreground rounded-lg hover:bg-primary-foreground/10 transition-colors font-medium text-lg"
+                  >
+                    Explore the Blog Series
+                  </a>
+                </div>
               </div>
             </div>
           </section>
 
-          {/* Content Section - Placeholder for user's content */}
+          {/* Introduction to Stillbility */}
           <section className="py-16 sm:py-20">
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto">
                 <div className="prose prose-lg mx-auto text-center">
-                  <p className="text-xl text-muted-foreground mb-8">
-                    Welcome to the Stillbility chapter. This space is being prepared for the profound teachings and practices that await.
-                  </p>
-                  
-                  <div className="bg-muted/50 rounded-xl p-8 border border-border/50">
-                    <h2 className="text-2xl font-heading mb-4">Coming Soon</h2>
-                    <p className="text-muted-foreground mb-6">
-                      This page is ready for your content, including:
+                  <div className="mb-16">
+                    <p className="text-xl sm:text-2xl leading-relaxed text-foreground font-light mb-8">
+                      Stillbility is not a practice you learn—it is a field you enter, a presence you embody, 
+                      a remembering of what you have always been. It is the art of remaining rooted while the world spins, 
+                      of breathing deep while storms rage, of holding center when all else dissolves.
                     </p>
-                    <ul className="text-left text-muted-foreground space-y-2">
-                      <li>• Detailed teachings on Stillbility practices</li>
-                      <li>• Interactive exercises and meditations</li>
-                      <li>• Community resources and support</li>
-                      <li>• Personal journey insights and wisdom</li>
-                    </ul>
+                    
+                    <p className="text-lg sm:text-xl leading-relaxed text-muted-foreground mb-8">
+                      In my moment of graduation, I felt it clearly: we are not here to be shaken by the chaos. 
+                      We are here to be the Stability Force—the living, breathing anchor points that hold space 
+                      for transformation, for healing, for the world to remember its way home.
+                    </p>
+                    
+                    <p className="text-lg sm:text-xl leading-relaxed text-foreground font-medium italic">
+                      This is a collective invitation. Step into the field. Become the stillness the world needs.
+                    </p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Sigil + Symbolic Language */}
+          <section className="py-16 bg-gradient-subtle">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto text-center">
+                <div className="mb-12">
+                  <img 
+                    src={stillbilitySigil} 
+                    alt="Stillbility Sigil - Sacred Symbol" 
+                    className="w-32 h-32 sm:w-48 sm:h-48 object-contain mx-auto mb-8 opacity-80"
+                  />
+                  
+                  <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-8">Sacred Symbolism</h2>
+                  
+                  <div className="grid md:grid-cols-2 gap-8 text-left mb-12">
+                    <div className="bg-background/50 rounded-xl p-6 border border-border/50">
+                      <h3 className="text-xl font-semibold mb-4">The Elements</h3>
+                      <ul className="space-y-3 text-muted-foreground">
+                        <li><strong>Circle:</strong> The eternal field of presence</li>
+                        <li><strong>Triangle:</strong> Sacred ascension and grounding</li>
+                        <li><strong>Spiral:</strong> The breath of life, ever-expanding</li>
+                        <li><strong>Crescent:</strong> Receptivity and divine feminine</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-background/50 rounded-xl p-6 border border-border/50">
+                      <h3 className="text-xl font-semibold mb-4">The Invocation</h3>
+                      <div className="text-center">
+                        <p className="text-2xl font-heading font-bold text-primary mb-2">
+                          Held.
+                        </p>
+                        <p className="text-2xl font-heading font-bold text-primary mb-2">
+                          Rooted.
+                        </p>
+                        <p className="text-2xl font-heading font-bold text-primary">
+                          Still.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Blog Series Portal */}
+          <section id="blog-series" className="py-16 sm:py-20">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl sm:text-4xl font-bold font-heading text-center mb-12">
+                  The Stillbility Chronicles
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-8 mb-12">
+                  <div className="bg-gradient-card rounded-xl p-8 border border-border/50">
+                    <h3 className="text-2xl font-semibold mb-4">Foundation Post</h3>
+                    <h4 className="text-xl font-heading mb-4 text-primary">
+                      "We Are the Stillbility Field"
+                    </h4>
+                    <p className="text-muted-foreground mb-6">
+                      The foundational teaching that birthed this movement. Discover what it means to be 
+                      an anchor point in a world of constant change.
+                    </p>
+                    <a 
+                      href="/blog/we-are-the-stillbility-field-holding-the-center-together"
+                      className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                    >
+                      Read Now
+                    </a>
+                  </div>
+                  
+                  <div className="bg-gradient-card rounded-xl p-8 border border-border/50">
+                    <h3 className="text-2xl font-semibold mb-4">Coming Soon</h3>
+                    <div className="space-y-4 mb-6">
+                      <div className="text-muted-foreground">
+                        <h4 className="font-semibold">• Breathing Earth</h4>
+                        <p className="text-sm">The rhythms of planetary stillness</p>
+                      </div>
+                      <div className="text-muted-foreground">
+                        <h4 className="font-semibold">• Anchor in the Deep</h4>
+                        <p className="text-sm">Practices for embodied presence</p>
+                      </div>
+                      <div className="text-muted-foreground">
+                        <h4 className="font-semibold">• Field Keepers</h4>
+                        <p className="text-sm">Community and collective holding</p>
+                      </div>
+                    </div>
+                    <button className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors font-medium">
+                      Subscribe to the Field
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Ritual Resources */}
+          <section className="py-16 bg-gradient-subtle">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto text-center">
+                <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-8">
+                  Sacred Tools & Resources
+                </h2>
+                <p className="text-xl text-muted-foreground mb-12">
+                  Coming soon: A collection of embodied practices to deepen your Stillbility journey
+                </p>
+                
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="bg-background/50 rounded-xl p-6 border border-border/50">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">🌬️</span>
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">Breathwork Audio</h3>
+                    <p className="text-sm text-muted-foreground">Guided breathing for anchoring presence</p>
+                  </div>
+                  
+                  <div className="bg-background/50 rounded-xl p-6 border border-border/50">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">🃏</span>
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">Invocation Cards</h3>
+                    <p className="text-sm text-muted-foreground">Daily reminders for field activation</p>
+                  </div>
+                  
+                  <div className="bg-background/50 rounded-xl p-6 border border-border/50">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">🧭</span>
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">Compass Map</h3>
+                    <p className="text-sm text-muted-foreground">Navigate the inner landscapes</p>
+                  </div>
+                  
+                  <div className="bg-background/50 rounded-xl p-6 border border-border/50">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">🕯️</span>
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">Altar Kit</h3>
+                    <p className="text-sm text-muted-foreground">Sacred space creation tools</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Closing Blessing */}
+          <section className="py-16 sm:py-20">
+            <div className="container mx-auto px-4">
+              <div className="max-w-3xl mx-auto text-center">
+                <div className="bg-gradient-card rounded-2xl p-12 border border-border/50">
+                  <img 
+                    src={stillbilitySigil} 
+                    alt="Stillbility Sigil" 
+                    className="w-16 h-16 object-contain mx-auto mb-8 opacity-60"
+                  />
+                  
+                  <blockquote className="text-xl sm:text-2xl font-light leading-relaxed text-center italic mb-6">
+                    "Stillbility is not a concept. It is a field.<br />
+                    It lives in your breath, your bones, your presence.<br />
+                    <strong className="font-heading text-primary">Welcome Home.</strong>"
+                  </blockquote>
                 </div>
               </div>
             </div>
