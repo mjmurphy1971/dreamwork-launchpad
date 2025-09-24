@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import sigilImage from "@/assets/stillbility-sigil-no-word.png";
+import sigilImage from "@/assets/stillbility-sigil-glow.jpg";
 
 const InteractiveSigil = () => {
   const [isLoaded, setIsLoaded] = useState(false);
