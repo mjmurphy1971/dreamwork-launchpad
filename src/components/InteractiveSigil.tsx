@@ -65,7 +65,7 @@ const InteractiveSigil = () => {
 
   const playSound = (elementId: string) => {
     try {
-      // Create a simple audio context for subtle sound
+      // Create a gentle chime sound using audio context
       const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
       const oscillator = audioContext.createOscillator();
       const gainNode = audioContext.createGain();
@@ -73,25 +73,26 @@ const InteractiveSigil = () => {
       oscillator.connect(gainNode);
       gainNode.connect(audioContext.destination);
       
-      // Different frequencies for different elements
+      // Gentle chime frequencies - more bell-like harmonics
       const frequencies: Record<string, number> = {
-        circle: 528, // Love frequency
-        triangle: 741, // Intuition frequency  
-        spiral: 639, // Connection frequency
-        crescent: 396 // Grounding frequency
+        circle: 523.25, // C5 - wholeness
+        triangle: 659.25, // E5 - clarity  
+        spiral: 783.99, // G5 - flow
+        crescent: 392.00 // G4 - grounding
       };
       
-      oscillator.frequency.setValueAtTime(frequencies[elementId] || 528, audioContext.currentTime);
+      oscillator.frequency.setValueAtTime(frequencies[elementId] || 523.25, audioContext.currentTime);
       oscillator.type = 'sine';
       
+      // Gentle chime envelope - soft attack, sustained decay
       gainNode.gain.setValueAtTime(0, audioContext.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + 0.05);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+      gainNode.gain.linearRampToValueAtTime(0.15, audioContext.currentTime + 0.02);
+      gainNode.gain.exponentialRampToValueAtTime(0.05, audioContext.currentTime + 0.4);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 1.2);
       
       oscillator.start(audioContext.currentTime);
-      oscillator.stop(audioContext.currentTime + 0.3);
+      oscillator.stop(audioContext.currentTime + 1.2);
     } catch (error) {
-      // Silently fail if audio context isn't supported
       console.log("Audio not supported");
     }
   };
@@ -204,9 +205,9 @@ const InteractiveSigil = () => {
           onClick={() => handleElementInteraction('circle')}
         />
 
-        {/* Triangle at top - solid filled (matching reference) */}
+        {/* Triangle at top - smaller, centered (matching reference) */}
         <path
-          d="M100 40 L125 80 L75 80 Z"
+          d="M100 50 L115 75 L85 75 Z"
           fill={activeElement === 'triangle' ? sigilElements[1].color : 'currentColor'}
           className={`cursor-pointer transition-all duration-500 ${
             isLoaded ? 'animate-fade-in' : ''
@@ -225,22 +226,44 @@ const InteractiveSigil = () => {
           onClick={() => handleElementInteraction('triangle')}
         />
 
-        {/* Spiral in center - precisely matching reference design */}
+        {/* Crescent at bottom - precise arc matching reference */}
+        <path
+          d="M60 150 A40 40 0 0 0 140 150"
+          fill="none"
+          stroke={activeElement === 'crescent' ? sigilElements[3].color : 'currentColor'}
+          strokeWidth={activeElement === 'crescent' ? '14' : '12'}
+          strokeLinecap="round"
+          className={`cursor-pointer transition-all duration-500 ${
+            isLoaded ? 'animate-fade-in' : ''
+          }`}
+          style={{
+            filter: activeElement === 'crescent' ? `url(#glow-crescent)` : 'none',
+            animationDelay: '0.6s'
+          }}
+          onMouseEnter={() => {
+            if (!isMobile) {
+              setHoveredElement('crescent');
+              playSound('crescent');
+            }
+          }}
+          onMouseLeave={() => !isMobile && setHoveredElement(null)}
+          onClick={() => handleElementInteraction('crescent')}
+        />
+
+        {/* Spiral in center - clean, centered design matching reference */}
         <path
           d="M100 100 
-             Q110 100, 115 105 
-             Q115 115, 105 120 
-             Q90 120, 85 105 
-             Q85 85, 105 80 
-             Q130 80, 135 105 
-             Q135 135, 105 140 
-             Q70 140, 65 105 
-             Q65 65, 105 60 
-             Q150 60, 155 105 
-             Q155 155, 105 160"
+             C110 100, 115 105, 115 110
+             C115 120, 105 125, 95 125
+             C80 125, 75 110, 75 100
+             C75 85, 95 80, 110 80
+             C130 80, 135 100, 135 115
+             C135 140, 110 145, 85 145
+             C55 145, 50 115, 50 90
+             C50 60, 85 55, 120 55"
           fill="none"
           stroke={activeElement === 'spiral' ? sigilElements[2].color : 'currentColor'}
-          strokeWidth={activeElement === 'spiral' ? '10' : '8'}
+          strokeWidth={activeElement === 'spiral' ? '8' : '6'}
           strokeLinecap="round"
           strokeLinejoin="round"
           className={`cursor-pointer transition-all duration-500 ${
@@ -259,30 +282,6 @@ const InteractiveSigil = () => {
           }}
           onMouseLeave={() => !isMobile && setHoveredElement(null)}
           onClick={() => handleElementInteraction('spiral')}
-        />
-
-        {/* Crescent at bottom - thick arc matching reference */}
-        <path
-          d="M45 155 A55 55 0 0 0 155 155"
-          fill="none"
-          stroke={activeElement === 'crescent' ? sigilElements[3].color : 'currentColor'}
-          strokeWidth={activeElement === 'crescent' ? '18' : '16'}
-          strokeLinecap="round"
-          className={`cursor-pointer transition-all duration-500 ${
-            isLoaded ? 'animate-fade-in' : ''
-          }`}
-          style={{
-            filter: activeElement === 'crescent' ? `url(#glow-crescent)` : 'none',
-            animationDelay: '0.6s'
-          }}
-          onMouseEnter={() => {
-            if (!isMobile) {
-              setHoveredElement('crescent');
-              playSound('crescent');
-            }
-          }}
-          onMouseLeave={() => !isMobile && setHoveredElement(null)}
-          onClick={() => handleElementInteraction('crescent')}
         />
       </svg>
       
