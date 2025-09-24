@@ -104,13 +104,13 @@ const Stillbility = () => {
                       🌀 What Is Stillbility?
                     </h2>
                     
-                    {/* Definition */}
-                    <div className="mb-12 text-center">
+                    {/* Definition with Dark Blue Background */}
+                    <div className="mb-12 text-center bg-slate-900 rounded-2xl p-8 mx-auto max-w-4xl">
                       <div className="max-w-2xl mx-auto">
-                        <p className="text-xl sm:text-2xl font-medium text-primary mb-2">
+                        <p className="text-xl sm:text-2xl font-medium text-yellow-300 mb-2">
                           Stillbility is the fusion of stillness, ability, and stability.
                         </p>
-                        <p className="text-lg sm:text-xl text-muted-foreground">
+                        <p className="text-lg sm:text-xl text-white/90">
                           It is the capacity to hold the center while everything else moves.
                         </p>
                       </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import sigilImage from "@/assets/stillbility-sigil-glow.jpg";
+import sigilVideo from "@/assets/stillbility-sigil-animated.mp4";
 
 const InteractiveSigil = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -33,13 +33,17 @@ const InteractiveSigil = () => {
           }`} 
           onClick={handleSigilClick}
         >
-          {/* Original Stillbility Sigil */}
-          <img 
-            src={sigilImage}
-            alt="Stillbility Sigil - Sacred geometry containing triangle, spiral, crescent, and circle"
+          {/* Animated Stillbility Sigil */}
+          <video 
+            src={sigilVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
             className={`w-full h-full object-contain transition-all duration-1000 ${
               isLoaded ? 'animate-fade-in' : ''
             }`}
+            aria-label="Animated Stillbility Sigil - Sacred geometry containing triangle, spiral, crescent, and circle"
           />
           
           {/* Subtle breathing aura */}
