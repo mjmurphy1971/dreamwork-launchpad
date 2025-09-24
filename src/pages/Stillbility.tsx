@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import stillbilitySigil from "@/assets/stillbility-sigil-no-word.png";
+import InteractiveSigil from "@/components/InteractiveSigil";
 
 const Stillbility = () => {
   const pageSchema = {
@@ -114,13 +115,9 @@ const Stillbility = () => {
                         </p>
                       </div>
                       
-                      {/* Centered Sigil */}
+                      {/* Interactive Sigil */}
                       <div className="mt-8 mb-8">
-                        <img 
-                          src={stillbilitySigil} 
-                          alt="Stillbility Sigil - Sacred Symbol of Dynamic Stillness" 
-                          className="w-32 h-32 sm:w-40 sm:h-40 object-contain mx-auto opacity-70"
-                        />
+                        <InteractiveSigil />
                       </div>
                     </div>
                     
@@ -191,49 +188,6 @@ const Stillbility = () => {
             </div>
           </section>
 
-          {/* Sigil + Symbolic Language */}
-          <section className="py-16 bg-gradient-subtle">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto text-center">
-                <div className="mb-12">
-                  <img 
-                    src={stillbilitySigil} 
-                    alt="Stillbility Sigil - Sacred Symbol" 
-                    className="w-32 h-32 sm:w-48 sm:h-48 object-contain mx-auto mb-8 opacity-80"
-                  />
-                  
-                  <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-8">Sacred Symbolism</h2>
-                  
-                  <div className="grid md:grid-cols-2 gap-8 text-left mb-12">
-                    <div className="bg-background/50 rounded-xl p-6 border border-border/50">
-                      <h3 className="text-xl font-semibold mb-4">The Elements</h3>
-                      <ul className="space-y-3 text-muted-foreground">
-                        <li><strong>Circle:</strong> The eternal field of presence</li>
-                        <li><strong>Triangle:</strong> Sacred ascension and grounding</li>
-                        <li><strong>Spiral:</strong> The breath of life, ever-expanding</li>
-                        <li><strong>Crescent:</strong> Receptivity and divine feminine</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-background/50 rounded-xl p-6 border border-border/50">
-                      <h3 className="text-xl font-semibold mb-4">The Invocation</h3>
-                      <div className="text-center">
-                        <p className="text-2xl font-heading font-bold text-primary mb-2">
-                          Held.
-                        </p>
-                        <p className="text-2xl font-heading font-bold text-primary mb-2">
-                          Rooted.
-                        </p>
-                        <p className="text-2xl font-heading font-bold text-primary">
-                          Still.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
 
           {/* Blog Series Portal */}
           <section id="blog-series" className="py-16 sm:py-20">
