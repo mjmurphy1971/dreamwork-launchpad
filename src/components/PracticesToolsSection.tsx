@@ -86,7 +86,7 @@ const PracticesToolsSection = () => {
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               Stillbility® is a sacred branch of The Dream Work, offering specialized tools for stability keepers and field anchors.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <a 
                 href="/meditation"
                 className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
@@ -98,6 +98,21 @@ const PracticesToolsSection = () => {
                 className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors font-medium"
               >
                 Visit Dream Journal
+              </a>
+            </div>
+            
+            {/* Cross-reference to dedicated Stillbility site */}
+            <div className="pt-8 border-t border-border/30">
+              <p className="text-sm text-muted-foreground mb-4">
+                Experience the full Stillbility® journey at our dedicated sanctuary:
+              </p>
+              <a 
+                href="https://stillbility.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-3 bg-cosmic text-white rounded-lg hover:bg-cosmic/90 transition-colors font-medium text-lg"
+              >
+                🌀 Visit Stillbility.com
               </a>
             </div>
           </div>
