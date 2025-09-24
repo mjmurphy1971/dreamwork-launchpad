@@ -105,7 +105,7 @@ const Stillbility = () => {
                     </h2>
                     
                     {/* Definition with Dark Blue Background */}
-                    <div className="mb-12 text-center bg-slate-900 rounded-2xl p-8 mx-auto max-w-4xl">
+                    <div className="mb-12 text-center bg-slate-950 rounded-2xl p-8 mx-auto max-w-4xl">
                       <div className="max-w-2xl mx-auto">
                         <p className="text-xl sm:text-2xl font-medium text-yellow-300 mb-2">
                           Stillbility is the fusion of stillness, ability, and stability.
