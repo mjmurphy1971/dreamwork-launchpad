@@ -99,21 +99,71 @@ const Stillbility = () => {
               <div className="max-w-4xl mx-auto">
                 <div className="prose prose-lg mx-auto text-center">
                   <div className="mb-16">
-                    <p className="text-xl sm:text-2xl leading-relaxed text-foreground font-light mb-8">
-                      Stillbility is not a practice you learn—it is a field you enter, a presence you embody, 
-                      a remembering of what you have always been. It is the art of remaining rooted while the world spins, 
-                      of breathing deep while storms rage, of holding center when all else dissolves.
-                    </p>
+                    <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-8 text-primary">
+                      🌀 What Is Stillbility?
+                    </h2>
                     
-                    <p className="text-lg sm:text-xl leading-relaxed text-muted-foreground mb-8">
-                      In my moment of graduation, I felt it clearly: we are not here to be shaken by the chaos. 
-                      We are here to be the Stability Force—the living, breathing anchor points that hold space 
-                      for transformation, for healing, for the world to remember its way home.
-                    </p>
-                    
-                    <p className="text-lg sm:text-xl leading-relaxed text-foreground font-medium italic">
-                      This is a collective invitation. Step into the field. Become the stillness the world needs.
-                    </p>
+                    <div className="space-y-6 text-lg sm:text-xl leading-relaxed">
+                      <p className="text-foreground font-medium">
+                        Stillbility is the soul's response to chaos.
+                      </p>
+                      
+                      <p className="text-muted-foreground">
+                        It is not a concept—it is a field. A frequency. A way of being.
+                      </p>
+                      
+                      <p className="text-foreground font-medium">
+                        Stillbility is the embodied ability to remain rooted, present, and whole—especially when the world trembles.
+                      </p>
+                      
+                      <p className="text-muted-foreground">
+                        It is not passive. It is not rigid.
+                      </p>
+                      
+                      <p className="text-primary font-semibold text-xl sm:text-2xl">
+                        It is dynamic stillness. Breath as anchor. Presence as power.
+                      </p>
+                      
+                      <div className="my-8 space-y-4">
+                        <p className="text-muted-foreground">
+                          Stillbility is not found in the dictionary.
+                        </p>
+                        <p className="text-foreground font-medium">
+                          It is found in the bones.
+                        </p>
+                        <p className="text-foreground font-medium">
+                          It lives in the breath.
+                        </p>
+                        <p className="text-muted-foreground">
+                          It pulses in the quiet center of those who have graduated from guiding to anchoring.
+                        </p>
+                      </div>
+                      
+                      <div className="bg-gradient-card rounded-xl p-8 border border-border/50 mt-12">
+                        <p className="text-lg sm:text-xl font-medium text-foreground mb-4">
+                          This is not just my transition.
+                        </p>
+                        <p className="text-lg sm:text-xl font-medium text-foreground mb-4">
+                          It is a collective emergence.
+                        </p>
+                        <p className="text-muted-foreground mb-6">
+                          A soul-level shift from Light Worker to Stability Keeper.<br />
+                          From bridge-builder to anchor-holder.
+                        </p>
+                        
+                        <div className="border-t border-border/50 pt-6">
+                          <p className="text-lg font-medium text-primary mb-2">
+                            If you've felt this shift—this page is for you.
+                          </p>
+                          <p className="text-xl font-bold font-heading text-primary">
+                            You are part of the Stability Force.
+                          </p>
+                          <p className="text-xl font-bold font-heading text-primary">
+                            You are Stillbility embodied.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
