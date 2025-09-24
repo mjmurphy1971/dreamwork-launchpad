@@ -8,16 +8,24 @@
 
 @layer base {
   :root {
-    /* Core Brand Colors - Dreamy sky to warm earth tones */
-    --primary: 213 85% 25%;        /* Deep celestial blue */
-    --primary-foreground: 39 85% 95%;  /* Warm light cream */
-    --primary-glow: 213 70% 45%;   /* Lighter blue glow */
+    /* Core Brand Colors - Cosmic Stillbility Theme */
+    --primary: 220 95% 15%;        /* Deep indigo - cosmic depth */
+    --primary-foreground: 45 90% 88%;  /* Soft gold light */
+    --primary-glow: 220 70% 35%;   /* Lighter indigo glow */
     
-    --secondary: 39 60% 85%;       /* Soft warm cream */
-    --secondary-foreground: 213 85% 15%;  /* Deep blue text */
+    --secondary: 45 60% 85%;       /* Soft golden cream */
+    --secondary-foreground: 220 95% 15%;  /* Deep indigo text */
     
-    --accent: 30 85% 65%;          /* Sunset orange */
-    --accent-foreground: 213 85% 15%;     /* Deep blue */
+    --accent: 45 85% 65%;          /* Sacred gold */
+    --accent-foreground: 220 95% 15%;     /* Deep indigo */
+    
+    /* Cosmic auxiliary colors */
+    --cosmic: 240 100% 8%;         /* Midnight cosmic black */
+    --cosmic-foreground: 45 90% 90%;      /* Ethereal gold */
+    --violet: 270 60% 45%;         /* Muted violet */
+    --violet-foreground: 45 90% 90%;      /* Light gold */
+    --teal: 180 45% 55%;           /* Gentle teal */
+    --teal-foreground: 220 95% 15%;       /* Deep indigo */
     
     --muted: 210 25% 95%;          /* Very light blue-gray */
     --muted-foreground: 213 15% 45%;      /* Medium blue-gray */
@@ -32,10 +40,12 @@
     --input: 210 25% 94%;          /* Input background */
     --ring: 213 85% 45%;           /* Focus ring */
     
-    /* Spiritual gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(213, 85%, 25%) 0%, hsl(230, 70%, 35%) 50%, hsl(30, 85%, 65%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(210, 25%, 98%) 100%);
-    --gradient-sunset: linear-gradient(90deg, hsl(213, 85%, 35%) 0%, hsl(250, 60%, 45%) 50%, hsl(30, 85%, 65%) 100%);
+    /* Cosmic gradients for Stillbility */
+    --gradient-hero: linear-gradient(135deg, hsl(240, 100%, 8%) 0%, hsl(220, 95%, 15%) 50%, hsl(270, 60%, 25%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(45, 30%, 98%) 100%);
+    --gradient-cosmic: linear-gradient(180deg, hsl(240, 100%, 8%) 0%, hsl(220, 95%, 12%) 100%);
+    --gradient-spectrum: linear-gradient(90deg, hsl(270, 60%, 45%) 0%, hsl(220, 95%, 35%) 25%, hsl(180, 45%, 55%) 50%, hsl(45, 85%, 65%) 75%, hsl(270, 60%, 45%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(220, 30%, 98%) 0%, hsl(45, 40%, 96%) 100%);
     
     /* Elegant shadows */
     --shadow-dreamy: 0 10px 40px -10px hsl(213, 85%, 25%, 0.15);

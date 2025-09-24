@@ -35,6 +35,18 @@ export default {
 					foreground: 'hsl(var(--primary-foreground))',
 					glow: 'hsl(var(--primary-glow))'
 				},
+				cosmic: {
+					DEFAULT: 'hsl(var(--cosmic))',
+					foreground: 'hsl(var(--cosmic-foreground))'
+				},
+				violet: {
+					DEFAULT: 'hsl(var(--violet))',
+					foreground: 'hsl(var(--violet-foreground))'
+				},
+				teal: {
+					DEFAULT: 'hsl(var(--teal))',
+					foreground: 'hsl(var(--teal-foreground))'
+				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
@@ -115,7 +127,9 @@ export default {
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-card': 'var(--gradient-card)',
-				'gradient-sunset': 'var(--gradient-sunset)'
+				'gradient-cosmic': 'var(--gradient-cosmic)',
+				'gradient-spectrum': 'var(--gradient-spectrum)',
+				'gradient-subtle': 'var(--gradient-subtle)'
 			},
 			boxShadow: {
 				'dreamy': 'var(--shadow-dreamy)',
