@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import sigilImage from "@/assets/stillbility-sigil-no-word.png";
 
 const InteractiveSigil = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -22,20 +23,6 @@ const InteractiveSigil = () => {
     setIsModalOpen(true);
   };
   
-  // Generate sacred Archimedean spiral with exact mathematical precision
-  const generateSacredSpiralPath = () => {
-    let path = "M250,250";
-    for (let t = 0; t < 6.28 * 2.5; t += 0.1) {
-      const r = 5 * t;
-      const x = 250 + r * Math.cos(t);
-      const y = 250 + r * Math.sin(t);
-      path += ` L${x.toFixed(2)},${y.toFixed(2)}`;
-    }
-    return path;
-  };
-
-  // Sacred spiral path using blueprint formula
-  const spiralPath = generateSacredSpiralPath();
 
   return (
     <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
@@ -46,82 +33,14 @@ const InteractiveSigil = () => {
           }`} 
           onClick={handleSigilClick}
         >
-          {/* SVG Sigil - Sacred Geometry */}
-          <svg 
-            width="192" 
-            height="192" 
-            viewBox="0 0 500 500" 
-            className={`w-full h-full transition-all duration-1000 ${
+          {/* Original Stillbility Sigil */}
+          <img 
+            src={sigilImage}
+            alt="Stillbility Sigil - Sacred geometry containing triangle, spiral, crescent, and circle"
+            className={`w-full h-full object-contain transition-all duration-1000 ${
               isLoaded ? 'animate-fade-in' : ''
             }`}
-          >
-            <defs>
-              {/* Crescent moon mask - precise sacred geometry */}
-              <mask id="crescent-mask">
-                <circle cx="250" cy="320" r="40" fill="white" />
-                <circle cx="270" cy="320" r="40" fill="black" />
-              </mask>
-            </defs>
-
-            {/* Sacred Blueprint Implementation - All elements centered around (250, 250) */}
-            <g>
-              
-              {/* 1. Outer Circle - Wholeness, containment, shared field */}
-              <circle
-                cx="250"
-                cy="250"
-                r="200"
-                stroke="currentColor"
-                strokeWidth="4"
-                fill="none"
-                className={`transition-all duration-500 ${isLoaded ? 'animate-scale-in' : ''}`}
-                style={{
-                  transformOrigin: '250px 250px',
-                  animationDelay: '0.8s'
-                }}
-              />
-
-              {/* 2. Equilateral Triangle - Clarity and soul alignment */}
-              <polygon
-                points="250,130 220,180 280,180"
-                fill="currentColor"
-                className={`transition-all duration-500 ${isLoaded ? 'animate-fade-in' : ''}`}
-                style={{
-                  transformOrigin: '250px 155px',
-                  animationDelay: '0.2s'
-                }}
-              />
-
-              {/* 3. Sacred Spiral - Breath, flow, and dynamic stillness */}
-              <path
-                d={spiralPath}
-                stroke="currentColor"
-                strokeWidth="3"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={`transition-all duration-500 ${isLoaded ? 'animate-fade-in' : ''}`}
-                style={{
-                  transformOrigin: '250px 250px',
-                  animationDelay: '0.4s'
-                }}
-              />
-
-              {/* 4. Crescent - Receptivity and grounded holding */}
-              <circle
-                cx="250"
-                cy="320"
-                r="40"
-                fill="currentColor"
-                mask="url(#crescent-mask)"
-                className={`transition-all duration-500 ${isLoaded ? 'animate-fade-in' : ''}`}
-                style={{
-                  transformOrigin: '250px 320px',
-                  animationDelay: '0.6s'
-                }}
-              />
-            </g>
-          </svg>
+          />
           
           {/* Subtle breathing aura */}
           {isLoaded && (
