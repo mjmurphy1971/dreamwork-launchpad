@@ -209,12 +209,14 @@ const InteractiveSigil = () => {
           cy="100"
           r="85"
           fill="none"
-          stroke={activeElement === 'circle' ? sigilElements[0].color : 'currentColor'}
-          strokeWidth={activeElement === 'circle' ? '7' : '6'}
+          stroke="currentColor"
+          strokeWidth="6"
           className={`cursor-pointer transition-all duration-500 ${
             isLoaded ? 'animate-scale-in' : ''
-          }`}
+          } ${activeElement === 'circle' ? 'drop-shadow-lg' : ''}`}
           style={{
+            stroke: activeElement === 'circle' ? sigilElements[0].color : 'currentColor',
+            strokeWidth: activeElement === 'circle' ? '7' : '6',
             filter: activeElement === 'circle' ? `url(#glow-circle)` : 'none',
             transformOrigin: '100px 100px',
             animationDelay: '0.8s'
@@ -232,11 +234,11 @@ const InteractiveSigil = () => {
         {/* Triangle at top - smaller, centered (matching reference) */}
         <path
           d="M100 50 L115 75 L85 75 Z"
-          fill={activeElement === 'triangle' ? sigilElements[1].color : 'currentColor'}
           className={`cursor-pointer transition-all duration-500 ${
             isLoaded ? 'animate-fade-in' : ''
-          }`}
+          } ${activeElement === 'triangle' ? 'drop-shadow-md' : ''}`}
           style={{
+            fill: activeElement === 'triangle' ? sigilElements[1].color : 'currentColor',
             filter: activeElement === 'triangle' ? `url(#glow-triangle)` : 'none',
             animationDelay: '0.2s'
           }}
@@ -254,13 +256,13 @@ const InteractiveSigil = () => {
         <path
           d="M60 150 A40 40 0 0 0 140 150"
           fill="none"
-          stroke={activeElement === 'crescent' ? sigilElements[3].color : 'currentColor'}
-          strokeWidth={activeElement === 'crescent' ? '14' : '12'}
           strokeLinecap="round"
           className={`cursor-pointer transition-all duration-500 ${
             isLoaded ? 'animate-fade-in' : ''
-          }`}
+          } ${activeElement === 'crescent' ? 'drop-shadow-md' : ''}`}
           style={{
+            stroke: activeElement === 'crescent' ? sigilElements[3].color : 'currentColor',
+            strokeWidth: activeElement === 'crescent' ? '14' : '12',
             filter: activeElement === 'crescent' ? `url(#glow-crescent)` : 'none',
             animationDelay: '0.6s'
           }}
@@ -278,14 +280,14 @@ const InteractiveSigil = () => {
         <path
           d={spiralPath}
           fill="none"
-          stroke={activeElement === 'spiral' ? sigilElements[2].color : 'currentColor'}
-          strokeWidth={activeElement === 'spiral' ? '6' : '4'}
           strokeLinecap="round"
           strokeLinejoin="round"
           className={`cursor-pointer transition-all duration-500 ${
             isLoaded ? 'animate-fade-in' : ''
-          }`}
+          } ${activeElement === 'spiral' ? 'drop-shadow-md' : ''}`}
           style={{
+            stroke: activeElement === 'spiral' ? sigilElements[2].color : 'currentColor',
+            strokeWidth: activeElement === 'spiral' ? '6' : '4',
             filter: activeElement === 'spiral' ? `url(#glow-spiral)` : 'none',
             transformOrigin: '100px 110px',
             animationDelay: '0.4s'
