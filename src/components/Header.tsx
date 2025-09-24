@@ -108,7 +108,7 @@ const Header = () => {
     },
     { 
       path: '/stillbility', 
-      page: 'Stillbility', 
+      page: 'Stillbility®', 
       keywords: ['stillbility', 'dynamic', 'stillness', 'stability', 'force', 'presence', 'grounding', 'embodied', 'awareness', 'inner', 'anchor'],
       content: 'stillbility dynamic stillness stability force presence grounding embodied awareness inner anchor meditation practices'
     }
@@ -253,7 +253,7 @@ const Header = () => {
               </div>
             </div>
             <a href="/stillbility" className="text-foreground hover:text-primary transition-gentle">
-              Stillbility
+              Stillbility®
             </a>
             <a href="/about" className="text-foreground hover:text-primary transition-gentle">
               About
@@ -363,7 +363,7 @@ const Header = () => {
                 </a>
               </div>
               <a href="/stillbility" className="text-foreground hover:text-primary transition-gentle">
-                Stillbility
+                Stillbility®
               </a>
               <a href="/about" className="text-foreground hover:text-primary transition-gentle">
                 About

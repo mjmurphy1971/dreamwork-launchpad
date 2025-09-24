@@ -140,7 +140,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="/stillbility" className="text-primary-foreground/80 hover:text-primary-foreground transition-gentle text-sm">
-                  🌿 Stillbility
+                  🌿 Stillbility®
                 </a>
               </li>
               <li>
@@ -190,6 +190,9 @@ const Footer = () => {
               </p>
               <p className="mt-1">
                 © 2024 The Dream Work. All rights reserved.
+              </p>
+              <p className="mt-1 text-xs">
+                Stillbility® is a registered trademark of The Dream Work
               </p>
             </div>
           </div>

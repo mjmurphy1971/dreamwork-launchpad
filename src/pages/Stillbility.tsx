@@ -25,8 +25,8 @@ const Stillbility = () => {
   return (
     <>
       <SEO
-        title="Stillbility - The Art of Dynamic Stillness | The Dream Work"
-        description="Discover Stillbility - the embodied ability to remain rooted, present, and whole amidst chaos. Learn about the Stability Force and dynamic stillness practices."
+        title="Stillbility® - The Art of Dynamic Stillness | The Dream Work"
+        description="Discover Stillbility® - the embodied ability to remain rooted, present, and whole amidst chaos. Learn about the Stability Force and dynamic stillness practices."
         keywords="stillbility, dynamic stillness, stability force, spiritual graduation, presence, grounding, embodied awareness, inner anchor, meditation"
         canonical="https://www.thedreamwork.space/stillbility"
         schemaType="WebPage"
@@ -54,7 +54,7 @@ const Stillbility = () => {
                     className="w-48 h-48 sm:w-64 sm:h-64 object-contain filter invert mb-6"
                   />
                   <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading mb-4">
-                    Welcome to the Stillbility Field
+                    Welcome to the Stillbility® Field
                   </h1>
                   <p className="text-xl sm:text-2xl lg:text-3xl font-light italic mb-8">
                     "We are the anchors. We are the breath. We are the field."
@@ -101,14 +101,14 @@ const Stillbility = () => {
                 <div className="prose prose-lg mx-auto text-center">
                   <div className="mb-16">
                     <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-8 text-primary">
-                      🌀 What Is Stillbility?
+                      🌀 What Is Stillbility®?
                     </h2>
                     
                     {/* Definition with Dark Blue Background */}
                     <div className="mb-12 text-center bg-slate-950 rounded-2xl p-8 mx-auto max-w-4xl">
                       <div className="max-w-2xl mx-auto">
                         <p className="text-xl sm:text-2xl font-medium text-yellow-300 mb-2">
-                          Stillbility is the fusion of stillness, ability, and stability.
+                          Stillbility® is the fusion of stillness, ability, and stability.
                         </p>
                         <p className="text-lg sm:text-xl text-white/90">
                           It is the capacity to hold the center while everything else moves.

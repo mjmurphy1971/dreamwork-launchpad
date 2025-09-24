@@ -15,7 +15,7 @@ const SEOProvider = ({ children }: SEOProviderProps) => {
             {
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "The Dream Work",
+              "name": "The Dream Work - Home of Stillbility®",
               "url": "https://thedreamwork.space/",
               "logo": "https://thedreamwork.space/images/logo.png",
               "sameAs": [

@@ -64,7 +64,7 @@ const InteractiveSigil = () => {
       <DialogContent className="max-w-md mx-auto bg-background/95 backdrop-blur border-muted">
         <DialogHeader className="text-center">
           <DialogTitle className="text-2xl font-serif text-foreground mb-4">
-            The Stillbility Sigil
+            The Stillbility® Sigil
           </DialogTitle>
         </DialogHeader>
         
@@ -103,7 +103,7 @@ const InteractiveSigil = () => {
           
           <div className="mt-6 pt-4 border-t border-muted text-center">
             <p className="italic text-foreground font-serif">
-              "You are held. You are rooted. You are the Stillbility Field."
+              "You are held. You are rooted. You are the Stillbility® Field."
             </p>
           </div>
         </div>
