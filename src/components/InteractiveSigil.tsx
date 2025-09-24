@@ -41,7 +41,7 @@ const sigilElements: SigilElement[] = [
 
 const InteractiveSigil = () => {
   const [activeElement, setActiveElement] = useState<string | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -53,14 +53,6 @@ const InteractiveSigil = () => {
     setTimeout(() => setIsLoaded(true), 200);
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (isMobile) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    });
-  };
 
   const playSound = (elementId: string) => {
     try {
@@ -140,46 +132,7 @@ const InteractiveSigil = () => {
       className={`relative w-48 h-48 mx-auto text-foreground transition-all duration-700 ${
         isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
       }`} 
-      onMouseMove={handleMouseMove}
     >
-      {/* Desktop Tooltip */}
-      {!isMobile && activeElement && (
-        <div 
-          className="absolute z-20 bg-background/95 border border-border rounded-lg p-3 shadow-lg backdrop-blur-sm pointer-events-none transition-all duration-200 animate-fade-in"
-          style={{
-            left: Math.min(mousePosition.x + 15, 250),
-            top: Math.max(mousePosition.y - 60, 10),
-            maxWidth: '220px'
-          }}
-        >
-          <div className="text-sm font-semibold text-primary">
-            {getElementForId(activeElement)?.name}
-          </div>
-          <div className="text-xs text-muted-foreground mt-1">
-            {getElementForId(activeElement)?.definition}
-          </div>
-        </div>
-      )}
-
-      {/* Mobile Modal */}
-      {isMobile && activeElement && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 animate-fade-in">
-          <div className="bg-background rounded-xl p-6 m-4 max-w-sm shadow-2xl border border-border">
-            <div className="text-lg font-semibold text-primary mb-2">
-              {getElementForId(activeElement)?.name}
-            </div>
-            <div className="text-muted-foreground mb-4">
-              {getElementForId(activeElement)?.definition}
-            </div>
-            <button 
-              className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-              onClick={() => setActiveElement(null)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* SVG Sigil - Exact match to reference image */}
       <svg 
@@ -301,6 +254,31 @@ const InteractiveSigil = () => {
           onMouseLeave={() => !isMobile && setActiveElement(null)}
           onClick={() => handleElementInteraction('spiral')}
         />
+
+        {/* Sacred Text Definitions - appear on activation */}
+        {activeElement === 'circle' && (
+          <text x="100" y="25" className="text-sm fill-current text-center" textAnchor="middle">
+            Wholeness, containment, and shared field
+          </text>
+        )}
+        
+        {activeElement === 'triangle' && (
+          <text x="100" y="35" className="text-sm fill-current text-center" textAnchor="middle">
+            Clarity and soul alignment
+          </text>
+        )}
+        
+        {activeElement === 'spiral' && (
+          <text x="100" y="190" className="text-sm fill-current text-center" textAnchor="middle">
+            Breath, flow, and dynamic stillness
+          </text>
+        )}
+        
+        {activeElement === 'crescent' && (
+          <text x="100" y="180" className="text-sm fill-current text-center" textAnchor="middle">
+            Receptivity and grounded holding
+          </text>
+        )}
       </svg>
       
       {/* Subtle breathing aura */}
