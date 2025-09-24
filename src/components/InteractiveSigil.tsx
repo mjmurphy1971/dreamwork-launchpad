@@ -40,8 +40,7 @@ const sigilElements: SigilElement[] = [
 ];
 
 const InteractiveSigil = () => {
-  const [hoveredElement, setHoveredElement] = useState<string | null>(null);
-  const [tappedElement, setTappedElement] = useState<string | null>(null);
+  const [activeElement, setActiveElement] = useState<string | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -101,15 +100,13 @@ const InteractiveSigil = () => {
     playSound(elementId);
     
     if (isMobile) {
-      setTappedElement(elementId);
-      setTimeout(() => setTappedElement(null), 2000);
+      setActiveElement(elementId);
+      setTimeout(() => setActiveElement(null), 2000);
     }
   };
 
   const getElementForId = (id: string) => 
     sigilElements.find(el => el.id === id);
-
-  const activeElement = hoveredElement || tappedElement;
   
   // Generate sacred spiral geometry
   const generateSpiralPath = ({ turns = 3, spacing = 8, center = [100, 100] }) => {
@@ -146,7 +143,7 @@ const InteractiveSigil = () => {
       onMouseMove={handleMouseMove}
     >
       {/* Desktop Tooltip */}
-      {!isMobile && hoveredElement && (
+      {!isMobile && activeElement && (
         <div 
           className="absolute z-20 bg-background/95 border border-border rounded-lg p-3 shadow-lg backdrop-blur-sm pointer-events-none transition-all duration-200 animate-fade-in"
           style={{
@@ -156,27 +153,27 @@ const InteractiveSigil = () => {
           }}
         >
           <div className="text-sm font-semibold text-primary">
-            {getElementForId(hoveredElement)?.name}
+            {getElementForId(activeElement)?.name}
           </div>
           <div className="text-xs text-muted-foreground mt-1">
-            {getElementForId(hoveredElement)?.definition}
+            {getElementForId(activeElement)?.definition}
           </div>
         </div>
       )}
 
       {/* Mobile Modal */}
-      {isMobile && tappedElement && (
+      {isMobile && activeElement && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 animate-fade-in">
           <div className="bg-background rounded-xl p-6 m-4 max-w-sm shadow-2xl border border-border">
             <div className="text-lg font-semibold text-primary mb-2">
-              {getElementForId(tappedElement)?.name}
+              {getElementForId(activeElement)?.name}
             </div>
             <div className="text-muted-foreground mb-4">
-              {getElementForId(tappedElement)?.definition}
+              {getElementForId(activeElement)?.definition}
             </div>
             <button 
               className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-              onClick={() => setTappedElement(null)}
+              onClick={() => setActiveElement(null)}
             >
               Close
             </button>
@@ -224,11 +221,11 @@ const InteractiveSigil = () => {
           }}
           onMouseEnter={() => {
             if (!isMobile) {
-              setHoveredElement('circle');
+              setActiveElement('circle');
               playSound('circle');
             }
           }}
-          onMouseLeave={() => !isMobile && setHoveredElement(null)}
+          onMouseLeave={() => !isMobile && setActiveElement(null)}
           onClick={() => handleElementInteraction('circle')}
         />
 
@@ -245,11 +242,11 @@ const InteractiveSigil = () => {
           }}
           onMouseEnter={() => {
             if (!isMobile) {
-              setHoveredElement('triangle');
+              setActiveElement('triangle');
               playSound('triangle');
             }
           }}
-          onMouseLeave={() => !isMobile && setHoveredElement(null)}
+          onMouseLeave={() => !isMobile && setActiveElement(null)}
           onClick={() => handleElementInteraction('triangle')}
         />
 
@@ -269,11 +266,11 @@ const InteractiveSigil = () => {
           }}
           onMouseEnter={() => {
             if (!isMobile) {
-              setHoveredElement('crescent');
+              setActiveElement('crescent');
               playSound('crescent');
             }
           }}
-          onMouseLeave={() => !isMobile && setHoveredElement(null)}
+          onMouseLeave={() => !isMobile && setActiveElement(null)}
           onClick={() => handleElementInteraction('crescent')}
         />
 
@@ -295,11 +292,11 @@ const InteractiveSigil = () => {
           }}
           onMouseEnter={() => {
             if (!isMobile) {
-              setHoveredElement('spiral');
+              setActiveElement('spiral');
               playSound('spiral');
             }
           }}
-          onMouseLeave={() => !isMobile && setHoveredElement(null)}
+          onMouseLeave={() => !isMobile && setActiveElement(null)}
           onClick={() => handleElementInteraction('spiral')}
         />
       </svg>
