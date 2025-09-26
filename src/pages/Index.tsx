@@ -263,6 +263,62 @@ const Index = () => {
           </div>
         </section>
         
+        {/* Stillbility Connection Section */}
+        <section className="py-16 bg-gradient-subtle">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="mb-8">
+                <img 
+                  src="/lovable-uploads/e7e1e135-1173-4bcb-97a4-d7ab5e488525.png"
+                  alt="Stillbility® Sigil - Sacred geometry for dynamic stillness"
+                  className="w-24 h-24 mx-auto mb-6 opacity-80"
+                />
+                <h2 className="font-heading text-3xl md:text-4xl font-bold gradient-text mb-4">
+                  Discover Stillbility®
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
+                  The sacred branch of The Dream Work. A cosmic field of dynamic stillness where 144,000 anchors 
+                  prepare for collective emergence through specialized practices, Seraphim teachings, and the Super Seven Meditation.
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
+                <a 
+                  href="/stillbility"
+                  className="group bg-card border border-border rounded-lg p-6 hover:shadow-card-hover transition-gentle"
+                >
+                  <div className="text-2xl mb-3">🌿</div>
+                  <h3 className="font-heading text-lg font-semibold mb-2 group-hover:text-primary transition-gentle">
+                    Explore Stillbility® Here
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Learn about the cosmic field, sacred practices, and join the movement
+                  </p>
+                </a>
+                
+                <a 
+                  href="https://stillbility.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-card border border-border rounded-lg p-6 hover:shadow-card-hover transition-gentle"
+                >
+                  <div className="text-2xl mb-3">🌀</div>
+                  <h3 className="font-heading text-lg font-semibold mb-2 group-hover:text-primary transition-gentle">
+                    Visit Stillbility.com
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Experience the dedicated sanctuary and interactive practices
+                  </p>
+                </a>
+              </div>
+              
+              <blockquote className="italic text-lg text-foreground/80 font-light">
+                "You are held. You are rooted. You are the Stillbility® Field."
+              </blockquote>
+            </div>
+          </div>
+        </section>
+        
         {/* Newsletter Signup Section */}
         <section className="py-12 bg-background">
           <div className="container mx-auto px-4">
