@@ -1,5 +1,6 @@
-# Force HTTPS and WWW
+# Force HTTPS and WWW for thedreamwork.space only
 RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?thedreamwork\.space$ [NC]
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} !^www\. [NC]
 RewriteRule ^(.*)$ https://www.thedreamwork.space%{REQUEST_URI} [R=301,L]
