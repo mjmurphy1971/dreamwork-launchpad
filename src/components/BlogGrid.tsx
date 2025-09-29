@@ -8,8 +8,11 @@ import { useNavigate } from "react-router-dom";
 
 const BlogGrid = () => {
   const navigate = useNavigate();
-  const featuredPost = blogPosts.find(post => post.featured);
-  const regularPosts = blogPosts.filter(post => !post.featured).slice(0, 5);
+  const postsSorted = [...blogPosts].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+  const featuredPost = postsSorted.find((post) => post.featured) ?? postsSorted[0];
+  const regularPosts = postsSorted.filter((post) => post.id !== featuredPost?.id).slice(0, 5);
 
   return (
     <section className="py-16 bg-gradient-card">
