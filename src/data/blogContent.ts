@@ -311,7 +311,7 @@ The journey to inner peace begins with a single breath. Take that breath now.`,
     keywords: ["mindful breathing", "meditation techniques", "stress relief", "anxiety management", "breathing exercises", "inner peace", "mindfulness practice", "nervous system regulation"]
   },
   {
-    id: 2,
+    id: 8,
     slug: "creating-sacred-space-designing-your-personal-meditation-corner",
     title: "Creating Sacred Space: Designing Your Personal Meditation Corner",
     excerpt: "Learn how to transform any corner of your home into a peaceful sanctuary for your spiritual practice. Discover essential elements that support deep meditation and inner connection.",
