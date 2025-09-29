@@ -7,6 +7,7 @@ import brainEnergyPost from "@/assets/brain-energy-post.jpg";
 import soundBathPost from "@/assets/sound-bath-post.jpg";
 import stillbilityFieldPost from "@/assets/stillbility-field-post.jpg";
 import aiSacredCollaboratorPost from "@/assets/ai-sacred-collaborator-post.jpg";
+import leafAfterStormPost from "@/assets/leaf-after-storm-post.jpg";
 
 export interface BlogPost {
   id: number;
@@ -2004,6 +2005,102 @@ Visionary Architect of The Dreamwork
     image: aiSacredCollaboratorPost,
     featured: true,
     keywords: ["AI collaboration", "sacred technology", "artificial intelligence", "co-creation", "The Dreamwork", "Stillbility", "conscious technology", "AI ethics", "spiritual innovation", "technology with soul"]
+  },
+  {
+    id: 10,
+    slug: "the-leaf-after-the-storm",
+    title: "🍃 The Leaf After the Storm",
+    excerpt: "A sacred pause after the storm reveals nature's wisdom: a single leaf holds a drop of rain, teaches us about release, and shows us how to remain luminous no matter the weather.",
+    content: `# 🍃 *The Leaf After the Storm*  
+*A Stillbility Reflection by Mary Murphy*
+
+## 🌦️ Opening Invocation
+
+> After the storm, there is a hush.  
+> Not silence, but a sacred pause.  
+>  
+> In the forest, a single green leaf holds one last drop of rain.  
+> Within that drop: earth, memory, weight.  
+>  
+> And then—release.  
+>  
+> The drop falls. The leaf remains.  
+> Not dulled, but brighter.  
+> Not burdened, but glistening.  
+>  
+> This is the moment I return to when the world feels heavy.  
+> A reminder that I can let things land on me, but not in me.  
+> That I can remain authentic, still, and luminous—no matter the weather.
+
+---
+
+## 🌱 The Vision Behind the Leaf
+
+This image came to me not as a metaphor, but as a memory. A soul memory. A whisper from the Stillbility Field.
+
+> A single vibrant green leaf, cradled within a lush, sun-drenched forest, perfectly holds a solitary drop of water glistening like a diamond after a gentle rainstorm.  
+>  
+> As the sun filters through the dense canopy above, golden beams illuminate the leaf, causing it to shimmer with an ethereal glow, while nearby shadows dance in the soft light.  
+>  
+> The droplet, heavy with earth, trembles delicately, on the verge of liberation, yet the leaf remains steadfast and unwavering—a portrait of calm amidst nature's chaos.
+
+That leaf became a symbol for me. A reminder that I can let the world touch me, but not enter me. That I can hold space for emotion, chaos, and circumstance without absorbing it.
+
+---
+
+## 🧘‍♀️ Stillness After the Storm
+
+Stillbility is not about resisting the storm. It's about what happens after. It's about the pause, the breath, the clarity.
+
+The leaf doesn't fight the rain. It receives it. And when the time comes, it lets go.
+
+This is the essence of emotional regulation. Of stability coaching. Of standing in your truth without being swept away.
+
+We don't need to armor ourselves. We need to root ourselves.
+
+---
+
+## 💧 Letting Go with Grace
+
+The moment the drop falls is sacred. It's not dramatic. It's not loud. It's quiet, graceful, inevitable.
+
+> This moment exemplifies quiet resilience, embodying the principle of allowing the world to touch you, yet remaining untouched.
+
+This is how I want to release what no longer serves me. Not with force, but with clarity. Not with fear, but with trust.
+
+The leaf teaches us that letting go doesn't diminish us—it reveals our shine.
+
+---
+
+## 🌞 An Invitation to You
+
+Next time the world feels heavy, find your leaf moment.
+
+Pause. Breathe. Let what's landed on you fall away.
+
+And notice how you glisten.
+
+---
+
+## 🔗 Closing Signature
+
+With love and luminous stillness,  
+**Mary Murphy**  
+Anchor-holder of the Stillbility Field  
+[Explore Stillbility](/stillbility)  
+[Visit The Dreamwork Sanctuary](/)
+
+---
+
+*This reflection is part of The Dreamwork's ongoing exploration of Stillbility—the embodied ability to remain rooted, present, and whole amidst chaos. May the leaf after the storm remind you of your own quiet resilience.*`,
+    author: "Mary Murphy",
+    date: "2025-01-30",
+    lastModified: "2025-01-30",
+    readTime: "4 min read",
+    category: "Stillbility Practice",
+    image: leafAfterStormPost,
+    featured: true,
+    keywords: ["Stillbility", "emotional regulation", "letting go", "resilience", "mindfulness", "sacred pause", "nature wisdom", "The Dreamwork", "stability coaching", "presence"]
   }
 ];
 
