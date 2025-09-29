@@ -16,6 +16,7 @@ import stillnessPracticeHero from "@/assets/stillness-practice-hero.jpg";
 import dreamJournalBg from "@/assets/dream-journal-bg.jpg";
 import meditationToolBg from "@/assets/meditation-tool-bg.jpg";
 import audioSessionsBg from "@/assets/audio-sessions-bg.jpg";
+import stillbilitySigil from "@/assets/stillbility-sigil-animated.png";
 
 const Index = () => {
   console.log('Index component rendering');
@@ -269,9 +270,9 @@ const Index = () => {
             <div className="max-w-4xl mx-auto text-center">
               <div className="mb-8">
                 <img 
-                  src="/lovable-uploads/e7e1e135-1173-4bcb-97a4-d7ab5e488525.png"
+                  src={stillbilitySigil}
                   alt="Stillbility® Sigil - Sacred geometry for dynamic stillness"
-                  className="w-24 h-24 mx-auto mb-6 opacity-80"
+                  className="w-32 h-32 mx-auto mb-6 drop-shadow-glow animate-pulse"
                 />
                 <h2 className="font-heading text-3xl md:text-4xl font-bold gradient-text mb-4">
                   Discover Stillbility®
