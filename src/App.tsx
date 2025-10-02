@@ -29,6 +29,7 @@ import Phase4Dashboard from "./pages/Phase4Dashboard";
 import StorySharing from "./pages/StorySharing";
 import Stillbility from "./pages/Stillbility";
 import Contact from "./pages/Contact";
+import SacredSites from "./pages/SacredSites";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -71,6 +72,7 @@ const App = () => {
               <Route path="/phase4-dashboard" element={<Phase4Dashboard />} />
               <Route path="/story-sharing" element={<StorySharing />} />
               <Route path="/stillbility" element={<Stillbility />} />
+              <Route path="/sacred-sites" element={<SacredSites />} />
               <Route path="/contact" element={<Contact />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

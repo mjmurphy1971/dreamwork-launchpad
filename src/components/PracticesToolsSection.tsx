@@ -3,6 +3,14 @@ import React from 'react';
 const PracticesToolsSection = () => {
   const tools = [
     {
+      title: "Sacred Sites Map",
+      description: "Interactive world map of sacred spiritual locations",
+      icon: "🌍",
+      status: "Available Now",
+      color: "bg-primary/10 border-primary/20",
+      link: "/sacred-sites"
+    },
+    {
       title: "Breath Rituals",
       description: "Sacred breathing practices for daily anchoring",
       icon: "🌬️",
@@ -60,8 +68,8 @@ const PracticesToolsSection = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {tools.map((tool, index) => (
-              <div key={index} className={`${tool.color} rounded-2xl p-8 border backdrop-blur-sm hover:scale-105 transition-transform duration-300`}>
+            {tools.map((tool, index) => {
+              const CardContent = (
                 <div className="text-center">
                   <div className="text-4xl mb-4">{tool.icon}</div>
                   <h3 className="text-xl font-heading text-foreground mb-3">
@@ -74,8 +82,22 @@ const PracticesToolsSection = () => {
                     {tool.status}
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+
+              return tool.link ? (
+                <a 
+                  key={index} 
+                  href={tool.link}
+                  className={`${tool.color} rounded-2xl p-8 border backdrop-blur-sm hover:scale-105 transition-transform duration-300 block`}
+                >
+                  {CardContent}
+                </a>
+              ) : (
+                <div key={index} className={`${tool.color} rounded-2xl p-8 border backdrop-blur-sm hover:scale-105 transition-transform duration-300`}>
+                  {CardContent}
+                </div>
+              );
+            })}
           </div>
 
           {/* Connection to Dreamwork ecosystem */}
