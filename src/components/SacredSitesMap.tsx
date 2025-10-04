@@ -130,8 +130,11 @@ const SacredSitesMap = () => {
           window.open(`https://www.bing.com/search?q=${searchQuery}`, '_blank', 'noopener,noreferrer');
         });
 
-        // Create marker
-        const marker = new mapboxgl.Marker(el)
+        // Create marker with proper anchor
+        const marker = new mapboxgl.Marker({
+          element: el,
+          anchor: 'bottom' // Anchor at the bottom point of the pin
+        })
           .setLngLat([site.coordinates[1], site.coordinates[0]]) // [lng, lat]
           .addTo(map.current!);
 
