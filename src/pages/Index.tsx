@@ -98,6 +98,31 @@ const Index = () => {
       <main>
         <Hero />
         
+        {/* New Tool Announcement Banner */}
+        <section className="py-6 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-y border-primary/20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3 text-center md:text-left">
+                <span className="text-3xl animate-pulse">🌍</span>
+                <div>
+                  <h3 className="font-heading font-bold text-foreground text-lg">
+                    New Tool Available: Sacred Sites Map
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Explore interactive sacred locations worldwide with invocations & wisdom
+                  </p>
+                </div>
+              </div>
+              <a
+                href="/sacred-sites"
+                className="shrink-0 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-gentle shadow-elegant"
+              >
+                Explore Now →
+              </a>
+            </div>
+          </div>
+        </section>
+        
         {/* Welcome Video Section */}
         <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4">

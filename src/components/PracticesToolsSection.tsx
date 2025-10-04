@@ -93,7 +93,7 @@ const PracticesToolsSection = () => {
                   {CardContent}
                 </a>
               ) : (
-                <div key={index} className={`${tool.color} rounded-2xl p-8 border backdrop-blur-sm hover:scale-105 transition-transform duration-300`}>
+                <div key={index} className={`${tool.color} rounded-2xl p-8 border backdrop-blur-sm transition-transform duration-300`}>
                   {CardContent}
                 </div>
               );

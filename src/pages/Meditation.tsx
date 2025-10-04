@@ -577,6 +577,52 @@ const Meditation = () => {
             </CardContent>
           </Card>
         </section>
+
+        {/* Additional Tools */}
+        <section className="mb-12">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-2xl font-heading font-bold text-center gradient-text mb-8">
+              More Spiritual Tools
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <a 
+                href="/sacred-sites"
+                className="group bg-card border border-border rounded-lg p-6 hover:shadow-card-hover transition-gentle"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">🌍</div>
+                  <div>
+                    <h4 className="font-heading text-lg font-semibold mb-2 group-hover:text-primary transition-gentle">
+                      Sacred Sites Map
+                    </h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Explore an interactive map of sacred spiritual locations worldwide with invocations and wisdom
+                    </p>
+                    <span className="text-xs text-primary font-medium">Explore Now →</span>
+                  </div>
+                </div>
+              </a>
+              
+              <a 
+                href="/dream-journal"
+                className="group bg-card border border-border rounded-lg p-6 hover:shadow-card-hover transition-gentle"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">🌙</div>
+                  <div>
+                    <h4 className="font-heading text-lg font-semibold mb-2 group-hover:text-primary transition-gentle">
+                      Dream Journal
+                    </h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Capture and explore your dreams to discover patterns and insights from your subconscious
+                    </p>
+                    <span className="text-xs text-primary font-medium">Start Journaling →</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
