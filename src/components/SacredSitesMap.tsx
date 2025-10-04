@@ -84,27 +84,43 @@ const SacredSitesMap = () => {
     // Add markers after map loads
     map.current.on('load', () => {
       sacredSites.forEach((site) => {
-        // Create custom marker element
+        // Create custom glowing pin marker element
         const el = document.createElement('div');
         el.className = 'sacred-site-marker';
-        el.style.width = '24px';
-        el.style.height = '24px';
-        el.style.backgroundImage = 'url(/lovable-uploads/f889b3fe-21b5-4455-84b9-48b5406e1764.png)';
-        el.style.backgroundSize = 'contain';
+        el.style.width = '16px';
+        el.style.height = '16px';
+        el.style.borderRadius = '50% 50% 50% 0';
+        el.style.background = 'linear-gradient(135deg, #fef08a 0%, #facc15 50%, #fbbf24 100%)';
+        el.style.transform = 'rotate(-45deg)';
         el.style.cursor = 'pointer';
         el.style.transition = 'all 0.3s ease';
-        el.style.filter = 'drop-shadow(0 0 8px rgba(250, 204, 21, 0.6))';
+        el.style.boxShadow = '0 0 12px rgba(250, 204, 21, 0.8), 0 0 20px rgba(254, 240, 138, 0.6)';
+        el.style.border = '2px solid rgba(255, 255, 255, 0.9)';
+        el.style.position = 'relative';
+
+        // Add a bright center dot
+        const dot = document.createElement('div');
+        dot.style.width = '6px';
+        dot.style.height = '6px';
+        dot.style.borderRadius = '50%';
+        dot.style.background = 'rgba(255, 255, 255, 0.95)';
+        dot.style.position = 'absolute';
+        dot.style.top = '50%';
+        dot.style.left = '50%';
+        dot.style.transform = 'translate(-50%, -50%)';
+        dot.style.boxShadow = '0 0 8px rgba(255, 255, 255, 0.9)';
+        el.appendChild(dot);
 
         // Add hover effects
         el.addEventListener('mouseenter', () => {
-          el.style.transform = 'scale(1.3)';
-          el.style.filter = 'drop-shadow(0 0 15px rgba(250, 204, 21, 0.9))';
+          el.style.transform = 'rotate(-45deg) scale(1.4)';
+          el.style.boxShadow = '0 0 20px rgba(250, 204, 21, 1), 0 0 30px rgba(254, 240, 138, 0.9)';
           setSelectedSite(site);
         });
 
         el.addEventListener('mouseleave', () => {
-          el.style.transform = 'scale(1)';
-          el.style.filter = 'drop-shadow(0 0 8px rgba(250, 204, 21, 0.6))';
+          el.style.transform = 'rotate(-45deg) scale(1)';
+          el.style.boxShadow = '0 0 12px rgba(250, 204, 21, 0.8), 0 0 20px rgba(254, 240, 138, 0.6)';
           setSelectedSite(null);
         });
 
@@ -177,6 +193,52 @@ const SacredSitesMap = () => {
         {/* Instructions overlay */}
         <div className="absolute bottom-4 right-4 z-10 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-lg text-xs text-muted-foreground">
           Click and drag to explore • Scroll to zoom • Click pins to learn more
+        </div>
+      </div>
+
+      {/* Sacred Sites Directory - Grouped by Location */}
+      <div className="mt-12 animate-fade-in">
+        <h3 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          Sacred Sites Directory
+        </h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Object.entries(
+            sacredSites.reduce((acc, site) => {
+              const country = site.location;
+              if (!acc[country]) acc[country] = [];
+              acc[country].push(site);
+              return acc;
+            }, {} as Record<string, typeof sacredSites>)
+          )
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([country, sites]) => (
+            <Card key={country} className="hover:border-primary/50 transition-all duration-300">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <span className="text-primary">📍</span>
+                  {country}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {sites.map((site) => (
+                    <li key={site.name}>
+                      <a
+                        href={`https://www.bing.com/search?q=${encodeURIComponent(`${site.name} ${site.location} sacred site`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-primary/60 group-hover:bg-primary group-hover:animate-pulse" />
+                        {site.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
 
