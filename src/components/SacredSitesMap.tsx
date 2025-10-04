@@ -10,14 +10,14 @@ const SacredSitesMap = () => {
   const [popoverPosition, setPopoverPosition] = useState({ x: 0, y: 0 });
 
   // Convert lat/lng to x/y percentage on the map
-  // Map bounds: roughly -180 to 180 lng, -60 to 85 lat (standard world map)
+  // Map bounds: -180 to 180 lng, -90 to 90 lat (equirectangular projection)
   const coordsToPosition = (lat: number, lng: number) => {
     // Convert longitude to x (0-100%)
     const x = ((lng + 180) / 360) * 100;
     
     // Convert latitude to y (0-100%)
-    // Using Mercator-like projection approximation
-    const y = ((85 - lat) / 145) * 100;
+    // For equirectangular projection (standard world map)
+    const y = ((90 - lat) / 180) * 100;
     
     return { x, y };
   };
@@ -37,11 +37,11 @@ const SacredSitesMap = () => {
 
   const handlePinClick = (site: SacredSite, event: React.MouseEvent) => {
     event.stopPropagation();
-    // Open Google search for the sacred site in a new tab
+    // Open DuckDuckGo search for the sacred site in a new tab (avoids blocking issues)
     const searchQuery = encodeURIComponent(`${site.name} ${site.location} sacred site`);
     // Create a link element and click it to avoid popup blockers
     const link = document.createElement('a');
-    link.href = `https://www.google.com/search?q=${searchQuery}`;
+    link.href = `https://duckduckgo.com/?q=${searchQuery}`;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     document.body.appendChild(link);
