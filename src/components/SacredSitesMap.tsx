@@ -35,10 +35,18 @@ const SacredSitesMap = () => {
     setHoveredSite(null);
   };
 
-  const handlePinClick = (site: SacredSite) => {
+  const handlePinClick = (site: SacredSite, event: React.MouseEvent) => {
+    event.stopPropagation();
     // Open Google search for the sacred site in a new tab
     const searchQuery = encodeURIComponent(`${site.name} ${site.location} sacred site`);
-    window.open(`https://www.google.com/search?q=${searchQuery}`, '_blank');
+    // Create a link element and click it to avoid popup blockers
+    const link = document.createElement('a');
+    link.href = `https://www.google.com/search?q=${searchQuery}`;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -74,7 +82,7 @@ const SacredSitesMap = () => {
               }}
               onMouseEnter={(e) => handlePinHover(site, e)}
               onMouseLeave={handlePinLeave}
-              onClick={() => handlePinClick(site)}
+              onClick={(e) => handlePinClick(site, e)}
             >
               <img 
                 src={pinImage} 

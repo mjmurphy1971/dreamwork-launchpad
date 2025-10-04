@@ -118,7 +118,7 @@ const SacredSites = () => {
 
       <Header />
       
-      <main className="flex-1 pt-20">
+      <main className="flex-1">
         <SacredSitesMap />
         
         {/* AI-Optimized Content Section */}
