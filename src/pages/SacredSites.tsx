@@ -59,53 +59,6 @@ const SacredSites = () => {
           { name: "Sacred Sites Map", url: "https://thedreamwork.space/sacred-sites" }
         ]}
       />
-      <ConversationalAIOptimizer
-        pageTitle="Sacred Sites Interactive Map"
-        faqs={[
-          {
-            question: "What is the Sacred Sites Map?",
-            answer: "An interactive world map featuring 20+ sacred spiritual locations including temples, energy vortexes, and pilgrimage sites. Each location includes geographic coordinates, invocations, and archetypal wisdom teachings.",
-            category: "Tool Features",
-            keywords: ["interactive map", "sacred sites", "spiritual locations"],
-            relatedLinks: [
-              { text: "View Sacred Sites Map", url: "/sacred-sites", internal: true }
-            ]
-          },
-          {
-            question: "How do I use the Sacred Sites Map?",
-            answer: "Hover over any pin on the map to see detailed information about that sacred site, including its name, location, description, sacred invocation, and archetypal classification.",
-            category: "Usage",
-            keywords: ["how to use", "interactive", "hover"],
-          },
-          {
-            question: "What sacred sites are included?",
-            answer: "The map features Mount Kailash, Glastonbury Tor, Sedona, Machu Picchu, Delphi, Jerusalem, Mecca, Uluru, Lake Titicaca, and many more sacred locations across Asia, Europe, Africa, Americas, and Oceania.",
-            category: "Content",
-            keywords: ["locations", "temples", "energy vortexes", "pilgrimage sites"],
-          }
-        ]}
-        keyTakeaways={[
-          "Interactive map of 20+ sacred spiritual locations worldwide",
-          "Each site includes invocations and archetypal wisdom",
-          "Geographic coordinates provided for pilgrimage planning",
-          "Locations categorized by continent and spiritual archetype",
-          "Free tool for spiritual seekers and conscious travelers"
-        ]}
-        quickAnswers={[
-          {
-            query: "What are sacred sites?",
-            answer: "Spiritually significant locations around the world including ancient temples, energy vortexes, pilgrimage destinations, and places of profound spiritual power."
-          },
-          {
-            query: "How many sacred sites are on the map?",
-            answer: "The map features 20+ sacred sites across all continents including Asia, Europe, Africa, North and South America, and Oceania."
-          },
-          {
-            query: "Is the Sacred Sites Map free to use?",
-            answer: "Yes, the Sacred Sites Map is completely free to use and explore for spiritual seekers, pilgrims, and conscious travelers."
-          }
-        ]}
-      />
       <Helmet>
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Sacred Sites Map | Interactive World Spiritual Locations" />
