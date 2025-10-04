@@ -210,6 +210,9 @@ const Header = () => {
               <a href="/thought-bubbles" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
                 🧠 Thought Bubble Release
               </a>
+              <a href="/sacred-sites" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-gentle">
+                🌍 Sacred Sites Map
+              </a>
                 </div>
               </div>
             </div>
@@ -336,6 +339,9 @@ const Header = () => {
                 </a>
                 <a href="/thought-bubbles" className="block py-1 text-foreground hover:text-primary transition-gentle">
                   🧠 Thought Bubble Release
+                </a>
+                <a href="/sacred-sites" className="block py-1 text-foreground hover:text-primary transition-gentle">
+                  🌍 Sacred Sites Map
                 </a>
               </div>
               <a href="/blog" className="text-foreground hover:text-primary transition-gentle">

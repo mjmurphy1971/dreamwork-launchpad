@@ -35,6 +35,12 @@ const SacredSitesMap = () => {
     setHoveredSite(null);
   };
 
+  const handlePinClick = (site: SacredSite) => {
+    // Open Google search for the sacred site in a new tab
+    const searchQuery = encodeURIComponent(`${site.name} ${site.location} sacred site`);
+    window.open(`https://www.google.com/search?q=${searchQuery}`, '_blank');
+  };
+
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-8">
       <div className="text-center mb-8">
@@ -68,6 +74,7 @@ const SacredSitesMap = () => {
               }}
               onMouseEnter={(e) => handlePinHover(site, e)}
               onMouseLeave={handlePinLeave}
+              onClick={() => handlePinClick(site)}
             >
               <img 
                 src={pinImage} 
