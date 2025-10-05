@@ -87,8 +87,8 @@ const SacredSitesMap = () => {
         // Create custom glowing pin marker element
         const el = document.createElement('div');
         el.className = 'sacred-site-marker';
-        el.style.width = '16px';
-        el.style.height = '16px';
+        el.style.width = '20px';
+        el.style.height = '20px';
         el.style.borderRadius = '50% 50% 50% 0';
         el.style.background = 'linear-gradient(135deg, #fef08a 0%, #facc15 50%, #fbbf24 100%)';
         el.style.transform = 'rotate(-45deg)';
@@ -97,6 +97,7 @@ const SacredSitesMap = () => {
         el.style.boxShadow = '0 0 12px rgba(250, 204, 21, 0.8), 0 0 20px rgba(254, 240, 138, 0.6)';
         el.style.border = '2px solid rgba(255, 255, 255, 0.9)';
         el.style.position = 'relative';
+        el.style.transformOrigin = 'bottom left';
 
         // Add a bright center dot
         const dot = document.createElement('div');
@@ -130,10 +131,12 @@ const SacredSitesMap = () => {
           window.open(`https://www.bing.com/search?q=${searchQuery}`, '_blank', 'noopener,noreferrer');
         });
 
-        // Create marker with proper anchor
+        // Create marker with proper anchor at the tip of the pin
+        // Using 'bottom-left' because after rotation, that's where the point is
         const marker = new mapboxgl.Marker({
           element: el,
-          anchor: 'bottom' // Anchor at the bottom point of the pin
+          anchor: 'bottom-left',
+          offset: [0, 0] // Fine-tune if needed
         })
           .setLngLat([site.coordinates[1], site.coordinates[0]]) // [lng, lat]
           .addTo(map.current!);
