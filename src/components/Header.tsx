@@ -111,6 +111,12 @@ const Header = () => {
       page: 'Stillbility®', 
       keywords: ['stillbility', 'dynamic', 'stillness', 'stability', 'force', 'presence', 'grounding', 'embodied', 'awareness', 'inner', 'anchor'],
       content: 'stillbility dynamic stillness stability force presence grounding embodied awareness inner anchor meditation practices'
+    },
+    { 
+      path: '/affiliates', 
+      page: 'Affiliate Resources', 
+      keywords: ['affiliates', 'resources', 'tools', 'products', 'spiritual', 'meditation', 'healing', 'wellness', 'oracle', 'crystals', 'courses', 'coaching'],
+      content: 'affiliate resources soulful tools spiritual products meditation healing wellness oracle crystals courses coaching manifestation ritual tools'
     }
   ];
   
@@ -261,6 +267,9 @@ const Header = () => {
             <a href="/about" className="text-foreground hover:text-primary transition-gentle">
               About
             </a>
+            <a href="/affiliates" className="text-foreground hover:text-primary transition-gentle">
+              Resources
+            </a>
             <a href="/contact" className="text-foreground hover:text-primary transition-gentle">
               Contact
             </a>
@@ -373,6 +382,9 @@ const Header = () => {
               </a>
               <a href="/about" className="text-foreground hover:text-primary transition-gentle">
                 About
+              </a>
+              <a href="/affiliates" className="text-foreground hover:text-primary transition-gentle">
+                Resources
               </a>
               <a href="/contact" className="text-foreground hover:text-primary transition-gentle">
                 Contact

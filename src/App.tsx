@@ -30,6 +30,7 @@ import StorySharing from "./pages/StorySharing";
 import Stillbility from "./pages/Stillbility";
 import Contact from "./pages/Contact";
 import SacredSites from "./pages/SacredSites";
+import Affiliates from "./pages/Affiliates";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -74,6 +75,7 @@ const App = () => {
               <Route path="/stillbility" element={<Stillbility />} />
               <Route path="/sacred-sites" element={<SacredSites />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/affiliates" element={<Affiliates />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
