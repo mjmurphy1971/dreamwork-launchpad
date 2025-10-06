@@ -66,12 +66,28 @@ export const affiliatePrograms: AffiliateProgram[] = [
     joinLink: "https://www.sivanaspirit.com/pages/affiliate-program"
   },
   {
-    name: "7-Day Prayer Miracle",
-    description: "Manifestation and prayer-based healing for those seeking miracles in the everyday",
+    name: "Manifestation Miracle",
+    description: "Law of Attraction and manifestation tools for those ready to co-create their reality",
     category: "Healing & Manifestation",
-    commission: "75–90%",
+    commission: "75%",
     cookieDuration: "60 days",
-    joinLink: "https://www.7dayprayermiracle.com/affiliate/"
+    joinLink: "https://clicks.aweber.com/y/ct/?l=1PmM9&m=jzzB6plofKgwAsn&b=mnlb6pQSTyEEvtMdTO9KjQ"
+  },
+  {
+    name: "iAwake Technologies",
+    description: "Brainwave entrainment and meditation audio that guides consciousness to new depths",
+    category: "Courses & Audio",
+    commission: "30%",
+    cookieDuration: "60 days",
+    joinLink: "https://www.iawaketechnologies.com/affiliate-program/"
+  },
+  {
+    name: "Hay House",
+    description: "Spiritual wisdom through transformative books, audiobooks, and courses from world teachers",
+    category: "Courses & Audio",
+    commission: "40%",
+    cookieDuration: "30 days",
+    joinLink: "https://www.hayhouse.com/affiliate-program"
   },
   {
     name: "YogaDownload",
