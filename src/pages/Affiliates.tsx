@@ -11,12 +11,16 @@ import { ExternalLink, Heart, Sparkles, Star, TrendingUp } from "lucide-react";
 const Affiliates = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const filteredPrograms = selectedCategory === "All" 
-    ? affiliatePrograms 
-    : affiliatePrograms.filter(program => program.category === selectedCategory);
-  
   // Featured programs for the month
   const featuredPrograms = affiliatePrograms.slice(0, 3);
+  const featuredNames = featuredPrograms.map(p => p.name);
+  
+  // Filter out featured programs from the main grid
+  const nonFeaturedPrograms = affiliatePrograms.filter(p => !featuredNames.includes(p.name));
+  
+  const filteredPrograms = selectedCategory === "All" 
+    ? nonFeaturedPrograms 
+    : nonFeaturedPrograms.filter(program => program.category === selectedCategory);
 
   return (
     <div className="min-h-screen">
