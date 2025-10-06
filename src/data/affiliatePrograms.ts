@@ -15,7 +15,7 @@ export const affiliatePrograms: AffiliateProgram[] = [
     category: "Courses & Audio",
     commission: "35%",
     cookieDuration: "60 days",
-    joinLink: "https://www.soundstrue.com/pages/affiliate-program"
+    joinLink: "https://affiliate-sfm.soundstrue.com/"
   },
   {
     name: "Mindvalley",
@@ -23,7 +23,7 @@ export const affiliatePrograms: AffiliateProgram[] = [
     category: "Courses & Audio",
     commission: "30%",
     cookieDuration: "30 days",
-    joinLink: "https://www.mindvalley.com/affiliate"
+    joinLink: "https://www.mindvalley.com/affiliates"
   },
   {
     name: "Tiny Devotions",
@@ -31,7 +31,7 @@ export const affiliatePrograms: AffiliateProgram[] = [
     category: "Ritual Tools",
     commission: "15%",
     cookieDuration: "90 days",
-    joinLink: "https://www.tinydevotions.com/pages/affiliate-program"
+    joinLink: "https://lovetinydevotions.com/pages/affiliates"
   },
   {
     name: "Energy Muse",
@@ -47,7 +47,7 @@ export const affiliatePrograms: AffiliateProgram[] = [
     category: "Courses & Audio",
     commission: "15%",
     cookieDuration: "30 days",
-    joinLink: "https://www.betterlisten.com/pages/affiliate-program"
+    joinLink: "https://www.betterlisten.com/pages/affiliates"
   },
   {
     name: "Live & Dare",
@@ -79,7 +79,7 @@ export const affiliatePrograms: AffiliateProgram[] = [
     category: "Meditation & Coaching",
     commission: "12%",
     cookieDuration: "30 days",
-    joinLink: "https://www.yogadownload.com/affiliate.aspx"
+    joinLink: "https://www.yogadownload.com/Footer/AffiliateProgram.aspx"
   },
   {
     name: "DharmaCrafts",
