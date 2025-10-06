@@ -106,7 +106,7 @@ const Affiliates = () => {
                   </div>
                 </div>
                 
-                <CardTitle className="text-xl font-heading gradient-text group-hover:scale-105 transition-gentle">
+                <CardTitle className="text-2xl font-heading text-foreground mb-3 group-hover:text-primary transition-gentle">
                   {program.name}
                 </CardTitle>
                 
