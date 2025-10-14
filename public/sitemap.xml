@@ -42,6 +42,18 @@
   
   <!-- Individual Blog Posts -->
   <url>
+    <loc>https://www.thedreamwork.space/blog/the-job-market-is-broken-but-we-are-not</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.thedreamwork.space/blog/we-are-the-stillbility-field-holding-the-center-together</loc>
+    <lastmod>2024-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://www.thedreamwork.space/blog/the-art-of-mindful-breathing-your-gateway-to-inner-peace</loc>
     <lastmod>2024-08-15</lastmod>
     <changefreq>monthly</changefreq>

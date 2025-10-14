@@ -7,8 +7,11 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SocialShare from "@/components/SocialShare";
 import { Helmet } from "react-helmet-async";
 import SEOEnhancer from "@/components/SEOEnhancer";
+import BlogPostSEO from "@/components/BlogPostSEO";
+import JobMarketFAQSchema from "@/components/JobMarketFAQSchema";
 import { blogPosts, getPostBySlug, getRelatedPosts, type BlogPost } from "@/data/blogContent";
 import ReactMarkdown from "react-markdown";
 
@@ -39,100 +42,11 @@ const Blog = () => {
   if (selectedPost) {
     const postUrl = `https://www.thedreamwork.space/blog/${selectedPost.slug}`;
     const relatedPosts = getRelatedPosts(selectedPost);
-    const imageUrl = selectedPost.image.includes('static.wixstatic.com') 
-      ? selectedPost.image.replace(/\/v1\/fill\/[^\/]+\/[^\/]+\/[^\/]+\/[^\/]+\/[^\/]+\/[^\/]+\/[^\/]+\//, '/v1/fill/w_1200,h_630,fp_0.50_0.50,q_90,enc_avif,quality_auto/')
-      : selectedPost.image;
 
     return (
       <div className="min-h-screen">
-        <Helmet>
-          <title>{selectedPost.title} | The Dream Work</title>
-          <meta name="description" content={selectedPost.excerpt} />
-          <link rel="canonical" href={postUrl} />
-
-          {/* Open Graph / Facebook */}
-          <meta property="og:type" content="article" />
-          <meta property="og:url" content={postUrl} />
-          <meta property="og:title" content={selectedPost.title} />
-          <meta property="og:description" content={selectedPost.excerpt} />
-          <meta property="og:image" content={imageUrl} />
-
-          {/* Twitter - Fix: Use 'name' instead of 'property' */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@thedreamworkspace" />
-          <meta name="twitter:creator" content="@thedreamworkspace" />
-          <meta name="twitter:url" content={postUrl} />
-          <meta name="twitter:title" content={selectedPost.title} />
-          <meta name="twitter:description" content={selectedPost.excerpt} />
-          <meta name="twitter:image" content={imageUrl} />
-
-          {/* Enhanced Article/BlogPosting Schema with SEO optimization */}
-          <script type="application/ld+json">
-            {`
-              {
-                "@context": "https://schema.org",
-                "@type": "BlogPosting",
-                "mainEntityOfPage": {
-                  "@type": "WebPage",
-                  "@id": "${postUrl}"
-                },
-                "headline": "${selectedPost.title.replace(/"/g, '\\"')}",
-                "description": "${selectedPost.excerpt.replace(/"/g, '\\"')}",
-                "image": {
-                  "@type": "ImageObject",
-                  "url": "${imageUrl}",
-                  "width": 1200,
-                  "height": 630
-                },
-                "author": {
-                  "@type": "Person",
-                  "name": "${selectedPost.author}",
-                  "url": "https://www.thedreamwork.space/about",
-                  "sameAs": [
-                    "https://www.instagram.com/thedreamworkspace",
-                    "https://www.facebook.com/thedreamworkspace"
-                  ]
-                },
-                "publisher": {
-                  "@type": "Organization",
-                  "name": "The Dream Work",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://www.thedreamwork.space/images/logo.png",
-                    "width": 200,
-                    "height": 60
-                  },
-                  "url": "https://www.thedreamwork.space"
-                },
-                "datePublished": "${selectedPost.date}T00:00:00Z",
-                "dateModified": "${selectedPost.lastModified || selectedPost.date}T00:00:00Z",
-                "articleSection": "${selectedPost.category}",
-                "keywords": "${selectedPost.keywords.join(', ')}",
-                "wordCount": "${selectedPost.content.split(' ').length}",
-                "timeRequired": "PT${selectedPost.readTime.replace(' min read', 'M')}",
-                "about": [
-                  {
-                    "@type": "Thing",
-                    "name": "Meditation"
-                  },
-                  {
-                    "@type": "Thing",
-                    "name": "Mindfulness"
-                  },
-                  {
-                    "@type": "Thing",
-                    "name": "Spiritual Wellness"
-                  }
-                ],
-                "isAccessibleForFree": true,
-                "copyrightHolder": {
-                  "@type": "Organization",
-                  "name": "The Dream Work"
-                }
-              }
-            `}
-          </script>
-        </Helmet>
+        <BlogPostSEO post={selectedPost} postUrl={postUrl} />
+        {selectedPost.slug === 'the-job-market-is-broken-but-we-are-not' && <JobMarketFAQSchema />}
         <Header />
         <main className="container mx-auto px-4 py-8">
           <Button 
@@ -151,24 +65,31 @@ const Blog = () => {
                 className="w-full h-64 md:h-96 object-cover rounded-lg shadow-card mb-6"
               />
               
-              <div className="flex items-center gap-4 mb-4">
-                <Badge variant="secondary" className="gradient-card text-foreground border-0">
-                  {selectedPost.category}
-                </Badge>
-                <div className="flex items-center text-muted-foreground text-sm gap-4">
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    {new Date(selectedPost.date).toLocaleDateString()}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    {selectedPost.readTime}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <User className="w-4 h-4" />
-                    {selectedPost.author}
-                  </span>
+              <div className="flex items-center justify-between flex-wrap gap-4 mb-4">
+                <div className="flex items-center gap-4">
+                  <Badge variant="secondary" className="gradient-card text-foreground border-0">
+                    {selectedPost.category}
+                  </Badge>
+                  <div className="flex items-center text-muted-foreground text-sm gap-4">
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      {new Date(selectedPost.date).toLocaleDateString()}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      {selectedPost.readTime}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <User className="w-4 h-4" />
+                      {selectedPost.author}
+                    </span>
+                  </div>
                 </div>
+                <SocialShare 
+                  title={selectedPost.title} 
+                  url={postUrl}
+                  description={selectedPost.excerpt}
+                />
               </div>
               
               <h1 className="text-4xl md:text-5xl font-heading font-bold gradient-text mb-6">
