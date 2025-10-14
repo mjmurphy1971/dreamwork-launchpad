@@ -8,6 +8,7 @@ import soundBathPost from "@/assets/sound-bath-post.jpg";
 import stillbilityFieldPost from "@/assets/stillbility-field-post.jpg";
 import aiSacredCollaboratorPost from "@/assets/ai-sacred-collaborator-post.jpg";
 import leafAfterStormPost from "@/assets/leaf-after-storm-post.jpg";
+import jobMarketResiliencePost from "@/assets/job-market-resilience-post.jpg";
 
 export interface BlogPost {
   id: number;
@@ -26,6 +27,134 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: 11,
+    slug: "the-job-market-is-broken-but-we-are-not",
+    title: "🕊️ The Job Market Is Broken—But We Are Not",
+    excerpt: "To those navigating unemployment and uncertainty: You are sacred. You are resilient. You are worthy of safety, dignity, and truth. A call to action against predatory job market scams.",
+    content: `# 🕊️ The Job Market Is Broken—But We Are Not
+
+I was laid off recently. I'm one of thousands.
+
+We are navigating a landscape of uncertainty, grief, and quiet courage.
+
+Some of us have resources. Many do not.
+
+All of us are trying to hold on to hope.
+
+But hope is being weaponized.
+
+## 🚨 The Predatory Reality
+
+Scammers are targeting job seekers with fake postings designed to extract sensitive personal information—banking details, social security numbers, addresses.
+
+Others are requesting professional references before even speaking with the applicant, using those names and emails to phish and infiltrate trusted organizations.
+
+This is not just unethical. **It's predatory.**
+
+And it's happening every day.
+
+## 💪 To Those Orchestrating These Scams
+
+We see you. We know what you're doing. And we will not be passive.
+
+## 🛡️ To Job Boards and Hiring Platforms
+
+You have a responsibility.
+
+Not just to your shareholders, but to the humans who trust you.
+
+**Implement stronger verification systems.**
+
+Hold hiring companies to a code of honor.
+
+Create transparency and accountability.
+
+The platforms that facilitate connections between employers and job seekers must take ownership of the trust placed in them. When that trust is exploited, the entire ecosystem suffers.
+
+## 💜 To My Fellow Seekers
+
+You are not foolish for trusting.
+
+You are not weak for needing work.
+
+**You are sacred.**
+
+**You are resilient.**
+
+**You are worthy of safety, dignity, and truth.**
+
+### How to Protect Yourself
+
+While we work toward systemic change, here are ways to protect yourself:
+
+- **Never provide sensitive information** (SSN, bank details) before a verified interview
+- **Research companies thoroughly** before applying
+- **Be wary of requests for references** before initial interviews
+- **Trust your instincts** if something feels off
+- **Report suspicious postings** to the platform immediately
+- **Share information** with others in your network
+
+## 🌟 This Is a Call to Action
+
+Not from anger, but from love.
+
+Not from resentment, but from reverence.
+
+Let's build a job market that reflects the best of us—not the worst.
+
+### What We Can Do Together
+
+**Share this message.** Awareness is the first step toward change.
+
+**Support one another.** If you see a suspicious posting, warn others.
+
+**Demand better.** Contact job boards and platforms. Make noise.
+
+**Hold space.** For those who've been scammed or who are struggling, create community and compassion.
+
+## 💬 We Rise Together
+
+To every person reading this who has felt the weight of job loss, the fear of financial instability, or the vulnerability of seeking work in an uncertain market:
+
+**You are not alone.**
+
+**You are brave.**
+
+**You are worthy of truth and safety.**
+
+Let's build a job market that reflects our humanity.
+
+Let's protect one another.
+
+Let's rise together.
+
+## 🌈 The Path Forward
+
+This moment of crisis can become a moment of transformation. When we speak up, when we demand better, when we refuse to accept predatory practices as "just the way it is"—we create change.
+
+Your voice matters.
+
+Your experience matters.
+
+Your dignity matters.
+
+Together, we are stronger than any system designed to exploit us.
+
+💜 **#JobSearch #ProtectApplicants #DoBetter #WeSeeYou #CommunityCare**
+
+---
+
+*If you've experienced job market scams or have insights to share, please reach out. Together, we're building a resource to help protect and support job seekers in this challenging landscape.*`,
+    author: "Mary Murphy",
+    date: "2025-10-14",
+    lastModified: "2025-10-14",
+    readTime: "6 min read",
+    category: "Community Care",
+    image: jobMarketResiliencePost,
+    featured: true,
+    keywords: ["job market", "unemployment", "job scams", "career resilience", "community support", "job search safety", "predatory practices", "worker dignity", "collective action", "job seeker protection"]
+  },
   {
     id: 1,
     slug: "we-are-the-stillbility-field-holding-the-center-together",
