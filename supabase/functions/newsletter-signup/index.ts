@@ -1,10 +1,18 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { z } from 'https://deno.land/x/zod@v3.22.4/mod.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
+
+// Validation schema
+const newsletterSchema = z.object({
+  email: z.string().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  source: z.string().max(50, "Source must be less than 50 characters").optional(),
+  timestamp: z.string().optional(),
+})
 
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -17,14 +25,20 @@ serve(async (req) => {
       Deno.env.get('SUPABASE_ANON_KEY') ?? '',
     )
 
-    const { email, source, timestamp } = await req.json()
+    const requestData = await req.json()
 
-    if (!email || !email.includes('@')) {
-      return new Response('Invalid email address', { 
+    // Validate input using zod schema
+    const result = newsletterSchema.safeParse(requestData)
+    if (!result.success) {
+      const errors = result.error.errors.map(e => `${e.path.join('.')}: ${e.message}`).join(', ')
+      console.error('Validation errors:', errors)
+      return new Response(JSON.stringify({ error: 'Validation failed', details: errors }), { 
         status: 400,
-        headers: corsHeaders 
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       })
     }
+
+    const { email, source, timestamp } = result.data
 
     // Check if email already exists
     const { data: existingUser } = await supabase
@@ -51,7 +65,7 @@ serve(async (req) => {
           .eq('id', existingUser.id)
       }
     } else {
-      // Create new subscriber
+      // Create new subscriber (data already validated and trimmed)
       const { error } = await supabase
         .from('newsletter_subscribers')
         .insert({
