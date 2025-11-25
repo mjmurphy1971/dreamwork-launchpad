@@ -9,6 +9,7 @@ import stillbilityFieldPost from "@/assets/stillbility-field-post.jpg";
 import aiSacredCollaboratorPost from "@/assets/ai-sacred-collaborator-post.jpg";
 import leafAfterStormPost from "@/assets/leaf-after-storm-post.jpg";
 import jobMarketResiliencePost from "@/assets/job-market-resilience-post.jpg";
+import magicInTheMessPost from "@/assets/magic-in-the-mess-post.jpg";
 
 export interface BlogPost {
   id: number;
@@ -27,6 +28,115 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: 12,
+    slug: "magic-in-the-mess",
+    title: "✨ Magic in the Mess: When Your World Doesn't Feel Aligned",
+    excerpt: "Misalignment is not failure—it's an invitation. A poetic reflection on tower moments, self-trust, and the sacred practice of realignment. Includes a 3-minute grounding meditation.",
+    content: `# ✨ Magic in the Mess: When Your World Doesn't Feel Aligned
+
+<div style="text-align: center; margin: 2rem 0;">
+  <video controls width="100%" style="max-width: 800px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <source src="/assets/magic-in-the-mess-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+There are moments when life feels slightly off-kilter—when the rhythm of your days doesn't match the pulse of your inner world. These are not failures, but signals. Misalignment is the body's way of whispering, *pause*. It is the spirit's way of asking, *listen*.
+
+## 🌙 Signs of Misalignment
+
+✨ You may notice:
+
+- **Restlessness in daily rituals**, even those that once felt nourishing
+- **A sense of disconnection** from purpose or creative flow
+- **Emotional heaviness, fatigue**, or feeling "stuck"
+- **Relationships or environments** that feel out of sync with your heart
+
+These signs are not indictments—they are **invitations**. They remind us that alignment is not a fixed state, but a living practice of remembrance.
+
+## 🗼 The Tower Moment
+
+In the language of archetypes and tarot, a **tower moment** is when the structures we've built—beliefs, identities, routines—suddenly collapse. It can feel chaotic, destabilizing, even frightening. 
+
+Yet the tower does not fall to punish us; it falls to clear away what no longer serves.
+
+A tower moment is the threshold between what was and what is becoming. It is the storm that makes space for new foundations.
+
+## 💫 Trusting Yourself in the Rubble
+
+When the tower falls, the most radical act is to **trust yourself**. Not the old structures, not the external voices, but the quiet compass within.
+
+### 🌙 Ways to practice self-trust in misalignment:
+
+- **Listen inward**: Notice the subtle *yes* and *no* in your body.
+- **Honor small truths**: Even tiny acts of honesty—resting when tired, saying no when needed—rebuild trust.
+- **Anchor in ritual**: Create practices that remind you of your own resilience.
+- **Release perfection**: Trust grows not from flawless choices, but from showing up authentically, again and again.
+
+## 🌱 A Living Practice
+
+Misalignment and tower moments are not endings—they are **initiations**. Each pause, each breath, each act of trust becomes a compass pointing you back to yourself. 
+
+Alignment is not about holding everything together—it is about remembering that you are already whole, even as the old structures fall away.
+
+---
+
+## 🙏 Closing Invocation
+
+May the falling of the tower reveal the truth of your strength.
+
+May the rubble become fertile ground for new beginnings.
+
+May each breath remind you that alignment is not lost—it is remembered.
+
+And may you trust yourself, even in the silence between worlds.
+
+---
+
+## 🧘 Quick Grounding Meditation
+
+### ✨ A 3-Minute Practice for Realignment
+
+**1. Find your seat**
+
+Sit comfortably, feet on the ground, spine tall but relaxed.
+
+**2. Begin with breath**
+
+- Inhale slowly through the nose for a count of 4.
+- Hold gently at the top for a count of 2.
+- Exhale through the mouth for a count of 6.
+- Repeat this cycle 3 times.
+
+**3. Ground into the body**
+
+- Imagine roots extending from the soles of your feet deep into the earth.
+- With each exhale, release tension down through those roots.
+- With each inhale, draw up steadiness and support.
+
+**4. Trusting yourself**
+
+Place a hand over your heart and whisper inwardly:
+
+*"I trust myself. I trust this moment. I trust the path unfolding."*
+
+**5. Close with gratitude**
+
+Take one final deep breath, bow your head slightly, and thank yourself for showing up.
+
+---
+
+*When the tower falls, you remain. You are the foundation. You are the ground. You are already aligned.*`,
+    author: "Mary Murphy",
+    date: "2025-01-21",
+    lastModified: "2025-01-21",
+    readTime: "6 min read",
+    category: "Spiritual Growth",
+    image: magicInTheMessPost,
+    featured: true,
+    keywords: ["alignment", "tower moment", "self-trust", "spiritual practice", "grounding meditation", "misalignment", "inner wisdom", "transformation", "resilience", "tarot archetypes"]
+  },
   {
     id: 11,
     slug: "the-job-market-is-broken-but-we-are-not",
