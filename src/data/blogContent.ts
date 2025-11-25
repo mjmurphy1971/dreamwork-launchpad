@@ -25,6 +25,7 @@ export interface BlogPost {
   featured: boolean;
   keywords: string[];
   lastModified?: string;
+  videoUrl?: string; // Optional video URL for posts with video content
 }
 
 export const blogPosts: BlogPost[] = [
@@ -33,14 +34,8 @@ export const blogPosts: BlogPost[] = [
     slug: "magic-in-the-mess",
     title: "✨ Magic in the Mess: When Your World Doesn't Feel Aligned",
     excerpt: "Misalignment is not failure—it's an invitation. A poetic reflection on tower moments, self-trust, and the sacred practice of realignment. Includes a 3-minute grounding meditation.",
+    videoUrl: "/assets/magic-in-the-mess-video.mp4",
     content: `# ✨ Magic in the Mess: When Your World Doesn't Feel Aligned
-
-<div style="text-align: center; margin: 2rem 0;">
-  <video controls width="100%" style="max-width: 800px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-    <source src="/assets/magic-in-the-mess-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
 
 There are moments when life feels slightly off-kilter—when the rhythm of your days doesn't match the pulse of your inner world. These are not failures, but signals. Misalignment is the body's way of whispering, *pause*. It is the spirit's way of asking, *listen*.
 
@@ -270,14 +265,8 @@ Together, we are stronger than any system designed to exploit us.
     slug: "we-are-the-stillbility-field-holding-the-center-together",
     title: "🌿 We Are the Stillbility Field: Holding the Center Together",
     excerpt: "There comes a moment when the soul graduates—not with fanfare, but with a quiet knowing. Discover the shift from Light Worker to Stability Force and learn what it means to embody Stillbility.",
+    videoUrl: "/assets/stillbility-video.mp4",
     content: `# 🌿 We Are the Stillbility Field: Holding the Center Together
-
-<div style="text-align: center; margin: 2rem 0;">
-  <video controls width="100%" style="max-width: 800px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-    <source src="/assets/stillbility-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
 
 There comes a moment when the soul graduates—not with fanfare, but with a quiet knowing.
 

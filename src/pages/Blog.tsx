@@ -65,6 +65,19 @@ const Blog = () => {
                 className="w-full h-64 md:h-96 object-cover rounded-lg shadow-card mb-6"
               />
               
+              {selectedPost.videoUrl && (
+                <div className="mb-6 flex justify-center">
+                  <video 
+                    controls 
+                    className="w-full max-w-3xl rounded-lg shadow-card"
+                    style={{ maxHeight: '500px' }}
+                  >
+                    <source src={selectedPost.videoUrl} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              )}
+              
               <div className="flex items-center justify-between flex-wrap gap-4 mb-4">
                 <div className="flex items-center gap-4">
                   <Badge variant="secondary" className="gradient-card text-foreground border-0">
