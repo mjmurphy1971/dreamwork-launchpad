@@ -262,7 +262,7 @@ Together, we are stronger than any system designed to exploit us.
     readTime: "6 min read",
     category: "Community Care",
     image: jobMarketResiliencePost,
-    featured: true,
+    featured: false,
     keywords: ["job market", "unemployment", "job scams", "career resilience", "community support", "job search safety", "predatory practices", "worker dignity", "collective action", "job seeker protection"]
   },
   {
