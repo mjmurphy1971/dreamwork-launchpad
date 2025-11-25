@@ -110,7 +110,20 @@ const Blog = () => {
               </h1>
             </div>
             
-            <div className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:gradient-text prose-h1:text-4xl prose-h2:text-2xl prose-h3:text-xl prose-p:text-foreground prose-p:leading-relaxed prose-strong:text-foreground prose-em:text-muted-foreground prose-ul:text-foreground prose-ol:text-foreground prose-li:mb-2">
+            <div className="prose prose-lg max-w-none 
+              prose-headings:font-heading 
+              prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-6 prose-h2:mt-12 prose-h2:gradient-text
+              prose-h3:text-xl prose-h3:font-semibold prose-h3:mb-4 prose-h3:mt-8 prose-h3:text-foreground
+              prose-p:text-foreground prose-p:leading-relaxed prose-p:mb-6
+              prose-strong:text-foreground prose-strong:font-semibold
+              prose-em:text-muted-foreground prose-em:italic
+              prose-ul:text-foreground prose-ul:my-6 prose-ul:space-y-2
+              prose-ol:text-foreground prose-ol:my-6 prose-ol:space-y-2
+              prose-li:text-foreground prose-li:leading-relaxed
+              prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground
+              prose-hr:border-border prose-hr:my-12
+              prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+            ">
               <ReactMarkdown>{selectedPost.content}</ReactMarkdown>
             </div>
             
