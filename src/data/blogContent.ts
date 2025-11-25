@@ -124,8 +124,8 @@ Take one final deep breath, bow your head slightly, and thank yourself for showi
 
 *When the tower falls, you remain. You are the foundation. You are the ground. You are already aligned.*`,
     author: "Mary Murphy",
-    date: "2025-01-21",
-    lastModified: "2025-01-21",
+    date: "2025-01-25",
+    lastModified: "2025-01-25",
     readTime: "6 min read",
     category: "Spiritual Growth",
     image: magicInTheMessPost,
@@ -252,8 +252,8 @@ Together, we are stronger than any system designed to exploit us.
 
 *If you've experienced job market scams or have insights to share, please reach out. Together, we're building a resource to help protect and support job seekers in this challenging landscape.*`,
     author: "Mary Murphy",
-    date: "2025-10-14",
-    lastModified: "2025-10-14",
+    date: "2024-10-14",
+    lastModified: "2024-10-14",
     readTime: "6 min read",
     category: "Community Care",
     image: jobMarketResiliencePost,
