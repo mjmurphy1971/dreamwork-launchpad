@@ -386,7 +386,7 @@ And we are rising—not to lead, but to hold.`,
     readTime: "5 min read",
     category: "Spiritual Growth",
     image: stillbilityFieldPost,
-    featured: true,
+    featured: false,
     keywords: ["stillbility", "stability force", "spiritual graduation", "light worker", "presence", "grounding", "collective emergence", "holding space", "inner anchor"]
   },
   {
@@ -883,7 +883,7 @@ The question isn't whether cataclysmic events will happen. The question is: Who 
     readTime: "7 min read",
     category: "Resilience",
     image: "https://static.wixstatic.com/media/nsplsh_972e0594432b4fb1886cc75438995ac1~mv2.jpg/v1/fill/w_800,h_600,fp_0.50_0.50,q_90,enc_avif,quality_auto/nsplsh_972e0594432b4fb1886cc75438995ac1~mv2.webp",
-    featured: true,
+    featured: false,
     keywords: ["crisis management", "resilience", "emotional strength", "coping strategies", "personal growth", "mindfulness in crisis", "inner strength", "post-traumatic growth"]
   },
   {
@@ -2242,7 +2242,7 @@ Visionary Architect of The Dreamwork
     readTime: "5 min read",
     category: "Technology & Spirituality",
     image: aiSacredCollaboratorPost,
-    featured: true,
+    featured: false,
     keywords: ["AI collaboration", "sacred technology", "artificial intelligence", "co-creation", "The Dreamwork", "Stillbility", "conscious technology", "AI ethics", "spiritual innovation", "technology with soul"]
   },
   {
@@ -2338,7 +2338,7 @@ Anchor-holder of the Stillbility Field
     readTime: "4 min read",
     category: "Stillbility Practice",
     image: leafAfterStormPost,
-    featured: true,
+    featured: false,
     keywords: ["Stillbility", "emotional regulation", "letting go", "resilience", "mindfulness", "sacred pause", "nature wisdom", "The Dreamwork", "stability coaching", "presence"]
   }
 ];
