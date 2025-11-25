@@ -122,7 +122,9 @@ Take one final deep breath, bow your head slightly, and thank yourself for showi
 
 ---
 
-*When the tower falls, you remain. You are the foundation. You are the ground. You are already aligned.*`,
+*When the tower falls, you remain. You are the foundation. You are the ground. You are already aligned.*
+
+💜 **#MagicInTheMess #TowerMoment #SelfTrust #SpiritualAlignment #GroundingMeditation #InnerWisdom #TarotArchetypes #MindfulLiving #TransformationJourney #SacredPractice #EmotionalWellness #SpiritualGrowth #Misalignment #Resilience #TheDreamWork #Stillbility**`,
     author: "Mary Murphy",
     date: "2025-11-25",
     lastModified: "2025-11-25",
@@ -130,7 +132,7 @@ Take one final deep breath, bow your head slightly, and thank yourself for showi
     category: "Spiritual Growth",
     image: magicInTheMessPost,
     featured: true,
-    keywords: ["alignment", "tower moment", "self-trust", "spiritual practice", "grounding meditation", "misalignment", "inner wisdom", "transformation", "resilience", "tarot archetypes"]
+    keywords: ["alignment", "tower moment", "self-trust", "spiritual practice", "grounding meditation", "misalignment", "inner wisdom", "transformation", "resilience", "tarot archetypes", "mindful living", "emotional wellness", "sacred practice", "spiritual alignment", "personal growth", "meditation techniques"]
   },
   {
     id: 11,
