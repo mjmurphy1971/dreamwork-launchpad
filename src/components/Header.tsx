@@ -11,13 +11,7 @@ const Header = () => {
   // Comprehensive searchable content mapping all pages with actual content
   const searchableContent = [
     { 
-      path: '/about', 
-      page: 'About Mary Murphy', 
-      keywords: ['mary', 'murphy', 'founder', 'about', 'meditation', 'mindfulness', 'journey', 'dream work', 'inspiration', 'community', 'resources', 'beginner', 'accessible', 'stress relief', 'inner peace', 'guidance', 'practices', 'wellness'],
-      content: 'About Mary Murphy Founder of The Dream Work Creating a Space Where Inspiration Unfolds meditation mindfulness resources community beginner-friendly approach'
-    },
-    { 
-      path: '/meditation', 
+      path: '/meditation',
       page: 'Meditation Practices', 
       keywords: ['meditation', 'mindfulness', 'breathing', 'peace', 'calm', 'stress', 'anxiety', 'depression', 'focus', 'awareness', 'inner light', 'emotional healing', 'guided', 'audio', 'sessions'],
       content: 'meditation practices anxiety depression grounding self-love focus awareness guided audio sessions emotional healing inner light'
@@ -264,9 +258,6 @@ const Header = () => {
             <a href="/stillbility" className="text-foreground hover:text-primary transition-gentle">
               Stillbility®
             </a>
-            <a href="/about" className="text-foreground hover:text-primary transition-gentle">
-              About
-            </a>
             <a href="/affiliates" className="text-foreground hover:text-primary transition-gentle">
               Resources
             </a>
@@ -379,9 +370,6 @@ const Header = () => {
               </div>
               <a href="/stillbility" className="text-foreground hover:text-primary transition-gentle">
                 Stillbility®
-              </a>
-              <a href="/about" className="text-foreground hover:text-primary transition-gentle">
-                About
               </a>
               <a href="/affiliates" className="text-foreground hover:text-primary transition-gentle">
                 Resources

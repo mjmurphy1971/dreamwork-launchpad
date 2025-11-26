@@ -8,7 +8,6 @@ import { RedirectHandler } from "@/components/RedirectHandler";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import Articles from "./pages/Articles";
-import About from "./pages/About";
 import Meditation from "./pages/Meditation";
 import Vlogs from "./pages/Vlogs";
 import Breathwork from "./pages/Breathwork";
@@ -50,7 +49,6 @@ const App = () => {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<Blog />} />
               <Route path="/articles" element={<Articles />} />
-              <Route path="/about" element={<About />} />
               <Route path="/meditation" element={<Meditation />} />
               <Route path="/breathwork" element={<Breathwork />} />
               <Route path="/vlogs" element={<Vlogs />} />
