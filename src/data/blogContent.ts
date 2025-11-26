@@ -10,6 +10,7 @@ import aiSacredCollaboratorPost from "@/assets/ai-sacred-collaborator-post.jpg";
 import leafAfterStormPost from "@/assets/leaf-after-storm-post.jpg";
 import jobMarketResiliencePost from "@/assets/job-market-resilience-post.jpg";
 import magicInTheMessPost from "@/assets/magic-in-the-mess-post.jpg";
+import gratitudeRitualPost from "@/assets/gratitude-ritual-post.jpg";
 
 export interface BlogPost {
   id: number;
@@ -29,6 +30,81 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: 13,
+    slug: "what-good-thing-happened-today",
+    title: "What Good Thing Happened to You Today?",
+    excerpt: "Gratitude as a living practice: one question, asked each day, to remember life's light. A four-year-old's dinner table ritual becomes a profound reminder that joy is woven into the everyday.",
+    content: `# What Good Thing Happened to You Today?
+
+**Gratitude as a living practice: one question, asked each day, to remember life's light.**
+
+## 🌸 "The Good Thing Ritual"
+
+There is a little girl in our family, just four years old, who has become our teacher.
+
+Each evening at dinner, she turns to every adult and child gathered around the table and asks:
+
+**"What good thing happened to you today?"**
+
+She began this on her own, and for more than a year now, it has become a nightly ritual. It is not rehearsed, not prompted, not demanded. It is simply offered — a question that opens the heart.
+
+And what happens next is always extraordinary.
+
+We remember. We remember that life is beautiful. We remember that even on the hardest days, there is something good — a laugh, a hug, a moment of stillness, or simply the breath that carries us forward.
+
+---
+
+## ✨ A Practice of Remembering
+
+This is more than gratitude. Gratitude often asks us to count blessings. But this ritual asks us to **notice beauty**. To **name it**. To **share it**. To let it ripple through the room until everyone is shining with the reminder that joy is never far away.
+
+Children are often our wisest guides. They remind us that love is not reserved for grand occasions. It is woven into the everyday, waiting to be seen.
+
+---
+
+## 🌿 My Experience
+
+Last week, visiting my son, I joined in again. I had done this with them last year, and yet it never loses its magic. Each answer — whether from an adult or a child — was a spark, a thread in the tapestry of family life.
+
+It touched me deeply. It reminded me that **resilience is not built in silence, but in remembering together**. That collective care can be as simple as asking one luminous question at the dinner table.
+
+---
+
+## 🌎 A Timeless Invitation
+
+This ritual is not bound to Thanksgiving, or to any holiday. It is timeless. It can live in any home, any gathering, any moment when we choose to pause and ask:
+
+**"What good thing happened today?"**
+
+So I invite you to carry this practice into your own life. Ask it at dinner. Ask it in the car. Ask it of yourself before sleep. And when you hear the answers, embrace them with all the love you have.
+
+Because sometimes the good thing is as simple as the breath that carries us into tomorrow.
+
+---
+
+## 💜 Closing Reflection
+
+In a world that often feels heavy, this question is an anchor. It is a reminder that beauty exists, even in the smallest moments. It is a practice of collective care, of remembering together that we are held by love.
+
+May this simple question become your own ritual.
+
+May you remember the good.
+
+May you share the light.
+
+---
+
+💜 **#GratitudePractice #GoodThingRitual #FamilyRituals #MindfulLiving #CollectiveCare #ChildhoodWisdom #EverydayBeauty #GratitudeJournal #RememberTheGood #TheDreamwork #Stillbility #SacredQuestions #EmotionalWellness #JoyfulLiving #SimplePractices #HeartOpening**`,
+    author: "Mary Murphy",
+    date: "2025-11-26",
+    lastModified: "2025-11-26",
+    readTime: "4 min read",
+    category: "Gratitude & Mindfulness",
+    image: gratitudeRitualPost,
+    featured: true,
+    keywords: ["gratitude practice", "daily gratitude", "family rituals", "mindful living", "collective care", "childhood wisdom", "everyday beauty", "gratitude journal", "emotional wellness", "joyful living", "simple practices", "heart opening", "resilience", "sacred questions", "remembering joy", "gratitude meditation"]
+  },
   {
     id: 12,
     slug: "magic-in-the-mess",
