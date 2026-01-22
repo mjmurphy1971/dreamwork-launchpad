@@ -14,16 +14,143 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      automation_logs: {
+        Row: {
+          automation_type: string
+          created_at: string
+          details: Json | null
+          id: string
+          post_id: string | null
+          status: string
+        }
+        Insert: {
+          automation_type: string
+          created_at?: string
+          details?: Json | null
+          id?: string
+          post_id?: string | null
+          status: string
+        }
+        Update: {
+          automation_type?: string
+          created_at?: string
+          details?: Json | null
+          id?: string
+          post_id?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "automation_logs_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      blog_posts: {
+        Row: {
+          author: string | null
+          category: string | null
+          content: string
+          created_at: string
+          email_notify_enabled: boolean | null
+          excerpt: string | null
+          featured: boolean | null
+          id: string
+          image_url: string | null
+          published_at: string | null
+          scheduled_at: string | null
+          slug: string
+          social_share_enabled: boolean | null
+          status: Database["public"]["Enums"]["blog_post_status"]
+          tags: string[] | null
+          title: string
+          updated_at: string
+          zapier_webhook_url: string | null
+        }
+        Insert: {
+          author?: string | null
+          category?: string | null
+          content: string
+          created_at?: string
+          email_notify_enabled?: boolean | null
+          excerpt?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          published_at?: string | null
+          scheduled_at?: string | null
+          slug: string
+          social_share_enabled?: boolean | null
+          status?: Database["public"]["Enums"]["blog_post_status"]
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+          zapier_webhook_url?: string | null
+        }
+        Update: {
+          author?: string | null
+          category?: string | null
+          content?: string
+          created_at?: string
+          email_notify_enabled?: boolean | null
+          excerpt?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          published_at?: string | null
+          scheduled_at?: string | null
+          slug?: string
+          social_share_enabled?: boolean | null
+          status?: Database["public"]["Enums"]["blog_post_status"]
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+          zapier_webhook_url?: string | null
+        }
+        Relationships: []
+      }
+      subscribers: {
+        Row: {
+          confirmed: boolean | null
+          email: string
+          id: string
+          name: string | null
+          preferences: Json | null
+          subscribed_at: string
+          unsubscribed_at: string | null
+        }
+        Insert: {
+          confirmed?: boolean | null
+          email: string
+          id?: string
+          name?: string | null
+          preferences?: Json | null
+          subscribed_at?: string
+          unsubscribed_at?: string | null
+        }
+        Update: {
+          confirmed?: boolean | null
+          email?: string
+          id?: string
+          name?: string | null
+          preferences?: Json | null
+          subscribed_at?: string
+          unsubscribed_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      publish_scheduled_posts: { Args: never; Returns: number }
     }
     Enums: {
-      [_ in never]: never
+      blog_post_status: "draft" | "scheduled" | "published"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +277,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      blog_post_status: ["draft", "scheduled", "published"],
+    },
   },
 } as const
