@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 interface NewsletterSignupProps {
   variant?: "inline" | "card" | "modal";
@@ -31,29 +32,31 @@ const NewsletterSignup = ({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/newsletter-signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 
+      const { data, error } = await supabase.functions.invoke('subscribe', {
+        body: { 
           email: email.trim().toLowerCase(),
-          source: window.location.pathname,
-          timestamp: new Date().toISOString()
-        }),
+          preferences: {
+            new_posts: true,
+            weekly_digest: true,
+            monthly_digest: false
+          }
+        },
       });
 
-      if (response.ok) {
+      if (error) {
+        throw error;
+      }
+
+      if (data?.success) {
         setIsSubscribed(true);
         setEmail("");
-        toast.success("Welcome to The Dream Work community! 🌟");
+        toast.success(data.message || "Welcome to The Dream Work community! 🌟");
       } else {
-        const error = await response.text();
-        toast.error(error || "Something went wrong. Please try again.");
+        toast.error(data?.error || "Something went wrong. Please try again.");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Newsletter signup error:', error);
-      toast.error("Network error. Please check your connection and try again.");
+      toast.error(error.message || "Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
