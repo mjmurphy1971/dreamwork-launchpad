@@ -1,1 +1,19 @@
 project_id = "jgdpcdguraezukfxlvwg"
+
+[functions.blog-automation]
+verify_jwt = false
+
+[functions.subscribe]
+verify_jwt = false
+
+[functions.contact-form]
+verify_jwt = false
+
+[functions.newsletter-signup]
+verify_jwt = false
+
+[functions.meditation-progress]
+verify_jwt = false
+
+[functions.text-to-speech]
+verify_jwt = false
