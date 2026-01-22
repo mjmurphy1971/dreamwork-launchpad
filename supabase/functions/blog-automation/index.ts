@@ -8,7 +8,7 @@ const corsHeaders = {
 };
 
 interface AutomationRequest {
-  action: "publish_post" | "send_notifications" | "trigger_social" | "send_digest";
+  action: "publish_post" | "send_notifications" | "trigger_social" | "send_digest" | "get_stats";
   post_id?: string;
   digest_type?: "weekly" | "monthly";
 }
@@ -56,6 +56,10 @@ serve(async (req: Request): Promise<Response> => {
         result = await sendNewsletterDigest(supabase, resend, digest_type);
         break;
 
+      case "get_stats":
+        result = await getStats(supabase);
+        break;
+
       default:
         throw new Error(`Unknown action: ${action}`);
     }
@@ -73,6 +77,18 @@ serve(async (req: Request): Promise<Response> => {
     );
   }
 });
+
+async function getStats(supabase: any) {
+  // Get subscriber count
+  const { count: subscriberCount, error: subError } = await supabase
+    .from("subscribers")
+    .select("*", { count: "exact", head: true })
+    .is("unsubscribed_at", null);
+
+  if (subError) throw subError;
+
+  return { subscribers: subscriberCount || 0 };
+}
 
 async function publishScheduledPosts(supabase: any) {
   const now = new Date().toISOString();
