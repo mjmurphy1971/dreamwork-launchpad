@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { UserAccountButton } from "@/components/UserAccountButton";
@@ -255,6 +255,9 @@ const Header = () => {
             <a href="/contact" className="text-foreground hover:text-primary transition-gentle">
               Contact
             </a>
+            <a href="/blog-admin" className="text-muted-foreground hover:text-primary transition-gentle" title="Blog Admin">
+              <Settings className="w-4 h-4" />
+            </a>
           </nav>
 
           {/* Search, Account, and Mobile Menu */}
@@ -364,6 +367,10 @@ const Header = () => {
               </a>
               <a href="/contact" className="text-foreground hover:text-primary transition-gentle">
                 Contact
+              </a>
+              <a href="/blog-admin" className="text-muted-foreground hover:text-primary transition-gentle flex items-center gap-2">
+                <Settings className="w-4 h-4" />
+                <span>Blog Admin</span>
               </a>
               
               {/* Mobile Search */}
