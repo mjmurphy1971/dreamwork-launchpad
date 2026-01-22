@@ -101,12 +101,6 @@ const Header = () => {
       content: 'story sharing guest stories community journey healing transformation awakening spiritual experiences'
     },
     { 
-      path: '/stillbility', 
-      page: 'Stillbility®', 
-      keywords: ['stillbility', 'dynamic', 'stillness', 'stability', 'force', 'presence', 'grounding', 'embodied', 'awareness', 'inner', 'anchor'],
-      content: 'stillbility dynamic stillness stability force presence grounding embodied awareness inner anchor meditation practices'
-    },
-    { 
       path: '/affiliates', 
       page: 'Affiliate Resources', 
       keywords: ['affiliates', 'resources', 'tools', 'products', 'spiritual', 'meditation', 'healing', 'wellness', 'oracle', 'crystals', 'courses', 'coaching'],
@@ -255,9 +249,6 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            <a href="/stillbility" className="text-foreground hover:text-primary transition-gentle">
-              Stillbility®
-            </a>
             <a href="/affiliates" className="text-foreground hover:text-primary transition-gentle">
               Resources
             </a>
@@ -368,9 +359,6 @@ const Header = () => {
                   🌱 Herbology Resources
                 </a>
               </div>
-              <a href="/stillbility" className="text-foreground hover:text-primary transition-gentle">
-                Stillbility®
-              </a>
               <a href="/affiliates" className="text-foreground hover:text-primary transition-gentle">
                 Resources
               </a>
