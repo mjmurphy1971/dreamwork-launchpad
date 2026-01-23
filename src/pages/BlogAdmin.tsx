@@ -246,6 +246,25 @@ const BlogAdmin = () => {
         toast.success("Post created successfully");
       }
 
+      // Auto-generate image if none set and post is being published
+      if (isNewlyPublished && savedPostId && !formData.image_url) {
+        try {
+          toast.info("Generating AI image for your post...");
+          await supabase.functions.invoke('generate-blog-image', {
+            body: { 
+              post_id: savedPostId, 
+              title: formData.title,
+              excerpt: formData.excerpt || undefined,
+              category: formData.category || undefined
+            }
+          });
+          toast.success("AI image generated!");
+        } catch (imageError) {
+          console.error('Auto image generation failed:', imageError);
+          toast.error("Post saved but image generation failed");
+        }
+      }
+
       // Auto-trigger Zapier webhook when a post is newly published
       if (isNewlyPublished && savedPostId && formData.social_share_enabled && formData.zapier_webhook_url) {
         try {
