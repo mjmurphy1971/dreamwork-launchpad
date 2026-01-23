@@ -128,6 +128,10 @@ const Blog = () => {
                 className="w-full h-64 md:h-96 object-cover rounded-lg shadow-card mb-6"
               />
               
+              <h1 className="text-4xl md:text-5xl font-heading font-bold gradient-text mb-6">
+                {selectedPost.title}
+              </h1>
+              
               {selectedPost.videoUrl && (
                 <div className="mb-6 flex justify-center">
                   <video 
@@ -167,10 +171,6 @@ const Blog = () => {
                   description={selectedPost.excerpt}
                 />
               </div>
-              
-              <h1 className="text-4xl md:text-5xl font-heading font-bold gradient-text mb-6">
-                {selectedPost.title}
-              </h1>
             </div>
             
             <div className="prose prose-lg max-w-none 
