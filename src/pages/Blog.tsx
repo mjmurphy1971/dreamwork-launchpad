@@ -12,26 +12,89 @@ import { Helmet } from "react-helmet-async";
 import SEOEnhancer from "@/components/SEOEnhancer";
 import BlogPostSEO from "@/components/BlogPostSEO";
 import JobMarketFAQSchema from "@/components/JobMarketFAQSchema";
-import { blogPosts, getPostBySlug, getRelatedPosts, type BlogPost } from "@/data/blogContent";
+import { blogPosts as staticBlogPosts, getPostBySlug as getStaticPostBySlug, getRelatedPosts as getStaticRelatedPosts, type BlogPost } from "@/data/blogContent";
+import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
 
+// Extended type for database posts
+interface DbBlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  content: string;
+  author: string | null;
+  published_at: string | null;
+  category: string | null;
+  image_url: string | null;
+  featured: boolean | null;
+  status: string;
+}
+
+// Convert DB post to BlogPost format
+const convertDbPost = (dbPost: DbBlogPost): BlogPost => ({
+  id: parseInt(dbPost.id.replace(/-/g, '').slice(0, 8), 16), // Convert UUID to number
+  slug: dbPost.slug,
+  title: dbPost.title,
+  excerpt: dbPost.excerpt || "",
+  content: dbPost.content,
+  author: dbPost.author || "Mary Murphy",
+  date: dbPost.published_at || new Date().toISOString(),
+  readTime: `${Math.ceil(dbPost.content.split(/\s+/).length / 200)} min read`,
+  category: dbPost.category || "Mindfulness",
+  image: dbPost.image_url || "/placeholder.svg",
+  featured: dbPost.featured || false,
+  keywords: [],
+});
 
 const Blog = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const [dbPosts, setDbPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch posts from database
+  useEffect(() => {
+    const fetchDbPosts = async () => {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("*")
+        .eq("status", "published")
+        .order("published_at", { ascending: false });
+
+      if (!error && data) {
+        setDbPosts(data.map(convertDbPost));
+      }
+      setLoading(false);
+    };
+    fetchDbPosts();
+  }, []);
+
+  // Merge static and DB posts, DB posts take priority for same slug
+  const allPosts = [...dbPosts, ...staticBlogPosts.filter(
+    sp => !dbPosts.some(dp => dp.slug === sp.slug)
+  )];
 
   useEffect(() => {
     if (slug) {
-      const post = getPostBySlug(slug);
-      setSelectedPost(post || null);
+      // First check DB posts, then static
+      const dbPost = dbPosts.find(p => p.slug === slug);
+      const staticPost = getStaticPostBySlug(slug);
+      setSelectedPost(dbPost || staticPost || null);
     } else {
       setSelectedPost(null);
     }
-  }, [slug]);
+  }, [slug, dbPosts]);
 
-  const filteredPosts = blogPosts
+  const getRelatedPosts = (post: BlogPost) => {
+    return allPosts
+      .filter(p => p.category === post.category && p.id !== post.id)
+      .slice(0, 3);
+  };
+
+  const filteredPosts = allPosts
     .filter(post =>
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
