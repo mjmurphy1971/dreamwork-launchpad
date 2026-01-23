@@ -2,18 +2,82 @@ import { Calendar, Clock, User, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { blogPosts } from "@/data/blogContent";
+import { blogPosts, BlogPost } from "@/data/blogContent";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
+interface DbBlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  content: string;
+  author: string | null;
+  published_at: string | null;
+  category: string | null;
+  image_url: string | null;
+  featured: boolean | null;
+  status: string;
+}
+
+const convertDbPost = (dbPost: DbBlogPost): BlogPost => ({
+  id: dbPost.id.charCodeAt(0),
+  slug: dbPost.slug,
+  title: dbPost.title,
+  excerpt: dbPost.excerpt || '',
+  content: dbPost.content,
+  author: dbPost.author || 'Mary Murphy',
+  date: dbPost.published_at || new Date().toISOString(),
+  readTime: `${Math.ceil(dbPost.content.length / 1000)} min read`,
+  category: dbPost.category || 'Mindfulness',
+  image: dbPost.image_url || '/placeholder.svg',
+  featured: dbPost.featured || false,
+  keywords: dbPost.category ? [dbPost.category.toLowerCase()] : ['mindfulness'],
+});
 
 const BlogGrid = () => {
   const navigate = useNavigate();
-  const postsSorted = [...blogPosts].sort(
+  const [allPosts, setAllPosts] = useState<BlogPost[]>(blogPosts);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDbPosts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('blog_posts')
+          .select('*')
+          .eq('status', 'published')
+          .order('published_at', { ascending: false });
+
+        if (error) {
+          console.error('Error fetching blog posts:', error);
+          setLoading(false);
+          return;
+        }
+
+        if (data && data.length > 0) {
+          const dbPosts = data.map(convertDbPost);
+          // Merge: DB posts take priority, then static posts (excluding duplicates)
+          const dbSlugs = new Set(dbPosts.map(p => p.slug));
+          const staticFiltered = blogPosts.filter(p => !dbSlugs.has(p.slug));
+          setAllPosts([...dbPosts, ...staticFiltered]);
+        }
+      } catch (err) {
+        console.error('Error:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDbPosts();
+  }, []);
+
+  const postsSorted = [...allPosts].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
   const featuredPost = postsSorted.find((post) => post.featured) ?? postsSorted[0];
   const regularPosts = postsSorted.filter((post) => post.id !== featuredPost?.id).slice(0, 5);
-
   return (
     <section className="py-16 bg-gradient-card">
       <div className="container mx-auto px-4">
