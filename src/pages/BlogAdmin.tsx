@@ -28,7 +28,9 @@ import {
   Eye,
   Save,
   X,
-  Loader2
+  Loader2,
+  Lock,
+  LogOut
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -77,10 +79,16 @@ const BlogAdmin = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [logs, setLogs] = useState<AutomationLog[]>([]);
   const [subscriberCount, setSubscriberCount] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
   const [isCreating, setIsCreating] = useState(false);
   const [saving, setSaving] = useState(false);
+
+  // Authentication state
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
+  const [adminPassword, setAdminPassword] = useState("");
+  const [authLoading, setAuthLoading] = useState(false);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -99,23 +107,86 @@ const BlogAdmin = () => {
     zapier_webhook_url: ""
   });
 
+  // Check for stored session on mount
   useEffect(() => {
-    fetchData();
+    const storedSession = sessionStorage.getItem('blog_admin_session');
+    if (storedSession) {
+      const { password: storedPassword, expiry } = JSON.parse(storedSession);
+      if (new Date().getTime() < expiry) {
+        setAdminPassword(storedPassword);
+        setIsAuthenticated(true);
+      } else {
+        sessionStorage.removeItem('blog_admin_session');
+      }
+    }
   }, []);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchData();
+    }
+  }, [isAuthenticated]);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!password.trim()) {
+      toast.error("Please enter a password");
+      return;
+    }
+
+    setAuthLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('blog-admin-auth', {
+        body: { action: 'verify', password: password.trim() }
+      });
+
+      if (error) {
+        throw new Error(error.message || "Authentication failed");
+      }
+
+      if (data?.success) {
+        setAdminPassword(password.trim());
+        setIsAuthenticated(true);
+        // Store session for 2 hours
+        const expiry = new Date().getTime() + (2 * 60 * 60 * 1000);
+        sessionStorage.setItem('blog_admin_session', JSON.stringify({ password: password.trim(), expiry }));
+        toast.success("Access granted!");
+      } else {
+        toast.error(data?.error || "Invalid password");
+      }
+    } catch (error: any) {
+      console.error('Auth error:', error);
+      toast.error(error.message || "Authentication failed");
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setAdminPassword("");
+    setPassword("");
+    setPosts([]);
+    sessionStorage.removeItem('blog_admin_session');
+    toast.success("Logged out successfully");
+  };
 
   const fetchData = async () => {
     setLoading(true);
     try {
-      // Fetch posts - using service role through edge function would be better for admin
-      const { data: postsData, error: postsError } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .order('created_at', { ascending: false });
+      // Fetch posts through authenticated edge function
+      const { data, error } = await supabase.functions.invoke('blog-admin-auth', {
+        body: { action: 'list', password: adminPassword }
+      });
 
-      if (postsError) {
-        console.error('Posts fetch error:', postsError);
-      } else {
-        setPosts(postsData || []);
+      if (error) {
+        throw new Error(error.message || "Failed to fetch posts");
+      }
+
+      if (data?.success && data?.posts) {
+        setPosts(data.posts);
+      } else if (data?.error) {
+        throw new Error(data.error);
       }
 
       // Get subscriber count via edge function
@@ -130,8 +201,11 @@ const BlogAdmin = () => {
         console.log('Stats not available');
       }
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('Fetch error:', error);
+      if (error.message?.includes('Invalid admin password')) {
+        handleLogout();
+      }
       toast.error('Failed to load data');
     } finally {
       setLoading(false);
@@ -226,23 +300,33 @@ const BlogAdmin = () => {
         (!editingPost || editingPost.status !== 'published');
 
       if (editingPost) {
-        const { error } = await supabase
-          .from('blog_posts')
-          .update(postData)
-          .eq('id', editingPost.id);
+        const { data, error } = await supabase.functions.invoke('blog-admin-auth', {
+          body: { 
+            action: 'update', 
+            password: adminPassword,
+            post_id: editingPost.id,
+            post: postData
+          }
+        });
 
-        if (error) throw error;
+        if (error || !data?.success) {
+          throw new Error(data?.error || error?.message || "Failed to update post");
+        }
         savedPostId = editingPost.id;
         toast.success("Post updated successfully");
       } else {
-        const { data, error } = await supabase
-          .from('blog_posts')
-          .insert(postData)
-          .select('id')
-          .single();
+        const { data, error } = await supabase.functions.invoke('blog-admin-auth', {
+          body: { 
+            action: 'create', 
+            password: adminPassword,
+            post: postData
+          }
+        });
 
-        if (error) throw error;
-        savedPostId = data?.id || null;
+        if (error || !data?.success) {
+          throw new Error(data?.error || error?.message || "Failed to create post");
+        }
+        savedPostId = data?.post_id || null;
         toast.success("Post created successfully");
       }
 
@@ -292,12 +376,17 @@ const BlogAdmin = () => {
     if (!confirm("Are you sure you want to delete this post?")) return;
 
     try {
-      const { error } = await supabase
-        .from('blog_posts')
-        .delete()
-        .eq('id', id);
+      const { data, error } = await supabase.functions.invoke('blog-admin-auth', {
+        body: { 
+          action: 'delete', 
+          password: adminPassword,
+          post_id: id
+        }
+      });
 
-      if (error) throw error;
+      if (error || !data?.success) {
+        throw new Error(data?.error || error?.message || "Failed to delete post");
+      }
       toast.success("Post deleted");
       fetchData();
     } catch (error: any) {
@@ -333,6 +422,62 @@ const BlogAdmin = () => {
     drafts: posts.filter(p => p.status === 'draft').length
   };
 
+  // Login screen
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-background">
+        <SEO 
+          title="Blog Admin | The Dream Work"
+          description="Manage blog posts, automation, and subscribers"
+        />
+        <Header />
+        
+        <main className="container mx-auto px-4 py-16">
+          <div className="max-w-md mx-auto">
+            <Card className="p-8">
+              <div className="text-center mb-8">
+                <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Lock className="w-8 h-8 text-primary" />
+                </div>
+                <h1 className="text-2xl font-heading font-bold gradient-text">Blog Admin</h1>
+                <p className="text-muted-foreground mt-2">Enter admin password to continue</p>
+              </div>
+
+              <form onSubmit={handleLogin} className="space-y-4">
+                <div>
+                  <Label htmlFor="password">Admin Password</Label>
+                  <Input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter password"
+                    className="mt-1"
+                    autoFocus
+                  />
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full gap-2" 
+                  disabled={authLoading}
+                >
+                  {authLoading ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <Lock className="w-4 h-4" />
+                  )}
+                  Access Dashboard
+                </Button>
+              </form>
+            </Card>
+          </div>
+        </main>
+
+        <Footer />
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -357,12 +502,18 @@ const BlogAdmin = () => {
               <h1 className="text-3xl font-heading font-bold gradient-text">Blog Dashboard</h1>
               <p className="text-muted-foreground mt-1">Manage posts, scheduling, and automation</p>
             </div>
-            {!isCreating && (
-              <Button onClick={() => setIsCreating(true)} className="gap-2">
-                <Plus className="w-4 h-4" />
-                New Post
+            <div className="flex items-center gap-2">
+              {!isCreating && (
+                <Button onClick={() => setIsCreating(true)} className="gap-2">
+                  <Plus className="w-4 h-4" />
+                  New Post
+                </Button>
+              )}
+              <Button variant="outline" onClick={handleLogout} className="gap-2">
+                <LogOut className="w-4 h-4" />
+                Logout
               </Button>
-            )}
+            </div>
           </div>
 
           {/* Stats Cards */}
