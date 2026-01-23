@@ -221,6 +221,10 @@ const BlogAdmin = () => {
         published_at: formData.status === 'published' ? new Date().toISOString() : null
       };
 
+      let savedPostId: string | null = null;
+      const isNewlyPublished = formData.status === 'published' && 
+        (!editingPost || editingPost.status !== 'published');
+
       if (editingPost) {
         const { error } = await supabase
           .from('blog_posts')
@@ -228,14 +232,31 @@ const BlogAdmin = () => {
           .eq('id', editingPost.id);
 
         if (error) throw error;
+        savedPostId = editingPost.id;
         toast.success("Post updated successfully");
       } else {
-        const { error } = await supabase
+        const { data, error } = await supabase
           .from('blog_posts')
-          .insert(postData);
+          .insert(postData)
+          .select('id')
+          .single();
 
         if (error) throw error;
+        savedPostId = data?.id || null;
         toast.success("Post created successfully");
+      }
+
+      // Auto-trigger Zapier webhook when a post is newly published
+      if (isNewlyPublished && savedPostId && formData.social_share_enabled && formData.zapier_webhook_url) {
+        try {
+          await supabase.functions.invoke('blog-automation', {
+            body: { action: 'trigger_social', post_id: savedPostId }
+          });
+          toast.success("Social share triggered automatically!");
+        } catch (webhookError) {
+          console.error('Auto webhook trigger failed:', webhookError);
+          toast.error("Post saved but social share failed - you can retry manually");
+        }
       }
 
       resetForm();
